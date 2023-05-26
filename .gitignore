@@ -14,4 +14,7 @@
 *.nav
 *.lot
 *.mtc*
+*.los
+*.maf
 *.pdf
+svg-inkscape
