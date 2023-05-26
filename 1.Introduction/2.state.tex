@@ -7,46 +7,46 @@ Memristors are the lesser known fourth fundamental passive component of electron
 It was first theorized in 1971 by L. Chua from UC Berkeley, in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
 The theory behind the component was extracted from a missing component to link the fundamental circuit variables. In figure \ref{fig:fundComp}, the four fundamental variables are on each side of the square, with the ones on opposite sides being linked as shown in the following equations :
 \begin{equation}
-    d\phi = v\cdot dt
+  d\phi = v\cdot dt
 \end{equation}
 
 \begin{equation}
-    dq = i\cdot dt
+  dq = i\cdot dt
 \end{equation}
 Resistors, capacitors and inductors were already discovered and well known, so it was theorized that a fourth device should then exists to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=V\cdot dt \implies \phi =  \int V(t) \,dt  $.\\
 The component stayed theoretical until 2008 when it's been implemented in a physical device for the first time \cite{Strukov2008}. It took 37 years to actually have a working device.\\
-There is then an extention of this theoretical device to another, the memristive device. It was theorized in 1976 by L. Chua and S. M. Kang \cite{memrestiveDev}. The difference between the memristor and the memristive device is its internal behavior. Memristive device are commonly referred to as memristor as well. 
+There is then an extention of this theoretical device to another, the memristive device. It was theorized in 1976 by L. Chua and S. M. Kang \cite{memrestiveDev}. The difference between the memristor and the memristive device is its internal behavior. Memristive device are commonly referred to as memristor as well.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics{Figures/Memristor.png}
-    \caption{Fundamental passive components}
-    \label{fig:fundComp}
+  \centering
+  \includegraphics{Figures/Memristor.png}
+  \caption{Fundamental passive components}
+  \label{fig:fundComp}
 \end{figure}
 
 \subsubsection{Equations}
 A memristor links the flux ($\phi$) and charge ($q$) and creates the memristance.
-This memristance is defined with the following equation : 
+This memristance is defined with the following equation :
 \begin{equation}
-    M(q)=\frac{d\phi}{dq}
+  M(q)=\frac{d\phi}{dq}
 \end{equation}
 It can be compared with the other fundamental components like resistor ($R(i)=\frac{dv}{di}$), capacitor ($\frac{1}{C(q)}=\frac{dv}{dq}$) and inductor ($L(i)=\frac{d\phi}{di}$).
 We can then extract a more useful equation in an actual circuit :
 \begin{equation}
-    v(t)=M(q(t))\cdot i(t)
+  v(t)=M(q(t))\cdot i(t)
 \end{equation}
 Similarly, a memductance can be defined as such :
 \begin{equation}
-    W(\phi)=\frac{dq}{d\phi}
+  W(\phi)=\frac{dq}{d\phi}
 \end{equation}
 A memristive device is slightly differently defined, it still uses a memristance, but here the memristance also depends on an internal state called $x$. This gives us this equation :
 \begin{equation}
-    v(t)=M(x,i)\cdot i(t)
+  v(t)=M(x,i)\cdot i(t)
 \end{equation}
 The internal state ($x$) is not linked to flux or charge in the case of a memristive device.\\
 Once again, we can also define the memristive device using a memductance :
 \begin{equation}
-    i(t)=W(x,v)\cdot v(t)
+  i(t)=W(x,v)\cdot v(t)
 \end{equation}
 In all of the previous equations, $v$ is the voltage in Volt ($V$), $i$ is the current in Ampere ($A$), $\phi$ is the flux in Weber ($Wb$), $q$ is the charge in Coulomb ($C$), $M$ is the memristance in Ohm ($\Omega$) and $W$ is the memductance in Siesmens ($S$ or $\Omega^{-1}$).
 
@@ -66,44 +66,36 @@ They can also be used to set a resistance to be able to perform analog multiplic
 Setting memristors in a crossbar array to perform analog matrix multiplication typically called Multiply and Accumulate because of the nature of Matrix Multiplication. Figure \ref{fig:crossbar} shows what a typical crossbar array looks like.
 
 \begin{figure}[H]
-\centering
-\begin{subfigure}{0.5\textwidth}
-\centering
-    %\includegraphics[width=.9\linewidth]{Figures/crossbar2D.jpg}
-    \includesvg[width=.9\linewidth]{Figures/crossbar.svg}
-    \caption{Schematics}
-\end{subfigure}%
-\hfill
-\begin{subfigure}{0.5\textwidth}
-\centering
-    \includegraphics[width=.9\linewidth]{Figures/crossbar3D.jpg}
-    \caption{3 dimensional representation}
-\end{subfigure}
-\caption{Memristor crossbar array}
-\label{fig:crossbar}
+  \centering
+  %\subfloat[Schematics]{\includesvg[width=.45\linewidth]{Figures/crossbar.svg}}\qquad
+  \subfloat[Schematics]{\includegraphics[width=.45\linewidth]{Figures/crossbar.eps}}%\qquad
+  \hfill
+  \subfloat[3 dimensional representation]{\includegraphics[width=.45\linewidth]{Figures/crossbar3D.jpg}}\\
+  \caption{Memristor crossbar array}
+  \label{fig:crossbar}
 \end{figure}
 
 It uses physical properties of electrical systems to perform analog computing. Lets use the circuit node in figure \ref{fig:crossNode} to explain the theory behind the memristor crossbar array.
 \begin{figure}[H]
-    \centering
-    %\includegraphics{Figures/crossbar-node.jpg}
-    \includesvg[height=3.5cm]{Figures/crossbarNode.svg}
-    \caption{Memristor crossbar node of the $i^{th}$ line and $j^{th}$ column}
-    \label{fig:crossNode}
+  \centering
+  %\includegraphics{Figures/crossbar-node.jpg}
+  \includesvg[height=3.5cm]{Figures/crossbarNode.svg}
+  \caption{Memristor crossbar node of the $i^{th}$ line and $j^{th}$ column}
+  \label{fig:crossNode}
 \end{figure}
 
 First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance of $R$, is $V_i$. As such and using Ohm's law, we know the the current flowing into the memristor is bound by the following equation :
 \begin{equation}
-    V_i = R\cdot I_{mem} \implies I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot G
+  V_i = R\cdot I_{mem} \implies I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot G
 \end{equation}
 With $G$ being the conductance of memristor.
 This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to kirchhoff's law the resulting current is :
 \begin{equation}
-    I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot G
+  I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot G
 \end{equation}
 By applying this process to the whole system we find that the current as the bottom of one column is :
 \begin{equation}
-    I_1=G_1\cdot V_1 + G_2\cdot V_2 + G_3\cdot V_3
+  I_1=G_1\cdot V_1 + G_2\cdot V_2 + G_3\cdot V_3
 \end{equation}
 With $G_1$, $G_2$ and $G_3$ being the conductance of the 3 memristors in the first column.
 
@@ -112,20 +104,20 @@ This analog circuit removes the need to copy data from a main memory as the memr
 \subsection{memristor's model}
 TODO
 \subsection{LSTM}
-\acp{LSTM} are a type of \ac{NN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step. 
+\acp{LSTM} are a type of \ac{NN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
 
 \acp{LSTM} are able to forget information passed. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
 
 An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they have several gates, which are all technically a \ac{NN} themselves. There is also a cell state which job is to hold a value for the next step.
 
 \begin{figure}[H]
-    \centering
-    \includesvg[width=\textwidth]{Figures/lstmCellLatex.svg}
-    \caption{LSTM Cell}
-    \label{fig:lstmCell}
+  \centering
+  \includesvg[width=\textwidth]{Figures/lstmCellLatex.svg}
+  \caption{LSTM Cell}
+  \label{fig:lstmCell}
 \end{figure}
 
-Figure \ref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN}. 
+Figure \ref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN}.
 
 An \ac{LSTM} works using different gates
 \subsection{Dummy Subsection B}

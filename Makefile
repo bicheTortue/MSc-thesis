@@ -4,9 +4,9 @@ BIB = bibtex
 NAME = thesis
 
 
-OPTIONS = -shell-escape -halt-on-error
+OPTIONS = -shell-escape #-halt-on-error
 
-${NAME}.pdf: *.tex 00.Definitions 0.Intro
+${NAME}.pdf: *.tex ?.*/
 	${TEX} ${OPTIONS} ${NAME}.tex
 	${BIB} ${NAME}
 	${TEX} ${OPTIONS} ${NAME}.tex
