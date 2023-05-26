@@ -13,6 +13,7 @@
 *.fdb_latexmk
 *.nav
 *.lot
+*.mlf*
 *.mtc*
 *.los
 *.maf

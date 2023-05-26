@@ -4,13 +4,14 @@ BIB = bibtex
 NAME = thesis
 
 
-OPTIONS = -shell-escape #-halt-on-error
+OPTIONS = -shell-escape -halt-on-error
 
 ${NAME}.pdf: *.tex 00.Definitions 0.Intro
 	${TEX} ${OPTIONS} ${NAME}.tex
 	${BIB} ${NAME}
 	${TEX} ${OPTIONS} ${NAME}.tex
 	${TEX} ${OPTIONS} ${NAME}.tex
+	evince ${NAME}.pdf &
 
 clean:
 	rm -f ${NAME}.pdf
@@ -19,7 +20,12 @@ clean:
 	rm -f *.blg
 	rm -f *.log
 	rm -f *.bbl
+	rm -f *.mlt*
+	rm -f *.mlf*
+	rm -f *.mtc*
 	rm -f diagrams/*.bkp
 	rm -f chapters/*.aux
-	# dummy targets
-	.PHONY: all clean
+	rm -rf svg-inkscape
+
+# dummy targets
+.PHONY: all clean
