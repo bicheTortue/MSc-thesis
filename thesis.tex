@@ -1,4 +1,4 @@
-\documentclass[defaultstyle,10pt,master,Helvetica]{01.thesis}
+\documentclass[defaultstyle,10pt,master,Helvetica]{00.Definitions/01.thesis}
 % Helvetica is a similar font to Arial, with small differences.
 
 %% Packages
@@ -11,7 +11,7 @@
 %-----------------------------------------------------------
 \begin{document}
 \pagestyle{begin}
-\input{0.Intro/1.cover.tex} 
+\input{0.Intro/1.cover.tex}
 %\input{0.Intro/2.citation.tex}
 \input{0.Intro/3.Acknowledgments.tex}
 \input{0.Intro/4.Abstract.tex}
@@ -33,15 +33,15 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{IEEEtran}
-\bibliography{02.biblio}
+\bibliography{00.Definitions/02.biblio}
 \cleardoublepage
 
 \begin{appendices}
-	\begin{appendix}
-		\pagenumbering{bychapter}
-		\input{Appendices/appendixA.tex}   
-		\cleardoublepage
-	\end{appendix}
+  \begin{appendix}
+    \pagenumbering{bychapter}
+    \input{Appendices/appendixA.tex}
+    \cleardoublepage
+  \end{appendix}
 \end{appendices}
 
 
