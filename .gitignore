@@ -13,4 +13,5 @@
 *.fdb_latexmk
 *.nav
 *.lot
+*.mtc*
 *.pdf
