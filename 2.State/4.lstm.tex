@@ -1,0 +1,17 @@
+\section{LSTM}\label{sec:lstm}
+\acp{LSTM} are a type of \ac{NN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
+
+\acp{LSTM} are able to forget information passed. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
+
+An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they have several gates, which are all technically a \ac{NN} themselves. There is also a cell state which job is to hold a value for the next step.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{Figures/lstmCellLatex.svg}
+  \caption{LSTM Cell}
+  \label{fig:lstmCell}
+\end{figure}
+
+Figure \ref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN}.
+
+An \ac{LSTM} works using different gates

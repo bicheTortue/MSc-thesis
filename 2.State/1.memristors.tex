@@ -1,7 +1,5 @@
-\section{State of The Art}
-\label{sec:int_state}
-
-\subsection{Memristors}\label{subsec:memristors}
+\section{Memristors}
+\label{sec:memristors}
 
 Memristors are the lesser known fourth fundamental passive component of electronics, among resistors, capacitors and inductor.
 It was first theorized in 1971 by L. Chua from UC Berkeley, in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
@@ -24,7 +22,7 @@ There is then an extention of this theoretical device to another, the memristive
   \label{fig:fundComp}
 \end{figure}
 
-\subsubsection{Equations}
+\subsection{Equations}
 A memristor links the flux ($\phi$) and charge ($q$) and creates the memristance.
 This memristance is defined with the following equation :
 \begin{equation}
@@ -50,78 +48,13 @@ Once again, we can also define the memristive device using a memductance :
 \end{equation}
 In all of the previous equations, $v$ is the voltage in Volt ($V$), $i$ is the current in Ampere ($A$), $\phi$ is the flux in Weber ($Wb$), $q$ is the charge in Coulomb ($C$), $M$ is the memristance in Ohm ($\Omega$) and $W$ is the memductance in Siesmens ($S$ or $\Omega^{-1}$).
 
-\subsubsection{Behavior}
+\subsection{Behavior}
 A memristor is defined as a non-linear two-terminal fundamental electrical component. It behaves as a resistance with memory (hence its name), meaning that it changes its resistance based on how much charge went through it. This enables us to manipulate the resistance of the component.
 The huge benefit of memristors is the memory component, when you power it, it will have the resistance it had before.
 
 Memristive devices have a similar behavior, the memristive device's resistance will change depending on the internal state ($x$). That internal state changes based on how much and how long voltage signals or currents are applied to the memristive device.
 
-\subsubsection{Usage}
+\subsection{Usage}
 The main research for memristor usage is using them as ReRAM. The idea behind ReRAM is to use memristors as Non-Volatile memory. It uses two states of the device with known resistances ($R_{on}$ and $R_{off}$), giving it binary property. Reading the memory simply requires setting a voltage and reading the output current. It is better than current solutions (HDD, SSD) as it has a much lower latency. It is better than traditionnal DRAM because it keeps the information even when turned off. This makes ReRAM a good replacement for both RAM and HDDs/SSDs, thus eliminating Von Neumann bottleneck due to the Von Neumann architecture that is used in all modern computers.
 
 They can also be used to set a resistance to be able to perform analog multiplication. Setting them in a crossbar array makes them a very strong candidate to be used in neuromorphic computing.
-
-\subsection{Memristors Crossbar Array}\label{subsec:crossbar}
-
-Setting memristors in a crossbar array to perform analog matrix multiplication typically called Multiply and Accumulate because of the nature of Matrix Multiplication. Figure \ref{fig:crossbar} shows what a typical crossbar array looks like.
-
-\begin{figure}[H]
-  \centering
-  %\subfloat[Schematics]{\includesvg[width=.45\linewidth]{Figures/crossbar.svg}}\qquad
-  \subfloat[Schematics]{\includegraphics[width=.45\linewidth]{Figures/crossbar.eps}}%\qquad
-  \hfill
-  \subfloat[3 dimensional representation]{\includegraphics[width=.45\linewidth]{Figures/crossbar3D.jpg}}\\
-  \caption{Memristor crossbar array}
-  \label{fig:crossbar}
-\end{figure}
-
-It uses physical properties of electrical systems to perform analog computing. Lets use the circuit node in figure \ref{fig:crossNode} to explain the theory behind the memristor crossbar array.
-\begin{figure}[H]
-  \centering
-  %\includegraphics{Figures/crossbar-node.jpg}
-  \includesvg[height=3.5cm]{Figures/crossbarNode.svg}
-  \caption{Memristor crossbar node of the $i^{th}$ line and $j^{th}$ column}
-  \label{fig:crossNode}
-\end{figure}
-
-First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance of $R$, is $V_i$. As such and using Ohm's law, we know the the current flowing into the memristor is bound by the following equation :
-\begin{equation}
-  V_i = R\cdot I_{mem} \implies I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot G
-\end{equation}
-With $G$ being the conductance of memristor.
-This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to kirchhoff's law the resulting current is :
-\begin{equation}
-  I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot G
-\end{equation}
-By applying this process to the whole system we find that the current as the bottom of one column is :
-\begin{equation}
-  I_1=G_1\cdot V_1 + G_2\cdot V_2 + G_3\cdot V_3
-\end{equation}
-With $G_1$, $G_2$ and $G_3$ being the conductance of the 3 memristors in the first column.
-
-This analog circuit removes the need to copy data from a main memory as the memristors themselves hold the value and the weights are then stored where the computation happens.
-
-\subsection{memristor's model}
-TODO
-\subsection{LSTM}
-\acp{LSTM} are a type of \ac{NN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
-
-\acp{LSTM} are able to forget information passed. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
-
-An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they have several gates, which are all technically a \ac{NN} themselves. There is also a cell state which job is to hold a value for the next step.
-
-\begin{figure}[H]
-  \centering
-  \includesvg[width=\textwidth]{Figures/lstmCellLatex.svg}
-  \caption{LSTM Cell}
-  \label{fig:lstmCell}
-\end{figure}
-
-Figure \ref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN}.
-
-An \ac{LSTM} works using different gates
-\subsection{Dummy Subsection B}
-\label{subsec:subsectionb}
-
-State of Art Subsection B
-
