@@ -23,8 +23,6 @@ clean:
 	rm -f *.mlt*
 	rm -f *.mlf*
 	rm -f *.mtc*
-	rm -f diagrams/*.bkp
-	rm -f chapters/*.aux
 	rm -rf svg-inkscape
 
 # dummy targets
