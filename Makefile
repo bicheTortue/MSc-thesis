@@ -6,7 +6,7 @@ NAME = thesis
 
 OPTIONS = -shell-escape #-halt-on-error
 
-${NAME}.pdf: *.tex ?.*/
+${NAME}.pdf: *.tex
 	${TEX} ${OPTIONS} ${NAME}.tex
 	${BIB} ${NAME}
 	${TEX} ${OPTIONS} ${NAME}.tex
