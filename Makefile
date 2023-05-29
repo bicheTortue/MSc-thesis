@@ -4,13 +4,14 @@ BIB = bibtex
 NAME = thesis
 
 
-OPTIONS = -shell-escape #-halt-on-error
+#OPTIONS = -shell-escape -halt-on-error
+OPTIONS = -shell-escape -interaction nonstopmode
 
 ${NAME}.pdf: *.tex
-	${TEX} ${OPTIONS} ${NAME}.tex
+	-${TEX} ${OPTIONS} ${NAME}.tex
 	${BIB} ${NAME}
-	${TEX} ${OPTIONS} ${NAME}.tex
-	${TEX} ${OPTIONS} ${NAME}.tex
+	-${TEX} ${OPTIONS} ${NAME}.tex
+	-${TEX} ${OPTIONS} ${NAME}.tex
 	evince ${NAME}.pdf &
 
 clean:
@@ -24,6 +25,8 @@ clean:
 	rm -f *.mlf*
 	rm -f *.mtc*
 	rm -rf svg-inkscape
+
+new: clean ${NAME}.pdf
 
 # dummy targets
 .PHONY: all clean
