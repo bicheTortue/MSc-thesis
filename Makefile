@@ -7,7 +7,9 @@ NAME = thesis
 #OPTIONS = -shell-escape -halt-on-error
 OPTIONS = -shell-escape -interaction nonstopmode
 
-${NAME}.pdf: *.tex
+${NAME}.pdf: compile clean
+
+compile: *.tex
 	-${TEX} ${OPTIONS} ${NAME}.tex
 	${BIB} ${NAME}
 	-${TEX} ${OPTIONS} ${NAME}.tex
@@ -15,7 +17,6 @@ ${NAME}.pdf: *.tex
 	evince ${NAME}.pdf &
 
 clean:
-	rm -f ${NAME}.pdf
 	rm -f *.aux
 	rm -f *.toc
 	rm -f *.blg
@@ -30,6 +31,9 @@ clean:
 	rm -f *.mlf*
 	rm -f *.mtc*
 	rm -rf svg-inkscape
+
+cleanAll: clean
+	rm -f ${NAME}.pdf
 
 new: clean ${NAME}.pdf
 
