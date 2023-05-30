@@ -9,12 +9,12 @@
 
 \AtBeginSection[]{
   \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
   \end{frame}
 }
 
@@ -38,56 +38,56 @@
 \frame{\titlepage}
 
 \begin{frame}
-\frametitle{Table of Contents}
-\tableofcontents
+  \frametitle{Table of Contents}
+  \tableofcontents
 \end{frame}
 
 \section{Sub circuits}
 \subsection{Activation functions}
 
 \begin{frame}
-\frametitle{Sigmoid}
-I reproduced the sigmoid circuit described in the base paper, adjusted the parameters to optain the following results :
-\begin{figure}
+  \frametitle{Sigmoid}
+  I reproduced the sigmoid circuit described in the base paper, adjusted the parameters to optain the following results :
+  \begin{figure}
     \centering
-      \includegraphics[height=0.5\textheight]{figures/sigmoid.png}
-\end{figure}
+    \includegraphics[height=0.5\textheight]{figures/sigmoid.png}
+  \end{figure}
 \end{frame}
 
 \begin{frame}
-\frametitle{Hyperbolic Tangent}
-The second activation function used is the tanh function. Using the same circuit with a slight change in the parameters we get the following :
-\begin{figure}    
+  \frametitle{Hyperbolic Tangent}
+  The second activation function used is the tanh function. Using the same circuit with a slight change in the parameters we get the following :
+  \begin{figure}
     \centering
     \includegraphics[height=0.5\textheight]{figures/tanh.png}
-\end{figure}
-They both use ideal verilog-A model for their OpAmp
+  \end{figure}
+  They both use ideal verilog-A model for their OpAmp
 \end{frame}
 
 \subsection{Memory cells}
 \begin{frame}{The memory cell}
-    In order to store an analog value until the next LSTM step.
-    \begin{figure}    
-        \centering
-        \includegraphics[height=0.5\textheight]{figures/memcell-circuit.png}
-    \end{figure}
-    The memory cell has 2 CMOS switches to avoid the memory to be influenced by the voltage in the input.
+  In order to store an analog value until the next LSTM step.
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.5\textheight]{figures/memcell-circuit.png}
+  \end{figure}
+  The memory cell has 2 CMOS switches to avoid the memory to be influenced by the voltage in the input.
 \end{frame}
 \begin{frame}{Memory leaks}
-    Here is the value stored in the unit over time with one and two CMOS switches.
-    \begin{figure}
-        \centering
-        \resizebox{!}{0.4\textheight}{\input{figures/memcell-graph.pgf}}
-    \end{figure}
-    This shows that with 2 CMOS switches the value is still $99\%$ of the original value after $120 \mu s$ while it's only $52\%$ with 1 CMOS switch. 
+  Here is the value stored in the unit over time with one and two CMOS switches.
+  \begin{figure}
+    \centering
+    \resizebox{!}{0.4\textheight}{\input{figures/memcell-graph.pgf}}
+  \end{figure}
+  This shows that with 2 CMOS switches the value is still $99\%$ of the original value after $120 \mu s$ while it's only $52\%$ with 1 CMOS switch.
 \end{frame}
 \begin{frame}{Memory leaks}
-    Here is the value stored in the unit over time with one and two CMOS switches.
-    \begin{figure}
-        \centering
-        \includepgf{!}{.4\textheight}{figures/memcell-graph.pgf}
-    \end{figure}
-    This shows that with 2 CMOS switches the value is still $99\%$ of the original value after $120 \mu s$ while it's only $52\%$ with 1 CMOS switch. 
+  Here is the value stored in the unit over time with one and two CMOS switches.
+  \begin{figure}
+    \centering
+    \includepgf{!}{.4\textheight}{figures/memcell-graph.pgf}
+  \end{figure}
+  This shows that with 2 CMOS switches the value is still $99\%$ of the original value after $120 \mu s$ while it's only $52\%$ with 1 CMOS switch.
 \end{frame}
 % explain control of memcells
 
@@ -96,12 +96,12 @@ They both use ideal verilog-A model for their OpAmp
 \section{Full LSTM circuit}
 
 \begin{frame}{LSTM circuit}
-    Then I joined all the elements into the final circuit :
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.5\textheight]{figures/LSTM-NP.png}
-    \end{figure}
-    Here the opamps and voltage multipliers are verilog-A models.
+  Then I joined all the elements into the final circuit :
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.5\textheight]{figures/LSTM-NP.png}
+  \end{figure}
+  Here the opamps and voltage multipliers are verilog-A models.
 \end{frame}
 
 % prepare question sigmoid 0 to 1
@@ -109,44 +109,44 @@ They both use ideal verilog-A model for their OpAmp
 
 \section{Improvements to the model}
 \begin{frame}{Serial vs parallel}
-    The base paper uses serial computation.
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.5\textheight]{figures/parallel.png}
-    \end{figure}
-    It does so to save area on the chip.
+  The base paper uses serial computation.
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.5\textheight]{figures/parallel.png}
+  \end{figure}
+  It does so to save area on the chip.
 \end{frame}
 \begin{frame}{Serial vs parallel}
-    That it is only useful for small LSTM networks.\\
-    The area of the crossbar increase with $O(n_h^2)$.\\
-    When the system is in parallel, the rest of the circuit is increasing with $O(n_h)$.\\
-    When the system is in serial, the time it takes for one LSTM step increase with $O(n_h)$.\\
-    At one point one LSTM step will become too long.\\
-    We can fix that by either using a fully serialized system.\\
-    The second would be to find out the optimal number of serial channel and use a mix of both.
+  That it is only useful for small LSTM networks.\\
+  The area of the crossbar increase with $O(n_h^2)$.\\
+  When the system is in parallel, the rest of the circuit is increasing with $O(n_h)$.\\
+  When the system is in serial, the time it takes for one LSTM step increase with $O(n_h)$.\\
+  At one point one LSTM step will become too long.\\
+  We can fix that by either using a fully serialized system.\\
+  The second would be to find out the optimal number of serial channel and use a mix of both.
 \end{frame}
 
 \section{Double OpAmps}
 \begin{frame}{Double OpAmps}
-    \begin{figure}
-        \centering
-        \includegraphics[height=0.35\textheight]{figures/doubleOpAmps.png}
-    \end{figure}
-    The final equation of this system is : $$y_j = R_f\cdot [A\cdot (\sigma_{A+}-\sigma_{A-})+ ... + \beta \cdot (\sigma_{\beta+}-\sigma_{\beta-})]$$
-    That means that the weight is positive if $\sigma_+>\sigma_-$, and the inverse for the negative.
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.35\textheight]{figures/doubleOpAmps.png}
+  \end{figure}
+  The final equation of this system is : $$y_j = R_f\cdot [A\cdot (\sigma_{A+}-\sigma_{A-})+ ... + \beta \cdot (\sigma_{\beta+}-\sigma_{\beta-})]$$
+  That means that the weight is positive if $\sigma_+>\sigma_-$, and the inverse for the negative.
 \end{frame}
 \begin{frame}{Single OpAmp}
-        There is a possibility of having only one OpAmp, that means having a threshold value to separate positive from negative. This also reduces the resolution of weights we can achieve.
+  There is a possibility of having only one OpAmp, that means having a threshold value to separate positive from negative. This also reduces the resolution of weights we can achieve.
 \end{frame}
 
 \section{Next step}
 \begin{frame}{Matrix generation}
-    I've been trying to generate an LSTM circuit from verilog, which doesn't work as we can't set the resistors values using that method. I'm going to use another netlisting tool (CDL, spice, other) to generate the system with preset resistances.
-    Once I'll know how to do that, I'll be able to create a python script to create any LSTM wanted, the options can be changed very easily.
+  I've been trying to generate an LSTM circuit from verilog, which doesn't work as we can't set the resistors values using that method. I'm going to use another netlisting tool (CDL, spice, other) to generate the system with preset resistances.
+  Once I'll know how to do that, I'll be able to create a python script to create any LSTM wanted, the options can be changed very easily.
 \end{frame}
 \section{Question}
 \begin{frame}{Normalized values}
-    For the input the values have to be normalized. Usually using ranges like $[0.8,1]$(in V). Meaning that $1V$ is the maximum input value. The issue is that the sigmoid function goes from 0  to 1, but my design goes from $0.9V$ to $1V$, which with the conversion back to numbers goes from 0 to the max value.\\
-    Have I missed somehting?
+  For the input the values have to be normalized. Usually using ranges like $[0.8,1]$(in V). Meaning that $1V$ is the maximum input value. The issue is that the sigmoid function goes from 0  to 1, but my design goes from $0.9V$ to $1V$, which with the conversion back to numbers goes from 0 to the max value.\\
+  Have I missed somehting?
 \end{frame}
 \end{document}
