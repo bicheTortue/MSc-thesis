@@ -35,7 +35,8 @@ clean:
 cleanAll: clean
 	rm -f ${NAME}.pdf
 
-new: clean ${NAME}.pdf
+diapos:
+	cd diapo; make
 
 # dummy targets
 .PHONY: all clean
