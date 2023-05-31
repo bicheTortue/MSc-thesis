@@ -1,64 +1,69 @@
-\documentclass{beamer}
+\documentclass[table]{beamer}
 \usetheme{Boadilla}
 \usecolortheme{whale}
 
-\usepackage{wrapfig}
+%\usepackage[table]{xcolor}
 
-\title[MSc Thesis]
-{Memristors-based Recurrent Modules for Neural Computing}
-%\subtitle{Using }
+\title[Group Meeting]
+{Weekly group meetings}
 
-\institute[IST] % (optional)
-{%
-  Diogo Caetano\\
-  INESC-MN
-  \and%
-  Ruxandra Barlulescu\\
-  INESC-ID
-  }
+\subtitle{Memristors-based recurent modules for neural computing}
 
-  \author[V. BARBAZA]{Valentin BARBAZA (MEEC)}
+\author[V. BARBAZA]{Valentin BARBAZA}
 
-  \date[2023] % (optional)
-  {May 2023}
+\date[26 May] % (optional)
+{26 May 2023}
 
-  \logo{\includegraphics[height=0.7cm]{figures/istnewlogo.pdf}}
+\logo{\includegraphics[height=0.9cm]{figures/logos.png}}
 
-  \definecolor{istblue}{RGB}{0,102,153}
-  \setbeamercolor{titlelike}{bg=istblue}
-  \setbeamerfont{title}{series=\bfseries}
+\definecolor{text}{RGB}{25,116,146}
+\definecolor{firstRow}{HTML}{219BC3}
+\definecolor{evenRow}{HTML}{CCDEE9}
+\definecolor{oddRow}{HTML}{E7EFF4}
+\definecolor{istblue}{RGB}{0,102,153}
+\setbeamercolor{titlelike}{bg=istblue}
+\setbeamerfont{title}{series=\bfseries}
 
-  \begin{document}
+\begin{document}
 
-  \frame{\titlepage}
+\frame{\titlepage}
 
-  %\begin{frame}
-  %\frametitle{Table of Contents}
-  %\tableofcontents
-  %\end{frame}
 
-  \begin{frame}
-    \frametitle{Application/Motivation}
-    The goal of the thesis is to know whether an analog LSTM network would work. This would allow running a Neural Network in real-time in embedded systems. The analog implementation (using memristors crossbar array) allows for much greater computational speed and very small on-chip area.
-  \end{frame}
-  \begin{frame}
-    \frametitle{Technical Goals}
-    My point is to run simulations using cadence. Running a working simulation is the first step before fabricating the system.
-  \end{frame}
-  \begin{frame}
-    \frametitle{Progress}
-    So far, I have designed some smaller elements required for the system to work such as the activation function for example.\\
-    I've designed a full size LSTM (with 4 hidden state).
-    \begin{figure}
-      \centering
-      \includegraphics[height=0.35\textheight]{figures/LSTM.png}
-    \end{figure}
-    I am now working on a way to generate LSTM network of any size.
-  \end{frame}
+\begin{frame}
+  \frametitle{Introduction}
+  Quick introduction to your topic.
 
-  \begin{frame}
-    \frametitle{What is missing}
-    I now need to run the simulations and compare the results of my simulation with the results a digital LSTM (running with Keras for example).
-  \end{frame}
+  \begin{itemize}
+      \color{text}
+    \item Briefly summarized your project. Some of the attendants may need some refresh.
+    \item Explain in which project stage you are, thus we all know how close you are to achieve your goals.
+  \end{itemize}
 
-  \end{document}
+  ex: I have to design a PCB to control a magnetic sensor. I have already done the PCB and now I am testing it.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Last weeks...}
+
+  Last meeting, I promised to do…
+
+  \centering
+  \rowcolors{2}{evenRow}{oddRow}
+  \begin{tabular}{ c m{3cm} c c c }
+    \rowcolor{firstRow}
+    & \centering\color{white}Task & \color{white}Done? & \color{white}Why not? & \color{white}Help? \\
+    1 & test2 & test23 & test3 & test4\\
+    2 & test2 & test23 & test3 & test4\\
+    3 & test2 & test23 & test3 & test4\\
+    4 & test2 & test23 & test3 & test4\\
+    5 & test2 & test23 & test3 & test4\\
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+\end{frame}
+
+\end{document}
