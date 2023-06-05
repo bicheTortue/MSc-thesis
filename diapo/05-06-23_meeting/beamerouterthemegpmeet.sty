@@ -6,7 +6,7 @@
   \vskip1cm%
   \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm]{frametitle}
     \begin{tikzpicture}
-      \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
+      \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth/2,1.2);
       \fill[titleBlue] (1,0) rectangle(1.1,1.2);
       \ifx\insertframesubtitle\@empty%
       {\node[anchor=west, titleBlue,font=\huge] at (1.2,0.9){\inserttitle};}
@@ -17,6 +17,6 @@
       \fi
     \end{tikzpicture}
   \end{beamercolorbox}
-}
+  }
 
-\mode<all>
+  \mode<all>
