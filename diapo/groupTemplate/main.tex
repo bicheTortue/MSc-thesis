@@ -2,6 +2,9 @@
 \usetheme{Boadilla}
 \usecolortheme{whale}
 
+\usepackage{tikz}
+%\input{shape.tex}
+
 %\usepackage[table]{xcolor}
 
 \title[Group Meeting]
@@ -62,8 +65,56 @@
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{}
+\begin{frame}{What's new}
+  \begin{itemize}
+    \item Results obtianed :
+      \begin{itemize}
+          \color{text}
+        \item
+      \end{itemize}
+    \item Improvements :
+      \begin{itemize}
+          \color{text}
+        \item
+      \end{itemize}
+    \item Relevant information :
+      \begin{itemize}
+          \color{text}
+        \item test
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Problems/doubts}
+  \begin{itemize}
+    \item Things that must me sorted out in order to continue with your work.\\ Explain the problem.
+    \item Things that you do not understand.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Next weeks}
+
+  List of what I plan to do in the next weeks :
+
+  \centering
+  \rowcolors{2}{evenRow}{oddRow}
+  \begin{tabular}{ c m{4cm} }
+    \rowcolor{firstRow}
+    & \centering\color{white}Task \cr
+    1 & test23 \\
+    2 & test23 \\
+    3 & test23 \\
+    4 & test23 \\
+    5 & test23 \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{Networking and sharing}
+
+  \begin{tikzpicture}
+    \node (rect) at (0,0) [rounded corners,draw=text,very thick,minimum width=5.7cm,minimum height=6cm] {Help/collaboration};
+    \node (rect) at (6.2,0) [rounded corners,draw=text,very thick,minimum width=5.7cm,minimum height=6cm] {\raggedleft autre chose };
+  \end{tikzpicture}
 \end{frame}
 
 \end{document}
