@@ -1,5 +1,6 @@
 \documentclass[table]{beamer}
 \usetheme{gpmeet}
+\graphicspath{{../../figures/}}
 
 \newcommand{\leftRect}[2]{\node[draw=text,very thick,rounded corners, text width=0.46\textwidth,minimum height=6cm] at (0,0) {\centering\textbf{#1}\\ \raggedright \color{text}#2};}
 \newcommand{\rightRect}[2]{\node[draw=text,very thick,rounded corners, text width=0.46\textwidth,minimum height=6cm] at (0.54\textwidth,0) {\centering\textbf{#1}\\ \raggedright \color{text}#2};}
@@ -17,10 +18,10 @@
 \logo{
   \begin{tikzpicture}[overlay,remember picture]
     \node[below=1pt] at (current page.55){
-      \includegraphics[height=1cm]{../figures/ist.eps}
+      \includegraphics[height=1cm]{logos/ist}
       \hspace{1pt}
-      \includegraphics[height=1cm]{figures/inesc-mn.png}
-      \includegraphics[height=1cm]{../figures/inesc-id.eps}
+      \includegraphics[height=1cm]{logos/inesc-mn.png}
+      \includegraphics[height=1cm]{logos/inesc-id.eps}
     };
   \end{tikzpicture}
   }
@@ -44,7 +45,7 @@
 
   \begin{frame}
     \frametitle{Introduction}
-    \centering\includegraphics[width=\textwidth]{figures/LSTM-NP}
+    \centering\includegraphics[width=\textwidth]{lstm/lstm-np}
   \end{frame}
 
   \begin{frame}
@@ -82,7 +83,7 @@
   \end{frame}
 
   \begin{frame}{What's new}
-    \includegraphics[width=\textwidth]{figures/fulltrial1-all-curves}
+    \includegraphics[width=\textwidth]{fulltrial1/fulltrial1-all-curves}
   \end{frame}
 
   \begin{frame}<1>[label=prob]
@@ -97,14 +98,14 @@
     The memory doesn't output the right values.
 
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/fulltrial1-memory-prob}
+    \includegraphics[width=0.7\textwidth]{fulltrial1/fulltrial1-memory-prob}
   \end{frame}
 
   \againframe<2>{prob}
 
   \begin{frame}{Problems/doubts}
     \centering
-    \includegraphics[width=1\textwidth]{figures/fulltrial1-mem-act-late}
+    \includegraphics[width=1\textwidth]{fulltrial1/fulltrial1-mem-act-late}
   \end{frame}
 
   \againframe<3>{prob}
@@ -112,7 +113,7 @@
     The output is ~0.791 V. This is $-1.09$ and should be $0.015$
 
     \centering
-    \includegraphics[width=1\textwidth]{figures/fulltrial1-final-res}
+    \includegraphics[width=1\textwidth]{fulltrial1/fulltrial1-final-res}
   \end{frame}
 
 

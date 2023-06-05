@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usetheme{Boadilla}
 \usecolortheme{whale}
+\graphicspath{{../../figures/}}
 
 \usepackage{wrapfig}
 
@@ -14,7 +15,7 @@
 \date[2023] % (optional)
 {March 2023}
 
-\logo{\includegraphics[height=0.7cm]{figures/istnewlogo.pdf}}
+\logo{\includegraphics[height=0.7cm]{logos/ist}}
 
 \definecolor{istblue}{RGB}{0,102,153}
 \setbeamercolor{titlelike}{bg=istblue}
@@ -45,7 +46,7 @@
 \begin{frame}{Memristor implementation}
   Here are the resulting curves I obtained. The curves are the exact same ones as in the paper. Nevertheless, this type of memristor (changing by applying large voltage) probably isn't suitable for out system. It would require too long of a time to update the weights.
   \begin{figure}
-    \includegraphics[height=0.5\textheight]{figures/Resistances-100us.png}
+    \includegraphics[height=0.5\textheight]{memristor/resistances-100us.png}
   \end{figure}
 \end{frame}
 
@@ -53,13 +54,13 @@
 \begin{frame}{LSTM}
   \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{figures/LSTM.png}
+    \includegraphics[width=\textwidth]{lstm/lstm.png}
   \end{figure}
 \end{frame}
 \begin{frame}{LSTM}
   \begin{figure}
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Analog-LSTM.png}
+    \includegraphics[width=0.9\textwidth]{lstm/analog-lstm.png}
   \end{figure}
 
 \end{frame}
