@@ -1,5 +1,6 @@
 \documentclass[table]{beamer}
 \usetheme{gpmeet}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
 \graphicspath{{../../figures/}}
 
 \newcommand{\leftRect}[2]{\node[draw=text,very thick,rounded corners, text width=0.46\textwidth,minimum height=6cm] at (0,0) {\centering\textbf{#1}\\ \raggedright \color{text}#2};}
@@ -24,176 +25,144 @@
       \includegraphics[height=1cm]{logos/inesc-id.eps}
     };
   \end{tikzpicture}
-}
+  }
 
-\begin{document}
+  \begin{document}
 
-\frame{\titlepage}
-
-
-\begin{frame}
-  \frametitle{Introduction}
-
-  \begin{itemize}
-      \color{text}
-    \item I am working on an analog implementation of a LSTM Neural Networks.
-    \item The final objective of my thesis is to have a successful simulation of such a circuit.
-  \end{itemize}
-
-\end{frame}
+  \frame{\titlepage}
 
 
-\begin{frame}
-  \frametitle{Introduction}
-  \centering\includegraphics[width=\textwidth]{lstm/lstm-np}
-\end{frame}
+  \begin{frame}
+    \frametitle{Introduction}
 
-\begin{frame}
-  \frametitle{Last weeks...}
+    \begin{itemize}
+        \color{text}
+      \item I am working on an analog implementation of a LSTM Neural Networks.
+      \item The final objective of my thesis is to have a successful simulation of such a circuit.
+    \end{itemize}
 
-  Last meeting, I promised to do :
+  \end{frame}
 
-  \centering
-  \rowcolors{2}{evenRow}{oddRow}
-  \begin{tabular}{ c m{3cm} c m{3cm} c }
-    \rowcolor{firstRow}
-    \color{white}\textbf{\#} & \centering\color{white}Task & \color{white}Done? & \color{white}Why not? & \color{white}Help? \\
-    1 & Try to use LTSpice & No & Found out I could do what I want with Cadence & No\\
-    2 & Find another\newline problem to work on & No & Lack of time & Yes\\
-    3 & Work on the thesis intro & on going &  & No\\
-  \end{tabular}
 
-\end{frame}
+  \begin{frame}
+    \frametitle{Introduction}
+    \centering\includegraphics[width=\textwidth]{lstm/lstm-np}
+  \end{frame}
 
-\begin{frame}{What's new}
-  \begin{itemize}
-    \item Results obtianed :
-      \begin{itemize}
-          \color{text}
-        \item With the help of Fabio, I can now simulate all the steps automatically
-        \item I successfully ran the simulation
-        \item The result are not correct
-      \end{itemize}
-    \item Improvements :
-      \begin{itemize}
-          \color{text}
-        \item Debug the whole thing
-      \end{itemize}
-  \end{itemize}
-\end{frame}
+  \begin{frame}
+    \frametitle{Last weeks...}
 
-\begin{frame}{What's new}
-  \includegraphics[width=\textwidth]{fulltrial1/fulltrial1-all-curves}
-\end{frame}
+    Last meeting, I promised to do :
 
-\begin{frame}<1>[label=prob]
-  \frametitle{Problems/doubts}
-  \begin{itemize}
-    \item<1-> The memory doesn't output the right values
-    \item<2-> The memory input seems to be active for too long
-    \item<3-> The output of the sigmoid doesn't look right (Now fixed)
-    \item<4-> The output result isn't what is expected (Scale issue)
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Problems/doubts}
-  The memory doesn't output the right values.
-
-  \centering
-  \includegraphics[width=0.7\textwidth]{fulltrial1/fulltrial1-memory-prob}
-\end{frame}
-
-\againframe<2>{prob}
-
-\begin{frame}{Problems/doubts}
-  \centering
-  \includegraphics[width=1\textwidth]{fulltrial1/fulltrial1-mem-act-late}
-\end{frame}
-
-\againframe<3>{prob}
-\begin{frame}{Problems/doubts}
-  Here we can see that the output of the sigmoid isn't right
-  \begin{figure}[!tbp]
     \centering
-    \begin{minipage}[b]{0.4\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{fulltrial1/sigmoid-prob.png}
-    \end{minipage}
-    \hspace{20pt}
-    \begin{minipage}[b]{0.4\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{activation/sigmoid-prob}
-    \end{minipage}
-  \end{figure}
-\end{frame}
+    \rowcolors{2}{evenRow}{oddRow}
+    \begin{tabular}{ c m{4cm} c m{2cm} c }
+      \rowcolor{firstRow}
+      \color{white}\textbf{\#} & \centering\color{white}Task & \color{white}Done? & \color{white}Why not? & \color{white}Help? \\
+      1 & Find another LSTM problem & On going & Didn't find & Yes\\
+      2 & Find out what is causing the issue & Partly & I had a scale of 10 000 and reduced it to 1.5 & No\\
+      3 & Find formula for approximate onChip area & No & Can be done later & No\\
+      4 & Work on thesis & On going & & No\\
+    \end{tabular}
 
-\begin{frame}{Problems/doubts}
-  To fix that I had to re-adjust the reference voltages (sigmoid):
-  \begin{figure}[!tbp]
+  \end{frame}
+
+  \begin{frame}{What's new}
+    \begin{itemize}
+      \item Results obtianed :
+        \begin{itemize}
+            \color{text}
+          \item I reduced the factor of the results
+          \item The factor is now tolerable, will have to see how it behaves with other problems
+        \end{itemize}
+      \item Improvements :
+        \begin{itemize}
+            \color{text}
+          \item Reduce the still existing factor
+        \end{itemize}
+      \item Relevant information :
+        \begin{itemize}
+            \color{text}
+          \item I reduced the factor to 16 first, and then to 1.5.
+        \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{What's new}
+    Here the scale factor is almost the same with the serialized and parallel version ( 1.50 vs 1.58 ).
+    \includegraphics[width=\textwidth]{output/factor1.5.png}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Problems/doubts}
+    \begin{itemize}
+      \item The results are still not quite right.
+      \item I am wondering whether it is still due to the activation function circuit.
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}{Problems/doubts}
+    I had to train using custom activation function but still not perfect.
+    \begin{figure}[!tbp]
+      \centering
+      \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{activation/sigmoid}
+        \caption{ $Sigmoid(x)$ - RSME : 0.0051}
+      \end{minipage}
+      \hspace{20pt}
+      \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{activation/cSigmoid}
+        \caption{ $ Sigmoid(0.67\cdot x) $ - RSME : 0.0014}
+      \end{minipage}
+      \caption{Sigmoid}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Problems/doubts}
+    I had to train using custom activation function but still not perfect.
+    \begin{figure}[!tbp]
+      \centering
+      \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{activation/tanh}
+        \caption{ $ Tanh(x) $ - RSME : 0.022}
+      \end{minipage}
+      % \rightarrow
+      \hspace{20pt}
+      \begin{minipage}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{activation/cTanh}
+        \caption{ $2\cdot Sigmoid(0.67\cdot x)-1$ - RSME : 0.0029}
+      \end{minipage}
+      \caption{Tanh}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}{Next weeks}
+
+    List of what I plan to do in the next weeks :
+
     \centering
-    \begin{minipage}[b]{0.4\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{activation/sigmoid}
-      \caption{before}
-    \end{minipage}
-    \hspace{20pt}
-    \begin{minipage}[b]{0.4\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{activation/realSigmoid}
-      \caption{after}
-    \end{minipage}
-  \end{figure}
-\end{frame}
+    \rowcolors{2}{evenRow}{oddRow}
+    \begin{tabular}{ c m{6cm} }
+      \rowcolor{firstRow}
+      \color{white}\textbf{\#} & \centering\color{white}Task \cr
+      0 & Work on thesis \\
+      0.1 & Formula onChip Area \\
+      1 & Find another LSTM problem \\
+      2 & Try to reduce the scale factor again \\
+      2.1 & Tensorflow custom function \\
+    \end{tabular}
+  \end{frame}
 
-\begin{frame}{Problems/doubts}
-  To fix that I had to re-adjust the reference voltages (tanh):
-  \begin{figure}[!tbp]
-    \centering
-    \begin{minipage}[b]{0.4\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{activation/tanh}
-      \caption{before}
-    \end{minipage}
-    \hspace{20pt}
-    \begin{minipage}[b]{0.4\textwidth}
-      \centering
-      \includegraphics[width=\textwidth]{activation/realTanh}
-      \caption{after}
-    \end{minipage}
-  \end{figure}
-\end{frame}
+  \begin{frame}{Networking and sharing}
+    \begin{tikzpicture}
+      \leftRect{Help/Collaboration :}{- If anybody has any idea of an interesting LSTM/NN problem to work on.}
 
-\againframe<4>{prob}
-\begin{frame}{Problems/doubts}
-  The output is weirdly on a different scale but gives out the right overall values. (Scale factor ~9022)
-
-  \centering
-  \includegraphics[width=.8\textwidth]{output/results0}
-\end{frame}
-
-
-\begin{frame}{Next weeks}
-
-  List of what I plan to do in the next weeks :
-
-  \centering
-  \rowcolors{2}{evenRow}{oddRow}
-  \begin{tabular}{ c m{6cm} }
-    \rowcolor{firstRow}
-    \color{white}\textbf{\#} & \centering\color{white}Task \cr
-    1 & Find another LSTM problem \\
-    2 & Find out what is causing the issue \\
-    3 & Find formula for approximate onChip area \\
-    4 & Work on thesis \\
-  \end{tabular}
-\end{frame}
-
-\begin{frame}{Networking and sharing}
-  \begin{tikzpicture}
-    \leftRect{Help/Collaboration :}{- If anybody has any idea of an interesting LSTM/NN problem to work on.\\-Also if any phenomen happening are familiar to you, I'll take the help\\- I would need the feature size of a typical memristor}
-
-    \rightRect{Recommendations :}{I worked on a latex/beamer version of the template}
-  \end{tikzpicture}
-\end{frame}
+      \rightRect{Recommendations :}{None}
+    \end{tikzpicture}
+  \end{frame}
 
 \end{document}
