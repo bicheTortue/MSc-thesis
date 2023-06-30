@@ -21,13 +21,13 @@
    inkscape:pagecheckerboard="0"
    inkscape:deskcolor="#d1d1d1"
    showgrid="false"
-   inkscape:zoom="5.6568543"
-   inkscape:cx="58.247921"
-   inkscape:cy="66.733202"
-   inkscape:window-width="1912"
-   inkscape:window-height="1012"
-   inkscape:window-x="4"
-   inkscape:window-y="32"
+   inkscape:zoom="32"
+   inkscape:cx="16.234375"
+   inkscape:cy="8.9062499"
+   inkscape:window-width="1904"
+   inkscape:window-height="995"
+   inkscape:window-x="8"
+   inkscape:window-y="40"
    inkscape:window-maximized="0"
    inkscape:current-layer="svg708"
    showguides="true"><sodipodi:guide
@@ -46,7 +46,7 @@
    stroke="currentColor"
    id="V2"
    style="stroke-width:0.3;stroke-dasharray:none" />
-    <line
+<line
    x1="11.999999"
    y1="5.8860021"
    x2="14.299998"
@@ -55,7 +55,7 @@
    id="V2end"
    stroke-width="0.3"
    stroke-dasharray="0.4, 0.2" />
-    <line
+<line
    x1="1.9999992"
    y1="5.8860021"
    x2="4.499999"
@@ -69,9 +69,11 @@
    stroke="none"
    fill="#000000"
    font-size="4px"
-   x="-0.248"
-   y="6.5359998"
-   id="textV2">$V_i$</text></g><g
+   x="-0.12"
+   y="4.4159999"
+   id="textV2">V<tspan
+   baseline-shift="sub"
+   id="tspan480">i</tspan></text></g><g
    id="currentLines"
    color="#2db6e2"><line
    x1="12.150001"
@@ -81,7 +83,7 @@
    stroke="currentColor"
    id="I2"
    style="stroke-width:0.3;stroke-dasharray:none" />
-    <line
+<line
    x1="12.150001"
    y1="3.7360008"
    x2="12.150001"
@@ -90,7 +92,7 @@
    id="I2begin"
    stroke-width="0.3"
    stroke-dasharray="0.4, 0.2" />
-    <line
+<line
    x1="12.150001"
    y1="13.736001"
    x2="12.150001"
@@ -103,15 +105,19 @@
    stroke="none"
    fill="#000000"
    font-size="4px"
-   x="11.099998"
-   y="3.036"
-   id="textIx-1">$I_{j,i-1}$</text><text
+   x="12.4"
+   y="2.9159999"
+   id="textIx-1">I<tspan
+   baseline-shift="sub"
+   id="tspan487">j,i-1</tspan></text><text
    stroke="none"
    fill="#000000"
    font-size="4px"
-   x="11.099998"
-   y="16.771999"
-   id="textIx">$I_{j,i}$</text></g>
+   x="12.4"
+   y="15.916"
+   id="textIx">I<tspan
+   baseline-shift="sub"
+   id="tspan490">j,i</tspan></text></g>
 <g
    id="memristor2_2"
    color="#009970"
