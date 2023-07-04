@@ -1,0 +1,74 @@
+\section{Motivation}
+\label{sec:int_motivation}
+
+Nowadays, it's impossible not to have heard about \acp{AI}, they are everywhere and everybody talks about them. The most recent example being \textit{ChatGPT} from \textbf{OpenAI} and is getting very popular even among casual computer users. Everybody is using those tools. It's clear that \ac{AI} is becoming more and more important in the current world.
+
+\acp{AI} are very power hungry algorithms which limits its use in embedded systems and power efficient devices.
+Furthermore, the time an \ac{AI} takes to compute its output can become quite long. So much so that the most complex ones only run on online and very powerful servers, like the aforementioned \textit{ChatGPT}.
+
+There are several options to reduce execution speed and energy consumption such as running the algorithm on a \ac{GPU} rather than a \ac{CPU}. Using an \ac{FPGA} or \ac{ASIC} are other ways to improve power consumption and execution time.
+The latter is the most restricting (as it's name implies) but has the best results.
+
+Using an \ac{ASIC} allows the use of analog computation. Analog computation offers great advantages compared to digital computers as it's much faster while being very power-efficient.
+
+% For the State of the art
+
+\ac{AI} is wide topic, usually when we talk about \acp{AI}, we refer to the most common type, Machine Learning. Especially, a sub part of Machine Learning called Deep Learning. Deep Learning has seen a surge in research the last decade, which lead to great advancement in this field and the numerous \ac{AI} tools that popped up in the last years.
+Deep Learning works using what is called \acp{NN}.
+
+Those \acp{NN} require matrix multiplication. This kind of operation is very time and energy consuming to run on a classic computer. There are options to better run those operations. GPUs can be better suited than a CPU for a \ac{NN} application as it is made for 3D graphics that also mainly use Matrix Multiplication. Other specialized hardware such as FPGAs and ASICs can improve both execution time and energy consumption. All those are digital computers, using analog computing could highly improve speed, power consumption and even smaller chip area. All this using a memristive crossbar array \cite{Xbar}. An analog computer
+The point of this thesis is to lay out the ground work to create a LSTM capable chip to use in embedded systems. It could be used detection and prediction of any kind of sequential events.
+Using those memristors \cite{TheoMemristor}, which work like resistance with a memory component to them, that means that they can be set to a desired value.
+
+\subsection{Neural Networks}\label{sec:nn}
+
+\acfp{NN} are a network of several layers of artificial neurons. Figure \ref{fig:snn}, shows a simple representation of a \ac{NN}, the artificial neurons are the represented by the colored circles. On figure \ref{fig:snn} each arrow represent a synapse.
+
+\begin{figure}[h!]
+  \centering
+  \includesvg[height=8cm]{Colored_neural_network.svg}
+  \caption{Simple \acl{NN}}
+  \label{fig:snn}
+\end{figure}
+
+
+
+They are several layers to a \ac{NN} :
+\begin{itemize}
+  \item Input layer : This layer is simply the different inputs.
+  \item Hidden layer : This layer can be (and usually is) wider than the one in figure \ref{fig:snn}, it is there to add more layers and thus more precision to the result
+  \item Output layer : This layer is where you can find the result from the \ac{NN}.
+\end{itemize}
+
+In a computational \ac{NN}, synapses are represented by weights. Those weights are to be multiplied by the last neuron and then added to each other to produce the next stage. Using the names defined in figure \ref{fig:nn_explained}, the equation linking each layer is the following matrix multiplication :
+\begin{equation}
+  \begin{bmatrix}
+    H1\\ H2\\ H3\\ H4\\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    W1,1 & W1,2 & W1,3\\
+    W2,1 & W2,2 & W2,3\\
+    W3,1 & W3,2 & W3,3\\
+    W4,1 & W4,2 & W4,3\\
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    I1\\ I2\\ I3\\
+  \end{bmatrix}
+\end{equation}
+
+And it works the same way to go to the next layer.
+
+\begin{figure}[h!]
+  \centering
+  \includesvg[height=8cm]{NN_explained.svg}
+  \caption{\aclp{NN} with names}
+  \label{fig:nn_explained}
+\end{figure}
+
+Those matrix multiplication are very power-hungry and their computation time scales up with the size of the \ac{NN} using classical computing.
+
+Analog computation enables those same calculations almost instantly and being far more power-efficient. This can be done using the physical properties of electrical devices.
+We want to reproduce one of those neural network using electrical circuits to perform the same computation that a computer would in much faster manner.
+Using \hyperref[subsec:memristors]{memristors} as weights. This removes the need to copy the weights from the main memory
