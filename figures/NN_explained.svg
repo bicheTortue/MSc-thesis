@@ -23,14 +23,14 @@
      inkscape:document-units="pt"
      showgrid="false"
      inkscape:zoom="2.2184211"
-     inkscape:cx="98.493474"
-     inkscape:cy="194.05694"
-     inkscape:window-width="1912"
-     inkscape:window-height="1012"
-     inkscape:window-x="4"
-     inkscape:window-y="32"
+     inkscape:cx="98.944245"
+     inkscape:cy="194.28232"
+     inkscape:window-width="1904"
+     inkscape:window-height="995"
+     inkscape:window-x="8"
+     inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="o2" />
+     inkscape:current-layer="i1" />
   <defs
      id="defs585">
     <marker
@@ -79,7 +79,7 @@
          font-size="8px"
          alignment-baseline="middle"
          id="text920"
-         inkscape:label="i1">I<tspan class="subscript">1</tspan></text>
+         inkscape:label="i1">$I_1$</text>
     </g>
     <g
        id="i2">
@@ -99,7 +99,7 @@
          font-size="8px"
          alignment-baseline="middle"
          id="text920-6"
-         inkscape:label="i2">I2</text>
+         inkscape:label="i2">$I_2$</text>
     </g>
     <g
        id="i3">
@@ -118,7 +118,7 @@
          fill="currentColor"
          font-size="8px"
          alignment-baseline="middle"
-         id="text920-6">I3</text>
+         id="text736">$I_3$</text>
     </g>
   </g>
   <g
@@ -148,7 +148,7 @@
          font-size="8px"
          alignment-baseline="middle"
          id="text920-6-7"
-         inkscape:label="h1">H1</text>
+         inkscape:label="h1">$H_1$</text>
     </g>
     <g
        id="h2">
@@ -168,7 +168,7 @@
          font-size="8px"
          alignment-baseline="middle"
          id="text920-6-7-5-3"
-         inkscape:label="h2">H2</text>
+         inkscape:label="h2">$H_2$</text>
     </g>
     <g
        id="h3">
@@ -188,7 +188,7 @@
          font-size="8px"
          alignment-baseline="middle"
          id="text920-6-7-5-5"
-         inkscape:label="h3">H3</text>
+         inkscape:label="h3">$H_3$</text>
     </g>
     <g
        id="h4">
@@ -208,7 +208,7 @@
          font-size="8px"
          alignment-baseline="middle"
          id="text920-6-7-5-6"
-         inkscape:label="h4">H4</text>
+         inkscape:label="h4">$H_4$</text>
     </g>
   </g>
   <g
