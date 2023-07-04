@@ -22,8 +22,8 @@
    inkscape:deskcolor="#d1d1d1"
    showgrid="false"
    inkscape:zoom="32"
-   inkscape:cx="16.234375"
-   inkscape:cy="8.9062499"
+   inkscape:cx="14.90625"
+   inkscape:cy="8.90625"
    inkscape:window-width="1904"
    inkscape:window-height="995"
    inkscape:window-x="8"
@@ -68,9 +68,9 @@
 <text
    stroke="none"
    fill="#000000"
-   font-size="4px"
-   x="-0.12"
-   y="4.4159999"
+   font-size="2px"
+   x="0"
+   y="5.4580002"
    id="textV2">V<tspan
    baseline-shift="sub"
    id="tspan480">i</tspan></text></g><g
@@ -104,17 +104,17 @@
 <text
    stroke="none"
    fill="#000000"
-   font-size="4px"
-   x="12.4"
-   y="2.9159999"
+   font-size="2px"
+   x="10.8"
+   y="2.4579999"
    id="textIx-1">I<tspan
    baseline-shift="sub"
    id="tspan487">j,i-1</tspan></text><text
    stroke="none"
    fill="#000000"
-   font-size="4px"
-   x="12.4"
-   y="15.916"
+   font-size="2px"
+   x="10.8"
+   y="16.757999"
    id="textIx">I<tspan
    baseline-shift="sub"
    id="tspan490">j,i</tspan></text></g>
