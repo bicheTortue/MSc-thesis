@@ -22,15 +22,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="2.2184211"
-     inkscape:cx="98.944245"
-     inkscape:cy="194.28232"
+     inkscape:zoom="4"
+     inkscape:cx="78.25"
+     inkscape:cy="196.25"
      inkscape:window-width="1904"
      inkscape:window-height="995"
      inkscape:window-x="8"
      inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="i1" />
+     inkscape:current-layer="g668" />
   <defs
      id="defs585">
     <marker
@@ -401,6 +401,33 @@
            id="line641"
            inkscape:label="toH1" />
       </g>
+      <text
+         x="42.304153"
+         y="80.284004"
+         text-anchor="middle"
+         fill="currentColor"
+         font-size="8px"
+         alignment-baseline="middle"
+         id="w11"
+         transform="rotate(-23)">$W_{1,1}$</text>
+      <text
+         x="123.50398"
+         y="127.78472"
+         text-anchor="middle"
+         fill="currentColor"
+         font-size="8px"
+         alignment-baseline="middle"
+         id="w23"
+         transform="rotate(20)">$W_{2,3}$</text>
+      <text
+         x="-99.952065"
+         y="159.69196"
+         text-anchor="middle"
+         fill="currentColor"
+         font-size="8px"
+         alignment-baseline="middle"
+         id="w32"
+         transform="rotate(-49)">$W_{3,2}$</text>
     </g>
     <g
        id="g704"
