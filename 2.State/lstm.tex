@@ -1,7 +1,12 @@
 \section{LSTM}\label{sec:lstm}
 \acp{LSTM} are a type of \ac{NN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
 
-\acp{LSTM} are able to forget information passed. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
+\acp{LSTM} were born from the vanishing/exploding gradient problem. Traditionnal \ac{RNN} have the ability to model sequential events by propagating through time, for example forward and backward propagation. This is achieved by connecting these sequential events with the hidden state:
+$$h_t=f(h_{t-1},x_t)$$
+The hidden state $h_t$ carries all the past informations for the next time step.
+Even though \acp{RNN} work very well, they are subject to the vanishing/exploding gradient problem. This issue occurs when too many time steps are chained.
+
+\acp{LSTM} alleviate this issue by adding a cell state, this state gives it the ability to choose what input is important and which one isn't, thus giving it a long term memory. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
 
 An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they have several gates, which are all technically a \ac{NN} themselves. There is also a cell state which job is to hold a value for the next step.
 
@@ -13,3 +18,41 @@ An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they h
 \end{figure}
 
 Figure \ref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a tanh or a sigmoid activation function. Each input to the cell is a vector.
+Those vector are of varying sizes depending on several factors. For example, both $h_t$ and $c_t$ are of the same size as the number of hidden state (sometimes refered to as cell state) for any $t\geq 0$.
+The input vector ($x_t$) is of size of the sample we want to feed for each time step.
+
+\subsection{Equations}
+
+The equations of an LSTM are quite unusual.
+Let's start with the more classic gate equations. They are the ones that behave like the more classic \ac{NN}.
+The input (equation \ref{eq:inputG}), forget (equation \ref{eq:forgetG}) and ouput (equation \ref{eq:ouputG}) gates are described below.
+
+\begin{equation}\label{eq:inputG}
+  i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}] + b_i)
+\end{equation}
+\begin{equation}\label{eq:forgetG}
+  f_t=\sigma (w_f\cdot[x_{t_1},h_{t-1}] + b_f)
+\end{equation}
+\begin{equation}\label{eq:ouputG}
+  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}] + b_o)
+\end{equation}
+
+Where ($w_i$,$b_i$), ($w_f$,$b_f$) and ($w_o$,$b_o$) are the pair of weights and biases for the input, forget and ouput gates respectively. $x_t$ is the input vector and $h_t$ is the hidden state vector.
+
+For the next equation describes the candidate cell state (equation \ref{eq:candCell}), that will next become the cell state (equation \ref{eq:cellS}).
+
+\begin{equation}\label{eq:candCell}
+  \tilde{c}_t=tanh(w_c\cdot[x_{t-1},h_{t-1}] + b_c)
+\end{equation}
+\begin{equation}\label{eq:cellS}
+  c_t=f_t\cdot c_{t-1} + i_t \cdot \tilde{c}_t
+\end{equation}
+
+Where $w_c$ and $b_c$ are the weights and bias for the candidate cell state.
+
+The final step of the \ac{LSTM} is to compute the hidden state (equation \ref{eq:hiddenS}).
+\begin{equation}\label{eq:hiddenS}
+  h_t=o_t\cdot tanh(c_t)
+\end{equation}
+
+We set $x_0$ as the first input and define $h_0$ as a zero only vector.

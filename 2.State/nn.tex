@@ -1,13 +1,7 @@
-% For the State of the art
-
-\ac{AI} is wide topic, usually when we talk about \acp{AI}, we refer to the most common type, Machine Learning. Especially, a sub part of Machine Learning called Deep Learning. Deep Learning has seen a surge in research the last decade, which lead to great advancement in this field and the numerous \ac{AI} tools that popped up in the last years.
-Deep Learning works using what is called \acp{NN}.
-
-Those \acp{NN} require matrix multiplication. This kind of operation is very time and energy consuming to run on a classic computer. There are options to better run those operations. GPUs can be better suited than a CPU for a \ac{NN} application as it is made for 3D graphics that also mainly use Matrix Multiplication. Other specialized hardware such as FPGAs and ASICs can improve both execution time and energy consumption. All those are digital computers, using analog computing could highly improve speed, power consumption and even smaller chip area. All this using a memristive crossbar array \cite{Xbar}. An analog computer
-The point of this thesis is to lay out the ground work to create a LSTM capable chip to use in embedded systems. It could be used detection and prediction of any kind of sequential events.
-Using those memristors \cite{TheoMemristor}, which work like resistance with a memory component to them, that means that they can be set to a desired value.
-
 \section{Neural Networks}\label{sec:nn}
+
+\ac{AI} is wide topic, it refers to any computer system that can make a descision. It can take many forms but usually when we talk about \acp{AI}, we refer to the most common type, Machine Learning. Especially, a sub part of Machine Learning called Deep Learning. Deep Learning has seen a surge in research the last decade, which lead to great advancement in this field and the numerous \ac{AI} tools that popped up in the last years.
+Deep Learning works using what is called \acp{NN}.
 
 \acfp{NN} are a network of several layers of artificial neurons. Figure \ref{fig:snn}, shows a simple representation of a \ac{NN}, the artificial neurons are the represented by the colored circles. On figure \ref{fig:snn} each arrow represent a synapse.
 
