@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="65"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   version="1.0"
+   sodipodi:docname="Memristor-Symbol.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   viewBox="0 0 16 65"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="16"
+     inkscape:cx="4.96875"
+     inkscape:cy="25.96875"
+     inkscape:document-units="mm"
+     inkscape:current-layer="memristor"
+     width="10mm"
+     height="20mm"
+     units="mm"
+     showgrid="true"
+     gridanglex="8.4666669mm"
+     gridanglez="8.4666669mm"
+     grid_units="mm"
+     inkscape:object-paths="false"
+     objecttolerance="50"
+     inkscape:grid-points="true"
+     gridtolerance="10000"
+     inkscape:grid-bbox="false"
+     inkscape:window-width="1912"
+     inkscape:window-height="1012"
+     inkscape:window-x="4"
+     inkscape:window-y="32"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       id="GridFromPre046Settings"
+       type="xygrid"
+       originx="0"
+       originy="0"
+       spacingx="4.0314963"
+       spacingy="4.0314962"
+       color="#3f3fff"
+       empcolor="#3f3fff"
+       opacity="0.15"
+       empopacity="0.38"
+       empspacing="5" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="memristor"
+    class="memristor">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 8.043307,14.8 v 6.45576 h 3.543307 v 6.45575 H 4.5 v 6.45576 h 7.086614 v 6.45576 H 8.043307 v 6.45575"
+       id="center"
+       sodipodi:nodetypes="cccccccccc" />
+    <rect
+       stroke="#000000"
+       stroke-width="1"
+       fill="#000000"
+       id="inter"
+       width="15"
+       height="3.5"
+       x="0.5"
+       y="46.393692" />
+    <rect
+       stroke="#000000"
+       stroke-width="1"
+       fill="none"
+       id="outer"
+       width="15"
+       height="35"
+       x="0.5"
+       y="15.267358" />
+    <line
+       x1="8.0211411"
+       x2="8.0211411"
+       y1="2"
+       y2="15"
+       stroke="#000000"
+       stroke-width="1px"
+       id="pos" />
+    <line
+       x1="8"
+       x2="8"
+       y1="50.648338"
+       y2="63.648338"
+       stroke="#000000"
+       stroke-width="1"
+       id="neg" />
+    <circle
+       id="posPin"
+       class="pin"
+       cx="8"
+       cy="2"
+       r="2" />
+    <circle
+       class="pin"
+       id="negPin"
+       cx="8"
+       cy="63"
+       r="2" />
+  </g>
+</svg>
