@@ -58,3 +58,12 @@ The final step of the \ac{LSTM} is to compute the hidden state (equation \ref{eq
 We set $x_0$ as the first input and define $h_0$ as a zero only vector.
 
 \subsection{Usage}
+
+Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes several time steps. Every hidden state ($h_t$) is passed to the next time step as an input. This hidden state can be used to compute an output at any time step $t$.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{lstm/lstmUse}
+  \caption{LSTM Cell}
+  \label{fig:lstmCell}
+\end{figure}
