@@ -1,0 +1,28 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{}
+
+% Title page
+\defbeamertemplate*{title page}{gpmeet}[1][]{
+  %\vskip0.5cm%
+  \begin{beamercolorbox}[wd=12cm,sep=3pt,#1]{title page header}
+    \usebeamerfont{title}\textbf{\inserttitle}\par%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{date}
+    \usebeamerfont{date}\textbf{\insertdate}%
+  \end{beamercolorbox}
+  \vskip1.5cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{author}
+    \usebeamerfont{author}\textbf{\insertauthor}%
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{subtitle}
+    \usebeamerfont{author}\insertsubtitle%
+  \end{beamercolorbox}
+  \vfill
+}
+
+% Items
+\setbeamertemplate{items}[square]
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\mode<all>
