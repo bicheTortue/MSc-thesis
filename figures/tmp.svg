@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="348"
+   height="235.5"
+   viewBox="0 0 348 235.5"
+   version="1.1"
+   id="svg21808"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="tmp.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <style
+     id="style1451">
+.pin { 
+    fill:#000000;
+    stroke:none;
+}
+</style>
+  <sodipodi:namedview
+     id="namedview21810"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="192.33304"
+     inkscape:cy="97.580736"
+     inkscape:window-width="1904"
+     inkscape:window-height="995"
+     inkscape:window-x="8"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg21808" />
+  <defs
+     id="defs21805">
+    <symbol
+       id="nmos">
+      <title
+         id="title231">nmos</title>
+      <g
+         id="g253">
+        <line
+           x1="14"
+           x2="14"
+           y1="9"
+           y2="23"
+           stroke="currentColor"
+           id="line233" />
+        <line
+           x1="2"
+           x2="11"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="line235" />
+        <line
+           x1="11"
+           x2="11"
+           y1="11"
+           y2="21"
+           stroke="currentColor"
+           id="line237" />
+        <path
+           d="m 14,20 h 8 v 10"
+           id="path239"
+           fill="none"
+           stroke="currentColor" />
+        <path
+           d="m 14,12 h 8 V 2"
+           id="path241"
+           fill="none"
+           stroke="currentColor" />
+        <line
+           x1="14"
+           x2="22"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="line243" />
+        <circle
+           class="pin"
+           fill="#000000"
+           stroke="#000000"
+           id="circle245"
+           cx="22"
+           cy="2"
+           r="2" />
+        <circle
+           id="circle247"
+           class="pin"
+           fill="#000000"
+           stroke="#000000"
+           cx="22"
+           cy="16"
+           r="2" />
+        <circle
+           id="circle249"
+           class="pin"
+           fill="#000000"
+           stroke="#000000"
+           cx="2"
+           cy="16"
+           r="2" />
+        <circle
+           class="pin"
+           fill="#000000"
+           stroke="#000000"
+           cx="22"
+           cy="30"
+           r="2"
+           id="circle251" />
+      </g>
+    </symbol>
+    <symbol
+       id="memristor">
+      <title
+         id="title475">memristor</title>
+      <g
+         id="g488">
+        <path
+           d="m 14,8 h 6.5 v 3.5 h 6 v -7 h 6 v 7 h 6 V 8 H 45"
+           id="center"
+           stroke="currentColor"
+           fill="none"
+           stroke-width="1" />
+        <rect
+           stroke="currentColor"
+           stroke-width="1"
+           fill="currentColor"
+           id="inter"
+           width="5"
+           x="45"
+           y="0.5"
+           height="15" />
+        <rect
+           stroke="currentColor"
+           stroke-width="1"
+           fill="none"
+           id="outer"
+           width="36"
+           height="15"
+           x="14"
+           y="0.5" />
+        <line
+           x1="2"
+           x2="14"
+           y1="8"
+           y2="8"
+           stroke="currentColor"
+           stroke-width="1px"
+           id="line480" />
+        <line
+           x1="50"
+           x2="62"
+           y1="8"
+           y2="8"
+           stroke="currentColor"
+           stroke-width="1"
+           id="line482" />
+        <circle
+           fill="#000000"
+           stroke="#000000"
+           id="circle484"
+           class="pin"
+           cx="2"
+           cy="8"
+           r="2" />
+        <circle
+           fill="#000000"
+           stroke="#000000"
+           class="pin"
+           id="circle486"
+           cx="62"
+           cy="8"
+           r="2" />
+      </g>
+    </symbol>
+    <symbol
+       id="resistor">
+      <title
+         id="title363">resistor</title>
+      <g
+         id="g368">
+        <path
+           d="m 2,8 h 12 l 3,-6 6,12 6,-12 6,12 6,-12 6,12 3,-6 h 12"
+           id="res"
+           stroke-width="1"
+           fill="none"
+           stroke="currentColor" />
+        <circle
+           id="posPin"
+           fill="#000000"
+           class="pin"
+           cx="2"
+           cy="8"
+           r="2" />
+        <circle
+           class="pin"
+           id="negPin"
+           cx="62"
+           cy="8"
+           r="2" />
+      </g>
+    </symbol>
+    <symbol
+       id="opamp">
+      <title
+         id="title346">opAmp</title>
+      <g
+         id="g360">
+        <line
+           x1="2"
+           x2="12"
+           y1="32"
+           y2="32"
+           stroke="currentColor"
+           id="pos" />
+        <line
+           x1="2"
+           x2="12"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="neg" />
+        <path
+           d="M 12,2 V 46 L 52,24 Z"
+           id="opAmp"
+           fill="none"
+           stroke="currentColor"
+           style="display:inline" />
+        <line
+           x1="52"
+           x2="62"
+           y1="24"
+           y2="24"
+           stroke="currentColor"
+           id="out" />
+        <g
+           id="plus">
+          <line
+             x1="14"
+             x2="18"
+             y1="32"
+             y2="32"
+             stroke="#000000"
+             id="line105596" />
+          <line
+             x1="16"
+             x2="16"
+             y1="30"
+             y2="34"
+             stroke="#000000"
+             id="line105598" />
+        </g>
+        <line
+           x1="14"
+           x2="18"
+           y1="16"
+           y2="16"
+           stroke="#000000"
+           id="minus" />
+        <circle
+           id="plusPin"
+           class="pin"
+           cx="2"
+           cy="32"
+           r="2" />
+        <circle
+           id="circle357"
+           class="pin"
+           cx="2"
+           cy="16"
+           r="2" />
+        <circle
+           id="outPin"
+           class="pin"
+           cx="62"
+           cy="24"
+           r="2" />
+      </g>
+    </symbol>
+    <symbol
+       id="gnd">
+      <title
+         id="title397">gnd</title>
+      <g
+         id="g406">
+        <line
+           x1="16"
+           x2="16"
+           y1="0"
+           y2="13"
+           stroke="currentColor"
+           id="line399" />
+        <line
+           x1="0"
+           x2="32"
+           y1="13"
+           y2="13"
+           stroke="currentColor"
+           id="line401" />
+        <line
+           x1="4"
+           x2="28"
+           y1="16.5"
+           y2="16.5"
+           stroke="currentColor"
+           id="line983" />
+        <line
+           x1="8"
+           x2="24"
+           y1="20"
+           y2="20"
+           stroke="currentColor"
+           id="line986-3" />
+        <line
+           x1="12"
+           x2="20"
+           y1="23.5"
+           y2="23.5"
+           stroke="currentColor"
+           id="line988-6" />
+      </g>
+    </symbol>
+    <symbol
+       id="vdd">
+      <title
+         id="title390">vdd</title>
+      <g
+         id="g394">
+        <line
+           x1="0"
+           x2="32"
+           y1="9"
+           y2="9"
+           stroke="currentColor"
+           id="line4799" />
+        <line
+           x1="16"
+           x2="16"
+           y1="9"
+           y2="24"
+           stroke="currentColor"
+           id="line4801" />
+      </g>
+    </symbol>
+  </defs>
+  <g
+     id="wires"
+     color="#808080"
+     transform="translate(-12,-18.5)">
+    <line
+       x1="12"
+       x2="106"
+       y1="230.5"
+       y2="230.5"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line644" />
+    <line
+       x1="72"
+       x2="140"
+       y1="181"
+       y2="181"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line967" />
+    <line
+       x1="106.5"
+       x2="106.5"
+       y1="181"
+       y2="202"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line969" />
+    <line
+       x1="32"
+       x2="87"
+       y1="216.5"
+       y2="216.5"
+       stroke="currentColor"
+       stroke-width="0.999998"
+       id="line976" />
+    <path
+       d="M 80,181 V 166.5 H 72"
+       id="path978"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 132,181 v -14.5 h 8"
+       id="path980"
+       fill="none"
+       stroke="currentColor" />
+    <line
+       x1="72.5"
+       x2="72.5"
+       y1="153"
+       y2="95"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line984" />
+    <line
+       x1="140.5"
+       x2="140.5"
+       y1="153"
+       y2="95"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line986" />
+    <line
+       x1="72"
+       x2="140"
+       y1="34"
+       y2="34"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line988" />
+    <path
+       d="m 160,166.5 h 32 v 60"
+       id="path700"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 284,166.5 H 252 V 217 h 32"
+       id="path1455"
+       fill="none"
+       stroke="currentColor" />
+    <line
+       x1="140.5"
+       x2="170.5"
+       y1="125"
+       y2="125"
+       stroke="currentColor"
+       stroke-width="1"
+       id="line1533" />
+    <path
+       d="m 262.5,74.5 h -32 V 125 h 32"
+       id="path1612"
+       fill="none"
+       stroke="currentColor" />
+    <use
+       xlink:href="#gnd"
+       id="use542"
+       transform="translate(43,230)" />
+    <use
+       xlink:href="#vdd"
+       id="use724"
+       transform="translate(90,10)" />
+    <line
+       x1="12.5"
+       x2="12.5"
+       y1="202.5"
+       y2="190"
+       stroke="currentColor"
+       id="line759" />
+    <line
+       x1="40"
+       x2="52.5"
+       y1="166.5"
+       y2="166.5"
+       stroke="currentColor"
+       id="line763" />
+    <line
+       x1="170.5"
+       x2="170.5"
+       y1="58.5"
+       y2="74.5"
+       stroke="currentColor"
+       id="line765" />
+    <line
+       x1="344"
+       x2="360"
+       y1="166.5"
+       y2="166.5"
+       stroke="currentColor"
+       id="line769" />
+    <line
+       x1="344"
+       x2="360"
+       y1="217"
+       y2="217"
+       stroke="currentColor"
+       id="line771" />
+    <line
+       x1="252"
+       x2="268"
+       y1="232.75"
+       y2="232.75"
+       stroke="currentColor"
+       id="line773" />
+    <line
+       x1="246.5"
+       x2="262.5"
+       y1="58.399998"
+       y2="58.399998"
+       stroke="currentColor"
+       id="line775"
+       style="stroke-width:1" />
+    <path
+       d="m 338.5,66.4 h -16 v 60"
+       id="path1628"
+       fill="none"
+       stroke="currentColor" />
+  </g>
+  <g
+     id="g26332"
+     color="#008000"
+     transform="translate(-12,-18.5)">
+    <use
+       xlink:href="#resistor"
+       id="use26117"
+       transform="rotate(90,24.041156,56.447286)" />
+    <use
+       xlink:href="#resistor"
+       id="use26156"
+       transform="rotate(90,58.259016,90.259016)" />
+    <use
+       xlink:href="#nmos"
+       id="use26253"
+       transform="translate(50.5,150.40613)" />
+    <use
+       xlink:href="#nmos"
+       id="use26322"
+       transform="matrix(-1,0,0,1,162.5,150.40613)" />
+    <use
+       xlink:href="#nmos"
+       id="use697"
+       transform="translate(84.5,200.40613)" />
+    <use
+       xlink:href="#nmos"
+       id="use699"
+       transform="matrix(-1,0,0,1,34.5,200.40613)" />
+    <use
+       xlink:href="#resistor"
+       id="use676"
+       transform="translate(190,158.42416)" />
+    <use
+       xlink:href="#resistor"
+       id="use821"
+       transform="translate(260.5,116.90416)" />
+    <use
+       xlink:href="#resistor"
+       id="use823"
+       transform="translate(282,208.90416)" />
+    <use
+       xlink:href="#resistor"
+       id="use825"
+       transform="translate(168.5,66.524163)" />
+    <use
+       xlink:href="#resistor"
+       id="use831"
+       transform="translate(168.5,116.90416)" />
+    <use
+       xlink:href="#opamp"
+       id="use629"
+       transform="matrix(-1,0,0,1,254,200.75176)" />
+    <use
+       xlink:href="#resistor"
+       id="use1531"
+       transform="translate(282,158.40416)" />
+    <use
+       xlink:href="#opamp"
+       id="use1555"
+       transform="matrix(1,0,0,-1,260.5,90.401765)" />
+  </g>
+  <text
+     x="94"
+     y="-3.5"
+     id="text833"
+     text-anchor="middle"
+     xml:space="default">$V_{dd}$</text>
+  <text
+     x="158.5"
+     y="37.5"
+     id="text1616"
+     text-anchor="middle"
+     xml:space="default">$V_3$</text>
+  <text
+     x="328"
+     y="51.5"
+     id="text1624"
+     text-anchor="begin"
+     xml:space="default">$V_{out}$</text>
+  <text
+     x="27"
+     y="151.5"
+     id="text1626"
+     text-anchor="end"
+     xml:space="default">$V_1$</text>
+  <text
+     x="348"
+     y="151.5"
+     id="text1630"
+     text-anchor="begin"
+     xml:space="default">$V_2$</text>
+  <text
+     x="348"
+     y="201.5"
+     id="text1632"
+     text-anchor="begin"
+     xml:space="default">$V_{in}$</text>
+  <text
+     x="256"
+     y="217.5"
+     id="text1634"
+     text-anchor="begin"
+     xml:space="default">$V_{cm}$</text>
+  <text
+     x="234"
+     y="43"
+     id="text1636"
+     text-anchor="end"
+     xml:space="default">$V_{cm}$</text>
+  <text
+     x="0.5"
+     y="166.5"
+     id="text1638"
+     text-anchor="middle"
+     xml:space="default">$i_{dc}$</text>
+</svg>
