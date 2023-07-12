@@ -8,13 +8,44 @@
 \fancychapter{The design}
 \label{cap:design}
 
-In this chapter, I'm going to describe the different circuit designed and used in this thesis.
-%\textit{Present the chapter content.}
+In this chapter, I'm going to describe the different design decisions taken during the study of the thesis.
 
-TODO : Maybe add more ???
-Explain 0->0.9V and 1->1V!!
+The system will be working with a $V_{dd}$ of $1.8V$. Such a value was chosen because this is a low power system.
 
-\input{3.Design/activation.tex}
-\input{3.Design/1.sectiona.tex}
-\input{3.Design/2.sectionb.tex}
-\cleardoublepage
+The way values are encoded in the analog system will be descibed here as it serves for the entire thesis.
+In order for the system to support negative numbers we're going to use a $V_{cm}$ set to $\frac{V_{dd}}{2}$. That means that $V_{cm}=\frac{V_{dd}}{2}=0.9V$. This $V_{cm}$ will then describe a zero. A step of one was chosen to be $0.1V$ in the analog circuit.
+Table \ref{tab:valConv} shows the conversions from a real number to it's voltage equivalent.
+
+\begin{table}[H]
+\centering
+\caption{Real/Voltage Conversion Table.}
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor{gray}
+Real value & Voltage \\
+       \hline
+       0 & 0.9V \\
+         \hline
+         1 & 1.0V \\
+           \hline
+           $x$ & $\frac{x}{10}+V_{cm}$\\
+             \hline
+             $(V-0.9)\cdot 10$ & $V$\\
+               \hline
+               \end{tabular}
+               \label{tab:valConv}
+               \end{table}
+
+
+
+
+
+
+               Since the system cannot reach voltage outside of the operating range with the intended behavior, the voltage is then restricted to $V\in [0,1.8]$. This means that the range of real value that the systems can handle is $x\in [-9,9]$.
+
+               Any data inputed in the analog system should have been previously checked to make sure it stays in the range of accepted values.
+
+               \input{3.Design/activation.tex}
+               \input{3.Design/1.sectiona.tex}
+               \input{3.Design/2.sectionb.tex}
+               \cleardoublepage
