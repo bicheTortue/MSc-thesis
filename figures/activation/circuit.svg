@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="350"
-   height="235.5"
-   viewBox="0 0 350 235.5"
+   width="420"
+   height="250"
+   viewBox="0 0 420.00001 250"
    version="1.1"
    id="svg21808"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
@@ -32,9 +32,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="141.75"
-     inkscape:cy="103.5"
+     inkscape:zoom="4.0000002"
+     inkscape:cx="89.749996"
+     inkscape:cy="183.49999"
      inkscape:window-width="1904"
      inkscape:window-height="995"
      inkscape:window-x="8"
@@ -165,33 +165,48 @@
       </g>
     </symbol>
     <symbol
-       id="vdd">
+       id="resistor"
+       width="64"
+       height="16">
       <title
-         id="title390">vdd</title>
+         id="title1067">resistor</title>
       <g
-         id="g394">
-        <line
-           x1="0"
-           x2="32"
-           y1="9"
-           y2="9"
-           stroke="currentColor"
-           id="line4799" />
-        <line
-           x1="16"
-           x2="16"
-           y1="9"
-           y2="24"
-           stroke="currentColor"
-           id="line4801" />
+         id="g1073">
+        <path
+           d="m 2,8 h 12 l 3,-6 6,12 6,-12 6,12 6,-12 6,12 3,-6 h 12"
+           id="res"
+           fill="none"
+           stroke="currentColor" />
+        <circle
+           id="posPin"
+           fill="#000000"
+           class="pin"
+           cx="2"
+           cy="8.0289183"
+           r="2" />
+        <circle
+           class="pin"
+           fill="#000000"
+           id="negPin"
+           cx="62"
+           cy="8.0289183"
+           r="2" />
+        <rect
+           id="rect2689"
+           width="64"
+           height="16"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
       </g>
     </symbol>
     <symbol
        id="opamp">
       <title
-         id="title3391">opAmp</title>
+         id="title1097">opAmp</title>
       <g
-         id="g3405">
+         id="g1113">
         <line
            x1="2"
            x2="12"
@@ -207,11 +222,10 @@
            stroke="currentColor"
            id="neg" />
         <path
-           d="M 12,0.86681112 V 47.133185 L 52,24 Z"
+           d="M 12,2 V 46 L 52,24 Z"
            id="opAmp"
            fill="none"
-           stroke="currentColor"
-           style="stroke-width:0.999998" />
+           stroke="currentColor" />
         <line
            x1="52"
            x2="62"
@@ -250,7 +264,7 @@
            cy="32"
            r="2" />
         <circle
-           id="circle3402"
+           id="circle1108"
            class="pin"
            cx="2"
            cy="16"
@@ -261,125 +275,127 @@
            cx="62"
            cy="24"
            r="2" />
+        <rect
+           id="rect1111"
+           width="64"
+           height="48"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
       </g>
     </symbol>
     <symbol
-       id="resistor"
-       width="64px"
-       height="16px">
+       id="vdd">
       <title
-         id="title988">resistor</title>
+         id="title14574">vdd</title>
       <g
-         id="g993">
-        <path
-           d="M 2,8 H 14 L 17,1.233581 23,14.766173 29,1.233581 35,14.766173 41,1.233581 47,14.766173 50,8 h 12"
-           id="res"
-           fill="none"
-           stroke="currentColor" />
-        <circle
-           id="posPin"
-           fill="#000000"
-           class="pin"
-           cx="2"
-           cy="8.0289183"
-           r="2" />
-        <circle
-           class="pin"
-           fill="#000000"
-           id="negPin"
-           cx="62"
-           cy="8.0289183"
-           r="2" />
+         id="g14578">
+        <line
+           x1="0"
+           x2="32"
+           y1="0"
+           y2="0"
+           stroke="currentColor"
+           id="line4799" />
+        <line
+           x1="16"
+           x2="16"
+           y1="0"
+           y2="15"
+           stroke="currentColor"
+           id="line4801" />
       </g>
     </symbol>
   </defs>
   <g
      id="wires"
      color="#808080"
-     stroke-width="1">
+     stroke-width="1"
+     stroke-linejoin="round">
     <line
-       x1="2"
-       x2="96"
-       y1="210"
-       y2="210"
+       x1="20"
+       x2="114"
+       y1="222"
+       y2="222"
        stroke="currentColor"
        id="line644" />
     <line
-       x1="62"
-       x2="130"
-       y1="162"
-       y2="162"
+       x1="80"
+       x2="148"
+       y1="174"
+       y2="174"
        stroke="currentColor"
        id="line967" />
     <line
-       x1="96"
-       x2="96"
-       y1="162"
-       y2="182"
+       x1="114"
+       x2="114"
+       y1="174"
+       y2="194"
        stroke="currentColor"
        id="line969" />
     <line
-       x1="22"
-       x2="76"
-       y1="196"
-       y2="196"
+       x1="40"
+       x2="94"
+       y1="208"
+       y2="208"
        stroke="currentColor"
        id="line976" />
     <path
-       d="M 70,162 V 148 h -8"
+       d="M 88,174 V 160 H 80"
        id="path978"
        fill="none"
        stroke="currentColor" />
     <path
-       d="M 122,162 V 148 h 8"
+       d="m 140,174 v -14 h 8"
        id="path980"
        fill="none"
        stroke="currentColor" />
     <line
-       x1="62"
-       x2="62"
-       y1="134"
-       y2="76"
+       x1="80"
+       x2="80"
+       y1="146"
+       y2="88"
        stroke="currentColor"
        id="line984" />
     <line
-       x1="130"
-       x2="130"
-       y1="134"
-       y2="76"
+       x1="148"
+       x2="148"
+       y1="146"
+       y2="88"
        stroke="currentColor"
        id="line986"
        class="wire" />
     <line
-       x1="62"
-       x2="130"
-       y1="16"
-       y2="16"
+       x1="80"
+       x2="148"
+       y1="28"
+       y2="28"
        stroke="currentColor"
        id="line988"
        class="wire" />
     <path
-       d="m 150,148 h 32 v 58"
+       d="m 168,160 h 32 v 58"
        id="path700"
        fill="none"
        stroke="currentColor"
        class="wire" />
     <path
-       d="m 274,148 h -32 v 50 h 32"
+       d="m 292,160 h -32 v 50 h 32"
        id="path1455"
        fill="none"
        stroke="currentColor"
        class="wire" />
     <line
-       x1="130"
-       x2="160"
-       y1="106"
-       y2="106"
+       x1="148"
+       x2="178"
+       y1="118"
+       y2="118"
        stroke="currentColor"
        id="line1533"
        class="wire" />
     <path
-       d="m 252,56 h -32 v 50 h 32"
+       d="m 270,68 h -32 v 50 h 32"
        id="path1612"
        fill="none"
        stroke="currentColor"
@@ -387,71 +403,71 @@
     <use
        xlink:href="#gnd"
        id="gnd0"
-       transform="translate(33,210)"
+       transform="translate(51,222)"
        class="wire" />
     <use
        xlink:href="#vdd"
        id="use724"
-       transform="translate(79.5,-8.5)"
+       transform="translate(98,13)"
        class="wire" />
     <line
-       x1="2"
-       x2="2"
-       y1="182"
-       y2="170"
+       x1="20"
+       x2="20"
+       y1="194"
+       y2="182"
        stroke="currentColor"
        id="line759"
        class="wire" />
     <line
-       x1="30"
-       x2="42"
-       y1="148"
-       y2="148"
+       x1="48"
+       x2="60"
+       y1="160"
+       y2="160"
        stroke="currentColor"
        id="line763"
        class="wire" />
     <line
-       x1="160"
-       x2="160"
-       y1="40"
-       y2="56"
+       x1="178"
+       x2="178"
+       y1="52"
+       y2="68"
        stroke="currentColor"
        id="line765"
        class="wire" />
     <line
-       x1="334"
-       x2="350"
-       y1="148"
-       y2="148"
+       x1="352"
+       x2="368"
+       y1="160"
+       y2="160"
        stroke="currentColor"
        id="line769"
        class="wire" />
     <line
-       x1="334"
-       x2="350"
-       y1="198"
-       y2="198"
+       x1="352"
+       x2="368"
+       y1="210"
+       y2="210"
        stroke="currentColor"
        id="line771"
        class="wire" />
     <line
-       x1="242"
-       x2="258"
-       y1="214"
-       y2="214"
+       x1="260"
+       x2="276"
+       y1="226"
+       y2="226"
        stroke="currentColor"
        id="line773"
        class="wire" />
     <line
-       x1="236"
-       x2="252"
-       y1="40"
-       y2="40"
+       x1="254"
+       x2="270"
+       y1="52"
+       y2="52"
        stroke="currentColor"
        id="line775"
        class="wire" />
     <path
-       d="m 328,48 h -16 v 58"
+       d="m 346,60 h -16 v 58"
        id="path1628"
        fill="none"
        stroke="currentColor"
@@ -463,111 +479,110 @@
     <use
        xlink:href="#resistor"
        id="res1"
-       transform="rotate(90,27.999881,41.999881)" />
+       transform="rotate(90,31,57)" />
     <use
        xlink:href="#resistor"
        id="res0"
-       transform="rotate(90,61.999881,75.999881)" />
+       transform="rotate(90,65,91)" />
     <use
        xlink:href="#nmos"
        id="nmos0"
-       transform="translate(40,132)" />
+       transform="translate(58,144)" />
     <use
        xlink:href="#nmos"
        id="nmos1"
-       transform="matrix(-1,0,0,1,152,132)" />
+       transform="matrix(-1,0,0,1,170,144)" />
     <use
        xlink:href="#nmos"
        id="nmos2"
-       transform="translate(74,180)" />
+       transform="translate(92,192)" />
     <use
        xlink:href="#nmos"
        id="nmos3"
-       transform="matrix(-1,0,0,1,24,180)" />
+       transform="matrix(-1,0,0,1,42,192)" />
     <use
        xlink:href="#resistor"
        id="res2"
-       transform="translate(180,140)" />
+       transform="translate(198,152)" />
     <use
        xlink:href="#resistor"
        id="res3"
-       transform="translate(250,98)" />
+       transform="translate(268,110)" />
     <use
        xlink:href="#resistor"
        id="res7"
-       transform="translate(272,190.00002)" />
+       transform="translate(290,202)" />
     <use
        xlink:href="#resistor"
        id="res6"
-       transform="translate(158,48.000018)" />
+       transform="translate(176,60)" />
     <use
        xlink:href="#resistor"
        id="res4"
-       transform="translate(158,98)" />
+       transform="translate(176,110)" />
     <use
        xlink:href="#opamp"
        id="opamp0"
-       transform="matrix(-1,0,0,1,244,181.99995)" />
+       transform="matrix(-1,0,0,1,262,194)" />
     <use
        xlink:href="#resistor"
        id="res5"
-       transform="translate(272,140.00002)" />
+       transform="translate(290,152)" />
     <use
        xlink:href="#opamp"
        id="opamp1"
-       transform="matrix(1,0,0,-1,250,71.999943)" />
+       transform="matrix(1,0,0,-1,268,84)" />
   </g>
   <text
-     x="95.50032"
-     y="-3.5"
+     x="115"
+     y="9"
      id="text833"
      text-anchor="middle"
      xml:space="default">$V_{dd}$</text>
   <text
-     x="160.00032"
-     y="37.5"
+     x="178"
+     y="48"
      id="text1616"
      text-anchor="middle"
      xml:space="default">$V_3$</text>
   <text
-     x="329.50031"
-     y="51.5"
+     x="346"
+     y="64"
      id="text1624"
      text-anchor="begin"
      xml:space="default">$V_{out}$</text>
   <text
-     x="28.50032"
-     y="151.5"
+     x="48"
+     y="164"
      id="text1626"
      text-anchor="end"
      xml:space="default">$V_1$</text>
   <text
-     x="349.50031"
-     y="151.5"
+     x="368"
+     y="164"
      id="text1630"
      text-anchor="begin"
      xml:space="default">$V_2$</text>
   <text
-     x="349.50031"
-     y="201.5"
+     x="368"
+     y="214"
      id="text1632"
      text-anchor="begin"
      xml:space="default">$V_{in}$</text>
   <text
-     x="257.50031"
-     y="217.5"
+     x="276"
+     y="230"
      id="text1634"
-     text-anchor="begin"
-     xml:space="default">$V_{cm}$</text>
+     text-anchor="begin">$V_{cm}$</text>
   <text
-     x="235.50032"
-     y="43"
+     x="254"
+     y="56"
      id="text1636"
      text-anchor="end"
      xml:space="default">$V_{cm}$</text>
   <text
-     x="2.00032"
-     y="166.5"
+     x="22"
+     y="178"
      id="text1638"
      text-anchor="middle"
      xml:space="default">$i_{dc}$</text>
