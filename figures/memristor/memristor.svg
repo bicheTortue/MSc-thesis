@@ -22,15 +22,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.81933594"
-     inkscape:cx="512"
-     inkscape:cy="511.38975"
+     inkscape:zoom="0.579358"
+     inkscape:cx="596.34975"
+     inkscape:cy="700.77569"
      inkscape:window-width="1904"
      inkscape:window-height="995"
      inkscape:window-x="8"
      inkscape:window-y="40"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g6523" />
+     inkscape:current-layer="svg6525" />
   <g
      stroke="#000"
      stroke-width="5"
@@ -38,9 +38,10 @@
      stroke-linejoin="round"
      id="g6449">
     <path
-       d="M512 512 896 128V448h48v32H848v32h96v32H848v32h48V896Z"
-       fill="#C3FFC3"
-       id="path6425" />
+       d="M 512,512 896,128 v 320 h 48 v 32 h -96 v 32 h 96 v 32 h -96 v 32 h 48 v 320 z"
+       fill="#c3ffc3"
+       id="path6425"
+       style="display:inline" />
     <path
        d="M512 512 896 896H592a20 20 0 0 0-40 0 20 20 0 0 0-40 0 20 20 0 0 0-40 0 20 20 0 0 0-40 0H128Z"
        fill="#C3C3FF"
@@ -50,9 +51,10 @@
        fill="#FFFFC3"
        id="path6429" />
     <path
-       d="M512 512 128 896V128Z"
+       d="M 512,512 128,128 v 288 l -32,16 l 64,32 l -64,32 l 64,32 l -64,32 l 64,32 l -32,16 v 288 z"
        fill="#FFC3C3"
-       id="path6431" />
+       id="path338"
+       style="display:inline" />
     <g
        fill="#FFF"
        id="g6445">
@@ -77,9 +79,6 @@
          r="80"
          id="circle6439" />
       <path
-         d="M96 432h64V592H96Z"
-         id="path6441" />
-      <path
          d="M496 64V192h32V64"
          stroke="none"
          id="path6443" />
@@ -90,13 +89,13 @@
        id="path6447" />
   </g>
   <g
-     font-family="Liberation Sans"
-     font-size="40"
+     font-family="'Liberation Sans'"
+     font-size="40px"
      text-anchor="middle"
      id="g6523">
     <text
-       x="950.35"
-       y="-22.63"
+       x="950.34998"
+       y="-22.629999"
        transform="rotate(45)"
        id="text6457"
        text-anchor="middle">$d\phi = v\cdot dt$</text>
@@ -114,7 +113,7 @@
        id="text6487">Capacitor\\$dq=C\cdot dv$</text>
     <text
        x="-226.27"
-       y="701.45"
+       y="701.45001"
        transform="rotate(-45)"
        id="text6495"
        text-anchor="middle">$dq = i\cdot dt$</text>
