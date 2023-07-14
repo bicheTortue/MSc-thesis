@@ -99,7 +99,7 @@ This variant of the \ac{LSTM} is the most complex of all. This is due to the amo
   f_t=\sigma (w_f\cdot[x_{t_1},h_{t-1}]+ R_{fi}\cdot i_{t-1} + R_{ff}\cdot f_{t-1} + R{fo}\cdot o_{t-1} + b_f+c_{t-1}\odot p_i)
 \end{equation}
 \begin{equation}\label{eq:ouputGVanilla}
-  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}]+ R_{oi}\cdot i_{t-1} + R_{of}\cdot f_{t-1} + R{oo}\cdot o_{t-1} + b_o+c_{t}\odot p_o)
+  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}]+ R_{oi}\cdot i_{t-1} + R_{of}\cdot f_{t-1} + R{oo}\cdot o_{t-1} + b_o+c_{t-1}\odot p_o)
 \end{equation}
 With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrices.
 
