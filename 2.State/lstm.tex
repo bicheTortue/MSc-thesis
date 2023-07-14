@@ -75,7 +75,7 @@ Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes sev
 The difference between each of them varies from one to the other, but they can all be described with new equations.
 
 \subsubsection{Vanilla}
-This variant of the \ac{LSTM} was origanally the only \ac{LSTM} network, hence it's name. It differs from the classic \ac{LSTM} with it's use of peephole weights, hence the name of the classic \ac{LSTM} being \acf{NP}. The Vanilla \ac{LSTM} is thus defined by those equations \cite{vanillaLSTM, nbLSTM} :
+This variant of the \ac{LSTM} was origanally the only \ac{LSTM} network, hence it's name. It differs from the classic \ac{LSTM} with it's use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by those equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
   i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}] + b_i+c_{t-1}\odot p_f)
