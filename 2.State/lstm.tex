@@ -71,10 +71,10 @@ Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes sev
 
 \subsection{Variants}
 
-\acp{LSTM} come in reality in a few different flavor. Usually, when \acp{LSTM} are mentionned, the version used is the \ac{NP} version. This is the most common version as those are the equations described on the wikipedia page \cite{wikiLSTM} and used in librairies like Keras \cite{Keras} or pyTorch \cite{PyTorch}. In fact is that there are total of 8 other variations of \acp{LSTM} \cite{nbLSTM}.
+\acp{LSTM} come in reality in a few different flavor. Usually, when \acp{LSTM} are mentionned, the version used is the \ac{NP} version. This is the most common version as those are the equations described on the wikipedia page \cite{wikiLSTM} and used in librairies like Keras \cite{Keras} or pyTorch \cite{PyTorch}. In fact, there are total of 8 other variations of \acp{LSTM} \cite{nbLSTM}.
 The difference between each of them varies from one to the other, but they can all be described with new equations.
 
-\subsubsection{Vanilla}
+\subsubsection{Vanilla \ac{LSTM}}
 This variant of the \ac{LSTM} was origanally the only \ac{LSTM} network, hence it's name. It differs from the classic \ac{LSTM} with it's use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by those equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
@@ -89,3 +89,21 @@ This variant of the \ac{LSTM} was origanally the only \ac{LSTM} network, hence i
 With $p_f$, $p_i$ and $p_o$ being the peephole weights vectors. Their size is the same as the size of the hidden state vector ($h_t$). $\odot$ is the pointwise multiplication operator.
 
 The equations that haven't been rewritten simply stay the same.
+
+\subsubsection{\acf{FGR} \ac{LSTM}}
+This variant of the \ac{LSTM} is the most complex of all. This is due to the amount of feedback connections. This is basically a more complex version of the Vanilla \ac{LSTM}. The modified equations are :
+\begin{equation}\label{eq:inputGVanilla}
+  i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}]+ R_{ii}\cdot i_{t-1} + R_{if}\cdot f_{t-1} + R{io}\cdot o_{t-1} + b_i+c_{t-1}\odot p_f)
+\end{equation}
+\begin{equation}\label{eq:forgetGVanilla}
+  f_t=\sigma (w_f\cdot[x_{t_1},h_{t-1}]+ R_{fi}\cdot i_{t-1} + R_{ff}\cdot f_{t-1} + R{fo}\cdot o_{t-1} + b_f+c_{t-1}\odot p_i)
+\end{equation}
+\begin{equation}\label{eq:ouputGVanilla}
+  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}]+ R_{oi}\cdot i_{t-1} + R_{of}\cdot f_{t-1} + R{oo}\cdot o_{t-1} + b_o+c_{t}\odot p_o)
+\end{equation}
+With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrices.
+
+Once again, the equations that haven't been rewritten are unchanged.
+
+\subsubsection{\acf{CIFG} \ac{LSTM} or \acf{GRU}}
+The \ac{CIFG} \ac{LSTM} or more commonly known as \ac{GRU}. \cite{gru,gruKeras,gruPyTorch}
