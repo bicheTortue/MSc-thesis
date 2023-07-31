@@ -10,11 +10,7 @@ OPTIONS = -shell-escape -interaction nonstopmode
 ${NAME}.pdf: compile clean
 
 compile: *.tex
-	-${TEX} ${OPTIONS} ${NAME}.tex
-	${BIB} ${NAME}
-	-${TEX} ${OPTIONS} ${NAME}.tex
-	-${TEX} ${OPTIONS} ${NAME}.tex
-	evince ${NAME}.pdf &
+	latexmk -pvc -f -pdf -pdflatex='pdflatex ${OPTIONS}' ${NAME}.tex
 
 clean:
 	rm -f *.aux
