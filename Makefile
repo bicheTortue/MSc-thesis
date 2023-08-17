@@ -10,7 +10,7 @@ OPTIONS = -shell-escape -interaction nonstopmode
 ${NAME}.pdf: compile clean
 
 compile: *.tex
-	latexmk -pvc -f -pdf -pdflatex='pdflatex ${OPTIONS}' ${NAME}.tex
+	latexmk -pvc -f -pdf -pdflatex='pdflatex ${OPTIONS}' -interaction=nonstopmode -synctex=1 ${NAME}.tex
 
 clean:
 	rm -f *.aux
