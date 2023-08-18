@@ -106,4 +106,17 @@ With $R_{fi}$ being the weight matrix of the input feedback connection to comput
 Once again, the equations that haven't been rewritten are unchanged.
 
 \subsubsection{\acf{CIFG} \ac{LSTM} or \acf{GRU}}
-The \ac{CIFG} \ac{LSTM} or more commonly known as \ac{GRU}. \cite{gru,gruKeras,gruPyTorch}
+The \ac{CIFG} \ac{LSTM} or more commonly known as \ac{GRU}. \cite{gru,gruKeras,gruPyTorch} As it's name implies, \acl{CIFG}, links the input and forget gates as such, $f_t=1-i_t$. Other differences are :
+\begin{itemize}
+  \item No peepholes and output activation function.
+  \item Combined hidden state and cell state.
+  \item The candidate cell state is point wise multiplied with the output gate before the activation function.
+\end{itemize}
+
+This is clearer with the math equations :
+\begin{equation}\label{eq:cellGGRU}
+  \tilde{c}_t = tanh(w_{cx}\cdot x_t + w_{ch}\cdot(o_t \odot h_{t-1}) + b_c)
+\end{equation}
+\begin{equation}\label{eq:hiddenGRU}
+  h_t=(1-i_t)\cdot h_{t-1} + i_t \cdot \tilde{c}_t
+\end{equation}
