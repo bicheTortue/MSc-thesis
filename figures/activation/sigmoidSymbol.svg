@@ -8,7 +8,7 @@ id="svg2"
 sodipodi:version="0.32"
 inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
 version="1.0"
-sodipodi:docname="memSymbol.svg"
+sodipodi:docname="tanhSymbol.svg"
 inkscape:output_extension="org.inkscape.output.svg.inkscape"
 viewBox="0 0 64 32"
 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -42,11 +42,11 @@ bordercolor="#666666"
 borderopacity="1.0"
 inkscape:pageopacity="0.0"
 inkscape:pageshadow="2"
-inkscape:zoom="13.16612"
-inkscape:cx="34.482444"
-inkscape:cy="16.253839"
+inkscape:zoom="6.58306"
+inkscape:cx="12.987881"
+inkscape:cy="0.15190504"
 inkscape:document-units="px"
-inkscape:current-layer="cap"
+inkscape:current-layer="svg2"
 width="10mm"
 height="20mm"
 units="mm"
@@ -122,50 +122,28 @@ stroke="none" />
 <rect
 id="main"
 width="44"
-height="24"
+height="31"
 x="10"
-y="4"
+y=".5"
 fill="none"
 stroke="currentColor" />
-<g
-id="cap">
-<line
-x1="20"
-x2="30"
-y1="16"
-y2="16"
-stroke="currentColor"
-id="line2" />
-<line
-x1="34"
-x2="44"
-y1="16"
-y2="16"
-stroke="currentColor"
-id="line3" />
-<line
-x1="34"
-x2="34"
-y1="22"
-y2="10"
-stroke="currentColor"
-id="line4" />
-<line
-x1="30"
-x2="30"
-y1="12"
-y2="20"
-stroke="currentColor"
-id="line5" />
-</g>
 <text
 x="32"
 y="26"
-id="memText"
+id="sigmText"
 stroke="none"
 fill="currentColor"
 font-size="6px"
-text-anchor="middle">Memory</text>
+text-anchor="middle"
+>sigmoid</text>
+<rect
+id="rect2"
+width="32"
+height="8"
+x="16"
+y="6"
+fill="none"
+stroke="currentColor" />
 </g>
 <metadata
 id="metadata3368">
@@ -174,4 +152,9 @@ id="metadata3368">
 rdf:about="" />
 </rdf:RDF>
 </metadata>
+<path
+d="m 16,14 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
+id="path2"
+fill="none"
+stroke="currentColor" />
 </svg>
