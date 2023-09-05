@@ -1,0 +1,24 @@
+\section{Memory cells}
+\label{sec:memcell}
+
+The memory cell is a circuit that is able to store an analog value for a limited time. It works using capacitors that have the ability to store a voltage for a short time.
+
+The circuit is shown in figure \ref{fig:memcellCircuit}. The value/voltage is trapped in the capacitor using CMOS switches.
+
+
+I chose to use a two CMOS switches design to avoid voltage leakage through the swicthes. As figure \ref{fig:memcellLoss} shows that only using 1 CMOS swicth leads to a large memory leak due to the high voltage difference on both sides of the CMOS swicth. Using two CMOS switches allows for this difference to be mitigated.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{memcell/data-loss}
+  \caption{Memory conservation in a memory cell with 1 CMOS switch vs 2 CMOS swicthes}
+  \label{fig:memcellLoss}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{memcell/circuit2}
+  \caption{Memory cell circuit}
+  \label{fig:memcellCircuit}
+\end{figure}
