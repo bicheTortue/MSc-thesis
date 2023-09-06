@@ -1,0 +1,25 @@
+\section{Verilog models}
+\label{sec:models}
+
+Due to a lack of time, some of the more common component were not designed by me but instead were simulated using a Verilog model. The only components that use a verilog model are the voltage multiplier and the \ac{opAmp}.
+
+\subsection{Operational amplifier}
+
+This component is the very famous \ac{opAmp}. I didn't design a specific \ac{opAmp} because of the current range of the system I'm trying to build.
+
+This is the code (figure TODO : in annex) of a perfect \ac{opAmp}. TODO : more description.
+TODO : add symbol.
+
+\subsection{Voltage multiplier}
+
+This component while a bit less popular than the latter, is just as useful for our specific use. It allows us to multiply, as its name implies, two voltages. It is used to compute the pointwise multiplications of the \ac{LSTM} (figure \ref{fig:lstmCell}).
+
+It must follow the following equation :
+
+\begin{equation}
+V_{out}=(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
+\end{equation}
+
+Where $V_{out}$ is the output voltage of the circuit and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
+
+However, the output of the voltage multiplier needs to be ajusted after because of the voltage value of a unit. Indeed, we need to have $1\cdot 1=1$, but if we set $V_{in_1}=V_{in_2}=1V$, we would find $V_{out}=0.91V$. There is then a small circuit added following the output of the voltage multiplier. TODO : Annexe
