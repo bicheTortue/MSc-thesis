@@ -40,9 +40,29 @@ This circuit is pretty straight forward, when the input enable pin is high (up t
 
 TODO : figure that explains the fonctionnement
 
-\begin{timingdiag}[!ht]
+\begin{figure}[H]
   \centering
-  DD5L6H
-  \caption{Some timing diagram caption}
-  \label{tim:foobar }
-\end{timingdiag}
+  \def\degr{${}^\circ$}
+  \begin{tikztimingtable}
+    Clock 128\,MHz 0\degr & H 2C N(A1) 8{2C} N(A5) 3{2C} G \\
+    Clock 128\,MHz 90\degr & [C] 2{2C} N(A2) 8{2C} N(A6) 2{2C} C \\
+    Clock 128\,MHz 180\degr & C 2{2C} N(A3) 8{2C} N(A7) 2{2C} G \\
+    Clock 128\,MHz 270\degr & 3{2C} N(A4) 8{2C} N(A8) 2C C \\
+    Coarse Pulse & 3L 16H 6L \\
+    Coarse Pulse - Delayed 1 & 4L N(B2) 16H N(B6) 5L \\
+    Coarse Pulse - Delayed 2 & 5L N(B3) 16H N(B7) 4L \\
+    Coarse Pulse - Delayed 3 & 6L 16H 3L \\
+    \\
+    Final Pulse Set & 3L 16H N(B5) 6L \\
+    Final Pulse $\overline{\mbox{Reset}}$ & 6L N(B4) 16H 3L \\
+    Final Pulse & 3L N(B1) 19H N(B8) 3L \\
+    \extracode
+    \tablerules
+    \begin{pgfonlayer}{background}
+      \foreach \n in {1,...,8}
+      \draw [help lines] (A\n) --56(B\n);
+    \end{pgfonlayer}
+  \end{tikztimingtable}
+  \caption{Memory cell symbol with the input pin (left), the output pin (right), the input enable pin (top) and the output enable pin (bottom)}
+  \label{fig:memcellCircuit}
+\end{figure}
