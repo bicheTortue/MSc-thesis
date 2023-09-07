@@ -2,15 +2,15 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="64"
-   height="24"
+   width="48"
+   height="32"
    id="svg2"
    sodipodi:version="0.32"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
    version="1.0"
-   sodipodi:docname="sigmoidSymbol.svg"
+   sodipodi:docname="invSymbol.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   viewBox="0 0 64 24"
+   viewBox="0 0 48 32"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -18,23 +18,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:cc="http://creativecommons.org/ns#">
   <defs
-     id="defs4">
-    <symbol
-       id="capacitor">
-      <title
-         id="title1093">capacitor</title>
-      <g
-         stroke-miterlimit="10"
-         id="g1099">
-        <path
-           d="m 0,149.99 h 1.054 m -1.054,0 h 129 m 42,0 h 129 m -1.054,0 H 300"
-           id="path1095" />
-        <path
-           d="M 129,87.01 V 212.99 M 171,87.01 v 125.98"
-           id="path1097" />
-      </g>
-    </symbol>
-  </defs>
+     id="defs4" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -42,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="9.3098527"
-     inkscape:cx="23.14752"
-     inkscape:cy="12.674744"
+     inkscape:zoom="13.16612"
+     inkscape:cx="22.975637"
+     inkscape:cy="19.215988"
      inkscape:document-units="px"
      inkscape:current-layer="g4017"
      width="10mm"
@@ -88,67 +72,50 @@
      color="#48ab56">
     <line
        x1="2"
-       x2="10"
-       y1="12"
-       y2="12"
+       x2="8"
+       y1="16"
+       y2="16"
        stroke="currentColor"
-       id="neg" />
+       id="in" />
+    <path
+       d="M 8,2 V 30 L 35,16 Z"
+       id="opAmp"
+       fill="none"
+       stroke="currentColor" />
     <line
-       x1="54"
-       x2="62"
-       y1="12"
-       y2="12"
+       x1="40"
+       x2="46"
+       y1="16"
+       y2="16"
        stroke="currentColor"
        id="out" />
     <circle
-       id="negPin"
+       id="circle2011"
+       cx="38"
+       cy="16"
+       r="2"
+       fill="none"
+       stroke="currentColor" />
+    <circle
+       id="inPin"
        class="pin"
        cx="2"
-       cy="12"
+       cy="16"
        r="1" />
     <circle
        id="outPin"
        class="pin"
-       cx="62"
-       cy="12"
+       cx="46"
+       cy="16"
        r="1" />
     <rect
-       id="outline"
-       width="64"
-       height="24"
+       id="rect2689"
+       width="48"
+       height="32"
        x="0"
        y="0"
        fill="none"
        stroke="none" />
-    <rect
-       id="main"
-       width="44"
-       height="23"
-       x="10"
-       y="0.5"
-       fill="none"
-       stroke="currentColor" />
-    <text
-       x="32"
-       y="21"
-       id="sigmoidText"
-       stroke="none"
-       fill="#000000"
-       font-size="6px"
-       text-anchor="middle">sigmoid</text>
-    <path
-       d="m 16,13 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
-       id="path2"
-       fill="none"
-       stroke="currentColor" />
-    <rect
-       id="rect2"
-       width="32"
-       height="10"
-       x="16"
-       y="4"
-       fill="none"
-       stroke="#000000" />
   </g>
   <metadata
      id="metadata3368">
