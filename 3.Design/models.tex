@@ -17,9 +17,16 @@ This component while a bit less popular than the latter, is just as useful for o
 It must follow the following equation :
 
 \begin{equation}
-V_{out}=(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
+  V_{out}=(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
 \end{equation}
 
 Where $V_{out}$ is the output voltage of the circuit and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
 
-However, the output of the voltage multiplier needs to be ajusted after because of the voltage value of a unit. Indeed, we need to have $1\cdot 1=1$, but if we set $V_{in_1}=V_{in_2}=1V$, we would find $V_{out}=0.91V$. There is then a small circuit added following the output of the voltage multiplier. TODO : Annexe
+However, the output of the voltage multiplier needs to be ajusted after because of the voltage value of a unit. Indeed, we need to have $1\cdot 1=1$, but if we set $V_{in_1}=V_{in_2}=1V$, we would find $V_{out}=0.91V$. To fix this issue, a small circuit added following the output of the voltage multiplier, this circuit needs to do the following :
+
+\begin{equation}
+  V_{amp}=(V_{out}-V_{cm})\cdot10+V_{cm}
+\end{equation}
+
+Where $V_{amp}$ is the output of the amplificator and $V_{out}$ is the output of the voltage multiplier and the input of the amplifier circuit.
+This circuit is shown in appendix \ref{apsec:amp}.
