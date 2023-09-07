@@ -45,7 +45,7 @@ The functions generated are the same shape and only differ by their output range
 
 \begin{figure}[H]
   \centering
-  \includesvg[width=\textwidth]{activation/circuit}
+  \includesvg[width=\textwidth]{activation/afCircuit}
   \caption{Activation functions circuit}
   \label{fig:afCircuit}
 \end{figure}
@@ -60,8 +60,8 @@ TODO : Finish calc
 
 
 
-\subsection{Symbol}
-The symbol for both the sigmoid and \ac{tanh}
+\subsection{Symbols}
+The symbols for the sigmoid and the \ac{tanh} are separated for better understanding.
 
 \begin{figure}[H]
   \centering
@@ -70,7 +70,7 @@ The symbol for both the sigmoid and \ac{tanh}
   \hfill
   \subfloat[\ac{tanh} symbol]{\includesvg[height=2.5cm]{activation/tanhSymbol}}%
   \hspace*{0.8cm}
-  \caption{Activation functions symbols}
+  \caption{Activation functions symbols with the input pin on the left and the output pin on the right}
   \label{fig:afSymbol}
 \end{figure}
 
@@ -86,3 +86,5 @@ Note that the actual output of the circuit in figure \ref{fig:afCircuit} is inve
   \caption{Input/Output graph of the activation function circuit for both sigmoid and \ac{tanh} functions}
   \label{fig:afGraph}
 \end{figure}
+
+These functions are still a bit different from the original functions (especially for the \ac{tanh}). However that doesn't matter too much as the trainning will be happening within the final circuit, all weights will be set in the circuit. This is the reason why such a difference doesn't matter. As long as the curves have the similar shape, the result won't be drastically affected.
