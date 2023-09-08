@@ -28,12 +28,12 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="156.75"
-     inkscape:cy="135"
+     inkscape:cx="156.5"
+     inkscape:cy="135.25"
      inkscape:window-width="1920"
-     inkscape:window-height="1010"
-     inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg21808" />
   <defs
@@ -758,7 +758,7 @@
   </g>
   <g
      id="elements"
-     color="#48ab56">
+     color="#009970">
     <use
        xlink:href="#opamp"
        id="opamp0"

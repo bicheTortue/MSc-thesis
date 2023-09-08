@@ -2,22 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="100"
-   height="120"
-   viewBox="0 0 100 120"
+   width="102"
+   height="32"
+   viewBox="0 0 102 32"
    version="1.1"
-   id="svg21808"
+   id="svg1"
+   sodipodi:docname="cmos.svg"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
-   sodipodi:docname="invCircuit.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <style
-     id="style1451">&#10;.pin {&#10;fill:#000000;&#10;stroke:none;&#10;}&#10;</style>
   <sodipodi:namedview
-     id="namedview21810"
+     id="namedview1"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -26,83 +24,17 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     showgrid="false"
-     inkscape:zoom="4.0000004"
-     inkscape:cx="68.749993"
-     inkscape:cy="70.874993"
+     inkscape:zoom="5.7299664"
+     inkscape:cx="62.914854"
+     inkscape:cy="52.879891"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="1010"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg21808" />
+     inkscape:current-layer="svg1" />
   <defs
-     id="defs21805">
-    <symbol
-       id="gnd">
-      <title
-         id="title397">gnd</title>
-      <g
-         id="g406">
-        <line
-           x1="16"
-           x2="16"
-           y1="0"
-           y2="13"
-           stroke="currentColor"
-           id="line399" />
-        <line
-           x1="0"
-           x2="32"
-           y1="13"
-           y2="13"
-           stroke="currentColor"
-           id="line401" />
-        <line
-           x1="4"
-           x2="28"
-           y1="16.5"
-           y2="16.5"
-           stroke="currentColor"
-           id="line983" />
-        <line
-           x1="8"
-           x2="24"
-           y1="20"
-           y2="20"
-           stroke="currentColor"
-           id="line986-3" />
-        <line
-           x1="12"
-           x2="20"
-           y1="23.5"
-           y2="23.5"
-           stroke="currentColor"
-           id="line988-6" />
-      </g>
-    </symbol>
-    <symbol
-       id="vdd">
-      <title
-         id="title15494">vdd</title>
-      <g
-         id="g15498">
-        <line
-           x1="0"
-           x2="32"
-           y1="0"
-           y2="0"
-           stroke="currentColor"
-           id="line4799" />
-        <line
-           x1="16"
-           x2="16"
-           y1="0"
-           y2="15"
-           stroke="currentColor"
-           id="line4801" />
-      </g>
-    </symbol>
+     id="defs1">
     <symbol
        id="nmos">
       <title
@@ -261,72 +193,127 @@
   </defs>
   <g
      id="wires"
-     color="grey"
-     stroke-width="1"
-     stroke-linejoin="round">
+     color="#808080">
     <line
-       x1="36"
-       x2="36"
-       y1="64"
+       x1="22"
+       x2="30"
+       y1="2"
+       y2="2"
+       stroke="currentColor"
+       id="line25" />
+    <line
+       x1="22"
+       x2="30"
+       y1="30"
        y2="30"
        stroke="currentColor"
-       id="line15397"
-       style="display:inline" />
+       id="line1" />
+    <path
+       d="m 22,16 h 2 v 4 h 2 v 10"
+       id="path2"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 30,16 H 28 V 12 H 26 V 2"
+       id="path3"
+       fill="none"
+       stroke="currentColor" />
+    <circle
+       fill="currentColor"
+       stroke="none"
+       id="circle11"
+       cx="26"
+       cy="2"
+       r="2" />
+    <circle
+       fill="currentColor"
+       stroke="none"
+       id="circle1"
+       cx="26"
+       cy="30"
+       r="2" />
+    <circle
+       fill="currentColor"
+       stroke="none"
+       id="circle2"
+       cx="76"
+       cy="2"
+       r="2" />
+    <circle
+       fill="currentColor"
+       stroke="none"
+       id="circle3"
+       cx="76"
+       cy="30"
+       r="2" />
     <line
-       x1="56"
-       x2="56"
-       y1="50"
-       y2="44"
+       x1="72"
+       x2="80"
+       y1="2"
+       y2="2"
        stroke="currentColor"
-       id="line15399"
-       style="display:inline" />
+       id="line3" />
     <line
-       x1="24"
-       x2="36"
-       y1="47"
-       y2="47"
+       x1="72"
+       x2="80"
+       y1="30"
+       y2="30"
        stroke="currentColor"
-       id="line15401"
-       style="display:inline" />
+       id="line4" />
+    <path
+       d="m 72,16 h 2 v 4 h 2 v 10"
+       id="path4"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 80,16 H 78 V 12 H 76 V 2"
+       id="path5"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 50,16 h 2 -1 v 2"
+       id="path6"
+       fill="none"
+       stroke="currentColor" />
     <line
-       x1="56"
-       x2="68"
-       y1="47"
-       y2="47"
+       x1="2"
+       x2="0"
+       y1="16"
+       y2="16"
        stroke="currentColor"
-       id="line15403"
-       style="display:inline" />
-    <use
-       xlink:href="#gnd"
-       id="use15419"
-       transform="translate(40,78)" />
-    <use
-       xlink:href="#vdd"
-       id="use15706"
-       transform="translate(40,1)" />
+       id="line6" />
+    <line
+       x1="102"
+       x2="100"
+       y1="16"
+       y2="16"
+       stroke="currentColor"
+       id="line7" />
   </g>
   <g
-     id="elements"
+     id="g1"
      color="#009970">
     <use
        xlink:href="#nmos"
-       id="use26253"
-       transform="translate(34,48)" />
+       id="use1-7"
+       x="0"
+       y="0" />
     <use
        xlink:href="#pmos"
-       id="use6153"
-       transform="translate(34,14)" />
+       id="use1-6"
+       transform="scale(-1,1)"
+       y="0"
+       x="-52" />
+    <use
+       xlink:href="#nmos"
+       id="use1"
+       x="-102"
+       y="0"
+       transform="scale(-1,1)" />
+    <use
+       xlink:href="#pmos"
+       id="use2"
+       y="0"
+       x="50" />
   </g>
-  <text
-     x="24.000322"
-     y="50"
-     id="text1638"
-     text-anchor="end"
-     xml:space="default">$in$</text>
-  <text
-     x="68.00032"
-     y="50"
-     id="text7252"
-     text-anchor="begin"
-     xml:space="default">$out$</text>
 </svg>

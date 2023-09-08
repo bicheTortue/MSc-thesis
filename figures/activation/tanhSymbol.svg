@@ -43,10 +43,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="9.3098527"
-     inkscape:cx="23.14752"
-     inkscape:cy="12.674744"
+     inkscape:cx="23.093813"
+     inkscape:cy="12.621037"
      inkscape:document-units="px"
-     inkscape:current-layer="g4017"
+     inkscape:current-layer="svg2"
      width="10mm"
      height="20mm"
      units="mm"
@@ -60,9 +60,9 @@
      gridtolerance="10000"
      inkscape:grid-bbox="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1010"
-     inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
@@ -85,7 +85,7 @@
   </sodipodi:namedview>
   <g
      id="g4017"
-     color="#48ab56">
+     color="#009970">
     <line
        x1="2"
        x2="10"
