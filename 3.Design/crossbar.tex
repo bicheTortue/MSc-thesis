@@ -19,18 +19,23 @@ First of all, a design with two memristors per synapse has been used. This desig
 
 This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means it's conductance range is $\sigma \in [\sigma_{min},\sigma_{max}]$ (with $\sigma_{min}= \frac{1}{R_{max}}$ and $\sigma_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works.
 
+For the sake of simplicity, the following equations considers the ground to be $V_{cm}$.
 \begin{equation}
   \label{eq:doubleMem0}
-  V_{opAmp1}=-R\cdot i_+
+  V_{opAmp0}=-R\cdot i_+ \Leftrightarrow
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem1}
-  i_{R_f}=i_-+\frac{V_{opAmp1}}{R}=i_--i_+
+  i_{R_f}=i_-+\frac{V_{opAmp0}}{R}=i_--i_+
 \end{equation}
 With $i_{opAmp}=0A$ because we assume an ideal \ac{opamp}.
 \begin{equation}
   \label{eq:doubleMem2}
   V_{opAmp2}=V_{out}=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
+\end{equation}
+\begin{equation}
+  \label{eq:testdoubleMem2}
+  V_{cm}-V_{opAmp2}=R_f\cdot(i_--i_+) =R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
 \end{equation}
 With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdot x_k$.
 
