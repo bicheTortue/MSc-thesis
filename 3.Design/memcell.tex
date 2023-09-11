@@ -5,7 +5,7 @@ The memory cell is a circuit that is able to store an analog value for a limited
 
 \subsection{Circuit}
 
-The circuit is shown in figure \ref{fig:memcellCircuit}. The value/voltage is trapped in the capacitor using CMOS switches.
+The circuit is shown in figure \ref{fig:memcellCircuit}. The value/voltage is trapped in the capacitor using \ac{CMOS} switches.
 
 \begin{figure}[H]
   \centering
@@ -14,12 +14,12 @@ The circuit is shown in figure \ref{fig:memcellCircuit}. The value/voltage is tr
   \label{fig:memcellCircuit}
 \end{figure}
 
-The cirucit has a two CMOS switches design to avoid voltage leakage through the swicthes. The system has voltage leakage when only one CMOS swicth, and thus leads to a large memory leak. This is due to the high voltage difference between the two sides of the CMOS swicth. Using two CMOS switches allows for this difference to be mitigated (figure \ref{fig:memcellLoss}).
+The cirucit has a two \ac{CMOS} switches design to avoid voltage leakage through the swicthes. The system has voltage leakage when only one \ac{CMOS} swicth, and thus leads to a large memory leak. This is due to the high voltage difference between the two sides of the \ac{CMOS} swicth. Using two \ac{CMOS} switches allows for this difference to be mitigated (figure \ref{fig:memcellLoss}).
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memcell/data-loss}
-  \caption{Memory conservation in a memory cell with 1 CMOS switch vs 2 CMOS swicthes}
+  \caption{Memory conservation in a memory cell with 1 \ac{CMOS} switch vs 2 \ac{CMOS} swicthes}
   \label{fig:memcellLoss}
 \end{figure}
 
