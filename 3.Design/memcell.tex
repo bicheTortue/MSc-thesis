@@ -5,7 +5,7 @@ The memory cell is a circuit that is able to store an analog value for a limited
 
 \subsection{Circuit}
 
-The circuit is shown in figure \ref{fig:memcellCircuit}. The value/voltage is trapped in the capacitor using \ac{CMOS} switches.
+The circuit is shown in \cref{fig:memcellCircuit}. The value/voltage is trapped in the capacitor using \ac{CMOS} switches.
 
 \begin{figure}[H]
   \centering
@@ -14,7 +14,7 @@ The circuit is shown in figure \ref{fig:memcellCircuit}. The value/voltage is tr
   \label{fig:memcellCircuit}
 \end{figure}
 
-The cirucit has a two \ac{CMOS} switches design to avoid voltage leakage through the swicthes. The system has voltage leakage when only one \ac{CMOS} swicth, and thus leads to a large memory leak. This is due to the high voltage difference between the two sides of the \ac{CMOS} swicth. Using two \ac{CMOS} switches allows for this difference to be mitigated (figure \ref{fig:memcellLoss}).
+The cirucit has a two \ac{CMOS} switches design to avoid voltage leakage through the swicthes. The system has voltage leakage when only one \ac{CMOS} swicth, and thus leads to a large memory leak. This is due to the high voltage difference between the two sides of the \ac{CMOS} swicth. Using two \ac{CMOS} switches allows for this difference to be mitigated (\cref{fig:memcellLoss}).
 
 \begin{figure}[H]
   \centering
@@ -44,7 +44,7 @@ The symbol for this circuit is designed to show a capacitor because it is its me
 
 \subsection{Usage}
 
-This circuit is pretty straight forward, when the input enable pin is high (up to $V_{dd}$), then the first switch is open and the capacitor is being charged, if it is low, then the switch is closed and the capacitor keeps the voltage and thus the analog data. When the output enable is high, the buffer (appendix \ref{apsec:buffer}) forwards the voltage stored in the capactor to the output pin without emptying the capacitor.
+This circuit is pretty straight forward, when the input enable pin is high (up to $V_{dd}$), then the first switch is open and the capacitor is being charged, if it is low, then the switch is closed and the capacitor keeps the voltage and thus the analog data. When the output enable is high, the buffer (\cref{apsec:buffer}) forwards the voltage stored in the capactor to the output pin without emptying the capacitor.
 
 \begin{figure}[H]
   \centering

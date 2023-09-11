@@ -145,10 +145,6 @@
 % Set paragraph counter to alphanumeric mode
 \renewcommand{\theparagraph}{\Alph{paragraph}~--}
 
-\newcommand{\figref}[1]{Figure \ref{#1}}
-\newcommand{\equationref}[1]{Equation (\ref{#1})}
-\newcommand{\tableref}[1]{Table (\ref{#1})}
-
 \newcommand{\textreg}{$\textsuperscript{\textregistered}$}
 
 %Personnal Packages
@@ -157,3 +153,9 @@
 \usepackage{subcaption}
 \usepackage{tikz}
 \usepackage{tikz-timing}
+\usepackage{cleveref}
+%Change defaults for cleveref
+\crefname{figure}{figure}{figures}
+\Crefname{figure}{Figure}{Figures}
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}
