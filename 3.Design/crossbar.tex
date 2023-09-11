@@ -1,6 +1,56 @@
 \section{Crossbar circuit}
 \label{sec:xbarCircuit}
 
-The crossbar circuit has already been explained in the section \ref{sec:crossbar}. This section describes how the crossbar circuit is actually implemented.
+The crossbar circuit has already been explained in the section \ref{sec:crossbar}. This section describes how the crossbar circuit is actually implemented. The final circuit is the one in figure \ref{fig:xbarCircuit}.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{crossbar/crossbarUse}
+  \caption{Crossbar circuit used in the final system}
+  \label{fig:xbarCircuit}
+\end{figure}
+
+First of all, a design with two memristors per synapse has been used. This design is beneficial in two ways :
+
+\begin{itemize}
+  \item It doubles the range of weights
+  \item It allows to easily use negative weights
+\end{itemize}
+
+This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means it's conductance range is $\sigma \in [\sigma_{min},\sigma_{max}]$ (with $\sigma_{min}= \frac{1}{R_{max}}$ and $\sigma_{max}= \frac{1}{R_{min}}$). The use of a design such as the one specifically displayed if figure TODO. It works with two \ac{opAmp}.
+
+\begin{equation}
+  V_{opAmp1}=-R\cdot i_+
+\end{equation}
+\begin{equation}
+  i_{R_f}=i_-+\frac{V_{opAmp1}}{R}=i_--i_+
+\end{equation}
+With $i_{opAmp}=0A$ because we assume an ideal \ac{opamp}.
+\begin{equation}
+  V_{opAmp2}=V_{out}=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
+\end{equation}
+With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdot x_k$.
+
+In the previous equations, $x_k$ is the voltage for the input line $k$.
+
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \cline{2-3}
+    \rowcolor{gray}
+    \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}} & Two memristors per synapse & One memristor per synapse \\
+    \hline
+    Maximum weight & $\sigma_{max}-\sigma_{min}$ & $\sigma_{max} -\overline{\sigma}$\\
+    \hline
+    Minimum weight & $\sigma_{min}-\sigma_{max}$ & $\sigma_{min} -\overline{\sigma}$\\
+    \hline
+    Range & $2\cdot(\sigma_{max}-\sigma_{min})$&$\sigma_{max}-\sigma_{min}$\\
+    \hline
+  \end{tabular}
+  \caption{Synaptic weights precision (extracted from \cite{doubleMem})}
+  \label{tab:synapses}
+\end{table}
+
 
 Since the analog system is only simulated in the inference phase of the \ac{NN}, the resistance doesn't need to change during this phase. The weights only change during the training phase, and the resistances are just a rendition of the weights (section TODO : ref weigths to res)
