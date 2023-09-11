@@ -28,14 +28,14 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="4.0000004"
-     inkscape:cx="68.749993"
-     inkscape:cy="70.874993"
-     inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:cx="42.624996"
+     inkscape:cy="53.749995"
+     inkscape:window-width="1080"
+     inkscape:window-height="653"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg21808" />
+     inkscape:current-layer="wires" />
   <defs
      id="defs21805">
     <symbol
@@ -304,6 +304,20 @@
        xlink:href="#vdd"
        id="use15706"
        transform="translate(40,1)" />
+    <circle
+       id="circle2011"
+       cx="36"
+       cy="47"
+       r="2"
+       fill="currentColor"
+       stroke="none" />
+    <circle
+       id="circle1"
+       cx="56"
+       cy="47"
+       r="2"
+       fill="currentColor"
+       stroke="none" />
   </g>
   <g
      id="elements"
