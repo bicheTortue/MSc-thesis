@@ -6,7 +6,7 @@
 %% AUTHOR: Pedro Tomás
 %%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{01.thesis}[2011/08/23]
+\ProvidesClass{thesis}[2011/08/23]
 
 \typeout{}
 \typeout{--------------------------------------------------------------}
@@ -158,7 +158,7 @@
     \RequirePackage[ULforem,normalbf]{ulem}
     \RequirePackage{graphicx}
     \RequirePackage{epsf}
-    \RequirePackage[absolute]{00.Definitions/00.textpos}
+    \RequirePackage[absolute]{Definitions/textpos}
     \RequirePackage{helvet}
 
     %%%%%% SPECIAL INTERNAL COMMANDS.  Needed by later routines.
