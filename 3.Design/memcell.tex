@@ -5,13 +5,13 @@ The memory cell is a circuit that is able to store an analog value for a limited
 
 \subsection{Circuit}
 
-The circuit is shown in \cref{fig:memcellCircuit}. The value/voltage is trapped in the capacitor using \ac{CMOS} switches.
+The circuit is shown in \cref{circt:memcell}. The value/voltage is trapped in the capacitor using \ac{CMOS} switches.
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memcell/memCircuit}
   \caption{Memory cell circuit}
-  \label{fig:memcellCircuit}
+  \label{circt:memcell}
 \end{figure}
 
 The cirucit has a two \ac{CMOS} switches design to avoid voltage leakage through the swicthes. The system has voltage leakage when only one \ac{CMOS} swicth, and thus leads to a large memory leak. This is due to the high voltage difference between the two sides of the \ac{CMOS} swicth. Using two \ac{CMOS} switches allows for this difference to be mitigated (\cref{fig:memcellLoss}).
@@ -39,7 +39,7 @@ The symbol for this circuit is designed to show a capacitor because it is its me
   \centering
   \includesvg[height=2.5cm]{memcell/memcellSymbol}
   \caption{Memory cell symbol with the input pin (left), the output pin (right), the input enable pin (top) and the output enable pin (bottom)}
-  \label{fig:memcellCircuit}
+  \label{circt:memcell}
 \end{figure}
 
 \subsection{Usage}
