@@ -21,19 +21,21 @@ It uses physical properties of electrical systems to perform analog computing. L
   \label{fig:crossNode}
 \end{figure}
 
-First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance of $R$, is $V_i$. As such and using Ohm's law, we know the the current flowing into the memristor is bound by the following equation :
+First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance $R_i$, is $V_i$. As such and using Ohm's law, we know the the current flowing into the memristor ($I_{mem}$) is bound by the following equation :
+
 \begin{equation}
-  V_i = R\cdot I_{mem} \implies I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot G
+  V_i = R\cdot I_{mem} \Rightarrow I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot\sigma_i
 \end{equation}
-With $G$ being the conductance of memristor.
-This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to kirchhoff's law the resulting current is :
+With $\sigma_i$ being the conductance of memristor, defined as $\sigma_i=\frac{1}{R_i}$.
+
+This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to kirchhoff's current law the resulting current is :
 \begin{equation}
-  I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot G
+  I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot\sigma_i
 \end{equation}
 By applying this process to the whole system we find that the current as the bottom of one column is :
 \begin{equation}
-  I_1=G_1\cdot V_1 + G_2\cdot V_2 + G_3\cdot V_3
+  I_1=\sigma_1\cdot V_1 + \sigma_2\cdot V_2 + \sigma_3\cdot V_3
 \end{equation}
-With $G_1$, $G_2$ and $G_3$ being the conductance of the 3 memristors in the first column.
+With $\sigma_1$, $\sigma_2$ and $\sigma_3$ being the conductance of the 3 memristors in the first column.
 
-This analog circuit removes the need to copy data from a main memory as the memristors themselves hold the value and the weights are then stored where the computation happens.
+This analog circuit removes the need to copy data from a main memory as the memristors themselves hold the value and the weights are then stored where the computation happens.%TODO elaborate
