@@ -5,14 +5,14 @@ Due to a lack of time, some of the more common component were not designed by me
 
 \subsection{Operational amplifier}
 
-This component is the very famous \ac{opAmp}. I didn't design a specific \ac{opAmp} because of the current range of the system I'm trying to build.
+This component is the very famous \ac{opAmp}. This specific component wasn't designed for the thesis, it required a current range that didn't allow to use ones already made by members of the research group. The choice was then to use a verilog-A model, and then design one if time permits it.
 
 This is the code (figure TODO : in annex) of a perfect \ac{opAmp}. TODO : more description.
 TODO : add symbol.
 
 \subsection{Voltage multiplier}
 
-This component while a bit less popular than the latter, is just as useful for our specific use. It allows us to multiply, as its name implies, two voltages. It is used to compute the pointwise multiplications of the \ac{LSTM} (\cref{fig:lstmCell}).
+This component while far less popular than the latter, is just as useful for our specific use. It allows us to multiply, as its name implies, two voltages. It is used to compute the pointwise multiplications of the \ac{LSTM} (\cref{fig:lstmCell}).
 
 It must follow the following equation :
 
@@ -22,11 +22,11 @@ It must follow the following equation :
 
 Where $V_{out}$ is the output voltage of the circuit and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
 
-However, the output of the voltage multiplier needs to be ajusted after because of the voltage value of a unit. Indeed, we need to have $1\cdot 1=1$, but if we set $V_{in_1}=V_{in_2}=1V$, we would find $V_{out}=0.91V$. To fix this issue, a small circuit added following the output of the voltage multiplier, this circuit needs to do the following :
+However, the output of the voltage multiplier needs to be ajusted after because of the voltage value of a unit. Indeed, we need to have $1\cdot 1=1$, but if we set $V_{in_1}=V_{in_2}=1V$, we would find $V_{out}=0.91V$. To fix this issue, a small circuit has to be added following the output of the voltage multiplier, this circuit needs to do the following :
 
 \begin{equation}
   V_{amp}=(V_{out}-V_{cm})\cdot10+V_{cm}
 \end{equation}
 
 Where $V_{amp}$ is the output of the amplificator and $V_{out}$ is the output of the voltage multiplier and the input of the amplifier circuit.
-This circuit is shown in appendix \ref{apsec:amp}.
+This circuit is shown in \cref{apsec:amp}.
