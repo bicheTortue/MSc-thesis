@@ -1,14 +1,23 @@
 \section{Voltage-driven crossbar circuit}
 \label{sec:xbarCircuit}
 
-The crossbar circuit theory has already been explained in the \cref{sec:crossbar}. This section describes how the crossbar circuit is actually implemented. The final circuit is the one in \cref{circt:xbar}.
+The crossbar circuit theory has already been explained in the \cref{sec:crossbar}. This section describes how the crossbar circuit is actually implemented. The final circuit is the one in \cref{circt:xbar}. The circuit depends on three parameters :
+\begin{itemize}
+  \item $n_i$ : The number of input for our crossbar array (not including bias for a more general circuit).
+  \item $n_o$ : The number of parallel output for our crossbar array.
+  \item $n_s$ : The serial size of our crossbar system.
+\end{itemize}
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{crossbar/crossbarUse}
-  \caption{Crossbar circuit used in the final system}
+  \caption{Simplified circuit of a crossbar array ($n_i$, $n_o$, $n_s$)}
   \label{circt:xbar}
 \end{figure}
+
+The parallel and serial are explained later (\cref{subsec:serpar}).
+
+The enable flags ($e_j,\forall j\in[\![ 0,n_s]\!]$ and similarly $\overline{e_j}$) are there to show when the \ac{CMOS} switches are open, the states of those flags is shown in \cref{tim:serpar}.
 
 \subsection{Two memristors per synapse}
 
@@ -59,6 +68,7 @@ In \cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2}, $x_k$ is the voltage for th
 \end{table}
 
 \subsection{Serialization/Parallelization}
+\label{subsec:serpar}
 
 The idea using the system in a serial mode came from \cite{thesisRef}. The principle of this system is to save onChip area by reducing the number of \ac{opAmp} required. It also, and mainly reduces the point wise part of the \ac{LSTM} circuit.
 
@@ -73,6 +83,27 @@ However, in both cases, the overall onChip area increases with a factor of $O(n_
 
 That leads to the conclusion that the best thing to do is use a both serialized and parallel system, using the limiting inference time for our system to set the maximum serial size. Depending on the system we're using this circuit for, we might have different time requirements.
 
+\begin{figure}[H]
+  \centering
+  \begin{tikztimingtable}%TODO change or find other way
+    Input data & x6D{$x_1$}6D{$x_2$}6D{$x_3$}x \\
+    Input enable & xL2H2L3H7L2HLx\\
+    Output enable & x3L2H4L5H1L3Hx\\
+    Memory & xU4D{$x_1$}10D{$x_2$}3D{$x_3$}x \\
+    Output data & x3U2D{$x_1$}4U5D{$x_2$}U3D{$x_3$}x \\
+    \extracode
+    \tablerules
+    %\draw (0,0) circle (2pt); % Origin
+    \begin{pgfonlayer}{background}
+      \vertlines[help lines]{0.6,18.6}
+      %\vertlines[red]{1.6,5.6,15.6}
+      %\vertlines[blue]{3.6,9.6,15.6}
+    \end{pgfonlayer}
+  \end{tikztimingtable}
+  \caption{Time diagram that shows the states of the enable flags for the crossbar circuit}
+  \label{tim:serpar}
+\end{figure}
+
 %TODO understand better \subsection{Sneak path problem}
 \subsection{Symbol}
 This is the symbol defined for the voltage based memristor crossbar array used in this thesis for a better undertsanding of the future circuits. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
@@ -85,7 +116,7 @@ The total onChip area for the crossbar circuit depends on the previously defined
   A_{xbar}(n_i,n_o,n_s)=2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s +n_o\cdot(2\cdot[A_{opAmp}+A_R]+A_{R_f})
 \end{equation}
 
-With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A_{CMOS}=1.2\cdot 10^{-14}m^2$, and the feature size of typical memristor that can be fabricated at INESC is $2\mu m$, which would make the approximate area for a memristor $A_{memristor}=4\mu m^2=4\cdot 10^{-12} m^2$.%TODO check info and inesc citation
+With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A_{CMOS}=1.2\cdot 10^{-14}m^2$, and the feature size of typical memristor that can be fabricated at INESC is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$.%TODO check info and inesc citation
 
 \subsection{Usage}
 
