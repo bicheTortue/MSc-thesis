@@ -10,5 +10,5 @@ diapos:
 	find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && make pdf" \;
 
 clean:
-	find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && make clean" \;
+	git clean -Xdf
 
