@@ -11,7 +11,7 @@ The crossbar circuit theory has already been explained in the \cref{sec:crossbar
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{crossbar/crossbarUse}
-  \caption{Simplified circuit of a crossbar array ($n_i$, $n_o$, $n_s$)}
+  \caption{Circuit of the crossbar array used in the final system ($n_i$, $n_o$, $n_s$)}
   \label{circt:xbar}
 \end{figure}
 
@@ -28,9 +28,18 @@ First of all, a two memristors per synapse architecture has been used. This desi
   \item It allows to easily use negative weights, as this design simply allows the output values to be centered around $V_{cm}$ to be compliant with the standard set in \cref{tab:valConv}.
 \end{itemize}
 
-This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means it's conductance range is $\sigma \in [\sigma_{min},\sigma_{max}]$ (with $\sigma_{min}= \frac{1}{R_{max}}$ and $\sigma_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works.
+This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means it's conductance range is $\sigma \in [\sigma_{min},\sigma_{max}]$ (with $\sigma_{min}= \frac{1}{R_{max}}$ and $\sigma_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
 
-% For the sake of simplicity, the following equations considers the ground to be $V_{cm}$.
+\begin{figure}[H]
+  \centering
+  \includesvg[height=8cm]{crossbar/doubleMem}
+  \caption{Simplified circuit of a double memristor per synapse architecture}
+  \label{circt:doubleMem}
+\end{figure}
+
+With $x_k$ being the voltage for the input line $k$. The highest \ac{opAmp} is identified as opamp0 and the lowest opamp1.
+
+For the sake of simplicity, the following equations considers the ground to be $V_{cm}$.
 
 \begin{equation}
   \label{eq:doubleMem0}
@@ -43,11 +52,10 @@ This design is the one that is used in \cite{doubleMem}. Let's assume that a giv
 With $i_{opAmp}=0A$ because we assume an ideal \ac{opamp}.
 \begin{equation}
   \label{eq:doubleMem2}
-  V_{opAmp2}=V_{out}=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
+  V_{opAmp2}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
 \end{equation}
 With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdot x_k$.
 
-In \cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2}, $x_k$ is the voltage for the input line $k$.
 
 \begin{table}[H]
   \centering
@@ -83,24 +91,24 @@ However, in both cases, the overall onChip area increases with a factor of $O(n_
 
 That leads to the conclusion that the best thing to do is use a both serialized and parallel system, using the limiting inference time for our system to set the maximum serial size. Depending on the system we're using this circuit for, we might have different time requirements.
 
+The \ac{CMOS} switches are here to open the necessary input gates when the output is required, the gates are controlled as in \cref{tim:serpar}.
 \begin{figure}[H]
   \centering
   \begin{tikztimingtable}%TODO change or find other way
-    Input data & x6D{$x_1$}6D{$x_2$}6D{$x_3$}x \\
-    Input enable & xL2H2L3H7L2HLx\\
-    Output enable & x3L2H4L5H1L3Hx\\
-    Memory & xU4D{$x_1$}10D{$x_2$}3D{$x_3$}x \\
-    Output data & x3U2D{$x_1$}4U5D{$x_2$}U3D{$x_3$}x \\
+    $e_0$ & xH3Lx\\
+    $e_1$ & xLH2Lx\\
+    $e_2$ & x2LHLx\\
+    $e_3$ & x3LHx\\
     \extracode
     \tablerules
     %\draw (0,0) circle (2pt); % Origin
     \begin{pgfonlayer}{background}
-      \vertlines[help lines]{0.6,18.6}
+      \vertlines[help lines]{0.6,4.6}
       %\vertlines[red]{1.6,5.6,15.6}
       %\vertlines[blue]{3.6,9.6,15.6}
     \end{pgfonlayer}
   \end{tikztimingtable}
-  \caption{Time diagram that shows the states of the enable flags for the crossbar circuit}
+  \caption{Example of enable flags timing with $n_s=4$ in a single time step}
   \label{tim:serpar}
 \end{figure}
 
