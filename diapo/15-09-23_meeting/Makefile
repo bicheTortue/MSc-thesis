@@ -4,18 +4,13 @@ BIB = bibtex
 # OUTPUT = template1
 OUTPUT=$(shell basename ${PWD})
 
-OPTIONS = -shell-escape -halt-on-error -jobname=${OUTPUT} -output-directory=..
+OPTIONS = -shell-escape -halt-on-error
 
-panel: pdf
-	evince ../${OUTPUT}.pdf &
-
-pdf: compile clean
 
 compile:
-	-${TEX} ${OPTIONS} main.tex
-	#${BIB} ../${OUTPUT} # Maybe in later update
-	-${TEX} ${OPTIONS} main.tex
-	-${TEX} ${OPTIONS} main.tex
+	latexmk -pvc -f -pdf -jobname=${OUTPUT} -output-directory=.. -pdflatex='pdflatex ${OPTIONS}' -interaction=nonstopmode -synctex=1 ${NAME}.tex
+
+pdf: compile clean
 
 clean:
 	rm -f ../${OUTPUT}.aux
