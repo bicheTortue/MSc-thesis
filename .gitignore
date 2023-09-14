@@ -20,3 +20,4 @@
 *.maf
 *.pdf
 svg-inkscape
+*synctex*
