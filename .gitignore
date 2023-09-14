@@ -18,6 +18,7 @@
 *.mtc*
 *.los
 *.maf
+*.snm
 *.pdf
 svg-inkscape
 *synctex*
