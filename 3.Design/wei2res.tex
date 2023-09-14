@@ -2,3 +2,47 @@
 \label{sec:wei2res}
 
 This chapter will contain all the information on the weight conversion to a resistance value.
+
+The weight to resistances equations has been found using simple math.
+
+\begin{equation}
+  \label{eq:wei2res0}
+  w=R_f\cdot(\sigma_+-\sigma_-)=\frac{R_f}{R_+}-\frac{R_f}{R_-}
+\end{equation}
+First, we know from \cref{eq:doubleMem2} that the weight is represented by \cref{eq:wei2res0}. This means that the weights are limited in values to :
+
+\begin{itemize}
+  \item $w_{max}=R_f\cdot(\sigma_{max}-\sigma_{min})$
+  \item $w_{min}=-w_{max}=R_f\cdot(\sigma_{min}-\sigma_{max})$
+\end{itemize}
+
+For the rest of this chapter we consider that $R_f$ is set to the middle point of $R_{max}$ and $R_{min}$ meaning that $R_f=\frac{R_{min}+R_{max}}{2}$.
+
+Since we only have one equation (\cref{eq:wei2res0}) for 2 unknowns ($R_+$ and $R_-$), we need to set a second equation. This is done by centering the resistances around $R_f$, this means that \cref{eq:wei2res1} is the second equation, that makes our problem now solvable.
+%TODO explain how in future work the weight doesn't have to be centered around R_f, to gain time only one of the two resistance could change
+\begin{equation}
+  \label{eq:wei2res1}
+  R_f=\frac{R_-+R_+}{2}
+\end{equation}
+\begin{equation}
+  \label{eq:wei2res01}
+  \begin{cases}
+    w=\frac{R_f}{R_+}-\frac{R_f}{R_-}\\
+    R_f=\frac{R_-+R_+}{2}
+  \end{cases}
+\end{equation}
+
+By solving \cref{eq:wei2res01}, we find the \cref{eq:wei2res2} that gives the values for $R_-$ and $R_+$. All the steps for solving the equations can be found in .%TODO solve equations in appendix
+
+The real value to voltage conversion (\cref{tab:valConv}) doesn't affect this part of the system as the crossbar array already works in voltages. Placing $w$ from \cref{eq:wei2res0} in \cref{eq:doubleMem2} would not change the result.
+
+\begin{equation}
+  \label{eq:wei2res2}
+  \begin{cases}
+    R_+= (w+1-\sqrt{w^2+1})\cdot\frac{R_f}{w}\\
+    R_-=2\cdot R_f -R_+
+  \end{cases}
+\end{equation}
+
+For the thesis, this step is done in python (TODO show function). Since the resistance resolution is of about%TODO check memristor precision
+, the python code then reproduces this by limiting the amount of significant digit of the resistance.

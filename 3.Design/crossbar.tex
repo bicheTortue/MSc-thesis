@@ -1,6 +1,8 @@
 \section{Voltage-driven crossbar circuit}
 \label{sec:xbarCircuit}
 
+Since we only have one equation
+
 The crossbar circuit theory has already been explained in the \cref{sec:crossbar}. This section describes how the crossbar circuit is actually implemented. The final circuit is the one in \cref{circt:xbar}. The circuit depends on three parameters :
 \begin{itemize}
   \item $n_i$ : The number of input for our crossbar array (not including bias for a more general circuit).
@@ -20,6 +22,7 @@ The parallel and serial are explained later (\cref{subsec:serpar}).
 The enable flags ($e_j,\forall j\in[\![ 0,n_s]\!]$ and similarly $\overline{e_j}$) are there to show when the \ac{CMOS} switches are open, the states of those flags is shown in \cref{tim:serpar}.
 
 \subsection{Two memristors per synapse}
+\label{subsec:doubleMem}
 
 First of all, a two memristors per synapse architecture has been used. This design is beneficial in two ways :
 
