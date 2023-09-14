@@ -114,9 +114,14 @@ The \ac{CMOS} switches are here to open the necessary input gates when the outpu
 
 %TODO understand better \subsection{Sneak path problem}
 \subsection{Symbol}
-This is the symbol defined for the voltage based memristor crossbar array used in this thesis for a better undertsanding of the future circuits. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
+The symbol (\cref{sym:xbar}) defined for the voltage based memristor crossbar array used in this thesis is more compact and helps the readability of the final circuit. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
 
-%TODO : include figure
+\begin{figure}[H]
+  \centering
+  \includesvg[height=2.5cm]{crossbar/xbarSymbol}
+  \caption{Symbol used for the crossbar array}
+  \label{symb:xbar}
+\end{figure}
 
 The total onChip area for the crossbar circuit depends on the previously defined parameters.
 
