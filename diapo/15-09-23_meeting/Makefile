@@ -12,7 +12,7 @@ compile:
 pdf: compile clean
 
 clean:
-	git clean -Xdf
+	git clean -Xdf ..
 
 cleanAll: clean
 	rm -f ../${OUTPUT}.pdf
