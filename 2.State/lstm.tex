@@ -18,7 +18,7 @@ An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they h
   \label{fig:lstmCell}
 \end{figure}
 
-Figure \ref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a tanh or a sigmoid activation function. Each input to the cell is a vector.
+\Cref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a tanh or a sigmoid activation function. Each input to the cell is a vector.
 Those vector are of varying sizes depending on several factors. For example, both $h_t$ and $c_t$ are of the same size as the number of hidden state (sometimes refered to as cell state) for any $t\geq 0$.
 The input vector ($x_t$) is of size of the sample we want to feed for each time step.
 
@@ -26,7 +26,7 @@ The input vector ($x_t$) is of size of the sample we want to feed for each time 
 
 The equations of an LSTM are quite unusual.
 Let's start with the more classic gate equations. They are the ones that behave like the more classic \ac{NN}.
-The input (equation \ref{eq:inputG}), forget (equation \ref{eq:forgetG}) and ouput (equation \ref{eq:ouputG}) gates are described below.
+The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and ouput (\cref{eq:ouputG}) gates are described below.
 
 \begin{equation}\label{eq:inputG}
   i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}] + b_i)
@@ -40,7 +40,7 @@ The input (equation \ref{eq:inputG}), forget (equation \ref{eq:forgetG}) and oup
 
 Where ($w_i$,$b_i$), ($w_f$,$b_f$) and ($w_o$,$b_o$) are the pair of weights and biases for the input, forget and ouput gates respectively. $x_t$ is the input vector and $h_t$ is the hidden state vector.
 
-For the next equation describes the candidate cell state (equation \ref{eq:candCell}), that will next become the cell state (equation \ref{eq:cellS}).
+For the next equation describes the candidate cell state (\cref{eq:candCell}), that will next become the cell state (\cref{eq:cellS}).
 
 \begin{equation}\label{eq:candCell}
   \tilde{c}_t=tanh(w_c\cdot[x_{t-1},h_{t-1}] + b_c)
@@ -51,7 +51,7 @@ For the next equation describes the candidate cell state (equation \ref{eq:candC
 
 Where $w_c$ and $b_c$ are the weights and bias for the candidate cell state.
 
-The final step of the \ac{LSTM} is to compute the hidden state (equation \ref{eq:hiddenS}).
+The final step of the \ac{LSTM} is to compute the hidden state (\cref{eq:hiddenS}).
 \begin{equation}\label{eq:hiddenS}
   h_t=o_t\cdot tanh(c_t)
 \end{equation}
