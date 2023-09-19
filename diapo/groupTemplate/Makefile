@@ -15,8 +15,7 @@ compile:
 pdf: compile clean
 
 clean:
+	git clean -Xdf -e "\!*.pdf" ..
+
+cleanAll:
 	git clean -Xdf ..
-
-cleanAll: clean
-	rm -f ../${OUTPUT}.pdf
-

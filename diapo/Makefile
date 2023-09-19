@@ -10,5 +10,5 @@ diapos:
 	find . -maxdepth 1 -type d \( ! -name . \) -exec bash -c "cd '{}' && make pdf" \;
 
 clean:
-	git clean -Xdf
+	git clean -Xdf -e "\!*.pdf"
 
