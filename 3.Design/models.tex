@@ -5,10 +5,14 @@ Due to a lack of time, some of the more common component were not designed by me
 
 \subsection{Operational amplifier}
 
-This component is the very famous \ac{opAmp}. This specific component wasn't designed for the thesis, it required a current range that didn't allow to use ones already made by members of the research group. The choice was then to use a verilog-A model, and then design one if time permits it.
+This component is the very famous \ac{opAmp}. This specific component wasn't designed for the thesis, it required a current range that didn't allow to use ones already made by members of the research group. The choice was then to use a verilog-A model, and then design one if time allows it.
 
-This is the code (figure TODO : in annex) of a perfect \ac{opAmp}. TODO : more description.
-TODO : add symbol.
+\begin{equation}
+  \label{eq:opAmp}
+  V_{out}=\mu \cdot (V_+-V_-)
+\end{equation}
+
+\Cref{eq:opAmp} is the equation used in the verilog-A model. It makes it so it behaves like an ideal \ac{opAmp}.
 
 \subsection{Voltage multiplier}
 
@@ -30,3 +34,20 @@ However, the output of the voltage multiplier needs to be ajusted after because 
 
 Where $V_{amp}$ is the output of the amplificator and $V_{out}$ is the output of the voltage multiplier and the input of the amplifier circuit.
 This circuit is shown in \cref{apsec:amp}.
+
+\subsection{Symbols}
+
+The symbols for those two components are the ones in \cref{sym:models}.
+
+\begin{figure}[H]
+  \centering
+  \hspace*{2cm}
+  \subfloat[\ac{opAmp}'s symbol\label{sym:opAmp}]{\includesvg[height=2.5cm]{models/opAmpSymbol}}%
+  \hfill
+  \subfloat[Voltage multiplier's symbol\label{sym:voltMult}]{\includesvg[height=2.5cm]{models/voltMultSymbol}}%
+  \hspace*{2cm}
+  \caption{Symbols used for the verilog-A components}
+  \label{sym:models}
+\end{figure}
+
+The \ac{opAmp} uses its classic symbol (\cref{sym:opAmp}) while the voltage multiplier uses a custom symbol (\cref{sym:voltMult}).
