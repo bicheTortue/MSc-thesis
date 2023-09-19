@@ -6,12 +6,12 @@ In order to be able to run the simulation with different kinds of \ac{NN} archit
 This is done by generating a SPICE netlist using a python script. This script takes in a few parameters :
 
 \begin{itemize}
-\item The first parameter is the number of input we use our system. This is the size of the input vector ($x_t$) from \cref{fig:lstmCell}.
-\item The next parameter is the number of time steps. Everything about the \ac{LSTM} time steps is all explained in \cref{sec:lstm}.
-\item The number of hidden state of the \ac{LSTM} network.
-\item The serial size of the crossbar arrays, as described in \cref{sec:xbarCircuit}, used in the \ac{LSTM} network.
-\item The files containing the weights for each part of the circuit. The weights in the files have to be organized using the following model. %TODO
-\item Finally the name of the file in which the output of the script (the netlist) will be written to.
+  \item The first parameter is the number of input we use our system. This is the size of the input vector ($x_t$) from \cref{fig:lstmCell}.
+  \item The next parameter is the number of time steps. Everything about the \ac{LSTM} time steps is all explained in \cref{sec:lstm}.
+  \item The number of hidden state of the \ac{LSTM} network.
+  \item The serial size of the crossbar arrays, as described in \cref{sec:xbarCircuit}, used in the \ac{LSTM} network.
+  \item The files containing the weights for each part of the circuit. The weights in the files have to be organized using the following model. %TODO
+  \item Finally the name of the file in which the output of the script (the netlist) will be written to.
 \end{itemize}
 
 

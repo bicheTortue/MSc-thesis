@@ -134,6 +134,8 @@ With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A
 
 \subsection{Usage}
 
-TODO Show off results
+%TODO Show off results ??
 
-The analog system is only simulated in the inference phase of the \ac{NN}. And since the weights only change during the training phase, and the resistances are just a rendition of the weights (TODO : ref weigths to res), the resistances don't need to change, the circuit used in the simulations is thus using resistors instead of memristors for the sake of simplicity (notably in generating the netlist of the system, TODO ref how hard it is to import parameters using spice netlists).
+The crossbar system, and in a more general manner, the entire system will require an external controller to control the enable flags that are required in the system. Adding such a system will increase the power consumption of the overall system. However, due to the slow (precision of about $1\mu s$) nature of those signals, the controller will be very low power, and won't change the overall power consumption of the final system.%TODO maybe move to final circuit
+
+The analog system is only simulated in the inference phase of the \ac{NN}. And since the weights only change during the training phase, and the resistances are just a rendition of the weights (\cref{sec:wei2res}), the resistances don't need to change, the circuit used in the simulations is thus using resistors instead of memristors for the sake of simplicity, as importing resistors are way easier to import in Cadence's virutoso.
