@@ -38,4 +38,9 @@ By applying this process to the whole system we find that the current as the bot
 \end{equation}
 With $\sigma_1$, $\sigma_2$ and $\sigma_3$ being the conductance of the 3 memristors in the first column.
 
-This analog circuit removes the need to copy data from a main memory as the memristors themselves hold the value and the weights are then stored where the computation happens.%TODO elaborate
+Using such an analog circuit is a huge gain in time, for two main reasons :
+
+\begin{itemize}
+  \item This circuit being an analog it allows for analog computations which are much faster than their digital counter parts. As explained in this section, the circuit only uses physical properties of the different components and can compute large \acp{VMM} in a very short amount of time.
+  \item The other advantage of such a system is the use of the memristors, that make the need to copy data from another memory useless as the memristors have a long term memory themselves. This is one of the ways to break down the Von Neumann bottleneck.
+\end{itemize}
