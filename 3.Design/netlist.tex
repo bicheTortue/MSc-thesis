@@ -10,9 +10,13 @@ This is done by generating a SPICE netlist using a python script. This script ta
   \item The next parameter is the number of time steps. Everything about the \ac{LSTM} time steps is all explained in \cref{sec:lstm}.
   \item The number of hidden state of the \ac{LSTM} network.
   \item The serial size of the crossbar arrays, as described in \cref{sec:xbarCircuit}, used in the \ac{LSTM} network.
-  \item The files containing the weights for each part of the circuit. The weights in the files have to be organized using the following model. %TODO
+  \item The files containing the weights for each part of the circuit. The weights in the files have to be organized using a specific model (\cref{subsec:weiStore}).
   \item Finally the name of the file in which the output of the script (the netlist) will be written to.
 \end{itemize}
+
+\subsection{Weights storage}\label{subsec:weiStore}
+
+The weights are stored in a single file that is the save a numpy array. The first dimension contains the weights for the different layers. Depending on the layer used, the weights are stored a bit differently :
 
 
 All the code can be found on my github page \cite{lstmGen}.

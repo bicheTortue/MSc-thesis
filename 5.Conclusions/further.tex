@@ -11,8 +11,8 @@ This means designing both an \ac{opAmp} for the current flowing through the circ
 Of course the first thing that comes to mind to improve the system and making it actually usable for a real world application would be doing inSitu training. Training within the analog system would mean implementing the backpropagation algorithm. Here, two options are available :
 
 \begin{itemize}
-\item The easiest option would be to use the external controller (\cref{sec:fullSys}) to make the backprogation computation needed. This is not the best option, as the backpropagation would be happening in digital. This digital computation would have to happen as fast as the analog computation and thus a much faster controller would be required, meaning a bigger power consumption.
-\item The ideal way of implementing the backpropagation would be using an analog system similar to the one that is used for the inference. This would still mean having a controller to change the internal resistance of the memristors, this version would require a slower clock and making the controller lower powered. Using an analog implementation might also harm the system, as the backpropagation algorithm will probably be simpler and reduce the efficiency of the system.
+  \item The easiest option would be to use the external controller (\cref{sec:fullSys}) to make the backprogation computation needed. This is not the best option, as the backpropagation would be happening in digital. This digital computation would have to happen as fast as the analog computation and thus a much faster controller would be required, meaning a bigger power consumption.
+  \item The ideal way of implementing the backpropagation would be using an analog system similar to the one that is used for the inference. This would still mean having a controller to change the internal resistance of the memristors, this version would require a slower clock and making the controller lower powered. Using an analog implementation might also harm the system, as the backpropagation algorithm will probably be simpler and reduce the efficiency of the system.
 \end{itemize}
 
 Figure out how to change the values of the weights for the inSitu training. Different from \cref{sec:wei2res}.
@@ -28,3 +28,7 @@ Once the training is fully implemented in an analog computer, the next step woul
 This would allow to have a real time results and not having to retake the same inputs several times. Basically it would be like %TODO Make graphs
 
 This might be something that already exist that I didn't find anything about.
+
+\subsection{Netlist generator script}
+
+A big upgrade to make would be to have a completly customizable script that works similarly to tensorflow.
