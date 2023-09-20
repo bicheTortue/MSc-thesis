@@ -3,7 +3,7 @@
 
 Memristors are the lesser known fourth fundamental passive component of electronics, among resistors, capacitors and inductor.
 It was first theorized in 1971 by L. Chua from UC Berkeley, in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
-The theory behind the component was extracted from a missing component to link the fundamental circuit variables. In figure \ref{fig:fundComp}, the four fundamental variables are on each side of the square, with the ones on opposite sides being linked as shown in the following equations :
+The theory behind this component was extracted from a missing component to link the four fundamental circuit variables, voltage ($v$), charge ($q$), current ($i$) and flux ($\phi$). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
 \begin{equation}
   d\phi = v\cdot dt
 \end{equation}
@@ -11,8 +11,9 @@ The theory behind the component was extracted from a missing component to link t
 \begin{equation}
   dq = i\cdot dt
 \end{equation}
-Resistors, capacitors and inductors were already discovered and well known, so it was theorized that a fourth device should then exists to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=V\cdot dt \implies \phi =  \int V(t) \,dt  $.\\
-The component stayed theoretical until 2008 when it's been implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to actually have a working device.\\
+
+Resistors, capacitors and inductors were already very established and well known component, so it was theorized that a fourth device should then exists to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=V\cdot dt \Rightarrow \phi =  \int V(t) \,dt  $.\\
+The component stayed theoretical until 2008 when it's been implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to have an actual working device.\\
 There is then an extention of this theoretical device to another, the memristive device. It was theorized in 1976 by L. Chua and S. M. Kang \cite{memrestiveDev}. The difference between the memristor and the memristive device is its internal behavior. Memristive device are commonly referred to as memristor as well.
 
 \begin{figure}[H]
@@ -49,8 +50,9 @@ Once again, we can also define the memristive device using a memductance :
 In all of the previous equations, $v$ is the voltage in Volt ($V$), $i$ is the current in Ampere ($A$), $\phi$ is the flux in Weber ($Wb$), $q$ is the charge in Coulomb ($C$), $M$ is the memristance in Ohm ($\Omega$) and $W$ is the memductance in Siesmens ($S$ or $\Omega^{-1}$).
 
 \subsection{Behavior}
+
 A memristor is defined as a non-linear two-terminal fundamental electrical component. It behaves as a resistance with memory (hence its name), meaning that it changes its resistance based on how much charge went through it. This enables us to manipulate the resistance of the component.
-The huge benefit of memristors is the memory component, when you power it, it will have the resistance it had before.
+The huge benefit of memristors its ability to retain its internal resistance, the device can left without power for a long period of time (retention time of minimum 10 years according to \cite{memRetention}). When the device is powered backup, it will have the same resistance it had before.
 
 Memristive devices have a similar behavior, the memristive device's resistance will change depending on the internal state ($x$). That internal state changes based on how much and how long voltage signals or currents are applied to the memristive device.
 
