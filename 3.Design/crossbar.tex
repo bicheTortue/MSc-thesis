@@ -2,6 +2,7 @@
 \label{sec:xbarCircuit}
 
 The crossbar circuit theory has already been explained in the \cref{sec:crossbar}. This section describes how the crossbar circuit is actually implemented. The final circuit is the one in \cref{circt:xbar}. The circuit depends on three parameters :
+
 \begin{itemize}
   \item $n_i$ : The number of input for our crossbar array (not including bias for a more general circuit).
   \item $n_o$ : The number of parallel output for our crossbar array.
@@ -136,6 +137,5 @@ With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A
 
 %TODO Show off results ??
 
-The crossbar system, and in a more general manner, the entire system will require an external controller to control the enable flags that are required in the system. Adding such a system will increase the power consumption of the overall system. However, due to the slow (precision of about $1\mu s$) nature of those signals, the controller will be very low power, and won't change the overall power consumption of the final system. This controller is not needed for the simulation as everything is managed within Cadence's virtuoso. In the real circuit, the enable signals need to be controlled somehow.%TODO maybe move to final circuit
 
 The analog system is only simulated in the inference phase of the \ac{NN}. And since the weights only change during the training phase, and the resistances are just a rendition of the weights (\cref{sec:wei2res}), the resistances don't need to change, the circuit used in the simulations is thus using resistors instead of memristors for the sake of simplicity, as importing resistors are way easier to import in Cadence's virutoso.
