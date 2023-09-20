@@ -18,5 +18,17 @@ This is done by generating a SPICE netlist using a python script. This script ta
 
 The weights are stored in a single file that is the save a numpy array. The first dimension contains the weights for the different layers. Depending on the layer used, the weights are stored a bit differently :
 
+\begin{itemize}
+  \item Dense layer : This is basically a \ac{VMM} so the weights are just sorted linearly in a list. The list is of size $n^2$, where $n$ is the size of the input vector. \Cref{mtrx:wei} shows the position ($i$) of the weight ($w_i$) in the matrix.
+  \item \ac{LSTM} layer : An \ac{LSTM} layer contains four \acp{VMM} which can be assimilated and thus stored like a dense layer. The weights for each \ac{VMM} is then stored in a sub list.
+\end{itemize}
+
+\begin{equation}\label{mtrx:wei}
+  \begin{bmatrix}
+    w_{0} & w_{1} & \dots \\
+    \dots & w_i & \dots \\
+    \dots & w_{n^2-2} & w_{n^2-1}\\
+  \end{bmatrix}
+\end{equation}
 
 All the code can be found on my github page \cite{lstmGen}.
