@@ -1,5 +1,7 @@
 \section{Full analog system}\label{sec:fullsys}
 
+\subsection{Inputs}%TODO oen section about datasets ?
+
 \subsection{Circuit controller}%TODO maybe move in annex further
 
 The final circuit will need an external controller to manage diffenrent things in the circuit. This wasn't created in this thesis but will have to be in order to have a functionning circuit once fabricated %TODO ref annex
@@ -8,5 +10,7 @@ The controller will increase the power consumption of the overall system. Howeve
 
 The controller will have several roles in the system :
 \begin{itemize}
-\item The first role will be to manage the different flags. This means that the controller will have to set those to high or low in order to control the system.
+  \item The first role will be to manage the different flags. This means that the controller will have to set those to high or low in order to control the system. This includes flags like the enable flags of the voltage driven crossbar array (\cref{subsec:serpar}) and those for the memory cell control.
+  \item Anoter use for this controller is to reset the memory cell to $V_{cm}$ ($0$ as real value equivalent, \cref{tab:valConv}). This will be done by enabling the input and then applying $V_{cm}$ to the input, this will set the capacitor to $V_{cm}$. This has to be done everytime the circuit is ran.
+  \item The controller will also be used to control the memristors internal resistance and control the weights. Depending on the type of memristor, the method and time to change the internal resistance differs.
 \end{itemize}
