@@ -1,8 +1,8 @@
 \section{Weights generation}
 \label{sec:weigen}
 
-The choice for the weight generation was to use Keras using the tensorflow implementation. However, both tensorflow and pyTorch were tried and were giving similar results, the final choice of using tensorflow was made because it's the most popular among the research group.
+The choice for the weight generation was to use Keras API with the tensorflow framework. However, both tensorflow and pyTorch were tried and were giving similar results, the final choice of using tensorflow was made because it's the most popular among the research group.
 
-Generating the weights simply requires to train the \ac{NN} with the required achitecture. Once the trainning is done, we can run an inference of the \ac{NN} to check whether the training was good. Then the weights are reorganized based the same model required by the netlist generator (\cref{sec:netlist}) and saved as a file. The files can now be taken to generate the netlist.
+Generating the weights simply requires to train the \ac{NN} with the wanted achitecture. Once the trainning is done, we can run an inference of the \ac{NN} to check whether the training was good. This step is very important and allows to perfect the \ac{NN}. Once a correct architecture has been found, the weights are reorganized based the same model required by the netlist generator (\cref{sec:netlist}) and saved in a file along with a quick description of the architecture used for generating those weights for an easier generation of the netlist(\cref{sec:netlist}). The files can now be taken and used to generate the netlist.
 
 The code used for all the weights generations is available at \cite{lstmWei}.
