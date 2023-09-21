@@ -30,6 +30,8 @@ Of course the first thing that comes to mind to improve the system and making it
 
 Figure out how to change the values of the weights for the inSitu training. Different from \cref{sec:wei2res}.
 
+Training directly on the chip has a great advange over external training. Indeed training within the chip will allow to completely ignore the wires own resistance in the crossbar array. This is because they will an integral part of the weights, if the weight needs to be lowered then the resistance will be raised (because the conductances need to be lowered). %TODO finish with better explainnation
+
 \subsubsection{Only change the value of one of the two memristor}%TODO
 
 \subsection{Permanent training}
