@@ -86,7 +86,7 @@ This serial system has great advantages but comes with a few down sides. Let's a
 
 \begin{itemize}
   \item When the system is serialized, the inference time increases with a factor of $O(n_h)$.
-  \item When the system is in parallel, the circuit onChip area increases with a factor of $O(n_h)$.
+  \item When the system is in parallel, the circuit's onChip area increases with a factor of $O(n_h)$.
 \end{itemize}
 
 However, in both cases, the overall onChip area increases with a factor of $O(n_h^2)$. That means that using the parallel system won't increase the onChip area by a lot as $n_h$ rises, because the $O(n_h)$ factor of the parallel version is absorbed as $O(n_h^2+n_h)=O(n_h^2)$.
