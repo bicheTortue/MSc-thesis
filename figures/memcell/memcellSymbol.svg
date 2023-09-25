@@ -20,18 +20,30 @@
   <defs
      id="defs4">
     <symbol
-       id="capacitor">
+       id="capacitor"
+       width="32px"
+       height="16px">
       <title
-         id="title1093">capacitor</title>
+         id="title40">capacitor</title>
       <g
-         stroke-miterlimit="10"
-         id="g1099">
+         id="g41">
         <path
-           d="m 0,149.99 h 1.054 m -1.054,0 h 129 m 42,0 h 129 m -1.054,0 H 300"
-           id="path1095" />
-        <path
-           d="M 129,87.01 V 212.99 M 171,87.01 v 125.98"
-           id="path1097" />
+           d="M 2,8 H 14 V 16 0 m 4,0 V 16 8 h 12"
+           id="path4005"
+           stroke="currentColor"
+           fill="none" />
+        <circle
+           id="circle4008"
+           class="pin"
+           cx="2"
+           cy="8"
+           r="1" />
+        <circle
+           class="pin"
+           id="circle4010"
+           cx="30"
+           cy="8"
+           r="1" />
       </g>
     </symbol>
   </defs>
@@ -42,9 +54,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8"
-     inkscape:cx="31.875"
-     inkscape:cy="23.5625"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="-8.9272231"
+     inkscape:cy="16.086679"
      inkscape:document-units="px"
      inkscape:current-layer="svg2"
      width="10mm"
@@ -60,9 +72,9 @@
      gridtolerance="10000"
      inkscape:grid-bbox="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="1010"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
      inkscape:showpageshadow="2"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"

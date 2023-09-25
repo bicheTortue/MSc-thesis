@@ -8,7 +8,7 @@
    version="1.1"
    id="svg21808"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
-   sodipodi:docname="fullCircuit.svg"
+   sodipodi:docname="lstmCircuit.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -27,17 +27,37 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="2.8284273"
-     inkscape:cx="451.31088"
-     inkscape:cy="197.28278"
-     inkscape:window-width="3840"
-     inkscape:window-height="2090"
+     inkscape:zoom="2.8284274"
+     inkscape:cx="613.06152"
+     inkscape:cy="180.66577"
+     inkscape:window-width="1920"
+     inkscape:window-height="1010"
      inkscape:window-x="0"
      inkscape:window-y="33"
      inkscape:window-maximized="0"
-     inkscape:current-layer="components" />
+     inkscape:current-layer="svg21808" />
   <defs
      id="defs21805">
+    <marker
+       style="overflow:visible"
+       id="ArrowWide"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path18" />
+    </marker>
     <symbol
        id="xbar"
        width="116"
@@ -448,64 +468,305 @@
            stroke="none" />
       </g>
     </symbol>
+    <symbol
+       id="opamp">
+      <title
+         id="title34">opAmp</title>
+      <g
+         id="g39">
+        <line
+           x1="2"
+           x2="12"
+           y1="32"
+           y2="32"
+           stroke="currentColor"
+           id="line35" />
+        <line
+           x1="2"
+           x2="12"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="line36-3" />
+        <path
+           d="M 12,2 V 46 L 52,24 Z"
+           fill="none"
+           stroke="currentColor"
+           id="path36" />
+        <line
+           x1="52"
+           x2="62"
+           y1="24"
+           y2="24"
+           stroke="currentColor"
+           id="line37-6" />
+        <g
+           id="plus">
+          <line
+             x1="14"
+             x2="18"
+             y1="32"
+             y2="32"
+             stroke="#000000"
+             id="line105596" />
+          <line
+             x1="16"
+             x2="16"
+             y1="30"
+             y2="34"
+             stroke="#000000"
+             id="line105598" />
+        </g>
+        <line
+           x1="14"
+           x2="18"
+           y1="16"
+           y2="16"
+           stroke="#000000"
+           id="minus" />
+        <circle
+           id="circle37-7"
+           class="pin"
+           cx="2"
+           cy="32"
+           r="1" />
+        <circle
+           id="circle38-5"
+           class="pin"
+           cx="2"
+           cy="16"
+           r="1" />
+        <circle
+           id="circle39"
+           class="pin"
+           cx="62"
+           cy="24"
+           r="1" />
+        <rect
+           id="rect39"
+           width="64"
+           height="48"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+      </g>
+    </symbol>
+    <symbol
+       id="memcell">
+      <title
+         id="title2-367">memcell</title>
+      <g
+         id="g2-5">
+        <line
+           x1="2"
+           x2="10"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="neg-3" />
+        <line
+           x1="54"
+           x2="62"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="out-5" />
+        <rect
+           id="outline-6"
+           width="64"
+           height="32"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+        <rect
+           id="main-2"
+           width="44"
+           height="24"
+           x="10"
+           y="4"
+           fill="none"
+           stroke="currentColor" />
+        <g
+           id="cap">
+          <line
+             x1="20"
+             x2="30"
+             y1="14"
+             y2="14"
+             stroke="currentColor"
+             id="line2-9" />
+          <line
+             x1="34"
+             x2="44"
+             y1="14"
+             y2="14"
+             stroke="currentColor"
+             id="line3-1" />
+          <line
+             x1="34"
+             x2="34"
+             y1="20"
+             y2="8"
+             stroke="currentColor"
+             id="line4-2" />
+          <line
+             x1="30"
+             x2="30"
+             y1="8"
+             y2="20"
+             stroke="currentColor"
+             id="line5-7" />
+        </g>
+        <text
+           x="32"
+           y="26"
+           id="memText"
+           stroke="none"
+           fill="#000000"
+           font-size="6px"
+           text-anchor="middle">Memory</text>
+        <line
+           x1="32"
+           x2="32"
+           y1="4"
+           y2="1"
+           stroke="currentColor"
+           id="line1-0" />
+        <line
+           x1="32"
+           x2="32"
+           y1="28"
+           y2="31"
+           stroke="currentColor"
+           id="line6" />
+        <circle
+           id="negPin-9"
+           class="pin"
+           cx="2"
+           cy="16"
+           r="1" />
+        <circle
+           id="enIn"
+           class="pin"
+           cx="32"
+           cy="1"
+           r="1" />
+        <circle
+           id="enOut"
+           class="pin"
+           cx="32"
+           cy="31"
+           r="1" />
+        <circle
+           id="outPin-3"
+           class="pin"
+           cx="62"
+           cy="16"
+           r="1" />
+      </g>
+    </symbol>
   </defs>
+  <g
+     id="wires"
+     color="#808080">
+    <path
+       d="M 84,73 v 20 h 16"
+       id="path4"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 276,73 v 20 h 16"
+       id="path19"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 468,73 v 20 h 16"
+       id="path20"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 660,73 v 20 h 16"
+       id="path21"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 352,93 h 64 v 32 13 12 H 491"
+       id="path10"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 544,93 v 22 H 491 h -4 v 23 h 4"
+       id="path11"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 736,93 v 20 h -64 V 138 H 649"
+       id="path3"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 553,144 v 18"
+       id="path5"
+       fill="none"
+       stroke="currentColor"
+       marker-mid="url(#ArrowWide)" />
+    <path
+       d="m 587,144 v 18"
+       id="path22"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 553,222 h 32 2 m -17,0 v 18 H 642 v -32"
+       id="path13"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 642,256 h -16"
+       id="path15"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 702,248 v -32 -8"
+       id="path14"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 702,248 v 48 h -128"
+       id="path16"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 702,248 H 740 V 150 h -4"
+       id="path24"
+       fill="none"
+       stroke="currentColor"
+       marker-mid="url(#ArrowWide)" />
+    <circle
+       id="node0"
+       cx="570"
+       cy="222"
+       r="2"
+       fill="currentColor"
+       stroke="none" />
+    <path
+       d="m 21,38.5 h -8"
+       id="path17"
+       fill="none"
+       stroke="currentColor" />
+  </g>
   <g
      id="components"
      color="#009970">
-    <g
-       id="wires"
-       color="#808080">
-      <path
-         d="M 84,73 V 93"
-         id="path4"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="M 276,73 V 93"
-         id="path7"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="M 468,73 V 93"
-         id="path8"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="M 660,73 V 93"
-         id="path9"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="m 336,93 h 64 v 20 12 h 128"
-         id="path10"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="m 528,93 v 20"
-         id="path11"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="m 720,93 v 20 h -51"
-         id="path3"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="m 590,119 v 20"
-         id="path5"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="m 607,119 v 20"
-         id="path12"
-         fill="none"
-         stroke="currentColor" />
-      <path
-         d="m 590,199 h 17 m -8.5,0 v 20"
-         id="path13"
-         fill="none"
-         stroke="currentColor" />
-    </g>
     <use
        xlink:href="#xbar"
        id="outputG"
@@ -529,45 +790,86 @@
     <use
        xlink:href="#sigmoid"
        id="sigm0"
-       x="82"
+       x="98"
        y="81" />
     <use
        xlink:href="#tanh"
        id="tanh0"
-       x="466"
+       x="482"
        y="81" />
     <use
        xlink:href="#sigmoid"
        id="sigm1"
-       x="274"
+       x="290"
        y="81" />
     <use
        xlink:href="#sigmoid"
        id="sigm2"
-       x="658"
+       x="674"
        y="81" />
     <use
        xlink:href="#voltMult"
        id="voltMult0"
-       x="527"
-       y="103" />
+       x="490"
+       y="128" />
     <use
        xlink:href="#voltMult"
        id="voltMult1"
-       x="-670"
-       y="103"
+       x="-650"
+       y="128"
        transform="scale(-1,1)" />
     <use
        xlink:href="#resistor"
        id="res0"
-       x="-201"
-       y="582"
+       x="-224"
+       y="545"
        transform="rotate(-90)" />
     <use
        xlink:href="#resistor"
        id="res1"
-       x="-201"
-       y="599"
+       x="-224"
+       y="579"
        transform="rotate(-90)" />
+    <use
+       xlink:href="#opamp"
+       id="opAmp0"
+       x="640"
+       y="224" />
+    <use
+       xlink:href="#resistor"
+       id="res2"
+       x="640"
+       y="200" />
+    <use
+       xlink:href="#tanh"
+       id="tanh1"
+       x="466"
+       y="81"
+       transform="translate(-90.604563,207.50671)" />
+    <use
+       xlink:href="#voltMult"
+       id="voltMult2"
+       x="-300"
+       y="200"
+       transform="matrix(-1,0,0,1,48.74397,2.0877269)" />
+    <use
+       xlink:href="#memcell"
+       id="memcell0"
+       x="674"
+       y="134" />
+    <use
+       xlink:href="#opamp"
+       id="opAmp1"
+       x="645"
+       y="203"
+       transform="matrix(-1,0,0,1,817.38763,19.009335)" />
+    <use
+       xlink:href="#memcell"
+       id="memcell1"
+       transform="translate(30.26533,144.11377)" />
+    <use
+       xlink:href="#memcell"
+       id="memcell2"
+       transform="translate(117.87253,298.76275)" />
   </g>
 </svg>
