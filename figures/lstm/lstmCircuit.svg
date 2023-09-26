@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="4"
-     inkscape:cx="188.875"
-     inkscape:cy="224.5"
+     inkscape:zoom="2"
+     inkscape:cx="119.75"
+     inkscape:cy="273.5"
      inkscape:window-width="1920"
      inkscape:window-height="1010"
      inkscape:window-x="0"
@@ -1175,7 +1175,7 @@
        id="text41"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{j,1}$</text>
+       xml:space="default">$e_{in}$</text>
     <text
        x="52"
        y="160"
@@ -1189,7 +1189,7 @@
        id="text60"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{j,1}$</text>
+       xml:space="default">$e_{in}$</text>
     <text
        x="149"
        y="288"
@@ -1246,34 +1246,6 @@
        text-anchor="middle"
        font-size="6px"
        xml:space="default">$e_{j,1}$</text>
-    <text
-       x="190"
-       y="90"
-       id="text46"
-       text-anchor="middle"
-       font-size="6px"
-       xml:space="default">$\overrightarrow{o_{t,i}}$</text>
-    <text
-       x="380"
-       y="90"
-       id="text47"
-       text-anchor="middle"
-       font-size="6px"
-       xml:space="default">$\overrightarrow{i_{t,i}}$</text>
-    <text
-       x="546"
-       y="100"
-       id="text48"
-       text-anchor="begin"
-       font-size="6px"
-       xml:space="default">$\overrightarrow{\tilde{c}_{t,i}}$</text>
-    <text
-       x="671"
-       y="124"
-       id="text49"
-       text-anchor="end"
-       font-size="6px"
-       xml:space="default">$\overrightarrow{f_{t,i}}$</text>
     <text
        x="189"
        y="314"
