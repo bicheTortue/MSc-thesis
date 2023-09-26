@@ -120,7 +120,7 @@ id="tanhText"
 stroke="none"
 fill="#000000"
 font-size="6px"
-text-anchor="middle">tanh</text>
+text-anchor="middle">\ac{tanh}</text>
 <path
 d="m 16,13 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
 id="path2"

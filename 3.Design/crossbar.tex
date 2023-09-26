@@ -34,7 +34,7 @@ This design is the one that is used in \cite{doubleMem}. Let's assume that a giv
 
 \begin{figure}[H]
   \centering
-  \includesvg[height=8cm]{crossbar/doubleMem}
+  \includesvg[height=8cm,pretex=\scriptsize]{crossbar/doubleMem}
   \caption{Simplified circuit of a double memristor per synapse architecture}
   \label{circt:doubleMem}
 \end{figure}
@@ -45,11 +45,11 @@ For the sake of simplicity, the following equations considers the ground to be $
 
 \begin{equation}
   \label{eq:doubleMem0}
-  V_{opAmp0}=-R\cdot i_+ \Leftrightarrow
+  V_{opAmp0}=-R_r\cdot i_+ \Leftrightarrow
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem1}
-  i_{R_f}=i_-+\frac{V_{opAmp0}}{R}=i_--i_+
+  i_{R_f}=i_-+\frac{V_{opAmp0}}{R_r}=i_--i_+
 \end{equation}
 With $i_{opAmp}=0A$ because we assume an ideal \ac{opamp}.
 \begin{equation}
@@ -128,7 +128,7 @@ The symbol (\cref{sym:xbar}) defined for the voltage based memristor crossbar ar
 The total onChip area for the crossbar circuit depends on the previously defined parameters.
 
 \begin{equation}
-  A_{xbar}(n_i,n_o,n_s)=2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s +n_o\cdot(2\cdot[A_{opAmp}+A_R]+A_{R_f})
+  A_{xbar}(n_i,n_o,n_s)=2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s +n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})
 \end{equation}
 
 With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A_{CMOS}=1.2\cdot 10^{-14}m^2$, and the feature size of typical memristor that can be fabricated at INESC is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$.%TODO check info and inesc citation

@@ -1,10 +1,28 @@
 \section{\ac{LSTM} analog implementation}\label{sec:lstmCircuit}
 
-\subsection{Inputs}%TODO oen section about datasets ?
+\subsection{Circuit}
+
+This section describes the circuit of an \ac{LSTM} with an input vector of size $n_i$, a $n_h$ hidden states, a serial size of $n_s$ and $n_{ts}$ time steps. $n_o=n_h/n_s$ is going to be used for future references in this section. In order for the crossbar array to be used $n_o$ must be an integer, in other words, $n_s$ must divide $n_h$. The circuit (shown in \cref{circt:lstm}) is pretty complex and contains numerous parts that require explaination.
 
 \begin{figure}[H]
-\centering
-\includesvg[width=\textwidth]{lstm/lstmCircuit.svg}
-\caption{\ac{LSTM} circuit}
-\label{circt:lstm}
+  \centering
+  \includesvg[width=\textwidth,pretex=\tiny]{lstm/lstmCircuit}
+  \caption{\ac{LSTM} circuit}
+  \label{circt:lstm}
 \end{figure}
+
+The system is built using crossbar array (\cref{sec:xbarCircuit}) with ($n_i+n_h+1$,$n_o$, $n_s$) as parameters.
+
+First of all, the different vectors and variables present in the schematic have to be described :
+
+\begin{itemize}
+  \item $\overrightarrow{x_t}$ : This is the input vector for the \ac{LSTM} circuit at time $t$. It has a size of $n_i$.
+  \item $\overrightarrow{h_t}$ : This is the hidden layer vector for the feedback connections, it is defined as $\overrightarrow{h_t}=(\overrightarrow{h_{t,i}}) \forall i\in [\![0,n_o-1]\!]$, with $\overrightarrow{h_{t,i}}=(\overrightarrow{h_{t,i,j}}) \forall j\in [\![0,n_s-1]\!]$.
+  \item $\overrightarrow{z_t}$ is the input of the crossbar but not the input of the \ac{LSTM}. This vector is there to lighten the informations on the schematic (\cref{circt:lstm}). $\overrightarrow{z_t}$ is defined by $\overrightarrow{z_t}=(\overrightarrow{x_t},\overrightarrow{h_{t-1}},b)$.
+  \item $\overrightarrow{o_{t,i}}$,$\overrightarrow{i_{t,i}}$,$\overrightarrow{\tilde{c}_{t,i}}$,$\overrightarrow{f_{t,i}}$ all work the same way. They are each the output of the activated \ac{VMM} and they are in subparts to show that from the output of the
+  \item $\overrightarrow{x_t}$
+\end{itemize}
+
+The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_o$. This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality, those components are present $n_o$ times. This is to manage the system in parallel.
+
+\subsection{Inputs}%TODO oen section about datasets ?
