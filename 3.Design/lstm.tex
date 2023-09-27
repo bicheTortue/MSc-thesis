@@ -21,6 +21,7 @@ First of all, the different vectors and variables present in the schematic have 
   \item $\overrightarrow{z_t}$ is the input of the crossbar but not the input of the \ac{LSTM}. This vector is there to lighten the informations on the schematic (\cref{circt:lstm}). $\overrightarrow{z_t}$ is defined by $\overrightarrow{z_t}=(\overrightarrow{x_t},\overrightarrow{h_{t-1}},b)$.
   \item $e_{j,0}$ and $e_{j,1}$ are two enable flags that respectively represent the first and second half of $e_j$.
   \item $e_{in}$ and $e_{out}$ are the flags used to enable the hidden state values to go to the input (feedback connection) or to the output of the circuit.
+  \item $e_{next}$ is the enable flag on in between two time steps.
 \end{itemize}
 
 The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_o$. This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality, those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
