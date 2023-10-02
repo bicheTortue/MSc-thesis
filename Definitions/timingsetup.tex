@@ -1,0 +1,20 @@
+\usetikzlibrary{calc}
+
+\tikzset{
+  alias path picture bounding box/.code=%https://tex.stackexchange.com/q/395628
+    \pgfnodealias{#1}{path picture bounding box},
+    gap/.style={
+      circle,
+      inner sep=0pt,
+      minimum size=#1,
+      node contents={},
+      path picture={
+        \tikzset{alias path picture bounding box=@}
+        \fill [white] (@.265) to[out=40,in=220] (@.70) --
+          (@.85)  to[out=220,in=40] (@.250) -- cycle;
+        \draw [very thin] (@.265) to[out=40,in=220] (@.70)
+          (@.85)  to[out=220,in=40] (@.250);
+      }
+    },
+    gap/.default=10pt
+}
