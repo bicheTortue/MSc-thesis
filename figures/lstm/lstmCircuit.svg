@@ -27,15 +27,16 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="11.313708"
-     inkscape:cx="100.71852"
-     inkscape:cy="198.60862"
-     inkscape:window-width="1920"
-     inkscape:window-height="1010"
-     inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:zoom="2.6657703"
+     inkscape:cx="232.39062"
+     inkscape:cy="340.98962"
+     inkscape:window-width="1080"
+     inkscape:window-height="653"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
      inkscape:window-maximized="0"
-     inkscape:current-layer="wires" />
+     inkscape:current-layer="texts"
+     inkscape:lockguides="false" />
   <defs
      id="defs21805">
     <marker
@@ -1198,7 +1199,7 @@
        id="text82"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{j,0}$</text>
+       xml:space="default">$e_j$</text>
     <text
        x="132"
        y="272"
@@ -1212,7 +1213,7 @@
        id="text84"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{0,0}$</text>
+       xml:space="default">$e_0$</text>
     <text
        x="132"
        y="208"
@@ -1254,14 +1255,14 @@
        id="text42"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{0,0}$</text>
+       xml:space="default">$e_{0,1}$</text>
     <text
        x="240"
        y="352"
        id="text57"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{j,0}$</text>
+       xml:space="default">$e_{j,1}$</text>
     <text
        x="240"
        y="400"
