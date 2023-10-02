@@ -3,18 +3,30 @@
 
 In order to be able to run the simulation with different kinds of \ac{NN} architecture. The point of the part is thus to explain how the netlist generator tool works. The tool also work to generate any architecture with the supported layers (listed in the README.md of \cite{lstmGen}).
 
-This is done by generating a SPICE netlist using a python script. This script takes in a few parameters :
+This is done by generating a SPICE netlist using a python script. A SPICE netlist was chosen because of Cadence's virtuoso limitations. Indeed, Verilog netlists can be imported with a downside, component's parameters can't be imported. This is very limiting for this thesis' use case (required to set the resistors' resistance and thus the weights). SPICE netlists can import parameters for the components and is open source and by such well documented. The generator script takes in a few parameters :
 
 \begin{itemize}
   \item The first parameter is the number of input we use our system. This is the size of the first input vector ($x_t$).
   \item The next parameter is the number of time steps. Everything about the \ac{LSTM} time steps is all explained in \cref{sec:lstm}.
   \item The serial size of the crossbar arrays, as described in \cref{sec:xbarCircuit}, used in the \ac{LSTM} network. This parameter must divide the number of hidden states in the \acp{LSTM} layers.
-  \item The files containing different info about the model. This file contains the type of \ac{NN} architecture and the weights associated with each layer. The weights in the files have to be organized using a specific model (\cref{subsec:weiStore}).
+  \item The files containing different informations about the model. This file contains the type of \ac{NN} architecture and the weights associated with each layer. The weights in the files have to be organized using a specific model (\cref{subsec:weiStore}).
   \item Finally the name of the file in which the output of the script (the netlist) will be written to.
 \end{itemize}
 
-\subsection{Weights storage}\label{subsec:weiStore}
+\subsection{Available layers}
 
+As of the writing of the thesis, the netlist generator can generate the netlist for :
+
+\begin{itemize}
+  \item \ac{NP} \ac{LSTM}
+  \item Vanilla \ac{LSTM}
+  \item \ac{FGR} \ac{LSTM}
+  \item \ac{GRU}
+\end{itemize}
+
+Nevertheless, the weights can only be generated for the \ac{NP} \ac{LSTM} and the \ac{GRU} (\cref{sec:genwei}). While the script can tecnically generate the Vanilla and \ac{FGR} \acp{LSTM}, since there is no way to generate weights for those version of the \ac{LSTM}, they are rendered useless.
+
+\subsection{Weights storage}\label{subsec:weiStore}
 
 The weights are stored in a single file that is the save a numpy array. This file also contains a brief description of the architecture being used. The first index stores this desciption. the following indexes are for the actual weights, in the order given in the description. Depending on the layer used, the weights are stored a bit differently :
 
