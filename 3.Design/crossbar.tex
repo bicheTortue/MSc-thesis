@@ -128,7 +128,15 @@ The symbol (\cref{sym:xbar}) defined for the voltage based memristor crossbar ar
 The total onChip area for the crossbar circuit depends on the previously defined parameters.
 
 \begin{equation}
-  A_{xbar}(n_i,n_o,n_s)=2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s +n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})
+  A_{xbar}(n_i,n_o,n_s)=
+  \begin{cases}
+    2\cdot n_i\cdot n_o \cdot A_{memristor}+n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f}),\hfill n_s=1\\
+    \begin{array}{2}
+      2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s\\
+      +n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})
+    \end{array}
+    ,\hfill \forall n_s>1\\
+  \end{cases}
 \end{equation}
 
 With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A_{CMOS}=1.2\cdot 10^{-14}m^2$, and the feature size of typical memristor that can be fabricated at INESC is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$.%TODO check info and inesc citation
