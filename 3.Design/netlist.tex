@@ -15,10 +15,11 @@ This is done by generating a SPICE netlist using a python script. This script ta
 
 \subsection{Weights storage}\label{subsec:weiStore}
 
-The weights are stored in a single file that is the save a numpy array. The first dimension contains the weights for the different layers. Depending on the layer used, the weights are stored a bit differently :
+
+The weights are stored in a single file that is the save a numpy array. This file also contains a brief description of the architecture being used. The first index stores this desciption. the following indexes are for the actual weights, in the order given in the description. Depending on the layer used, the weights are stored a bit differently :
 
 \begin{itemize}
-  \item Dense layer : This is basically a \ac{VMM} so the weights are just sorted linearly in a list. The list is of size $n^2$, where $n$ is the size of the input vector. \Cref{mtrx:wei} shows the position ($i$) of the weight ($w_i$) in the matrix.
+  \item Dense layer : This is basically a \ac{VMM} so the weights are just sorted linearly in a list. The list is of size $n^2$, where $n$ is the size of the input vector. \Cref{mtrx:wei} shows the position ($i$) of the weight ($w_i$) in the matrix. This is represented in the description as "Dense($n_o$)" where $n_o$ is the number of output
   \item \ac{LSTM} layer : An \ac{LSTM} layer contains four \acp{VMM} which can be assimilated and thus stored like a dense layer. The weights for each \ac{VMM} is then stored in a sub list.
 \end{itemize}
 
