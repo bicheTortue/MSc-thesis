@@ -64,4 +64,47 @@ Cell states have the same solution to a similar problem. Here the problem is tha
 
 Once again, when the system is running in fully parallel mode, only one memory cell line is required for a normal behavior.
 
-\subsection{}
+\subsection{Serialization/Parallelization}
+\label{subsec:serpar}
+
+Using an \ac{LSTM} in serial mode is very beneficial as it divides the number of point wise circuit by $n_s$.
+
+This serial system has great advantages but comes with a few down sides. If the system we are working with has $n_h$ hidden states. This number of hidden states ($n_h$) is the major changing element in the final system(TODO ref final onchip area).
+
+TODO : Rework
+\begin{itemize}
+  \item When the system is serialized, the inference time increases with a factor of $O(n_h)$.
+  \item When the system is in parallel, the pointwise circuit's onChip area increases with a factor of $O(n_h^2)$.
+    This is due to the fact that the onChip area of the pointwise part of the circuit increases with a factor of $O(n_h)$ and the onChip area of a crossbar array increase with a factor of $O(n_h^2)$. So the final increase of onChip area is $O(n_h^2+n_h)=O(n_h^2)$.
+\end{itemize}
+
+However, in both cases, the overall onChip area of the crossbar arrays increases with a factor of $O(n_h^2)$. That means that using the parallel system won't increase the onChip area by a lot as $n_h$ rises, because the $O(n_h)$ factor of the parallel version is absorbed as $O(n_h^2+n_h)=O(n_h^2)$.
+
+That leads to the conclusion that the best thing to do is use an hybrid system (both serialized and parallel), using the limiting inference time for our system to set the maximum serial size. Depending on the system we're using this circuit for, we might have different time requirements.
+
+\subsection{Symbol}
+The symbol of the \ac{LSTM} circuit can be found in \cref{sym:lstm}.
+It contains the size of each parameters on its symbol. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
+
+\begin{figure}[H]
+  \centering
+  \includesvg[height=2.5cm]{crossbar/xbarSymbol}
+  \caption{Symbol used for the \ac{LSTM} circuit}
+  \label{sym:lstm}
+\end{figure}
+
+The total onChip area for the crossbar circuit depends on the previously defined parameters.
+
+\begin{equation}
+  A_{xbar}(n_i,n_o,n_s)=
+  \begin{cases}
+    2\cdot n_i\cdot n_o \cdot A_{memristor}+n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f}),\hfill n_s=1\\
+    \begin{array}{2}
+      2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s\\
+      +n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})
+    \end{array}
+    ,\hfill \forall n_s>1\\
+  \end{cases}
+\end{equation}
+
+With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A_{CMOS}=1.2\cdot 10^{-14}m^2$, and the feature size of typical memristor that can be fabricated at INESC is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$.%TODO check info and inesc citation

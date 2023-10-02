@@ -80,52 +80,53 @@ With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdo
 \subsection{Serialization/Parallelization}
 \label{subsec:serpar}
 
-The idea using the system in a serial mode came from \cite{thesisRef}. The principle of this system is to save onChip area by reducing the number of \ac{opAmp} required. It also, and mainly reduces the point wise part of the \ac{LSTM} circuit.
+The idea using the system in a serial mode came from \cite{thesisRef}. The principle of this system is to save onChip area by reducing the number of \ac{opAmp} required.
 
-This serial system has great advantages but comes with a few down sides. Let's assume the number of hidden state ($n_h$) is the major changing element in the final system(TODO ref final onchip area).
+The \ac{CMOS} switches are here to open the necessary input gates when the output is required, the \ac{CMOS} switches are controlled as in \cref{tim:serpar}.
 
-\begin{itemize}
-  \item When the system is serialized, the inference time increases with a factor of $O(n_h)$.
-  \item When the system is in parallel, the circuit's onChip area increases with a factor of $O(n_h)$.
-\end{itemize}
-
-However, in both cases, the overall onChip area increases with a factor of $O(n_h^2)$. That means that using the parallel system won't increase the onChip area by a lot as $n_h$ rises, because the $O(n_h)$ factor of the parallel version is absorbed as $O(n_h^2+n_h)=O(n_h^2)$.
-
-That leads to the conclusion that the best thing to do is use a both serialized and parallel system, using the limiting inference time for our system to set the maximum serial size. Depending on the system we're using this circuit for, we might have different time requirements.
-
-The \ac{CMOS} switches are here to open the necessary input gates when the output is required, the gates are controlled as in \cref{tim:serpar}.
 \begin{figure}[H]
   \centering
   \begin{tikztimingtable}%TODO change or find other way
-    $e_0$ & xH3Lx\\
-    $e_1$ & xLH2Lx\\
-    $e_2$ & x2LHLx\\
-    $e_3$ & x3LHx\\
+    $e_0$ & x2H2L N(A1) 2L N(A2) 2L N(A3) 2L N(A4) 2Lx\\
+    $e_1$ & x2L2H N(B1) 2L N(B2) 2L N(B3) 2L N(B4) 2Lx\\
+    $e_i$ & x4L N(C1) 2L N(C2) 2H N(C3) 2L N(C4) 2Lx\\
+    $e_{n_s-1}$ & x4L N(D1) 2L N(D2) 2L N(D3) 2L N(D4) 2Hx\\
+    %foo & 2L N(A1)  4H N(A2) L\\
     \extracode
+    \node[gap, at={($(A1|-A2)!0.5!(A2)$)}];
+    \node[gap, at={($(A3|-A4)!0.5!(A4)$)}];
+    \node[gap, at={($(B1|-B2)!0.5!(B2)$)}];
+    \node[gap, at={($(B3|-B4)!0.5!(B4)$)}];
+    \node[gap, at={($(C1|-C2)!0.5!(C2)$)}];
+    \node[gap, at={($(C3|-C4)!0.5!(C4)$)}];
+    \node[gap, at={($(D1|-D2)!0.5!(D2)$)}];
+    \node[gap, at={($(D3|-D4)!0.5!(D4)$)}];
     \tablerules
     %\draw (0,0) circle (2pt); % Origin
     \begin{pgfonlayer}{background}
-      \vertlines[help lines]{0.6,4.6}
+      \vertlines[help lines]{0.55,12.55}
       %\vertlines[red]{1.6,5.6,15.6}
       %\vertlines[blue]{3.6,9.6,15.6}
     \end{pgfonlayer}
   \end{tikztimingtable}
-  \caption{Example of enable flags timing with $n_s=4$ in a single time step}
+  \caption{Enable flags timing for any value of $n_s$ in a single time step}
   \label{tim:serpar}
 \end{figure}
 
+When the system is used fully in parallel, the \ac{CMOS} switches are not required can then be removed to lower the final onChip area.
+
 %TODO understand better \subsection{Sneak path problem}
 \subsection{Symbol}
-The symbol (\cref{sym:xbar}) defined for the voltage based memristor crossbar array used in this thesis is more compact and helps the readability of the final circuit. It contains the size of each parameters on its symbol. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
+The symbol (\cref{sym:xbar}) defined for the voltage based memristor crossbar array used in this thesis is more compact and helps the readability of the circuits that require a crossbar array. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
 
 \begin{figure}[H]
   \centering
   \includesvg[height=2.5cm]{crossbar/xbarSymbol}
-  \caption{Symbol used for the crossbar array}
+  \caption{Symbol used for the crossbar array, the input pin is a bus of size $n_i$ and the output pin is a bus of size $n_o$}
   \label{sym:xbar}
 \end{figure}
 
-The total onChip area for the crossbar circuit depends on the previously defined parameters.
+The total onChip area for the crossbar circuit depends on the previously defined parameters. It also slightly changes depending on the value of $n_s$.
 
 \begin{equation}
   A_{xbar}(n_i,n_o,n_s)=
@@ -143,7 +144,7 @@ With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A
 
 \subsection{Usage}
 
-%TODO Show off results ??
+\subsubsection{Input voltages}
 
 The input voltages must be monitored very carefuly in order not to mess up the entire system. Indeed, memristors have a voltage threshold ($V_{threshold}$) above which the internal resistance changes. %TODO Find info in the model paper
 This means that the input voltages must follow the inequality in \cref{eq:memThres}.
@@ -153,5 +154,11 @@ This means that the input voltages must follow the inequality in \cref{eq:memThr
 \end{equation}
 
 Where $V_{mem}$ is the terminal voltage of a memristor.
+
+\subsubsection{Dense layer}
+
+A dense layer is simply a \ac{VMM}. This means that a dense layer in a \ac{NN} can be assimilated with a crossbar array. Dense layers are mostly used as by fully parallel voltage-driven crossbar array in this thesis to keep the timing simple, otherwise the timing of the enable flags, and later on the \ac{LSTM}'s memory cells (\cref{sec:lstm}), would get too complicated.
+
+\subsubsection{Resistors vs Memristors}
 
 The analog system being only simulated for the inference of the \ac{NN}. Furthermore, since the weights only change during the training phase, and the resistances are just a rendition of the weights (\cref{sec:wei2res}), the resistances don't need to change, the circuit used in the simulations is thus using resistors instead of memristors for the sake of simplicity, as importing resistors is way easier to import in Cadence's virutoso.
