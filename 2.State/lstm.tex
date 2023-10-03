@@ -13,12 +13,16 @@ An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they h
 
 \begin{figure}[H]
   \centering
-  \includesvg[width=\textwidth]{lstm/lstmCell.svg}
-  \caption{LSTM Cell}
-  \label{fig:lstmCell}
+  \begin{minipage}{\columnwidth}
+    \subfloat[\acs{LSTM} cell\label{fig:lstmCell}]{\includesvg[width=\textwidth,pretex=\large]{lstm/lstmCell.svg}}
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Legend\label{leg:lstm}]{\includesvg[width=\textwidth,pretex=\large]{lstm/lstmLegend.svg}}
+  \end{minipage}
+  \caption{}
 \end{figure}
 
-\Cref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a tanh or a sigmoid activation function. Each input to the cell is a vector.
+\Cref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a \ac{tanh} or a sigmoid activation function. Each input to the cell is a vector.
 Those vector are of varying sizes depending on several factors. For example, both $h_t$ and $c_t$ are of the same size as the number of hidden state (sometimes refered to as cell state) for any $t\geq 0$.
 The input vector ($x_t$) is of size of the sample we want to feed for each time step.
 
@@ -65,7 +69,7 @@ Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes sev
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{lstm/lstmUse}
-  \caption{LSTM use case}
+  \caption{LSTM use case, legend in \cref{leg:lstm}}
   \label{fig:lstmUse}
 \end{figure}
 
