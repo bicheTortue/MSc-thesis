@@ -25,7 +25,7 @@ First of all, the different vectors and variables present in the schematic have 
   \item $R_{amp0}$ and $R_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{R_{amp1}}{R_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
 \end{itemize}
 
-The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_o$. This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
+The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_o$ (\cref{sym:xbar}). This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
 
 \subsection{Doubling memory cells}
 
@@ -56,11 +56,11 @@ In order for the system to work in serial mode, the memory cells of the output n
 
 Using two memory cells when in serial mode allows for this issue to be elevated. The values are transfered from one level to an other at the end of the time step. That way, the values are updated safely during each time step, without changing the final output.
 
-When the system is running is a fully parallel mode, doubling the memory cells serves no purpose, and the system can then use only one line of memory cell to save onChip area.
+When the system is running is a fully parallel mode, doubling the memory cells still causes a problem. The enable in and enable out flags can't be high at the same time when the memory cell has a feedback connection, the signal would interfere with it self and change its own value. Potential solutions are discussed in \cref{subsec:noDoubleMemcell}.
 
 \subsubsection{Cell states}
 
-Cell states have the same solution to a similar problem. Here the problem is that the old cell state value needs to be used to compute the current values for the hidden states ($\overrightarrow{h_t}$) and cell states ($\overrightarrow{c_t}$). The issue is that at the value in the memory cell needs to be conserved until the next serial step. This means the time restraints for this issue is much smaller than for the latter. It could possibly allow for another solution to save onChip area (\cref{subsec:noDoubleMemcell}).
+Cell states have the same solution to a similar problem. Here the problem is that the memory cell has a feedback connection and needs to be activated within one serial step. The value of the old cell state needs to be used to compute the current values for the hidden states ($\overrightarrow{h_t}$) and cell states ($\overrightarrow{c_t}$). The issue is that at the value in the memory cell needs to be conserved until the next serial step.  (\cref{subsec:noDoubleMemcell}).
 
 Once again, when the system is running in fully parallel mode, only one memory cell line is required for a normal behavior.
 
@@ -83,8 +83,8 @@ However, in both cases, the overall onChip area of the crossbar arrays increases
 That leads to the conclusion that the best thing to do is use an hybrid system (both serialized and parallel), using the limiting inference time for our system to set the maximum serial size. Depending on the system we're using this circuit for, we might have different time requirements.
 
 \subsection{Symbol}
-The symbol of the \ac{LSTM} circuit can be found in \cref{sym:lstm}.
-It contains the size of each parameters on its symbol. It depends on several parameters, the number of inputs ($n_i$), the number of outputs ($n_o$) and the serial size ($n_s$).
+
+The symbol of the \ac{LSTM} circuit can be found in \cref{sym:lstm}. It depends on several parameters, the number of inputs ($n_i$), the number of hidden states ($n_h$), the serial size of the system ($n_s$) and the number of time steps ($n_{ts}$).
 
 \begin{figure}[H]
   \centering

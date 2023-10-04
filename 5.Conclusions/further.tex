@@ -50,7 +50,10 @@ As discused before(\cref{sec:genwei}), they are only two of the \ac{LSTM} varian
 
 \subsection{Avoiding doubling memory cells}\label{subsec:noDoubleMemcell}
 
-This can be could be solved by adding a single capacitor before the input pin of the memory cell and then enabling the input of the memory cell at the very end of the serial time step.
-Adding a capacitor after the output pin to store the value after the output enable flag goes to low.
+Here there are two different problems that have two similar solutions, using a capacitor to keep the voltage in the node for a longer time :
+\begin{itemize}
+  \item For the hidden state feedback memory cells, a potential solution would be adding a single capacitor before the input pin of the memory cell and then enabling the input during the pause between time steps ($e_{next}$). This would allow the enable in and enable out flags to be high at different times. This solution only works in fully parallel mode.
+  \item For the cell state memory cells, adding a capacitor after the output pin of each to store the value after the output enable flag goes to low.
+\end{itemize}
 
 This is not a working solution, simply a theory on how to optimize onChip area.
