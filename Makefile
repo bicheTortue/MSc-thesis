@@ -7,10 +7,13 @@ NAME = thesis
 #OPTIONS = -shell-escape -halt-on-error
 OPTIONS = -shell-escape -interaction nonstopmode
 
-${NAME}.pdf: compile clean
-
-compile: *.tex
+panel:
 	latexmk -pvc -f -pdf -pdflatex='pdflatex ${OPTIONS}' -interaction=nonstopmode -synctex=1 ${NAME}.tex
+
+compile:
+	latexmk -f -pdf -pdflatex='pdflatex ${OPTIONS}' -interaction=nonstopmode -synctex=1 ${NAME}.tex
+
+pdf: compile clean
 
 clean:
 	git clean -Xdf -e "\!*.pdf"
