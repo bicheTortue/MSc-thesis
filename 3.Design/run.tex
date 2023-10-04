@@ -1,3 +1,6 @@
 \section{Running the simulation}\label{sec:run}
 
-The simulation is ran using Cadence's virtuoso. In order to run the simulation for all the entire dataset all at once, the corners function of the si;ulqtion is used. It is intended to be used for small variations in the circuit. Howeverm the way it is used here is different. It changes the value of the input variables (being a sperfect square wave generator set to activate once) to the values of the dataset. The next step is to start the corner simulation. The result are recorded by looking at the output net when at the time of output activation. The name of the output net is outputed by the netlist generator script (\cref{sec:netlist}).
+The simulation is ran using Cadence's virtuoso simulator, using a corner simulation to simulate all the inputs.
+
+In order to run the simulation for the entire dataset in one go, the corner function of the simulation is used. Corners are intended to be used for small variations in the circuit. However, it is used here as a way to set the values for dataset.
+the way it is used here is different. It changes the value of the input variables (being a sperfect square wave generator set to activate once) to the values of the dataset. The next step is to start the corner simulation. The result are recorded by looking at the output net when at the time of output activation. The name of the output net is outputed by the netlist generator script (\cref{sec:netlist}).
