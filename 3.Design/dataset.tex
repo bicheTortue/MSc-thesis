@@ -1,18 +1,38 @@
 \section{The datasets}\label{sec:dataset}
 
-\subsection{Airline}
-
-The first dataset is very simple and was mostly used to check whether the analog circuit was working. It is extracted from the tutorial available at \cite{airline}. The dataset is available at \cite{datasets}, the name of the file containing the dataset is \textit{airline-passengers.csv}.
-
-This is a regression problem, meaning that the point is to predict the number of passenger of the next month
-
-\begin{figure}[H]
-\centering
-\includesvg[width=\textwidth]{datasets/airline}
-\caption{Graphical representation of the airline passenger dataset. The vertical lines represent a full year.}
-\label{fig:afGraph}
-\end{figure}
-
 \subsection{The format}
 
 The values for the data needs to be set not to exceed 1. This is to make sure that the terminal voltage doesn't reach the threshold as explained in \cref{sec:xbarCircuit}.
+
+\subsection{Airline}
+
+The first dataset contains a time series of international airline passengers from January 1949 to December 1960, the data is recorded monthly and is in thousands. The dataset then contains twelve years of monthly data so $144$ sample points. The results of such a problem aren't useful, it was used in this thesis because of its simplicity to check whether the analog circuit is working. It is extracted from the tutorial available at \cite{airline}. The dataset is available at \cite{datasets}, the name of the file containing the dataset is \textit{airline-passengers.csv}.
+
+This is a regression problem, the role of the \ac{LSTM} is to predict the number of passenger flying the next month being given previous months' passenger count.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{datasets/airline}
+  \caption{Graphical representation of the airline passenger dataset. The vertical lines represent a full year.}
+  \label{fig:afGraph}
+\end{figure}
+
+\subsubsection{Data format}
+
+The dataset contains $144$ sample points. It has been transformed into $142$ data points for training. This has been done by taking each values three by three. The first two values are two timesteps for the input vector and the third value being used the target value. Two third of the dataset is being used for training and the other third is used for validation.
+
+\subsubsection{Network configuration}
+
+The layers used to solve this problem are listed below :
+
+\begin{itemize}
+  \item \ac{LSTM} with four hidden states ($n_h=4$) and an input with feature size of one and two time steps.
+\end{itemize}
+
+The model used to solve this problem is an \ac{LSTM} with four hidden states, a batch size of one and uses two time steps.
+
+\subsubsection{Results} %TODO Move to results obviously
+
+The weights are trained using both the custom activation function (\cref{sec:genwei}) and without ones and compare their output.
+
+After training on a digital computer using the settings described in \cref{sec:genwei}.
