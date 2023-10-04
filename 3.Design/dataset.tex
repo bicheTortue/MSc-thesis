@@ -1,5 +1,18 @@
 \section{The datasets}\label{sec:dataset}
 
+\subsection{Airline}
+
+The first dataset is very simple and was mostly used to check whether the analog circuit was working. It is extracted from the tutorial available at \cite{airline}. The dataset is available at \cite{datasets}, the name of the file containing the dataset is \textit{airline-passengers.csv}.
+
+This is a regression problem, meaning that the point is to predict the number of passenger of the next month
+
+\begin{figure}[H]
+\centering
+\includesvg[width=\textwidth]{datasets/airline}
+\caption{Graphical representation of the airline passenger dataset. The vertical lines represent a full year.}
+\label{fig:afGraph}
+\end{figure}
+
 \subsection{The format}
 
 The values for the data needs to be set not to exceed 1. This is to make sure that the terminal voltage doesn't reach the threshold as explained in \cref{sec:xbarCircuit}.
