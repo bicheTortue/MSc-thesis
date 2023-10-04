@@ -80,7 +80,7 @@ With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdo
 \subsection{Serialization/Parallelization}
 \label{subsec:serpar}
 
-The idea using the system in a serial mode came from \cite{thesisRef}. The principle of this system is to save onChip area by reducing the number of \ac{opAmp} required.
+The idea using the system in a serial mode came from \cite{thesisRef}. The principle of this system is to save onChip area by reducing the number of \ac{opAmp} required. Using the system in serial mode, increases the time it takes to compute the output of the the \ac{VMM}. Let's assume a serial size of $n_s\in\mathbb{N}$, the number of \ac{opAmp} and resistor is then divided by $n_s$ at the cost of multipying the computation time by $n_s$.
 
 The \ac{CMOS} switches are here to open the necessary input gates when the output is required, the \ac{CMOS} switches are controlled as in \cref{tim:serpar}.
 
