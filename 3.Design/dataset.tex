@@ -13,8 +13,8 @@ This is a regression problem, the role of the \ac{LSTM} is to predict the number
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{datasets/airline}
-  \caption{Graphical representation of the airline passenger dataset. The vertical lines represent a full year.}
-  \label{fig:afGraph}
+  \caption{the airline dataset in a grphic. This is the curve that the regression is trying to reproduce. The vertical lines represent a full year.}
+  \label{graph:airline}
 \end{figure}
 
 \subsubsection{Data format}
@@ -26,10 +26,18 @@ The dataset contains $144$ sample points. It has been transformed into $142$ dat
 The layers used to solve this problem are listed below :
 
 \begin{itemize}
-  \item \ac{LSTM} with four hidden states ($n_h=4$) and an input with feature size of one and two time steps.
+  \item An \ac{LSTM} with four hidden states ($n_h=4$) and an input with feature size of one and two time steps.
+  \item A Dense layer with an output size of one.
 \end{itemize}
 
-The model used to solve this problem is an \ac{LSTM} with four hidden states, a batch size of one and uses two time steps.
+\Cref{fig:airlineModel} is a graphical representation of the model just described.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{datasets/airlineModel}
+  \caption{Model used to solve the airline passengers problem}
+  \label{fig:airlineModel}
+\end{figure}
 
 \subsubsection{Results} %TODO Move to results obviously
 
