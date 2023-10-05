@@ -25,15 +25,15 @@
    inkscape:deskcolor="#d1d1d1"
    inkscape:document-units="px"
    showgrid="false"
-   inkscape:zoom="1.1115719"
-   inkscape:cx="371.54592"
-   inkscape:cy="167.33061"
+   inkscape:zoom="2.2231438"
+   inkscape:cx="165.53135"
+   inkscape:cy="181.27482"
    inkscape:window-width="1920"
    inkscape:window-height="1010"
    inkscape:window-x="0"
    inkscape:window-y="33"
    inkscape:window-maximized="0"
-   inkscape:current-layer="svg8" /><title
+   inkscape:current-layer="NN-9" /><title
    id="title1438">LSTM Use</title><defs
    id="defs2"><marker
      style="overflow:visible"
@@ -192,7 +192,7 @@
      fill="#4d4d4d"
      stroke="none"
      font-size="12px"
-     text-anchor="middle">\LARGE $\sigma$</text><rect
+     text-anchor="middle">$\sigma$</text><rect
      id="sigmoid2-7"
      width="80"
      height="40"
@@ -206,7 +206,7 @@
      fill="#4d4d4d"
      stroke="none"
      font-size="12px"
-     text-anchor="middle">\LARGE $\sigma$</text><rect
+     text-anchor="middle">$\sigma$</text><rect
      id="sigmoid1-9"
      width="80"
      height="40"
@@ -220,7 +220,7 @@
      fill="#4d4d4d"
      stroke="none"
      font-size="12px"
-     text-anchor="middle">\LARGE $\sigma$</text></g><g
+     text-anchor="middle">$\sigma$</text></g><g
    id="paths-2"><line
      x1="392"
      x2="392"
@@ -514,7 +514,7 @@
      fill="#4d4d4d"
      stroke="none"
      font-size="12px"
-     text-anchor="middle">\LARGE $\sigma$</text><rect
+     text-anchor="middle">$\sigma$</text><rect
      id="rect14"
      width="80"
      height="40"
@@ -528,7 +528,7 @@
      fill="#4d4d4d"
      stroke="none"
      font-size="12px"
-     text-anchor="middle">\LARGE $\sigma$</text><rect
+     text-anchor="middle">$\sigma$</text><rect
      id="rect15"
      width="80"
      height="40"
@@ -542,7 +542,7 @@
      fill="#4d4d4d"
      stroke="none"
      font-size="12px"
-     text-anchor="middle">\LARGE $\sigma$</text></g><g
+     text-anchor="middle">$\sigma$</text></g><g
    id="g30"><line
      x1="392"
      x2="392"
