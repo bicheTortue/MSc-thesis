@@ -26,14 +26,14 @@
    inkscape:document-units="px"
    showgrid="false"
    inkscape:zoom="0.70710678"
-   inkscape:cx="163.34167"
-   inkscape:cy="-59.396969"
+   inkscape:cx="162.63456"
+   inkscape:cy="-58.689863"
    inkscape:window-width="1920"
-   inkscape:window-height="1010"
-   inkscape:window-x="0"
-   inkscape:window-y="33"
+   inkscape:window-height="1043"
+   inkscape:window-x="1920"
+   inkscape:window-y="0"
    inkscape:window-maximized="0"
-   inkscape:current-layer="g6" /><title
+   inkscape:current-layer="svg8" /><title
    id="title1438">LSTM Use</title><defs
    id="defs2"><marker
    style="overflow:visible"
@@ -91,7 +91,7 @@
    id="text8"
    y="247"
    x="16"
-   font-size="12px"
+   font-size="4"
    fill="#4d4d4d"
    text-anchor="middle">$x_{t=1}$</text>&#10;&#10;<text
    id="text1988"
@@ -170,7 +170,7 @@
    id="text12"
    y="247"
    x="332"
-   font-size="12px"
+   font-size="4"
    fill="#4d4d4d"
    text-anchor="middle">$x_{t=2}$</text>&#10;&#10;<text
    id="text10"
