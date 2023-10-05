@@ -87,10 +87,10 @@ The \ac{CMOS} switches are here to open the necessary input gates when the outpu
 \begin{figure}[H]
   \centering
   \begin{tikztimingtable}%TODO change or find other way
-    $e_0$ & x2H2L N(A1) 2L N(A2) 2L N(A3) 2L N(A4) 2Lx\\
-    $e_1$ & x2L2H N(B1) 2L N(B2) 2L N(B3) 2L N(B4) 2Lx\\
-    $e_i$ & x4L N(C1) 2L N(C2) 2H N(C3) 2L N(C4) 2Lx\\
-    $e_{n_s-1}$ & x4L N(D1) 2L N(D2) 2L N(D3) 2L N(D4) 2Hx\\
+    $e_0$ & x2H2L N(A1) L N(A2) 2L N(A3) L N(A4) 2Lx\\
+    $e_1$ & x2L2H N(B1) L N(B2) 2L N(B3) L N(B4) 2Lx\\
+    $e_i$ & x4L N(C1) L N(C2) 2H N(C3) L N(C4) 2Lx\\
+    $e_{n_s-1}$ & x4L N(D1) L N(D2) 2L N(D3) L N(D4) 2Hx\\
     %foo & 2L N(A1)  4H N(A2) L\\
     \extracode
     \node[gap, at={($(A1|-A2)!0.5!(A2)$)}];
@@ -104,7 +104,7 @@ The \ac{CMOS} switches are here to open the necessary input gates when the outpu
     \tablerules
     %\draw (0,0) circle (2pt); % Origin
     \begin{pgfonlayer}{background}
-      \vertlines[help lines]{0.55,12.55}
+      \vertlines[help lines]{0.55,10.55}
       %\vertlines[red]{1.6,5.6,15.6}
       %\vertlines[blue]{3.6,9.6,15.6}
     \end{pgfonlayer}
