@@ -51,12 +51,14 @@ This dataset is far more interresting than the latter. This data set aims to use
 
 The dataset is great for our study because :
 \begin{itemize}
-  \item It comes from a very recent paper, and means the research is happening right now.
-  \item It aims at reproducing the behavior of the brain of a simple organism (\ac{C. elegans}), domain in which having a small and low powered system to mimic is an advantage.
-  \item The paper was written by Dr. Barbulescu who is one of my supervisor.
+  \item It comes from a very recent paper, and means the research is current.
+  \item It aims at reproducing the behavior of the brain of a simple organism (\ac{C. elegans}). In the (very) long term, a full parts of the human brain could be replaced by a very low powered chip.
+  \item The paper was written by Dr. Barbulescu who happens to be one of my supervisor.
 \end{itemize}
 
-\subsubsection{Data format}
+The dataset consists of several sets of input/output, twenty are used for training, ten for testing and ten for validation. Those dataset are the exitations of four inputs neurons (PLML2, PLMR, AVBL, AVBR) and the expected outputs from four neurons (DB1, LUAL, PVR, VB1) extracted from a known model of \ac{C. elegans} \cite{celegans}.
+
+\subsubsection{Input dataset format}
 
 The dataset contains $144$ sample points. It has been transformed into $142$ data points for training. This has been done by taking each values three by three. The first two values are two timesteps for the input vector and the third value being used the target value. Two third of the dataset is being used for training and the other third is used for validation.
 
