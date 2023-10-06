@@ -65,11 +65,11 @@ The dataset contains $144$ sample points. It has been transformed into $142$ dat
 The layers used to solve this problem are listed below :
 
 \begin{itemize}
-  \item An \ac{LSTM} with eight hidden states ($n_h=8$) and an input with feature size of four (because of the four input neurons that are considered) and one thousand time steps.
-  \item A Dense layer with an output size of one.
+  \item An \ac{LSTM} with eight hidden states ($n_h=8$) and an input with feature size of four (because of the four input neurons that are considered), one thousand time steps and every time steps outputs a value for the next layer.
+  \item A time distributed dense layer with an output size of four. It is time distributed because it needs to compute every time steps and not only the last.
 \end{itemize}
 
-\Cref{fig:airlineModel} is a graphical representation of the model just described.
+\Cref{fig:celegansModel} is a graphical representation of the model just described.
 
 \begin{figure}[H]
   \centering
