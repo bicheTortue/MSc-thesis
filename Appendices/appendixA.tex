@@ -12,3 +12,53 @@ This is the circuit that comes after the voltage multiplier (section \ref{sec:mo
 A non-inverting amplifier was producing too much difference from the expected result (about a 20\% error) %TODO maybe show something
 
 \section{Solving weight to resistance}\label{apsec:wei2res}
+
+\begin{equation}\label{eq:wei2res3}
+  \begin{cases}
+    w=\frac{R_f}{R_+}-\frac{R_f}{2\cdot R_f -R_+}\\
+    R_-=2\cdot R_f -R_+
+  \end{cases}
+\end{equation}
+
+
+\begin{equation}\label{eq:wei2res4}
+  \begin{cases}
+    w=\frac{2\cdot R_f^2-2\cdot R_+\cdot R_f}{2\cdot R_f\cdot R_+ -R_+^2}\\
+    R_-=2\cdot R_f -R_+
+  \end{cases}
+\end{equation}
+
+\begin{equation}\label{eq:wei2res5}
+  \begin{cases}
+    2\cdot R_f\cdot R_+\cdot w -R_+^2\cdot w=2\cdot R_f^2-2\cdot R_+\cdot R_f\\
+    R_-=2\cdot R_f -R_+
+  \end{cases}
+\end{equation}
+
+\begin{equation}\label{eq:wei2res6}
+  \begin{cases}
+    R_+^2\cdot w - R_+\cdot 2\cdot R_f \cdot(w+1) + 2R_f^2 = 0\\
+    R_-=2\cdot R_f -R_+
+  \end{cases}
+\end{equation}
+
+\begin{equation}\label{eq:wei2res61}
+  R_+^2\cdot w - R_+\cdot 2\cdot R_f \cdot(w+1) + 2R_f^2 = 0
+\end{equation}
+
+We must now solve \cref{eq:wei2res61}.
+
+\begin{equation}\label{eq:wei2res61}
+  \Delta = 4\cdot R_f^2\cdot(w+1)^2-8\cdot w\cdot R_f^2 = 4\cdot R_f^2\cdot(w^2+1) \ge 0
+\end{equation}
+
+Giving the two solutions :
+
+\begin{equation}\label{eq:wei2res62}
+  R_{+,0}=\frac{R_f\cdot(w+1)-R_f\cdot\sqrt{w^2+1}}{w}
+\end{equation}
+\begin{equation}\label{eq:wei2res63}
+  R_{+,1}=\frac{R_f\cdot(w+1)+R_f\cdot\sqrt{w^2+1}}{w}
+\end{equation}
+
+
