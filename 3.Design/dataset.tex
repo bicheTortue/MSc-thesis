@@ -67,9 +67,11 @@ The dataset contains $144$ sample points. It has been transformed into $142$ dat
 The layers used to solve this problem are listed below :
 
 \begin{itemize}
-  \item An \ac{LSTM} with eight hidden states ($n_h=8$) and an input with feature size of four (because of the four input neurons that are considered), one thousand time steps and every time steps outputs a value for the next layer.
+  \item An \ac{LSTM} with eight hidden states and an input with feature size of four (because of the four input neurons that are considered), one thousand time steps and every time steps outputs a value for the next layer.
   \item A time distributed dense layer with an output size of four. It is time distributed because it needs to compute every time steps and not only the last.
 \end{itemize}
+
+The \ac{LSTM} was chosen with a number of hidden states of eight because it gets the best results \cite{celegans}.
 
 \Cref{fig:celegansModel} is a graphical representation of the model just described.
 
