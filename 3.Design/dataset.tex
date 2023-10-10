@@ -56,11 +56,29 @@ The dataset is great for our study because :
   \item The paper was written by Dr. Barbulescu who happens to be one of my supervisor.
 \end{itemize}
 
-The dataset consists of several sets of input/output, twenty are used for training, ten for testing and ten for validation. Those dataset are the exitations of four inputs neurons (PLML2, PLMR, AVBL, AVBR) and the expected outputs from four neurons (DB1, LUAL, PVR, VB1) extracted from a known model of \ac{C. elegans} \cite{celegans}.
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Training dataset sample]{\includesvg[width=0.5\textwidth, pretex=\tiny]{datasets/celegans/ioTrain0}}%
+    \hfill
+    \subfloat[Test dataset sample]{\includesvg[width=0.5\textwidth,pretex=\tiny]{datasets/celegans/ioTest0}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Training dataset sample]{\includesvg[width=0.5\textwidth, pretex=\tiny]{datasets/celegans/ioTrain1.svg}}%
+    \hfill
+    \subfloat[Validation dataset sample]{\includesvg[width=0.5\textwidth,pretex=\tiny]{datasets/celegans/ioValid0}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} dataset samples}
+  \label{graph:celegans}
+\end{figure}
 
-\subsubsection{Input dataset format}
+\subsubsection{Dataset format}
 
-The dataset contains $144$ sample points. It has been transformed into $142$ data points for training. This has been done by taking each values three by three. The first two values are two timesteps for the input vector and the third value being used the target value. Two third of the dataset is being used for training and the other third is used for validation.
+The dataset contains a set of fourty set of input/output. Each input/output set contains $500ms$ of data with a time step of $0.5ms$, making a thousand points for each neurons. This data is recorded after applying current to the input neurons (PLML2, PLMR, AVBL, AVBR), and monitoring the output of four neurons (DB1, LUAL, PVR, VB1) that are known to have strong activity during  a specific behavior of the nematode known as \ac{FCM}. The simulation is done using a known model of \ac{C. elegans} connectome (complete overview of the brains connections) \cite{celegans}.
+
+\Cref{graph:celegans} shows four sets of input/output our of the fourty that were recorded for the dataset.
+
+The inputs for the systems are then going to be the current values for the four input neurons at every of the thousand time steps and plans to get an output as close as possible to the modeled output for all time steps.
 
 \subsubsection{Network configuration}
 
