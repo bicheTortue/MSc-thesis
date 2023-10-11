@@ -3,7 +3,7 @@
 
 Due to a lack of time, some of the more common component were not designed by me but instead were simulated using a Verilog model. The only components that use a verilog model are the voltage multiplier and the \ac{opAmp}.
 
-\subsection{Operational amplifier}
+\subsection{Operational amplifier}\label{subsec:opamp}
 
 This component is the very famous \ac{opAmp}. This specific component wasn't designed for the thesis, it required a current range that didn't allow to use ones already made by members of the research group. The choice was then to use a verilog-A model, and then design one if time allows it.
 
@@ -14,7 +14,7 @@ This component is the very famous \ac{opAmp}. This specific component wasn't des
 
 \Cref{eq:opAmp} is the equation used in the verilog-A model. It makes it so it behaves like an ideal \ac{opAmp}. For this thesis $\mu$ has been set to $\mu=10^5$.
 
-\subsection{Voltage multiplier}
+\subsection{Voltage multiplier}\label{subsec:voltmult}
 
 This component while far less popular than the latter, is just as useful for our specific use. It allows us to multiply, as its name implies, two voltages. It is used to compute the pointwise multiplications of the \ac{LSTM} (\cref{fig:lstmCell}).
 
