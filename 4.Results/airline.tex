@@ -13,7 +13,7 @@ The digital results of the \ac{NN} once trained are very important. They are the
   \label{graph:airlineDigital}
 \end{figure}
 
-\Cref{graph:airlineDigital} shows the results of the \ac{NN} next to the orinal data. The results are visually very close. The error is quantified using \ac{RMSE} error function. All those curves error to each other are measured and displayed in \cref{tab:airlineDigital}.
+\Cref{graph:airlineDigital} shows the results of the \ac{NN} next to the orinal data. The results are visually very close. The error is quantified using \ac{RMSE} function. All those curves error to each other are measured and displayed in \cref{tab:airlineDigital}.
 
 \begin{table}[H]
   \centering
@@ -29,13 +29,13 @@ The digital results of the \ac{NN} once trained are very important. They are the
     Custom activation function & $45.94$ & $4.04$ & \cellcolor[HTML]{202020}\\
     \hline
   \end{tabular}
-  \caption{\ac{RMSE} errors of each curve to the others}
+  \caption{\acp{RMSE} of each curve to the others}
   \label{tab:airlineDigital}
 \end{table}
 
-The error between the digital curves with and without the custom activation functions are visually inexistant. The \ac{RMSE} error between those curves confirms this low error as it is of only $4.04$ thousands of passengers away. Considering the values at play, this error is negligible.
+The error between the digital curves with and without the custom activation functions are visually inexistant. The \ac{RMSE} between those curves confirms this low error as it is of only $4.04$ thousands of passengers away. Considering the values at play, this error is negligible.
 
-Those two curves are both very close to the target curve. They have a very similar error rate to this target curve, indeed they're \ac{RMSE} error is $45.24$ for the training using the original activation functions, and $45.94$ for the data created with the analog activation function. The difference of error between the two prediction is of about seven hundred passengers, which is very low considering the scale.
+Those two curves are both very close to the target curve. They have a very similar error rate to this target curve, indeed they're \ac{RMSE} is $45.24$ for the training using the original activation functions, and $45.94$ for the data created with the analog activation function. The difference of error between the two prediction is of about seven hundred passengers, which is very low considering the scale.
 
 Computing the \ac{NN} with or without the analog activation functions doesn't affect the digital prediction of the \ac{NN}. An error difference so low can be due to the initial weights of the \ac{NN}, before it was trained. Furthermore, training the \ac{NN} for a few more epochs would change the errors by enough to make this difference negligible.
 
