@@ -19,43 +19,83 @@ The digital results of the \ac{NN} once trained are very important. They are the
   \centering
   \begin{tabular}{|c|c|c|c|}
     \hline
-    %\rowcolor{gray}
-    \cellcolor[HTML]{808080}\acs{RMSE} & Target data & Digital predictions & \specialcell{Digital predictions with\\analog activation function}\\
+    \cellcolor[HTML]{808080}\acs{RMSE} & Target data & \specialcell{Digital prediction with\\default activation function} & \specialcell{Digital prediction with\\analog activation function}\\
     \hline
     Target data &\cellcolor[HTML]{202020} & $54.60$ & $52.27$\\
     \hline
-    Digital predictions  & $54.60$ & \cellcolor[HTML]{202020} & $78.64$\\
+    \specialcell{Digital prediction with\\default activation function}  & $54.60$ & \cellcolor[HTML]{202020} & $78.64$\\
     \hline
-    \specialcell{Digital predictions with\\analog activation function} & $52.27$ & $78.64$ & \cellcolor[HTML]{202020}\\
+    \specialcell{Digital prediction with\\analog activation function} & $52.27$ & $78.64$ & \cellcolor[HTML]{202020}\\
     \hline
   \end{tabular}
   \caption{\acp{RMSE} of each curve to the others}
   \label{tab:airlineDigital}
 \end{table}
 
-
-Both predictions have similar \ac{RMSE} to the target curve. They have a \ac{RMSE} of $54.60$ for the \ac{LSTM} using the orignal activation functions (sigmoid and \ac{tanh} functions) and $52.27$ for the one using the analog activation functions (\cref{sec:af}). The error difference is so low (about two thousands passengers) that the difference may just come from the training and the initial values of the weights. They both approach the target curve pretty well. These error could be lowered by training for more epochs. This is not done because it diverges too much from the focus of the thesis.
+Both predictions have similar \ac{RMSE} to the target curve. They have a \ac{RMSE} of $54.60$ for the \ac{LSTM} using the default activation functions (sigmoid and \ac{tanh} functions) and $52.27$ for the one using the analog activation functions (\cref{sec:af}). The error difference is so low (about two thousands passengers) that the difference may just come from the training and the initial values of the weights. They both approach the target curve pretty well. These error could be lowered by training for more epochs. This is not done because it diverges too much from the focus of the thesis.
 
 The two predictions are very different from each other, the error rate between the two is of $78.64$, which is significantly higher than the \ac{RMSE} of the curves to the target curve.
 
-Computing the \ac{NN} with or without the analog activation functions doesn't seem to affect the error of the predictions, experience has shown that the \ac{LSTM} using the original activation functions seem to predict higher curves than the target and the \ac{LSTM} using the analog activation functions tends to predict curves that are under the target, the reasons for such a difference are unknown. This is simply an observation after a few different runs.
+Computing the \ac{NN} with or without the analog activation functions doesn't seem to affect the error of the predictions, experience has shown that the \ac{LSTM} using the analog activation functions seem to predict higher curves than the target and the \ac{LSTM} using the default activation functions tends to predict curves that are under the target, the reasons for such a difference are unknown. This is simply an observation after a few different runs.
 
-\subsection{Analog results trained without analog activation function}
+\subsection{Analog results trained with default activation function}
 
 This subsection shows the importance of using the analog activation functions in the training phase of the \ac{NN}.
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\linewidth]{results/airline/noCustomAF}
-  \caption{Analog predictions trained with the original activation functions.}
+  \caption{Analog predictions trained with the default activation functions.}
   \label{graph:airlineAnalogNoC}
 \end{figure}
 
-As expected, the analog predictions are very far off the target curve. Which, in this case, isn't the target dataset but the digital prediction ran with the default activation functions.
+As expected, the analog predictions are very far off the target curve. Which, in this case, isn't the target dataset but the digital prediction ran with the default activation functions. Indeed, the goal of the analog system is to reproduce as closely as possible the digital prediction.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \cellcolor[HTML]{808080}\acs{RMSE} & Analog prediction ($n_s=1$) & Analog prediction ($n_s=2$) &Analog prediction ($n_s=4$) \\
+    \hline
+    \specialcell{Digital prediction with\\default activation function} & $140.68$ & $143.66$ & $139.71$\\
+    \hline
+  \end{tabular}
+  \caption{\acp{RMSE} of each analog prediction to their associated digital prediction}
+  \label{tab:airlineAnalogNoC}
+\end{table}
+
+As can be observed on \cref{graph:airlineAnalogNoC}, the analog predictions are not on par with what is expected at all. This is confirmed by the error rates found in \cref{tab:airlineAnalogNoC}, the error rates are not in an acceptable range at all. This error would be even higher to the target dataset as the digital prediction using the default activation functions is already under than the target curve.
+
+However, the prediction don't seem to be completely off. The curves seem to follow the shape of it's target, and by extension of the target data. This deserves a closer look.
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\linewidth]{results/airline/noCustomAFZoomed}
-  \caption{Analog predictions trained with the original activation functions.}
+  \caption{Analog predictions trained with the default activation functions.}
   \label{graph:airlineAnalogNoCZoomed}
 \end{figure}
+
+As expected, in \cref{graph:airlineAnalogNoCZoomed} the trend of the curves is very similar to the original dataset (\cref{graph:airline}) and the predictions are very close to each others no matter the serial size used ($n_s$).
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \cellcolor[HTML]{808080}Analog prediction & $n_s=1$ & $n_s=2$ & $n_s=4$ \\
+    \hline
+    $n_s=1$ &\cellcolor[HTML]{202020} & $3.97$ & $5.05$\\
+    \hline
+    $n_s=2$  & $3.97$ & \cellcolor[HTML]{202020} & $4.78$\\
+    \hline
+    $n_s=4$ & $5.05$ & $4.78$ & \cellcolor[HTML]{202020}\\
+    \hline
+  \end{tabular}
+  \caption{\acp{RMSE} of each analog prediction to the others depending on the serial size ($n_s$)}
+  \label{tab:airlineAnalogNoCZoomed}
+\end{table}
+
+This similarity is further proven by the errors shown in \cref{tab:airlineAnalogNoCZoomed}. Those error are all around four thousands passengers, which is negligible in our case. That shows a certain stability of the system when using different values of serial size ($n_s$). The error rate is also quite low because of the lower results obtained.
+
+The predicted results generated by the analog system seem to be on a different scale while still following the overall aspect of the dataset. The down scale of those analog prediction would also mean that the errors of those predictions to each other is also scaled down.
+
+\subsection{Analog results trained with analog activation function}
