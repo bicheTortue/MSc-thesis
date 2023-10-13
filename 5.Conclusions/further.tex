@@ -21,28 +21,28 @@ The controller will have several roles in the system :
 
 \subsection{inSitu trainning}\label{subsec:inSitu}
 
-Of course the first thing that comes to mind to improve the system and making it actually usable for a real world application would be doing inSitu training. Training within the analog system would mean implementing the backpropagation algorithm. Here, two options are available :
+Of course the first thing that comes to mind to improve the system and making it actually usable for a real world application would be doing inSitu training, meaning that the weight training would also be happening on the chip. Training on the chip also means that the weights, hence the memristors in the circuit, need to be changed between each epoch. That requires to have a backpropagation algorithm. Here, two options are available :
 
 \begin{itemize}
   \item The easiest option would be to use the external controller (\cref{subsec:control}) to make the backprogation computation needed. This is not the best option, as the backpropagation would be happening in digital. This digital computation would have to happen as fast as the analog computation and thus a much faster controller would be required, meaning a bigger power consumption.
   \item The ideal way of implementing the backpropagation would be using an analog system similar to the one that is used for the inference. This would still mean having a controller to change the internal resistance of the memristors, this version would require a slower clock and making the controller lower powered. Using an analog implementation might also harm the system, as the backpropagation algorithm will probably be simpler and reduce the efficiency of the system.
 \end{itemize}
 
-Figure out how to change the values of the weights for the inSitu training. Different from \cref{sec:wei2res}.
+In order for the inSitu training to work, the weights also need to change. Future work also also include looking for ways to change the weights in the fastest possible way. Idealy the algorithm won't need to compute the weight to resistance conversion (\cref{sec:wei2res}) and directly know how the change the resistances' values.
 
 Training directly on the chip has a great advange over external training. Indeed training within the chip will allow to completely ignore the wires own resistance in the crossbar array. This is because they will an integral part of the weights, if the weight needs to be lowered then the resistance will be raised (because the conductances need to be lowered). %TODO finish with better explainnation
 
-\subsubsection{Only change the value of one of the two memristor}%TODO
+\subsubsection{Only change the value of one of the two memristor}
+
+This is a potential idea on how to improve the time it takes to compute a single epoch. Indeed changing the resistance value in a memristor, takes time depending on the type of memristor that is being used. If the weight to resistance is computed the same way as in the thesis (\cref{sec:wei2res}), so that each pair of resistance is centered around the middle point of the memristor's resistance range.
+
+Instead of having to do that, the idea is to only change one of the memristor's internal resistance so that the final weight is still the same. \Cref{eq:wei2res0} needs to be respected in any situation. The memristor's resistances won't be centered (\cref{eq:wei2res1}) anymore.
 
 \subsection{Permanent training}
 
 Once the training is fully implemented in an analog computer, the next step would be to find a way to permanently training the system. Meaning that any new information will be used to update the weights. This means that the system would need to know if the prediction it has made is correct or not.
 
-\subsection{\ac{LSTM} continuous mode}
-
-This would allow to have a real time results and not having to retake the same inputs several times. Basically it would be like %TODO Make graphs
-
-This might be something that already exist that I didn't find anything about.
+A potential way to implement that, would be in a two phase plan. First the prediction, and so on until a verification on the predictions can be done. After that the weights are updated based on those previous reviewed results.
 
 \subsection{Other \acp{LSTM} variants}
 
