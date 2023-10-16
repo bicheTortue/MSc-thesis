@@ -60,12 +60,16 @@ Those matrix multiplication are called \ac{VMM} because it is the result of the 
 
 \subsection{Training weights}
 
-The weights values are obtained through training. This is done in a few steps :
+The weights values are obtained through training. To train the weights it is required to have a dataset of inputs/outputs values that are correct. The outputs are the target values, the values that the \ac{NN} need to compute when being executed. Once the weights have been initialized (usually randomly picked values). The training happens by running the following steps (known as an epoch) :
 
 \begin{enumerate}
-  \item Generate random values for each weight.
   \item Run the \ac{NN} to get an output vector.\label{step:restart}
   \item Measure error rate using the chosen error algorithm.
-  \item Use the
-  \item go back to \cref{step:restart}
+  \item Run the backpropagation algorithm to determine how to change each individual weight.
 \end{enumerate}
+
+A \ac{NN} is trained for at least hundreds of epochs to get decent results.
+
+Once trained, the \ac{NN} can be tested by feeding the \ac{NN} input data it hasn't been trained with.
+
+One layer of this feedforward \ac{NN} is also known as a dense layer.
