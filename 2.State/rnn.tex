@@ -8,8 +8,18 @@ They are trained the same way \ac{NN} are, measuring the error, backpropagte and
 
 \subsection{Simple \ac{RNN}}
 
-\subsection{Vanishing gradient problem}
+The simple \ac{RNN} works just like a \ac{tanh} activated feedforward \ac{NN} with a feedback connection.
 
-The Vanishing gradient problem is a problem that comes when dealing with time depedent data \cite{vanishGrad}. When big amount of time depedent data is fed to the \ac{RNN}, the weights can't be updated properly. The older the data, the lower it will impact how much the weight must change. Rendering the old input data almost useless. Classic \acp{RNN} must be used with relatively short time series.
+\Cref{eq:srnn} shows the equation that the simple \ac{RNN} runs at every time step.
 
-Some \acp{RNN} were designed around this issue. This is the case of the \ac{LSTM} and \ac{GRU} which were created with internal mechanisms to regulate the flow of information and gradients.
+\begin{equation}\label{eq:srnn}
+h_t=tanh([x_t,h_{t-1}]\cdot w + b)
+  \end{equation}
+
+  Where
+
+  \subsection{Vanishing gradient problem}
+
+  The Vanishing gradient problem is a problem that comes when dealing with time depedent data \cite{vanishGrad}. When big amount of time depedent data is fed to the \ac{RNN}, the weights can't be updated properly. The older the data, the lower it will impact how much the weight must change. Rendering the old input data almost useless. Simple \acp{RNN} must be used with relatively short time series.
+
+  Some \acp{RNN} were designed around this issue. This is the case of the \ac{LSTM} and \ac{GRU} which were created with internal mechanisms to regulate the flow of information and gradients.
