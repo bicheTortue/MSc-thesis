@@ -1,5 +1,5 @@
 \section{\acs{LSTM}}\label{sec:lstm}
-\acp{LSTM} are a type of \ac{NN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
+\acp{LSTM} are a type of \ac{RNN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
 
 The first \ac{LSTM} was invented in 1997 by Hochreiter and Schmidhuber \cite{firstLSTM}. \acp{LSTM} changed a lot through the years to become what they are now.
 \acp{LSTM} fixed the vanishing/exploding gradient problem. Traditionnal \ac{RNN} have the ability to model sequential events by propagating through time, for example forward and backward propagation. This is achieved by connecting these sequential events with the hidden state:
@@ -69,7 +69,7 @@ Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes sev
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{lstm/lstmUse}
-  \caption{LSTM use case, legend in \cref{leg:lstm}}
+  \caption{Unfolded \acs{LSTM}, legend in \cref{leg:lstm}}
   \label{fig:lstmUse}
 \end{figure}
 

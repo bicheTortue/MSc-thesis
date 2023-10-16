@@ -58,6 +58,14 @@ Similarly the output is computed like in \cref{eq:nnOut}
 
 Those matrix multiplication are called \ac{VMM} because it is the result of the multiplication of a vector and a matrix, thus giving us another vector.
 
-Analog computation enables those same calculations almost instantly and being far more power-efficient. This can be done using the physical properties of electrical devices.
-We want to reproduce one of those neural network using electrical circuits to perform the same computation that a computer would in much faster manner.
-Using \hyperref[subsec:memristors]{memristors} as weights. This removes the need to copy the weights from the main memory
+\subsection{Training weights}
+
+The weights values are obtained through training. This is done in a few steps :
+
+\begin{enumerate}
+  \item Generate random values for each weight.
+  \item Run the \ac{NN} to get an output vector.\label{step:restart}
+  \item Measure error rate using the chosen error algorithm.
+  \item Use the
+  \item go back to \cref{step:restart}
+\end{enumerate}
