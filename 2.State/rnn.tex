@@ -2,13 +2,13 @@
 
 \acp{RNN} are, as the name suggests, a type of \ac{NN} using recurrent connections. They are a \ac{NN} with at least one cycle within the structure, where outputs of the previous run is used the next one. Those feedback connections are what differenciates it from feedforward \ac{NN}.
 
-This type of \ac{NN} is used when dealing with an unknown amount of inputs. Especially useful when treating timeseries \cite{rnn}. Example of \acp{RNN} uses are speech recognition, automatic language translation \cite{gru} and shape recognition, especially for handwriting recognition.
+This type of \ac{NN} is used when dealing with an unknown amount of inputs. Especially useful when treating time series \cite{rnn}. Example of \acp{RNN} uses are speech recognition, automatic language translation \cite{gru} and shape recognition, especially for handwriting recognition.
 
-They are trained the same way \ac{NN} are, using backpropagation to measure the error and try adjusting the weights.
+They are trained the same way \ac{NN} are, measuring the error, backpropagte and adjust the weights accordingly.
 
 \subsection{Vanishing gradient problem}
 
-The Vanishing gradient problem is a problem that comes when dealing with time depedent data.
+The Vanishing gradient problem is a problem that comes when dealing with time depedent data \cite{vanishGrad}. When long amount of time depedent data is fed to the \ac{RNN}, the older the data, the lower the impact on the weight change. This phenomenen makes the \ac{RNN} less effective when it comes to very long time series.
 
 
 \subsection{Simple \ac{RNN}}
