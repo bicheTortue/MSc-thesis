@@ -2,13 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="64"
-   height="48"
-   viewBox="0 0 64 48"
+   width="454"
+   height="454.00034"
+   viewBox="0 0 454 454.00034"
    version="1.1"
    id="svg21808"
    inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
-   sodipodi:docname="tmp.svg"
+   sodipodi:docname="ml.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,634 +26,461 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1.4142137"
-     inkscape:cx="354.26046"
-     inkscape:cy="333.04726"
-     inkscape:window-width="1920"
-     inkscape:window-height="1010"
-     inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:zoom="1.7709238"
+     inkscape:cx="399.22666"
+     inkscape:cy="229.82355"
+     inkscape:window-width="954"
+     inkscape:window-height="1002"
+     inkscape:window-x="4"
+     inkscape:window-y="37"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g6" />
+     inkscape:current-layer="svg21808" />
   <defs
      id="defs21805" />
   <g
-     class="trace sunburst"
-     stroke-linejoin="round"
-     id="g49">
-    <g
-       class="slice"
-       id="g2">
-      <circle
-         fill="white"
-         stroke="none"
-         id="circle11-5"
-         cx="340"
-         cy="226.5"
-         r="75.5" />
-      <text
-         class="slicetext"
-         text-anchor="middle"
-         id="text1"
-         x="340"
-         y="227"
-         fill="#444444">Machine Learning</text>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g4">
-      <path
-         class="surface"
-         d="M 415.5,226.5 H 491 A 151,151 0 0 0 275,90 l 32.5,68 A 75.5,75.5 0 0 1 415.5,226.5 z"
-         id="path2"
-         fill="#ef553b"
-         stroke="white" />
-      <text
-         class="slicetext"
-         text-anchor="middle"
-         x="103"
-         y="413"
-         transform="rotate(-58)"
-         id="text2"
-         fill="#444444">Supervised</text>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g6">
-      <path
-         class="surface"
-         d="M 307.5,158 275,90 A 151,151 0 0 0 232,332 l 54,-52.6 A 75.5,75.5 0 0 1 307.5,158 z"
-         id="path4"
-         fill="#ffe600"
-         stroke="white" />
-      <text
-         data-notex="1"
-         class="slicetext"
-         text-anchor="middle"
-         style="font-size:8.97375px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.747813"
-         x="226.73474"
-         y="229.86516"
-         id="text4">Neural Networks</text>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g8">
-      <path
-         class="surface"
-         style="fill:#00cc96;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 285.8282,279.0896 -54.1718,52.58961 a 151,151 0 0 0 181.24522,27.05677 L 376.45081,292.61799 A 75.5,75.5 0 0 1 285.8282,279.0896 Z"
-         id="path6" />
-      <g
-         class="slicetext"
-         id="g7">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Unsupervised"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.13495556,-0.90402696,0.90402696,0.13495556,327.36712,338.98234)"
-           id="text6">Unsupervised</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g10">
-      <path
-         class="surface"
-         style="fill:#45abff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 376.45081,292.61799 36.45081,66.11799 a 151,151 0 0 0 61.4366,-63.28497 l -67.16911,-34.4755 a 75.5,75.5 0 0 1 -30.7183,31.64248 z"
-         id="path8" />
-      <g
-         class="slicetext"
-         id="g9">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Reinforcement"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.61200025,0.59412557,-0.59412557,0.61200025,418.49931,308.05606)"
-           id="text8">Reinforcement</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g12">
-      <path
-         class="surface"
-         style="fill:#ff5ac3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 407.16911,260.97551 67.16911,34.4755 a 151,151 0 0 0 15.60193,-51.09176 l -74.97008,-8.92963 a 75.5,75.5 0 0 1 -7.80096,25.54589 z"
-         id="path10" />
-      <g
-         class="slicetext"
-         id="g11">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Semi-Supervised"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.72680063,0.22194357,-0.22194357,0.72680063,447.22397,262.81864)"
-           id="text10">Semi-Supervised</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g14">
-      <path
-         class="surface"
-         style="fill:#ab63fa;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 414.97007,235.42962 74.97008,8.92963 A 151,151 0 0 0 491,226.5 h -75.5 a 75.5,75.5 0 0 1 -0.52993,8.92962 z"
-         id="path12" />
-      <g
-         class="slicetext"
-         id="g13">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Others"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.72052314,0.04275934,-0.04275934,0.72052314,475.04648,237.76809)"
-           id="text12">Others</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g16">
-      <path
-         class="surface"
-         style="fill:#ba2020;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 491,226.5 h 75.5 A 226.5,226.5 0 0 0 449.35243,28.146036 L 412.90162,94.264024 A 151,151 0 0 1 491,226.5 Z"
-         id="path14" />
-      <g
-         class="slicetext"
-         id="g15">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#ffffff;fill-opacity:1"
-           data-unformatted="Classification"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.84046354,-0.49637656,0.49637656,0.84046354,504.66931,134.34785)"
-           id="text14">Classification</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g18">
-      <path
-         class="surface"
-         style="fill:#fb8072;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="M 412.90162,94.264024 449.35243,28.146036 A 226.5,226.5 0 0 0 267.45888,11.930581 l 24.18037,71.52314 a 151,151 0 0 1 121.26237,10.810303 z"
-         id="path16" />
-      <g
-         class="slicetext"
-         id="g17">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Regression"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="rotate(-84.90566,201.94951,-177.91561)"
-           id="text16">Regression</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g20">
-      <path
-         class="surface"
-         style="fill:#fcc3c3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 291.63925,83.453721 -24.18037,-71.52314 a 226.5,226.5 0 0 0 -24.86865,10.085711 l 32.46992,68.161236 a 151,151 0 0 1 16.5791,-6.723807 z"
-         id="path18" />
-      <g
-         class="slicetext"
-         id="g19">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Dimensionality"
-           id="text18" />
-        <br>Reduction&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(266.36749832586594,39.82472097396522)scale(0.5828008811094588)rotate(67.92452830188677)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Dimensionality</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Reduction</tspan>
-</br>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g22">
-      <path
-         class="surface"
-         style="fill:#ffb300;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="M 275.06015,90.177528 242.59023,22.016292 A 226.5,226.5 0 0 0 144.97362,111.3177 l 65.00879,38.3941 a 151,151 0 0 1 65.07774,-59.534272 z"
-         id="path20" />
-      <g
-         class="slicetext"
-         id="g21">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Generative"
-           id="text20" />
-        <br>Adversarial Networks&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(214.091871967861,85.92245934354446)scale(0.6024974350629327)rotate(47.547169811320714)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Generative</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Adversarial Networks</tspan>
-</br>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g24">
-      <path
-         class="surface"
-         style="fill:#ffd857;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="M 209.98241,149.7118 144.97362,111.3177 A 226.5,226.5 0 0 0 113.89779,213.082 l 75.36741,4.47267 a 151,151 0 0 1 20.71721,-67.84287 z"
-         id="path22" />
-      <g
-         class="slicetext"
-         id="g23">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Auto Encoders"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.83888644,0.25617128,-0.25617128,0.83888644,158.2853,175.13668)"
-           id="text22">Auto Encoders</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g26">
-      <path
-         class="surface"
-         style="fill:#fff16b;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="M 189.2652,217.55467 113.89779,213.082 a 226.5,226.5 0 0 0 9.47739,79.56886 l 72.20827,-22.05029 a 151,151 0 0 1 -6.31825,-53.0459 z"
-         id="path24" />
-      <g
-         class="slicetext"
-         id="g25">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Recurrent Neural"
-           id="text24" />
-        <br>Networks&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(152.475623770669,246.36202202544817)scale(0.7443902818549134)rotate(-6.792452830188722)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Recurrent Neural</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Networks</tspan>
-</br>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g28">
-      <path
-         class="surface"
-         style="fill:#faf693;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 195.58345,270.60057 -72.20827,22.05029 a 226.5,226.5 0 0 0 21.59844,49.03144 l 65.00879,-38.3941 a 151,151 0 0 1 -14.39896,-32.68763 z"
-         id="path26" />
-      <g
-         class="slicetext"
-         id="g27">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Feed Forward Neural"
-           id="text26" />
-        <br>Networks&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(166.57103864861034,300.6874164810372)scale(0.6124202186853378)rotate(-23.773584905660414)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Feed Forward Neural</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Networks</tspan>
-</br>
-      </g>
-      <g
-         class="slice cursor-pointer"
-         id="g30">
-        <path
-           class="surface"
-           style="fill:#fcffc2;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-           d="m 209.98241,303.2882 -65.00879,38.3941 a 226.5,226.5 0 0 0 32.51099,42.58651 l 54.17179,-52.5896 A 151,151 0 0 1 209.98241,303.2882 Z"
-           id="path28" />
-        <g
-           class="slicetext"
-           id="g29">
-          <text
-             data-notex="1"
-             class="slicetext"
-             text-anchor="middle"
-             style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-             data-unformatted="Convolutional Neural"
-             id="text28" />
-          <br>Networks&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(188.85533463589277,339.358903691155)scale(0.6085461435002724)rotate(-37.358490566037744)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Convolutional Neural</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Networks</tspan>
-</br>
-        </g>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g32">
-      <path
-         class="surface"
-         style="fill:#a3e897;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 231.6564,331.67921 -54.17179,52.5896 a 226.5,226.5 0 0 0 142.40312,67.83648 l 6.70409,-75.20176 A 151,151 0 0 1 231.6564,331.67921 Z"
-         id="path30" />
-      <g
-         class="slicetext"
-         id="g31">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Dimensionality"
-           id="text30" />
-        <br>Reduction&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(256.245801133678,395.83569109396734)scale(0.844763080624559)rotate(-64.5283018867924)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Dimensionality</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Reduction</tspan>
-</br>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g34">
-      <path
-         class="surface"
-         style="fill:#ccebc5;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 326.59182,376.90353 -6.70409,75.20176 A 226.5,226.5 0 0 0 425.12495,436.3952 l -28.37499,-69.96507 a 151,151 0 0 1 -70.15814,10.4734 z"
-         id="path32" />
-      <g
-         class="slicetext"
-         id="g33">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Clustering"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="rotate(81.509434,-58.203635,417.5468)"
-           id="text32">Clustering</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g36">
-      <path
-         class="surface"
-         style="fill:#8dd3c7;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 396.74996,366.43013 28.37499,69.96507 a 226.5,226.5 0 0 0 24.22748,-11.54124 l -36.45081,-66.11798 a 151,151 0 0 1 -16.15166,7.69415 z"
-         id="path34" />
-      <g
-         class="slicetext"
-         id="g35">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Association"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.41981996,0.8812909,-0.8812909,0.41981996,419.21295,402.99899)"
-           id="text34">Association</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g38">
-      <path
-         class="surface"
-         style="fill:#80c6ff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 412.90162,358.73598 36.45081,66.11798 a 226.5,226.5 0 0 0 62.22387,-50.48975 l -57.1921,-49.28807 a 151,151 0 0 1 -41.48258,33.65984 z"
-         id="path36" />
-      <g
-         class="slicetext"
-         id="g37">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Value-Based Methods"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.37326507,0.46001401,-0.46001401,0.37326507,456.78278,374.65461)"
-           id="text36">Value-Based Methods</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g40">
-      <path
-         class="surface"
-         style="fill:#b3ddff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 454.3842,325.07614 57.1921,49.28807 a 226.5,226.5 0 0 0 29.93103,-44.43769 l -67.16911,-34.47551 a 151,151 0 0 1 -19.95402,29.62513 z"
-         id="path38" />
-      <g
-         class="slicetext"
-         id="g39">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Policy-Based Methods"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.48599314,0.32734101,-0.32734101,0.48599314,494.97848,334.06499)"
-           id="text38">Policy-Based Methods</text>
-      </g>
-    </g>
-    <g
-       class="slice"
-       id="g42">
-      <path
-         class="surface"
-         style="opacity:0.7;fill:#ff5ac3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 474.33822,295.45101 67.16911,34.47551 a 226.5,226.5 0 0 0 10.81822,-24.55885 l -70.77518,-26.28922 a 151,151 0 0 1 -7.21215,16.37256 z"
-         id="path40" />
-      <g
-         class="slicetext"
-         id="g41">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Self Training"
-           id="text40" />
-        <br>Classifier&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(527.3179015791279,306.82646936060183)scale(0.6066110958831571)rotate(23.773584905660414)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Self Training</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Classifier</tspan>
-</br>
-      </g>
-    </g>
-    <g
-       class="slice"
-       id="g44">
-      <path
-         class="surface"
-         style="opacity:0.7;fill:#ff5ac3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 481.55037,279.07845 70.77518,26.28922 a 226.5,226.5 0 0 0 7.83764,-25.66598 l -73.38773,-17.7339 a 151,151 0 0 1 -5.22509,17.11066 z"
-         id="path42" />
-      <g
-         class="slicetext"
-         id="g43">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Label Spreading"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.76162813,0.23257886,-0.23257886,0.76162813,519.24502,284.98309)"
-           id="text42">Label Spreading</text>
-      </g>
-    </g>
-    <g
-       class="slice"
-       id="g46">
-      <path
-         class="surface"
-         style="opacity:0.7;fill:#ff5ac3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 486.77546,261.96779 73.38773,17.7339 a 226.5,226.5 0 0 0 4.74703,-26.41282 l -74.97007,-8.92962 a 151,151 0 0 1 -3.16469,17.60854 z"
-         id="path44" />
-      <g
-         class="slicetext"
-         id="g45">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Label Propagation"
-           data-math="N"
-           x="0"
-           y="0"
-           transform="matrix(0.69707219,0.1252809,-0.1252809,0.69707219,525.15769,263.01551)"
-           id="text44">Label Propagation</text>
-      </g>
-    </g>
-    <g
-       class="slice cursor-pointer"
-       id="g48">
-      <path
-         class="surface"
-         style="fill:#ab63fa;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
-         d="m 489.94015,244.35925 74.97007,8.92962 A 226.5,226.5 0 0 0 566.5,226.5 H 491 a 151,151 0 0 1 -1.05985,17.85925 z"
-         id="path46" />
-      <g
-         class="slicetext"
-         id="g47">
-        <text
-           data-notex="1"
-           class="slicetext"
-           text-anchor="middle"
-           style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
-           data-unformatted="Probabilistic"
-           id="text46" />
-        <br>Graphical Models&quot; data-math=&quot;N&quot; x=&quot;0&quot; y=&quot;0&quot; transform=&quot;translate(537.1116797049442,236.33653593541578)scale(0.5629568524528153)rotate(3.3962264150943042)&quot;&gt;<tspan
-   class="line"
-   dy="0em"
-   x="0"
-   y="0">Probabilistic</tspan>
-<tspan
-   class="line"
-   dy="1.3em"
-   x="0"
-   y="0">Graphical Models</tspan>
-</br>
-      </g>
-    </g>
+     class="slice"
+     id="g2"
+     style="stroke-linejoin:round">
+    <circle
+       fill="#ffffff"
+       stroke="none"
+       id="circle11-5"
+       cx="227"
+       cy="227"
+       r="75.5" />
+    <text
+       class="slicetext"
+       text-anchor="middle"
+       id="text1"
+       x="227"
+       y="227.5"
+       fill="#444444">Machine Learning</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g4"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       d="m 302.49998,227.00028 h 75.5 a 151,151 0 0 0 -216,-136.499999 l 32.5,67.999999 a 75.5,75.5 0 0 1 108,68.5 z"
+       id="path2"
+       fill="#ef553b"
+       stroke="#ffffff" />
+    <text
+       class="slicetext"
+       text-anchor="end"
+       x="75"
+       y="326"
+       transform="rotate(-58)"
+       id="text2"
+       fill="#444444">Supervised</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g6"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       d="m 194.50015,158.49998 -32.5,-67.999997 a 151,151 0 0 0 -43,241.999997 l 54,-52.6 a 75.5,75.5 0 0 1 21.5,-121.4 z"
+       id="path4"
+       fill="#ffe600"
+       stroke="#ffffff" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:8.97375px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.747813"
+       x="80"
+       y="220"
+       id="text4">Neural\\Networks</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g8"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#00cc96;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 172.82778,279.58998 -54.1718,52.58961 a 151,151 0 0 0 181.24522,27.05677 l -36.45081,-66.11799 a 75.5,75.5 0 0 1 -90.62261,-13.52839 z"
+       id="path6" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:10.9685px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.914045"
+       x="-336"
+       y="263"
+       transform="rotate(-81)"
+       id="text6">Unsupervised</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g10"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#45abff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 263.45098,293.11846 36.45081,66.11799 a 151,151 0 0 0 61.4366,-63.28497 l -67.16911,-34.4755 a 75.5,75.5 0 0 1 -30.7183,31.64248 z"
+       id="path8" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:10.2354px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.852953"
+       x="468"
+       y="1"
+       transform="rotate(45)"
+       id="text8">Reinforcement</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g12"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ff5ac3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 294.16898,261.47588 67.16911,34.4755 a 151,151 0 0 0 15.60193,-51.09176 l -74.97008,-8.92963 a 75.5,75.5 0 0 1 -7.80096,25.54589 z"
+       id="path10" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:9.1192px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.759933"
+       x="432"
+       y="153"
+       transform="rotate(17)"
+       id="text10">Semi-Supervised</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g14"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ab63fa;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 301.96999,235.92962 74.97008,8.92963 A 151,151 0 0 0 377.99992,227 h -75.5 a 75.5,75.5 0 0 1 -0.52993,8.92962 z"
+       id="path12" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:8.66149px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.721791"
+       x="388"
+       y="219"
+       id="text12"
+       transform="rotate(3)">Others</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g16"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ba2020;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 378.00036,226.99995 h 75.5 A 226.5,226.5 0 0 0 336.35279,28.645982 L 299.90198,94.76397 a 151,151 0 0 1 78.09838,132.23598 z"
+       id="path14" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:11.7132px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#ffffff;fill-opacity:1;stroke-width:0.976099"
+       x="306"
+       y="310"
+       transform="rotate(-30)"
+       id="text14">Classification</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g18"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#fb8072;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="M 299.90173,94.764319 336.35254,28.646331 A 226.5,226.5 0 0 0 154.45899,12.430876 l 24.18037,71.52314 a 151,151 0 0 1 121.26237,10.810303 z"
+       id="path16" />
+    <text
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       x="15"
+       y="248"
+       transform="rotate(-85)"
+       id="text16">Regression</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g20"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#fcc3c3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="M 178.639,83.954127 154.45863,12.430987 A 226.5,226.5 0 0 0 129.58998,22.516698 L 162.0599,90.677934 A 151,151 0 0 1 178.639,83.954127 Z"
+       id="path18" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text18"
+       x="70"
+       y="-130"
+       transform="rotate(69)">\tiny Dimensionality\\\tiny Reduction</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g22"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ffb300;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="M 162.06051,90.677219 129.59059,22.515983 A 226.5,226.5 0 0 0 31.973982,111.81739 l 65.00879,38.3941 A 151,151 0 0 1 162.06051,90.677219 Z"
+       id="path20" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text20"
+       x="102.07677"
+       y="-11.82218"
+       transform="rotate(45)">Generative\\Adversarial\\Networks</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g24"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ffd857;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 96.982617,150.21208 -65.00879,-38.3941 A 226.5,226.5 0 0 0 0.89799713,213.58228 l 75.36740987,4.47267 a 151,151 0 0 1 20.71721,-67.84287 z"
+       id="path22" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:10.5255px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.877128"
+       x="59"
+       y="156"
+       transform="rotate(17)"
+       id="text22">Auto Encoders</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g26"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#fff16b;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="M 76.26521,218.05467 0.8977999,213.582 a 226.5,226.5 0 0 0 9.4773901,79.56886 l 72.20827,-22.05029 a 151,151 0 0 1 -6.31825,-53.0459 z"
+       id="path24" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text24"
+       x="-31"
+       y="239"
+       transform="rotate(-8)">Recurrent\\Neural\\Networks</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g28"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#faf693;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 82.583258,271.10099 -72.20827,22.05029 a 226.5,226.5 0 0 0 21.59844,49.03144 l 65.00879,-38.3941 a 151,151 0 0 1 -14.39896,-32.68763 z"
+       id="path26" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text26"
+       x="-112"
+       y="288"
+       transform="rotate(-25)">Feed Forward\\Neural\\Networks</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g30"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#fcffc2;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 96.982772,303.78798 -65.00879,38.3941 a 226.5,226.5 0 0 0 32.51099,42.58651 l 54.171788,-52.5896 A 151,151 0 0 1 96.982772,303.78798 Z"
+       id="path28" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text28"
+       x="-206"
+       y="296"
+       transform="rotate(-42)">Convolutional\\Neural\\Networks</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g32"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#a3e897;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 118.65677,332.17898 -54.171791,52.5896 A 226.5,226.5 0 0 0 206.8881,452.60506 l 6.70409,-75.20176 a 151,151 0 0 1 -94.93542,-45.22432 z"
+       id="path30" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="begin"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text30"
+       y="288"
+       x="-334"
+       transform="rotate(-65)">Dimensionality\\Reduction</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g34"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ccebc5;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 213.59209,377.40338 -6.70409,75.20176 a 226.5,226.5 0 0 0 105.23722,-15.71009 l -28.37499,-69.96507 a 151,151 0 0 1 -70.15814,10.4734 z"
+       id="path32" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       x="481"
+       y="-191"
+       transform="rotate(82)"
+       id="text32">Clustering</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g36"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#8dd3c7;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 283.74998,366.93013 28.37499,69.96507 a 226.5,226.5 0 0 0 24.22748,-11.54124 l -36.45081,-66.11798 a 151,151 0 0 1 -16.15166,7.69415 z"
+       id="path34" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:11.7141px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.976177"
+       x="526"
+       y="-107"
+       transform="rotate(65)"
+       id="text34">Association</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g38"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#80c6ff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 299.90198,359.23582 36.45081,66.11798 a 226.5,226.5 0 0 0 62.22387,-50.48975 l -57.1921,-49.28807 a 151,151 0 0 1 -41.48258,33.65984 z"
+       id="path36" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:7.10882px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.592402"
+       x="545"
+       y="-38"
+       transform="rotate(51)"
+       id="text36">Value-Based\\Methods</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g40"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#b3ddff;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 341.38398,325.57611 57.1921,49.28807 a 226.5,226.5 0 0 0 29.93103,-44.43769 L 361.338,295.95098 a 151,151 0 0 1 -19.95402,29.62513 z"
+       id="path38" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:7.03144px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.585953"
+       x="540"
+       y="61"
+       transform="rotate(34)"
+       id="text38">Policy-Based\\Methods</text>
+  </g>
+  <g
+     class="slice"
+     id="g42"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="opacity:1;fill:#ff5ac3;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 361.33798,295.95055 67.16911,34.47551 a 226.5,226.5 0 0 0 10.81822,-24.55885 l -70.77518,-26.28922 a 151,151 0 0 1 -7.21215,16.37256 z"
+       id="path40" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:12px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1"
+       id="text40"
+       x="523"
+       y="117"
+       transform="rotate(24)">Self Training</text>
+  </g>
+  <g
+     class="slice"
+     id="g44"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="opacity:1;fill:#FF7BCF;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 368.54999,279.57865 70.77518,26.28922 a 226.5,226.5 0 0 0 7.83764,-25.66598 l -73.38773,-17.7339 a 151,151 0 0 1 -5.22509,17.11066 z"
+       id="path42" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:9.55618px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.796348"
+       x="508"
+       y="154"
+       transform="rotate(17)"
+       id="text42">Label Spreading</text>
+  </g>
+  <g
+     class="slice"
+     id="g46"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="opacity:1;fill:#FF9CDB;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 373.77499,262.46753 73.38773,17.7339 a 226.5,226.5 0 0 0 4.74703,-26.41282 l -74.97007,-8.92962 a 151,151 0 0 1 -3.16469,17.60854 z"
+       id="path44" />
+    <text
+       data-notex="1"
+       class="slicetext"
+       text-anchor="end"
+       style="font-size:8.49889px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#444444;fill-opacity:1;stroke-width:0.708241"
+       x="495"
+       y="172"
+       transform="rotate(12)"
+       id="text44">\scriptnote Label Propagation</text>
+  </g>
+  <g
+     class="slice cursor-pointer"
+     id="g48"
+     style="stroke-linejoin:round">
+    <path
+       class="surface"
+       style="fill:#ab63fa;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-opacity:1"
+       d="m 376.93999,244.85925 74.97007,8.92962 A 226.5,226.5 0 0 0 453.49984,227 h -75.5 a 151,151 0 0 1 -1.05985,17.85925 z"
+       id="path46" />
   </g>
 </svg>
