@@ -26,9 +26,9 @@ Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$
 
 \begin{figure}[H]
   \centering
-  \includesvg[width=\textwidth,pretex=\large]{gru/gruCell.svg}
+  \includesvg[width=\textwidth,pretex=\large]{gru/encoderCell.svg}
   \label{fig:lstmCell}
-  \caption{Encoder \acs{GRU} cell}
+  \caption{Encoder \acs{GRU} cell, legend in \cref{leg:cells}}
 \end{figure}
 
 Sometimes the \cref{eq:gruHidG} can be found in another form (\cref{eq:gruHidG1})\cite{gruPyTorch}. This, however, has no impact on the final results, it means the weights are going to be trained differently for the update gate.
@@ -46,6 +46,13 @@ The candidate activation gate (\cref{eq:candActivG1}) is the only difference fro
 \begin{equation}\label{eq:candActivG1}
   \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+ \overrightarrow{b_{hx}}+\overrightarrow{r_t}\odot[\overrightarrow{h_{t-1}} \cdot w_{hh} + \overrightarrow{b_{hh}}])
 \end{equation}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth,pretex=\large]{gru/decoderCell.svg}
+  \label{fig:lstmCell}
+  \caption{Encoder \acs{GRU} cell, legend in \cref{leg:cells}}
+\end{figure}
 
 \subsection{Similarities with \ac{LSTM}}
 
