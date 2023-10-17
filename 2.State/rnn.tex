@@ -18,6 +18,17 @@ They are trained the same way \ac{NN} are, measuring the error, backpropagte and
 
 The simple \ac{RNN} works just like a \ac{tanh} activated feedforward \ac{NN} with a feedback connection.
 
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[\acs{RNN} cell\label{fig:rnnCell}]{\includesvg[width=\textwidth,pretex=\large]{rnn/rnnCell.svg}}
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Legend\label{leg:lstm}]{\includesvg[width=\textwidth,pretex=\large]{cellsLegend}}
+  \end{minipage}
+  \caption{}
+\end{figure}
+
 \Cref{eq:srnn} shows the equation that the simple \ac{RNN} runs at every time step.
 
 \begin{equation}\label{eq:srnn}

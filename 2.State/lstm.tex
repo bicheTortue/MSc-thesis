@@ -9,13 +9,9 @@ An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they h
 
 \begin{figure}[H]
   \centering
-  \begin{minipage}{\columnwidth}
-    \subfloat[\acs{LSTM} cell\label{fig:lstmCell}]{\includesvg[width=\textwidth,pretex=\large]{lstm/lstmCell.svg}}
-  \end{minipage}
-  \begin{minipage}{\columnwidth}
-    \subfloat[Legend\label{leg:lstm}]{\includesvg[width=\textwidth,pretex=\large]{lstm/lstmLegend.svg}}
-  \end{minipage}
-  \caption{}
+  \includesvg[width=\textwidth,pretex=\large]{lstm/lstmCell.svg}
+  \label{fig:lstmCell}
+  \caption{\acs{LSTM} cell}
 \end{figure}
 
 \Cref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a \ac{tanh} or a sigmoid activation function. Each input to the cell is a vector.
