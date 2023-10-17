@@ -24,7 +24,7 @@ The encoder \ac{GRU} is the version of the \ac{GRU} most widely described on the
 
 Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$w_{hh}$,$\overrightarrow{b_h}$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
 
-Some times the \cref{eq:gruHidG} can be found in another form (\cref{eq:gruHidG1}). This, however, has no impact on the final results because it is mathematically equivalent.
+Sometimes the \cref{eq:gruHidG} can be found in another form (\cref{eq:gruHidG1})\cite{gruPyTorch}. This, however, has no impact on the final results, it means the weights are going to be trained differently for the update gate.
 
 \begin{equation}\label{eq:gruHidG1}
   \overrightarrow{h_t}=\overrightarrow{z_t}\odot \overrightarrow{h_{t-1}} + (\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{\hat{h_t}}
