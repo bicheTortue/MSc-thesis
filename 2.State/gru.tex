@@ -1,0 +1,58 @@
+\section{\acf{GRU}}
+The \ac{GRU} is another type of \ac{RNN}. It is also known to reduce the effect of the vanishing gradient problem. It was first introduced to improve translation techniques \cite{gru}.
+
+The \ac{GRU} is very often compared to the \ac{LSTM}, it is sometimes assimilated as a type of \ac{LSTM} \cite{nbLSTM}. Their performance was found to be very similar in most situations, making those two types of \acp{RNN} coexistant in the modern machine learning world.
+
+There are two versions of the \ac{GRU}, both are found on the internet, they are known as the encoder and decoder version \cite{gru}. They were originally designed to encode the message to translate and then decode in the translation. PyTorch only supports the decoder version \cite{gruPyTorch}, while the keras library supports both \cite{gruKeras} chosen by changing an argument.
+
+\subsection{Encoder \ac{GRU}}
+
+The encoder \ac{GRU} is the version of the \ac{GRU} most widely described on the internet. It contains an update gate (\cref{eq:updateG}), a reset gate (\cref{eq:resetG}), a candidate activation gate (\cref{eq:candActivG}). The hidden state is then computed (\cref{eq:gruHidG}) using the previous results.
+
+\begin{equation}\label{eq:updateG}
+\overrightarrow{z_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_z + \overrightarrow{b_z})
+  \end{equation}
+  \begin{equation}\label{eq:resetG}
+\overrightarrow{r_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_r + \overrightarrow{b_r})
+  \end{equation}
+  \begin{equation}\label{eq:candActivG}
+\overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
+  \end{equation}
+  \begin{equation}\label{eq:gruHidG}
+  \overrightarrow{h_t}=(\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{h_{t-1}} + \overrightarrow{z_t}\odot \overrightarrow{\hat{h_t}}
+  \end{equation}
+
+  Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$w_{hh}$,$\overrightarrow{b_h}$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
+
+  Some times the \cref{eq:gruHidG} can be found in another form (\cref{eq:gruHidG1}). This, however, has no impact on the final results because it is mathematically equivalent.
+
+  \begin{equation}\label{eq:gruHidG1}
+  \overrightarrow{h_t}=\overrightarrow{z_t}\odot \overrightarrow{h_{t-1}} + (\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{\hat{h_t}}
+  \end{equation}
+
+  \subsection{Decoder \ac{GRU}}
+
+  The decoder \ac{GRU}, while being less described, is the version used in pyTorch, which is getting very popular.
+
+  The candidate activation gate (\cref{eq:candActivG1}) is the only difference from the encoder \ac{GRU}.
+
+  \begin{equation}\label{eq:candActivG1}
+\overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+ \overrightarrow{b_{hx}}+\overrightarrow{r_t}\odot[\overrightarrow{h_{t-1}} \cdot w_{hh} + \overrightarrow{b_{hh}}])
+  \end{equation}
+
+  \subsection{Similarities with \ac{LSTM}}
+
+  The \ac{CIFG} \ac{LSTM} or more commonly known as \ac{GRU}. \cite{gru,gruKeras,gruPyTorch} As it's name implies, \acl{CIFG}, links the input and forget gates as such, $f_t=1-i_t$. Other differences are :
+  \begin{itemize}
+  \item No peepholes and output activation function.
+  \item Combined hidden state and cell state.
+  \item The candidate cell state is point wise multiplied with the output gate before the activation function.
+  \end{itemize}
+
+  This is clearer with the math equations :
+  \begin{equation}\label{eq:cellGGRU}
+\tilde{c}_t = tanh(w_{cx}\cdot x_t + w_{ch}\cdot(o_t \odot h_{t-1}) + b_c)
+  \end{equation}
+  \begin{equation}\label{eq:hiddenGRU}
+  h_t=(1-i_t)\cdot h_{t-1} + i_t \cdot \tilde{c}_t
+  \end{equation}

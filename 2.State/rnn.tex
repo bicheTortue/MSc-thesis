@@ -4,6 +4,14 @@
 
 This type of \ac{NN} is used when dealing with an unknown amount of inputs. Especially useful when treating time series \cite{rnn}. Example of \acp{RNN} uses are speech recognition, automatic language translation \cite{gru} and shape recognition, especially for handwriting recognition.
 
+Traditionnal \ac{RNN} have the ability to model sequential events by propagating through time, for example forward and backward propagation. This is achieved by connecting these sequential events with the hidden state like in \cref{eq:rnn}.
+
+\begin{equation}\label{eq:rnn}
+  \overrightarrow{h_t}=f(\overrightarrow{x_t},\overrightarrow{h_{t-1}})
+\end{equation}
+
+The hidden state ($\overrightarrow{h_t}$) carries all the past informations for the next time step. It also serves as the output of the \ac{RNN}.
+
 They are trained the same way \ac{NN} are, measuring the error, backpropagte and adjust the weights accordingly.
 
 \subsection{Simple \ac{RNN}}
@@ -13,13 +21,13 @@ The simple \ac{RNN} works just like a \ac{tanh} activated feedforward \ac{NN} wi
 \Cref{eq:srnn} shows the equation that the simple \ac{RNN} runs at every time step.
 
 \begin{equation}\label{eq:srnn}
-h_t=tanh([x_t,h_{t-1}]\cdot w + b)
-  \end{equation}
+  \overrightarrow{h_t}=tanh([\overrightarrow{x_t},\overrightarrow{h_{t-1}}]\cdot w + b)
+\end{equation}
 
-  Where
+Where $t\in\mathbb{N}^*$ is the time index, $w$ the weight matrix, $b$ the bias matrix, $\overrightarrow{x_t}$ the input vector and $\overrightarrow{h_{t}}$ the hidden state of the \ac{RNN}.
 
-  \subsection{Vanishing gradient problem}
+\subsection{Vanishing gradient problem}
 
-  The Vanishing gradient problem is a problem that comes when dealing with time depedent data \cite{vanishGrad}. When big amount of time depedent data is fed to the \ac{RNN}, the weights can't be updated properly. The older the data, the lower it will impact how much the weight must change. Rendering the old input data almost useless. Simple \acp{RNN} must be used with relatively short time series.
+The Vanishing gradient problem is a problem that comes when dealing with time depedent data \cite{vanishGrad}. When big amount of time depedent data is fed to the \ac{RNN}, the weights can't be updated properly. The older the data, the lower it will impact how much the weight must change. Rendering the old input data almost useless. Simple \acp{RNN} must be used with relatively short time series.
 
-  Some \acp{RNN} were designed around this issue. This is the case of the \ac{LSTM} and \ac{GRU} which were created with internal mechanisms to regulate the flow of information and gradients.
+Some \acp{RNN} were designed around this issue. This is the case of the \ac{LSTM} and \ac{GRU} which were created with internal mechanisms to regulate the flow of information and gradients.

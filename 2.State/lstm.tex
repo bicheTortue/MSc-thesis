@@ -2,12 +2,8 @@
 \acp{LSTM} are a type of \ac{RNN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
 
 The first \ac{LSTM} was invented in 1997 by Hochreiter and Schmidhuber \cite{firstLSTM}. \acp{LSTM} changed a lot through the years to become what they are now.
-\acp{LSTM} fixed the vanishing/exploding gradient problem. Traditionnal \ac{RNN} have the ability to model sequential events by propagating through time, for example forward and backward propagation. This is achieved by connecting these sequential events with the hidden state:
-$$h_t=f(h_{t-1},x_t)$$
-The hidden state $h_t$ carries all the past informations for the next time step.
-Even though \acp{RNN} work very well, they are subject to the vanishing/exploding gradient problem. This issue occurs when too many time steps are chained.
 
-\acp{LSTM} alleviate this issue by adding a cell state, this state gives it the ability to choose what input is important and which one isn't, thus giving it a long term memory. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
+\acp{LSTM} was created to fix the vanishing gradient problem. \acp{LSTM} alleviate this issue by adding a cell state, this state gives it the ability to choose what input is important and which one isn't, thus giving it a long term memory. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
 
 An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they have several gates, which are all technically a \ac{NN} themselves. There is also a cell state which job is to hold a value for the next step.
 
@@ -30,37 +26,38 @@ The input vector ($x_t$) is of size of the sample we want to feed for each time 
 
 The equations of an LSTM are quite unusual.
 Let's start with the more classic gate equations. They are the ones that behave like the more classic \ac{NN}.
-The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and ouput (\cref{eq:ouputG}) gates are described below.
+The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and ouput (\cref{eq:outputG}) gates are described below.
+
 
 \begin{equation}\label{eq:inputG}
-  i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}] + b_i)
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
 \end{equation}
 \begin{equation}\label{eq:forgetG}
-  f_t=\sigma (w_f\cdot[x_{t_1},h_{t-1}] + b_f)
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
 \end{equation}
-\begin{equation}\label{eq:ouputG}
-  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}] + b_o)
+\begin{equation}\label{eq:outputG}
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
 \end{equation}
 
-Where ($w_i$,$b_i$), ($w_f$,$b_f$) and ($w_o$,$b_o$) are the pair of weights and biases for the input, forget and ouput gates respectively. $x_t$ is the input vector and $h_t$ is the hidden state vector.
+Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$) and ($w_o$,$\overrightarrow{b_o}$) are the pair of weights matrixes and biases vectors for the input, forget and ouput gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
 
 For the next equation describes the candidate cell state (\cref{eq:candCell}), that will next become the cell state (\cref{eq:cellS}).
 
 \begin{equation}\label{eq:candCell}
-  \tilde{c}_t=tanh(w_c\cdot[x_{t-1},h_{t-1}] + b_c)
+  \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
 \end{equation}
 \begin{equation}\label{eq:cellS}
-  c_t=f_t\cdot c_{t-1} + i_t \cdot \tilde{c}_t
+  \overrightarrow{c_t}=\overrightarrow{f_t}\odot \overrightarrow{c_{t-1}} + \overrightarrow{i_t} \odot \overrightarrow{\tilde{c}_t}
 \end{equation}
 
-Where $w_c$ and $b_c$ are the weights and bias for the candidate cell state.
+Where $w_c$ and $\overrightarrow{b_c}$ are the weights matrix and bias vector for the candidate cell state.
 
 The final step of the \ac{LSTM} is to compute the hidden state (\cref{eq:hiddenS}).
 \begin{equation}\label{eq:hiddenS}
-  h_t=o_t\cdot tanh(c_t)
+  \overrightarrow{h_t}=\overrightarrow{o_t}\odot tanh(\overrightarrow{c_t})
 \end{equation}
 
-We set $x_0$ as the first input and define $h_0$ as a zero only vector.
+We set $x_1$ as the first input and define $\overrightarrow{h_0}$ as a zero only vector.
 
 \subsection{Usage}
 
@@ -82,45 +79,32 @@ The difference between each of them varies from one to the other, but they can a
 This variant of the \ac{LSTM} was origanally the only \ac{LSTM} network, hence it's name. It differs from the classic \ac{LSTM} with it's use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by those equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
-  i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}] + b_i+c_{t-1}\odot p_f)
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
 \end{equation}
 \begin{equation}\label{eq:forgetGVanilla}
-  f_t=\sigma (w_f\cdot[x_{t_1},h_{t-1}] + b_f+c_{t-1}\odot p_i)
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f}+\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
 \end{equation}
 \begin{equation}\label{eq:ouputGVanilla}
-  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}] + b_o+c_{t}\odot p_o)
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o}+\overrightarrow{c_{t}}\odot \overrightarrow{p_o})
 \end{equation}
-With $p_f$, $p_i$ and $p_o$ being the peephole weights vectors. Their size is the same as the size of the hidden state vector ($h_t$). $\odot$ is the pointwise multiplication operator.
+
+With $\overrightarrow{p_f}$, $\overrightarrow{p_i}$ and $\overrightarrow{p_o}$ being the peephole weights vectors. Their size is the same as the size of the hidden state vector ($\overrightarrow{h_t}$). $\odot$ is the pointwise multiplication operator.
 
 The equations that haven't been rewritten simply stay the same.
 
-\subsubsection{\acf{CIFG} \ac{LSTM} or \acf{GRU}}
-The \ac{CIFG} \ac{LSTM} or more commonly known as \ac{GRU}. \cite{gru,gruKeras,gruPyTorch} As it's name implies, \acl{CIFG}, links the input and forget gates as such, $f_t=1-i_t$. Other differences are :
-\begin{itemize}
-  \item No peepholes and output activation function.
-  \item Combined hidden state and cell state.
-  \item The candidate cell state is point wise multiplied with the output gate before the activation function.
-\end{itemize}
-
-This is clearer with the math equations :
-\begin{equation}\label{eq:cellGGRU}
-  \tilde{c}_t = tanh(w_{cx}\cdot x_t + w_{ch}\cdot(o_t \odot h_{t-1}) + b_c)
-\end{equation}
-\begin{equation}\label{eq:hiddenGRU}
-  h_t=(1-i_t)\cdot h_{t-1} + i_t \cdot \tilde{c}_t
-\end{equation}
-
 \subsubsection{\acf{FGR} \ac{LSTM}}
 This variant of the \ac{LSTM} is the most complex of all. This is due to the amount of feedback connections. This is basically a more complex version of the Vanilla \ac{LSTM}. The modified equations are :
+
 \begin{equation}\label{eq:inputGFGR}
-  i_t=\sigma (w_i\cdot[x_{t_1},h_{t-1}]+ R_{ii}\cdot i_{t-1} + R_{if}\cdot f_{t-1} + R{io}\cdot o_{t-1} + b_i+c_{t-1}\odot p_f)
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i  + \overrightarrow{i_{t-1}}\cdot R_{ii} + \overrightarrow{f_{t-1}}\cdot R_{if} + \overrightarrow{o_{t-1}}\cdot R_{io} + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
 \end{equation}
 \begin{equation}\label{eq:forgetGFGR}
-  f_t=\sigma (w_f\cdot[x_{t_1},h_{t-1}]+ R_{fi}\cdot i_{t-1} + R_{ff}\cdot f_{t-1} + R{fo}\cdot o_{t-1} + b_f+c_{t-1}\odot p_i)
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f  + \overrightarrow{i_{t-1}}\cdot R_{fi} + \overrightarrow{f_{t-1}}\cdot R_{ff} + \overrightarrow{o_{t-1}}\cdot R_{fo} + \overrightarrow{b_f} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
 \end{equation}
 \begin{equation}\label{eq:ouputGFGR}
-  o_t=\sigma (w_o\cdot[x_{t_1},h_{t-1}]+ R_{oi}\cdot i_{t-1} + R_{of}\cdot f_{t-1} + R{oo}\cdot o_{t-1} + b_o+c_{t-1}\odot p_o)
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{i_{t-1}}\cdot R_{oi} + \overrightarrow{f_{t-1}}\cdot R_{of} + \overrightarrow{o_{t-1}}\cdot R_{oo} + \overrightarrow{b_o} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_o})
 \end{equation}
+
 With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrices.
 
 Once again, the equations that haven't been rewritten are unchanged.
