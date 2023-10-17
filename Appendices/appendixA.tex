@@ -83,3 +83,14 @@ They are defined as \cref{eq:hSigmoid} for the hard sigmoid and \cref{eq:hTanh} 
     1, \hfill x>1\\
   \end{cases}
 \end{equation}
+
+Some versions of the hard sigmoid are a bit different from \cref{eq:hSigmoid}, the slope depends on the library used \cite{hSigmoid1}.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{activation/hardFunc}
+  \caption{Hard sigmoid and hard \acs{tanh} with their original function}
+  \label{graph:hardFunc}
+\end{figure}
+
+A visual representation helps seeing how close those functions are, \cref{graph:hardFunc} displays the two together with the function they are modeled after.
