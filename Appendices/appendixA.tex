@@ -9,8 +9,6 @@ This is a classic circuit that only takes one \ac{opAmp} wired as like in figure
 
 This is the circuit that comes after the voltage multiplier (section \ref{sec:models}), it is here to amplify the results of the voltage multiplier by 10. Sometimes, its use doubles as an adder making it an inverting summing amplifier (TODO circuit).
 
-A non-inverting amplifier was producing too much difference from the expected result (about a 20\% error) %TODO maybe show something
-
 \section{Solving weight to resistance}\label{apsec:wei2res}
 
 \begin{equation}\label{eq:wei2res3}
@@ -61,4 +59,26 @@ Giving the two solutions :
   R_{+,1}=\frac{R_f\cdot(w+1)+R_f\cdot\sqrt{w^2+1}}{w}
 \end{equation}
 
+\section{Hard sigmoid and \ac{tanh} functions}\label{apsec:hardFunc}
 
+The hard sigmoid and \ac{tanh} functions are simplifications of the the classic sigmoid and \ac{tanh} used for faster computation. They come with a downside, they are less efficient then their original functions.
+
+They are defined as \cref{eq:hSigmoid} for the hard sigmoid and \cref{eq:hTanh} for the hard \ac{tanh} \cite{hSigmoid, hTanh}.
+
+
+\begin{equation}\label{eq:hSigmoid}
+  \sigma (x) =
+  \begin{cases}
+    0, \hfill x< -2.5\\
+    \frac{x}{5}+\frac{1}{2}, \hspace{0.2cm} 2.5>x>-2.5\\
+    1, \hfill x> 2.5\\
+  \end{cases}
+\end{equation}
+\begin{equation}\label{eq:hTanh}
+  tanh(x) =
+  \begin{cases}
+    -1, \hfill x<-1\\
+    x, \hspace{0.2cm} 1>x>-1\\
+    1, \hfill x>1\\
+  \end{cases}
+\end{equation}
