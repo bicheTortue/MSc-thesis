@@ -23,14 +23,6 @@ The cirucit has a two \ac{CMOS} switches design to avoid voltage leakage through
   \label{fig:memcellLoss}
 \end{figure}
 
-For this circuit the approximate onChip area :
-
-\begin{equation}
-  A_{memcell}=8\cdot A_{CMOS}+2\cdot A_{inv}+A_{opAmp}+A_{cap}
-\end{equation}
-
-With $A_{CMOS} = w\cdot l = 2\cdot 10^{-7} \cdot 6 \cdot 10^{-8} = 1.2 \cdot 10^{-14} m^2$
-
 \subsection{Symbol}
 
 The symbol for this circuit is designed to show a capacitor because it is its memory mechanism.
@@ -41,6 +33,14 @@ The symbol for this circuit is designed to show a capacitor because it is its me
   \caption{Memory cell symbol with the input enable pin (top) and the output enable pin (bottom). The left and right pins are interchangebly the input and ouput for the sake of readability}
   \label{circt:memcell}
 \end{figure}
+
+For this circuit the approximate onChip area is :
+
+\begin{equation}
+  A_{memcell}=8\cdot A_{CMOS}+2\cdot A_{inv}+A_{opAmp}+A_{cap}
+\end{equation}
+
+With $A_{CMOS} = w\cdot l = 2\cdot 10^{-7} \cdot 6 \cdot 10^{-8} = 1.2 \cdot 10^{-14} m^2$
 
 \subsection{Usage}
 

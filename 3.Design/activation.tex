@@ -52,16 +52,6 @@ The functions generated are the same shape and only differ by their output range
   \label{circt:af}
 \end{figure}
 
-The approximate onChip area of this circuit is :
-
-\begin{equation}
-  A_{af}=2\cdot A_{R_1} + 2\cdot A_{CMOS} + 5\cdot A_{R_2} + A_{R_3} +2\cdot A_{opAmp}
-\end{equation}
-With $A_{CMOS} = w\cdot l = 9\cdot 10^{-7} \cdot 6 \cdot 10^{-8} = 5.4 \cdot 10^{-14} m^2$
-TODO : Finish calc
-
-
-
 \subsection{Symbols}
 The symbols for the sigmoid and the \ac{tanh} are separated for better understanding.
 
@@ -75,6 +65,16 @@ The symbols for the sigmoid and the \ac{tanh} are separated for better understan
   \caption{Activation functions symbols with the input and output pins on either side depending on the flow of the current for better readability}
   \label{fig:afSymbol}
 \end{figure}
+
+The approximate onChip area of this circuit is :
+
+\begin{equation}
+  A_{af}=2\cdot A_{R_1} + 2\cdot A_{CMOS} + 5\cdot A_{R_2} + A_{R_3} +2\cdot A_{opAmp}
+\end{equation}
+With $A_{CMOS} = w\cdot l = 9\cdot 10^{-7} \cdot 6 \cdot 10^{-8} = 5.4 \cdot 10^{-14} m^2$
+TODO : Finish calc
+
+In order to combine the the onChip area of both the sigmoid and \ac{tanh} activation functions, it is assumed that the variation of area taken by the resistor ($R_3$) is negligible compared to th overall area.
 
 \subsection{Usage}
 
