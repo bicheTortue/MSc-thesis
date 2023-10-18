@@ -92,15 +92,9 @@ The symbol of the \ac{LSTM} circuit can be found in \cref{sym:lstm}. It depends 
 The total onChip area for the crossbar circuit depends on the previously defined parameters.
 
 \begin{equation}
-  A_{xbar}(n_i,n_o,n_s)=
-  \begin{cases}
-    2\cdot n_i\cdot n_o \cdot A_{memristor}+n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f}),\hfill n_s=1\\
-    \begin{array}{2}
-      2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s\\
-      +n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})
-    \end{array}
-    ,\hfill \forall n_s>1\\
-  \end{cases}
+  \begin{array}{3}
+    A_{lstm}(n_i,n_h,n_s)=4\cdot A_{xbar}(n_i,\frac{n_h}{n_s},n_s)\\+ \frac{n_h}{n_s}\cdot (5\cdot A_{af}+3\cdot A_{voltMult}+3\cdot A_{R_{amp0}}+2\cdot A_{R_{amp1}}+2\cdot A_{opAmp})\\+5\cdot n_h\cdot A_{memcell}
+  \end{array}
 \end{equation}
 
 With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A_{CMOS}=1.2\cdot 10^{-14}m^2$, and the feature size of typical memristor that can be fabricated at INESC is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$.%TODO check info and inesc citation
