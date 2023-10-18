@@ -5,35 +5,109 @@ They are several ways to model a memristor \cite{memristorFab,memTEAMmodel, memV
 Some examples of memristor's model are :
 
 \begin{itemize}
-\item \acf{LIDM}, the model of the first memristor \cite{memristorFab}.
-\item \acf{STBM}, is another model of the $TiO_x$ memristor created in 2008 by \textbf{HP} \cite{memristorFab, memristorSpiceModels}.
-\item \acf{TEAM}, is a model that can easily adapt to several types of memristive devices while focusing on fast computation \cite{memTEAMmodel}.
-\item \acf{VTEAM}, is a later improvement of the \ac{TEAM}. The internal resistance depends on voltage, unlike \ac{TEAM} which depends on current \cite{memVTEAMmodel}.
+  \item \acf{LIDM}, the model of the first memristor \cite{memristorFab}.
+  \item \acf{STBM}, is another model of the $TiO_x$ memristor created in 2008 by \textbf{HP} \cite{memristorFab, memristorSpiceModels}.
+  \item \acf{TEAM}, is a model that can easily adapt to several types of memristive devices while focusing on fast computation \cite{memTEAMmodel}.
+  \item \acf{VTEAM}, is a later improvement of the \ac{TEAM}. The internal resistance depends on voltage, unlike \ac{TEAM} which depends on current \cite{memVTEAMmodel}.
 \end{itemize}
 
 The \ac{VTEAM} being the most versatile model, its implementation would fit most memristor types.
 
+\subsection{Equations}
+
 It's been established that the internal resistance also depends on an internal state $x$ (\cref{eq:memristiveDev}).
 
 \begin{equation}
-\frac{dx}{dt}=f(x,v)
-  \end{equation}
+  \frac{dx}{dt}=f(x,v)
+\end{equation}
 
-  The model is based on previous work \cite{memCadenceModel}. It defines sevral equations for the model such as \cref{}.
+Where $v$ is the voltage, $t$ is time and $f$ is a function.
 
-  \begin{equation}
+The function $f$ is described in its simplest form as in \cref{eq:funcDesc}.
+
+\begin{equation}\label{eq:funcDesc}
+  f(x,v)=g(x)\cdot s(v)
+\end{equation}
+
+Where $g$ is the window function and $s$ the sensitivity function.
+
+\begin{itemize}
+  \item The window function delimits the operational boundaries of the memristor.
+  \item The sensitivity function, also known as voltage sensitivity describes the effect of voltage on the internal state's variations.
+\end{itemize}
+
+The model is based on previous work \cite{memCadenceModel} that aims to reproduce as many memristive device types. They have chosen to use the resistive state ($R$) as the internal state \cite{memModelOrigin}. Based on this assumption the \cref{eq:memModel0,eq:memModel1} are extracted from the memristive device. This model is of course very basic and ignores some physical depedencies such as temperature.
+
+\begin{equation}\label{eq:memModel0}
   i(R,v)=
   \begin{cases}
-  \frac{a_p}{R}\cdot sinh(b_p\cdot v), \hspace{10px} v\ge 0\\
-    \frac{a_n}{R}\cdot sinh(b_n\cdot v), \hspace{10px} v<0\\
-    \end{cases}
-    \end{equation}
+    \frac{a_p}{R}\cdot sinh(b_p\cdot v) & v\ge 0\\
+    \frac{a_n}{R}\cdot sinh(b_n\cdot v) & v<0\\
+  \end{cases}
+\end{equation}
 
-    \subsection{\ac{VTEAM} in \textbf{Cadence}'s \textit{virtuoso}}
+\begin{equation}\label{eq:memModel1}
+  \frac{dR}{dt}=f(R,v)=s(v)\cdot g(R,v)
+\end{equation}
+
+The sensitivity function was chosen to be a voltage-dependent exponential function, like described in \cref{eq:memModel2}.
+
+\begin{equation}\label{eq:memModel2}
+  s(v)=
+  \begin{cases}
+    A_p\cdot (e^{t_p\cdot |v|}-1)& v>0\\
+    A_n\cdot (e^{t_n\cdot |v|}-1)& v<0\\
+    0 &  v=0\\
+  \end{cases}
+\end{equation}
+
+The window function used is a state-dependent quadratic function as shown in \cref{eq:memModel3}.
+
+\begin{equation}\label{eq:memModel3}
+  g(R,v)=
+  \begin{cases}
+    (R-r_p(v))^2& v>0\\
+    (R-r_n(v))^2& v<0\\
+    0 &  v=0\\
+  \end{cases}
+\end{equation}
+
+Where $r_p$ and $r_n$ are voltage depedent in a polynomial manner. They represent the boundaries of the state variable. All the other parameters in \cref{eq:memModel0,eq:memModel1,eq:memModel2,eq:memModel3} that haven't been declared are free fitting variables. They have to be set depending on the type of memristor used.
+
+\subsection{Verilog-A integration}
+
+The model now needs to be adapted to work as Verilog-A code.
+Verilog-A is a hardware desciption language, very popular in the industry for its simplicity and flexibility when using it with circuit simulator such as \textbf{Cadence}'s \textit{virtuoso}.
+
+The focus of this specific implementation will be the resistance range $[20k\Omega, 120k\Omega]$. The boundaries functions are found in \cref{eq:memModel4}.
+
+\begin{equation}\label{eq:memModel4}
+  \begin{cases}
+    r_p(v)= r_{p,0} + r_{p,1}\cdot v& v>0\\
+    r_n(v)= r_{r,0} + r_{n,1}\cdot v& v\le 0\\
+  \end{cases}
+\end{equation}
+
+Where $r_{p,0}$, $r_{p,1}$, $r_{n,0}$ and $r_{n,1}$ are free fitting variables that need to be extracted from the physical device.
+
+The changes of resistive states from the initial resistance ($R_0$) are computed by \cref{eq:memModel5} extracted from \cite{memCadenceModel}. It uses the bias voltage ($V_b$) of the pulse applied to the memristor. The pulse has a duration of $t$.
+
+\begin{equation}\label{eq:memModel5}
+  R(t)_{|V_b} =
+  \begin{cases}
+    \frac{R_0+s(V_b)\cdot r_p(V_b)\cdot(r_p(V_b)-R_0)\cdot t}{1+s(V_b)\cdot (r_p(V_b)-R_0)\cdot t} & V_b>0, R<r_p(V_b)\\
+    \frac{R_0+s(V_b)\cdot r_n(V_b)\cdot(r_n(V_b)-R_0)\cdot t}{1+s(V_b)\cdot (r_n(V_b)-R_0)\cdot t} & V_b\le 0, R>r_n(V_b)\\
+    R_0 & else\\
+  \end{cases}
+\end{equation}
+
+The final Verilog-A code is available at \cref{apsec:memModel}.
+
+\subsection{Behavior}
+
+The model
 
 
-    One of them, works by applying voltage pulse to the device. The device then change it's internal resistance based on how far from the stable point (usually the initial resistance) it is.
+%\subsection{\acf{LIDM}}
 
-    %\subsection{\acf{LIDM}}
-
-    %The \ac{LIDM} is the model of the first memristor eveer created, it was created to fit the behavior of the $TiO_x$ memristor they had just fabricated \cite{memristorFab}. The device, of width $D$, has two parts. The doped part and the undoped
+%The \ac{LIDM} is the model of the first memristor eveer created, it was created to fit the behavior of the $TiO_x$ memristor they had just fabricated \cite{memristorFab}. The device, of width $D$, has two parts. The doped part and the undoped
