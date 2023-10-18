@@ -51,22 +51,34 @@ The candidate activation gate (\cref{eq:candActivG1}) is the only difference fro
   \centering
   \includesvg[width=\textwidth,pretex=\large]{gru/decoderCell.svg}
   \label{fig:lstmCell}
-  \caption{Encoder \acs{GRU} cell, legend in \cref{leg:cells}}
+  \caption{Decoder \acs{GRU} cell, legend in \cref{leg:cells}}
 \end{figure}
 
 \subsection{Similarities with \ac{LSTM}}
 
-The \ac{CIFG} \ac{LSTM} or more commonly known as \ac{GRU}. \cite{gru,gruKeras,gruPyTorch} As it's name implies, \acl{CIFG}, links the input and forget gates as such, $f_t=1-i_t$. Other differences are :
-\begin{itemize}
-  \item No peepholes and output activation function.
-  \item Combined hidden state and cell state.
-  \item The candidate cell state is point wise multiplied with the output gate before the activation function.
-\end{itemize}
+While the \ac{GRU} is its own type of \ac{RNN}, it has been compared and assimilated to an \ac{LSTM} \cite{nbLSTM}. Indeed, the subtype of \ac{LSTM} it has been associated with is called the \ac{CIFG} \ac{LSTM}. If the input and forget gates are combined into one ($f_t=\overrightarrow{1}-i_t$), they can be assimilated as the update gate of the \ac{GRU}. The reset gate would then be the \ac{LSTM}'s output gate.
 
-This is clearer with the math equations :
-\begin{equation}\label{eq:cellGGRU}
-  \tilde{c}_t = tanh(w_{cx}\cdot x_t + w_{ch}\cdot(o_t \odot h_{t-1}) + b_c)
+\Cref{eq:lstmGru0,eq:lstmGru1,eq:lstmGru2,eq:lstmGru3,eq:lstmGru4} are the \ac{GRU}'s equations with the \ac{LSTM}'s names.
+
+\begin{equation}\label{eq:lstmGru0}
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_f + \overrightarrow{b_f})
 \end{equation}
-\begin{equation}\label{eq:hiddenGRU}
-  h_t=(1-i_t)\cdot h_{t-1} + i_t \cdot \tilde{c}_t
+\begin{equation}\label{eq:lstmGru1}
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_o + \overrightarrow{b_o})
 \end{equation}
+\begin{equation}\label{eq:lstmGru2}
+  \overrightarrow{i_t}=\overrightarrow{1}-\overrightarrow{f_t}
+\end{equation}
+\begin{equation}\label{eq:lstmGru3}
+  \overrightarrow{\tilde{c_t}}=tanh(\overrightarrow{x_t}\cdot w_{cx}+(\overrightarrow{o_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{ch} + \overrightarrow{b_c})
+\end{equation}
+\begin{equation}\label{eq:lstmGru4}
+  \overrightarrow{h_t}=(\overrightarrow{i_t})\odot \overrightarrow{h_{t-1}} + \overrightarrow{f_t}\odot \overrightarrow{\tilde{h_t}}
+\end{equation}
+
+Differences between the two \acp{RNN} are :
+\begin{itemize}
+  \item The \ac{GRU} has no output activation function.
+  \item The \ac{GRU} has combined hidden state and cell state.
+  \item The \ac{GRU}'s candidate hidden state is point wise multiplied with the reset gate before passing into the dense layer.
+\end{itemize}
