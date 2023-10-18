@@ -8,7 +8,7 @@ This means designing both an \ac{opAmp} for the current flowing through the circ
 
 \subsection{Circuit controller}\label{subsec:control}
 
-The final circuit will need an external controller to manage diffenrent things in the circuit. This wasn't created in this thesis but will have to be in order to have a functionning circuit once fabricated %TODO ref annex
+The final circuit will need an external controller to manage diffenrent things in the circuit. This wasn't created in this thesis but will have to be in order to have a functionning circuit once fabricated.
 
 The controller will increase the power consumption of the overall system. However, due to the slow (precision of about $1\mu s$) nature of the system requirements, the controller will be very low power, and won't affect the overall power consumption of the final system.
 
@@ -29,8 +29,6 @@ Of course the first thing that comes to mind to improve the system and making it
 \end{itemize}
 
 In order for the inSitu training to work, the weights also need to change. Future work also also include looking for ways to change the weights in the fastest possible way. Idealy the algorithm won't need to compute the weight to resistance conversion (\cref{sec:wei2res}) and directly know how the change the resistances' values.
-
-Training directly on the chip has a great advange over external training. Indeed training within the chip will allow to completely ignore the wires own resistance in the crossbar array. This is because they will an integral part of the weights, if the weight needs to be lowered then the resistance will be raised (because the conductances need to be lowered). %TODO finish with better explainnation
 
 \subsubsection{Only change the value of one of the two memristor}
 
