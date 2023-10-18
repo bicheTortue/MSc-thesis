@@ -1,5 +1,39 @@
 \section{Memristor's model}\label{sec:model}
-They are several ways to model a memristor (TODO : cite).
 
-One of them, works by applying voltage pulse to the device. The device then change it's internal resistance based on how far from the stable point (usually the initial resistance) it is.
-TODO
+They are several ways to model a memristor \cite{memristorFab,memTEAMmodel, memVTEAMmodel, memristorSpiceModels}. The way the memristor works depends on the materials used to fabricate the memristor. Each type of memristor has slightly different behavior. Models were thus created to simulate, as accurately as possible, the memristor in electrical circuit simulation software such as \textbf{Cadence}'s \textit{virtuoso} or SPICE.
+
+Some examples of memristor's model are :
+
+\begin{itemize}
+\item \acf{LIDM}, the model of the first memristor \cite{memristorFab}.
+\item \acf{STBM}, is another model of the $TiO_x$ memristor created in 2008 by \textbf{HP} \cite{memristorFab, memristorSpiceModels}.
+\item \acf{TEAM}, is a model that can easily adapt to several types of memristive devices while focusing on fast computation \cite{memTEAMmodel}.
+\item \acf{VTEAM}, is a later improvement of the \ac{TEAM}. The internal resistance depends on voltage, unlike \ac{TEAM} which depends on current \cite{memVTEAMmodel}.
+\end{itemize}
+
+The \ac{VTEAM} being the most versatile model, its implementation would fit most memristor types.
+
+It's been established that the internal resistance also depends on an internal state $x$ (\cref{eq:memristiveDev}).
+
+\begin{equation}
+\frac{dx}{dt}=f(x,v)
+  \end{equation}
+
+  The model is based on previous work \cite{memCadenceModel}. It defines sevral equations for the model such as \cref{}.
+
+  \begin{equation}
+  i(R,v)=
+  \begin{cases}
+  \frac{a_p}{R}\cdot sinh(b_p\cdot v), \hspace{10px} v\ge 0\\
+    \frac{a_n}{R}\cdot sinh(b_n\cdot v), \hspace{10px} v<0\\
+    \end{cases}
+    \end{equation}
+
+    \subsection{\ac{VTEAM} in \textbf{Cadence}'s \textit{virtuoso}}
+
+
+    One of them, works by applying voltage pulse to the device. The device then change it's internal resistance based on how far from the stable point (usually the initial resistance) it is.
+
+    %\subsection{\acf{LIDM}}
+
+    %The \ac{LIDM} is the model of the first memristor eveer created, it was created to fit the behavior of the $TiO_x$ memristor they had just fabricated \cite{memristorFab}. The device, of width $D$, has two parts. The doped part and the undoped
