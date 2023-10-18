@@ -86,7 +86,7 @@ The \ac{CMOS} switches are here to open the necessary input gates when the outpu
 
 \begin{figure}[H]
   \centering
-  \begin{tikztimingtable}%TODO change or find other way
+  \begin{tikztimingtable}
     $e_0$ & x2H2L N(A1) L N(A2) 2L N(A3) L N(A4) 2Lx\\
     $e_1$ & x2L2H N(B1) L N(B2) 2L N(B3) L N(B4) 2Lx\\
     $e_i$ & x4L N(C1) L N(C2) 2H N(C3) L N(C4) 2Lx\\
@@ -146,8 +146,7 @@ With $A_{CMOS}$ being the same than for the memory cell (\cref{sec:memcell}), $A
 
 \subsubsection{Input voltages}
 
-The input voltages must be monitored very carefuly in order not to mess up the entire system. Indeed, memristors have a voltage threshold ($V_{threshold}$) above which the internal resistance changes. %TODO Find info in the model paper
-This means that the input voltages must follow the inequality in \cref{eq:memThres}.
+The input voltages must be monitored very carefuly in order not to mess up the entire system. Indeed, memristors have a voltage threshold ($V_{threshold}$) above which the internal resistance changes \cite{memristorSpiceModels,memCadenceModel,memTEAMmodel,memVTEAMmodel}. This means that the input voltages must follow the inequality in \cref{eq:memThres}.
 
 \begin{equation}\label{eq:memThres}
   |V_{mem}|= |x_i-V_{cm}|\le V_{threshold}
