@@ -27,15 +27,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="2.6657703"
-     inkscape:cx="232.39062"
-     inkscape:cy="340.98962"
-     inkscape:window-width="1080"
-     inkscape:window-height="653"
-     inkscape:window-x="26"
-     inkscape:window-y="23"
+     inkscape:zoom="1.8849843"
+     inkscape:cx="414.06181"
+     inkscape:cy="70.292364"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="texts"
+     inkscape:current-layer="wires"
      inkscape:lockguides="false" />
   <defs
      id="defs21805">
@@ -690,42 +690,42 @@
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 160,93 h 96 v 80 h 182 v 61 h -13"
+       d="m 160,93 h 96 v 80 h 81 v 32 h 100 v 29 h -12"
        id="path8"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 352,93 h 64 v 32 13 12 h 74"
+       d="m 352,93 h 12 v 32 13 12 h 32 14"
        id="path10"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 544,93 v 22 h -54 -4 v 23 h 4"
+       d="m 544,93 v 22 h -54 -92 v 23 h 12"
        id="path11"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 736,93 v 20 h -64 v 25 h -22"
+       d="m 736,93 v 20 h -64 -90 v 25 h -12"
        id="path3"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 553,144 v 18"
+       d="m 473,144 v 18"
        id="path5"
        fill="none"
        stroke="currentColor"
        marker-mid="url(#ArrowWide)" />
     <path
-       d="m 587,144 v 18"
+       d="m 507,144 v 18"
        id="path22"
        fill="none"
        stroke="currentColor" />
     <path
-       d="m 553,222 h 32 2 m -17,0 v 18 64 h 72 v -32"
+       d="m 473,222 h 32 2 m -17,0 v 18 h 80 v 64 h 72 v -32"
        id="path13"
        fill="none"
        stroke="currentColor" />
@@ -740,61 +740,61 @@
        fill="none"
        stroke="currentColor" />
     <path
-       d="m 702,312 h 39 v -98 h -4"
+       d="m 702,312 h 47 v -98 h -12"
        id="path7"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 702,312 h 39 v -98 -64 h -4"
+       d="m 702,312 h 47 v -98 -64 h -12"
        id="path60"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 702,312 h 39 v -66 h -8"
+       d="m 702,312 h 47 v -66 h -16"
        id="path61"
        fill="none"
        stroke="currentColor"
        stroke-dasharray="4 2" />
     <path
-       d="m 702,312 h 39 v -130 h -8"
+       d="m 702,312 h 47 v -130 h -16"
        id="path62"
        fill="none"
        stroke="currentColor"
        stroke-dasharray="4 2" />
     <path
-       d="M 676,150 H 650"
+       d="m 596.00011,150 h -26"
        id="path24"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="M 676,214 h -13 v -64"
+       d="M 596,214 H 583 V 150"
        id="path67"
        fill="none"
        stroke="currentColor" />
     <path
-       d="m 676,182 h -13"
+       d="M 596,182 H 583"
        id="path68"
        fill="none"
        stroke="currentColor"
        stroke-dasharray="4, 2" />
     <path
-       d="m 702,312 v 48 h -150 v -38 -64 h -31"
+       d="m 702,312 v 48 h -150 h -42 v -24 v -64 h -12"
        id="path16"
        fill="none"
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <circle
        id="node0"
-       cx="570"
+       cx="490"
        cy="222"
        r="2"
        fill="currentColor"
        stroke="none" />
     <path
-       d="m 461,258 h -18 v -12 h -18"
+       d="m 437,272 v -26 h -12"
        id="path9"
        fill="none"
        stroke="currentColor"
@@ -806,7 +806,7 @@
        stroke="currentColor"
        marker-end="url(#ArrowWide)" />
     <path
-       d="m 277.00011,240 h -24"
+       d="m 277,240 h -22"
        id="path12"
        fill="none"
        stroke="currentColor"
@@ -965,7 +965,7 @@
        fill="none"
        stroke="currentColor" />
     <path
-       d="M 676,246 H 663 V 214"
+       d="M 596,246 H 583 V 214"
        id="path69"
        fill="none"
        stroke="currentColor"
@@ -988,6 +988,36 @@
     <path
        d="m 82,184 h 20"
        id="path86"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 656,214 h 20"
+       id="path40"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 656,150 h 20"
+       id="path41"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,135 v -4"
+       id="path42"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,165 v 4"
+       id="path43"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,199 v -4"
+       id="path44"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,229 v 4"
+       id="path45"
        fill="none"
        stroke="currentColor" />
   </g>
@@ -1037,25 +1067,25 @@
     <use
        xlink:href="#voltMult"
        id="voltMult0"
-       x="490"
+       x="410"
        y="128" />
     <use
        xlink:href="#voltMult"
        id="voltMult1"
-       x="-650"
+       x="-570"
        y="128"
        transform="scale(-1,1)" />
     <use
        xlink:href="#resistor"
        id="res0"
        x="-224"
-       y="545"
+       y="465"
        transform="rotate(-90)" />
     <use
        xlink:href="#resistor"
        id="res1"
        x="-224"
-       y="579"
+       y="499"
        transform="rotate(-90)" />
     <use
        xlink:href="#opamp"
@@ -1070,8 +1100,8 @@
     <use
        xlink:href="#tanh"
        id="tanh1"
-       x="459"
-       y="246" />
+       x="435"
+       y="260" />
     <use
        xlink:href="#voltMult"
        id="voltMult2"
@@ -1087,6 +1117,16 @@
        xlink:href="#memcell"
        id="memcell5"
        x="674"
+       y="198" />
+    <use
+       xlink:href="#memcell"
+       id="memcell8"
+       x="594"
+       y="134" />
+    <use
+       xlink:href="#memcell"
+       id="memcell9"
+       x="594"
        y="198" />
     <use
        xlink:href="#opamp"
@@ -1283,28 +1323,28 @@
        id="text44"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{0,0}$</text>
+       xml:space="default">$e_{0}$</text>
     <text
        x="706"
        y="174"
        id="text45"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{0,1}$</text>
+       xml:space="default">$e_{next}$</text>
     <text
        x="706"
        y="190"
        id="text66"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{j,0}$</text>
+       xml:space="default">$e_{j}$</text>
     <text
        x="706"
        y="238"
        id="text67"
        text-anchor="middle"
        font-size="6px"
-       xml:space="default">$e_{j,1}$</text>
+       xml:space="default">$e_{next}$</text>
     <text
        x="280"
        y="314"
@@ -1320,14 +1360,14 @@
        font-size="6px"
        xml:space="default">$h_{t,j,i}$</text>
     <text
-       x="545"
+       x="465"
        y="194"
        id="text73"
        text-anchor="end"
        font-size="6px"
        xml:space="default">$R_{amp0}$</text>
     <text
-       x="593"
+       x="513"
        y="194"
        id="text74"
        text-anchor="begin"
@@ -1354,5 +1394,33 @@
        text-anchor="middle"
        font-size="6px"
        xml:space="default">$R_{amp0}$</text>
+    <text
+       x="626"
+       y="126"
+       id="text46"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="626"
+       y="174"
+       id="text47"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{0}$</text>
+    <text
+       x="626"
+       y="190"
+       id="text48"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="626"
+       y="238"
+       id="text49"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{j}$</text>
   </g>
 </svg>
