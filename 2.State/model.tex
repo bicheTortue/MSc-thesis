@@ -36,7 +36,7 @@ Where $g$ is the window function and $s$ the sensitivity function.
   \item The sensitivity function, also known as voltage sensitivity describes the effect of voltage on the internal state's variations.
 \end{itemize}
 
-The model is based on previous work \cite{memCadenceModel} that aims to reproduce as many memristive device types. They have chosen to use the resistive state ($R$) as the internal state \cite{memModelOrigin}. Based on this assumption the \cref{eq:memModel0,eq:memModel1} are extracted from the memristive device. This model is of course very basic and ignores some physical depedencies such as temperature.
+The model is based on previous work \cite{memCadenceModel} that aims to reproduce as many memristive device types. They have chosen to use the resistive state ($R$) as the internal state \cite{memModelOrigin}. Based on this assumption the \cref{eq:memModel0,eq:memModel1} are extracted from the memristive device. This model is of course very basic and ignores some physical dependencies such as temperature.
 
 \begin{equation}\label{eq:memModel0}
   i(R,v)=
@@ -72,7 +72,7 @@ The window function used is a state-dependent quadratic function as shown in \cr
   \end{cases}
 \end{equation}
 
-Where $r_p$ and $r_n$ are voltage depedent in a polynomial manner. They represent the boundaries of the state variable. All the other parameters in \cref{eq:memModel0,eq:memModel1,eq:memModel2,eq:memModel3} that haven't been declared are free fitting variables. They have to be set depending on the type of memristor used.
+Where $r_p$ and $r_n$ are voltage dependent in a polynomial manner. They represent the boundaries of the state variable. All the other parameters in \cref{eq:memModel0,eq:memModel1,eq:memModel2,eq:memModel3} that haven't been declared are free fitting variables. They have to be set depending on the type of memristor used.
 
 \subsection{Verilog-A integration}
 
@@ -105,8 +105,42 @@ The final Verilog-A code is available at \cref{apsec:memModel}.
 
 \subsection{Behavior}
 
-The model
+The model was tested then tested. As with physical memristors, it has a threshold voltage value from which its resistive states starts changing. This threshold value is $V_{read}$. For this specific model the threshold voltage is set to $V_{read}=500mV$.
 
+Every pulse is composed of 2 parts and last for a total of $1 ms$ :
+\begin{itemize}
+  \item The reading of the resistive state, by applying a triangular wave that in bound by the threshold value $V_{read}$.
+  \item The writing to the memristor. During this part the resistive state will change. This is done by apply a square wave of variable width ($t_{\Delta}$) with a set bias voltage ($V_{bias}$).
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{memristor/input.svg}
+  \label{graph:memInput}
+  \caption{Pulse shape graph}
+\end{figure}
+
+The \cref{graph:memInput} is the visual representation of what each pulse, the value is read during the first half of the pulse.
+
+The resistive state of the memristor changes depending on the pulse width ($t_{\Delta}$) and the bias voltage ($V_{bias}$) used for each pulse.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{memristor/memPulseChange.svg}
+  \label{graph:pulseChange}
+  \caption{Memristor's resistive state under different pulses width (Fixed bias voltage $V_{bias}=1.8V$)}
+\end{figure}
+
+The effect of the pulse width variation is shown in \cref{graph:pulseChange}. Indeed, the larger the pulse widths, the faster the internal resistance reaches the bounding resistance (\cref{eq:memModel4}). The bounding resistance being the same as all curve use the same bias voltage ($V_{bias}=1.8V$), the curves will all eventually reach the max resistance.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{memristor/memVoltChange.svg}
+  \label{graph:voltChange}
+  \caption{Memristor's resistive state under different voltages (Fixed pulse width $t_{\Delta}=100\mu s$)}
+\end{figure}
+
+The voltage dependence of the memristor's model is described in \cref{graph:voltChange}. The influence of the bias voltage is, as \cref{eq:memModel3, eq:memModel4} show, the way to change the resistance range of the memristor, until the physical limit is reached of course. Applying higher voltage also allows to reach a set resistance faster as the slopes are bigger the higher the bias voltage gets.
 
 %\subsection{\acf{LIDM}}
 
