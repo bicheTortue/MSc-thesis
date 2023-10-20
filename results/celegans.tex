@@ -1,0 +1,71 @@
+\section{\acs{C. elegans} dataset}
+\label{sec:resCelegans}
+
+Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
+
+\subsection{Digital results}
+\label{subsec:digitalCelegans}
+
+\subsection{Analog results}
+
+
+
+This part will show the result of the inference when the weights were trained using the analog activation functions.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\linewidth]{results/celegans/out5.svg}
+  \caption{Analog predictions of the 5th data sequence.}
+  \label{graph:celegansAnalog0}
+\end{figure}
+
+As can be observed in \cref{graph:airlineAnalog}, the analog results are, in this case, way closer to the target values. The curves are very close to eahc other and are a definite improvement from the the ones trained using default activation functions.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \multirow{2}{*}{\acs{RMSE}} & \multicolumn{3}{|c|}{Analog prediction}\\
+    \cline{2-4}
+    & $n_s=1$ & $n_s=2$ & $n_s=4$ \\
+    \hline
+    \specialcell{Digital prediction with\\analog activation functions} & $28.41$ & $92.57$ & $68.51$\\
+    \hline
+  \end{tabular}
+  \caption{\acp{RMSE} of each analog prediction to their associated digital prediction}
+  \label{tab:airlineAnalog}
+\end{table}
+
+\Cref{tab:airlineAnalog} contains the errors of the analog predictions. It shows that, as can be observed, the results the closest to the target are the ones generated using a serial size of one ($n_s=1$). Indeed, its error ($28.41$) is lower than the error from the digital results ($52.27$) to the original target values, almost half of it. The other ones are still very close to the targeted curve, but are still lower. This is probably due to the serialization circuit causing small differences in the signals at each steps.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c}{\multirow{2}{*}{\ac{RMSE}}} & \multicolumn{3}{|c|}{Analog prediction}\\
+    \cline{3-5}
+    \multicolumn{2}{|c}{} & \multicolumn{1}{|c|}{$n_s=1$} & $n_s=2$ & $n_s=4$ \\
+    \hline
+    \multirow{3}{*}{Analog prediction} & $n_s=1$ &\cellcolor[HTML]{202020} & $64.61$ & $40.63$\\
+    \cline{2-5}
+    & $n_s=2$  & $64.61$ & \cellcolor[HTML]{202020} & $25.75$\\
+    \cline{2-5}
+    & $n_s=4$ & $40.63$ & $25.75$ & \cellcolor[HTML]{202020}\\
+    \hline
+  \end{tabular}
+  \caption{\acp{RMSE} of each analog prediction to the others depending on the serial size ($n_s$)}
+  \label{tab:airlineAnalogError}
+\end{table}
+
+Once again, the results are quite close to each others, but as expected the errors (\cref{tab:airlineAnalogError}) are higher then the ones found in \cref{tab:airlineAnalogNoCZoomed}. The farthest appart ($n_s=1$ to $n_s=2$ with an error of $64.61$ thousands passengers) have an error barely higher than the error of digital results to the target dataset (\cref{tab:airlineDigital})
+
+coincidentally, the curve is closer to the target curve than the digital prediction itself, this is mostly due to the lack of precision of the analog prediction, but it is nevertheless interresting to mention. \Cref{graph:airlineCoin} shows the graph and the \ac{RMSE} is the lowest, even lower than the ones from the digital predictions.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\linewidth]{results/airline/closeRes}
+  \caption{Analog prediction ($n_s=1$) with the target dataset.}
+  \label{graph:airlineCoin}
+\end{figure}
+
+The overall observation of those results compared to the previous ones (\cref{subsec:airlineAnalogNoC}) are how much closer to their target they are. It still isn't quite perfect but simply changing the activation functions used for training improved the results by a lot. It can thus be theorized that the error will become null if the system is trained with the same parameters as the ones it is using for inference. In other words, the error will probably be nullified when the training will happen inSitu (\cref{subsec:inSitu}).
