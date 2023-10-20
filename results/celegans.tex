@@ -8,15 +8,31 @@ Due do the complexity of this dataset and the results associated are only traine
 
 \subsection{Analog results}
 
-
+Let's focus on a single data sequence, for simplicity. The training data sequence found in \cref{graph:io5Celegans}.
 
 This part will show the result of the inference when the weights were trained using the analog activation functions.
 
 \begin{figure}[H]
   \centering
-  \includesvg[width=\linewidth]{results/celegans/out5.svg}
+  \includesvg[width=\linewidth]{results/celegans/out5}
   \caption{Analog predictions of the 5th data sequence.}
   \label{graph:celegansAnalog0}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Training dataset sample\label{graph:io5Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{datasets/celegans/ioTrain0}}%
+    \hfill
+    \subfloat[Test dataset sample]{\includesvg[width=0.5\textwidth,pretex=\tiny]{datasets/celegans/ioTest0}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Training dataset sample]{\includesvg[width=0.5\textwidth, pretex=\tiny]{datasets/celegans/ioTrain1.svg}}%
+    \hfill
+    \subfloat[Validation dataset sample]{\includesvg[width=0.5\textwidth,pretex=\tiny]{datasets/celegans/ioValid0}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} dataset samples}
+  \label{graph:celegans}
 \end{figure}
 
 As can be observed in \cref{graph:airlineAnalog}, the analog results are, in this case, way closer to the target values. The curves are very close to eahc other and are a definite improvement from the the ones trained using default activation functions.
