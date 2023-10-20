@@ -15,73 +15,64 @@ This part will show the result of the inference when the weights were trained us
 \begin{figure}[H]
   \centering
   \includesvg[width=\linewidth]{results/celegans/out5}
-  \caption{Analog predictions of the 5th data sequence.}
+  \caption{\acs{C. elegans} analog responses with their digital counterparts}
   \label{graph:celegansAnalog0}
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{\columnwidth}
-    \subfloat[Training dataset sample\label{graph:io5Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{datasets/celegans/ioTrain0}}%
-    \hfill
-    \subfloat[Test dataset sample]{\includesvg[width=0.5\textwidth,pretex=\tiny]{datasets/celegans/ioTest0}}%
-  \end{minipage}
-  \begin{minipage}{\columnwidth}
-    \subfloat[Training dataset sample]{\includesvg[width=0.5\textwidth, pretex=\tiny]{datasets/celegans/ioTrain1.svg}}%
-    \hfill
-    \subfloat[Validation dataset sample]{\includesvg[width=0.5\textwidth,pretex=\tiny]{datasets/celegans/ioValid0}}%
-  \end{minipage}
-  \caption{\ac{C. elegans} dataset samples}
-  \label{graph:celegans}
-\end{figure}
+\Cref{graph:celegansAnalog0} contains the predictions of both the digital and analog \ac{NN} for all four output neurons that are being monitored. The having all predicted responses to the stimuli on the same graph makes things very unintelligeable.
 
-As can be observed in \cref{graph:airlineAnalog}, the analog results are, in this case, way closer to the target values. The curves are very close to eahc other and are a definite improvement from the the ones trained using default activation functions.
+The response have thus been sperated into four graphs. One for every neuron for better readability. The target response was also added to all four graphs to highlight the objective of the \ac{NN}. Those graphs can be found in \cref{graph:spread5Celegans}.
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|}
-    \hline
-    \multirow{2}{*}{\acs{RMSE}} & \multicolumn{3}{|c|}{Analog prediction}\\
-    \cline{2-4}
-    & $n_s=1$ & $n_s=2$ & $n_s=4$ \\
-    \hline
-    \specialcell{Digital prediction with\\analog activation functions} & $28.41$ & $92.57$ & $68.51$\\
-    \hline
-  \end{tabular}
-  \caption{\acp{RMSE} of each analog prediction to their associated digital prediction}
-  \label{tab:airlineAnalog}
-\end{table}
+A big problem that is immediatly visible is that the LUAL output neuron's analogly predicted response is negative when it should not be. For an unknown reason the analog results of the LUAL neuron seem to be negative instead of positive. This is the case for the analog response to all sequences. This issue most likely comes from dense layer that comes after the \ac{LSTM}. In order to keep using the data the output of this neuron will be flipped over the x-axis.
 
-\Cref{tab:airlineAnalog} contains the errors of the analog predictions. It shows that, as can be observed, the results the closest to the target are the ones generated using a serial size of one ($n_s=1$). Indeed, its error ($28.41$) is lower than the error from the digital results ($52.27$) to the original target values, almost half of it. The other ones are still very close to the targeted curve, but are still lower. This is probably due to the serialization circuit causing small differences in the signals at each steps.
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    \multicolumn{2}{|c}{\multirow{2}{*}{\ac{RMSE}}} & \multicolumn{3}{|c|}{Analog prediction}\\
-    \cline{3-5}
-    \multicolumn{2}{|c}{} & \multicolumn{1}{|c|}{$n_s=1$} & $n_s=2$ & $n_s=4$ \\
-    \hline
-    \multirow{3}{*}{Analog prediction} & $n_s=1$ &\cellcolor[HTML]{202020} & $64.61$ & $40.63$\\
-    \cline{2-5}
-    & $n_s=2$  & $64.61$ & \cellcolor[HTML]{202020} & $25.75$\\
-    \cline{2-5}
-    & $n_s=4$ & $40.63$ & $25.75$ & \cellcolor[HTML]{202020}\\
-    \hline
-  \end{tabular}
-  \caption{\acp{RMSE} of each analog prediction to the others depending on the serial size ($n_s$)}
-  \label{tab:airlineAnalogError}
-\end{table}
-
-Once again, the results are quite close to each others, but as expected the errors (\cref{tab:airlineAnalogError}) are higher then the ones found in \cref{tab:airlineAnalogNoCZoomed}. The farthest appart ($n_s=1$ to $n_s=2$ with an error of $64.61$ thousands passengers) have an error barely higher than the error of digital results to the target dataset (\cref{tab:airlineDigital})
-
-coincidentally, the curve is closer to the target curve than the digital prediction itself, this is mostly due to the lack of precision of the analog prediction, but it is nevertheless interresting to mention. \Cref{graph:airlineCoin} shows the graph and the \ac{RMSE} is the lowest, even lower than the ones from the digital predictions.
 
 \begin{figure}[H]
   \centering
-  \includesvg[width=\linewidth]{results/airline/closeRes}
-  \caption{Analog prediction ($n_s=1$) with the target dataset.}
-  \label{graph:airlineCoin}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the DB1 neuron\label{graph:out5BD1Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/out5DB1}}%
+    \hfill
+    \subfloat[Analog prediction for the LUAL neuron\label{graph:out5LUALCelegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/out5LUAL}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the PVR neuron\label{graph:out5PVRCelegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/out5PVR}}%
+    \hfill
+    \subfloat[Analog prediction for the VB1 neuron\label{graph:out5VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/out5VB1}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} analog responses with their digital counterparts spread out for each output neuron}
+  \label{graph:spread5Celegans}
 \end{figure}
 
-The overall observation of those results compared to the previous ones (\cref{subsec:airlineAnalogNoC}) are how much closer to their target they are. It still isn't quite perfect but simply changing the activation functions used for training improved the results by a lot. It can thus be theorized that the error will become null if the system is trained with the same parameters as the ones it is using for inference. In other words, the error will probably be nullified when the training will happen inSitu (\cref{subsec:inSitu}).
+All the analog predicted responses seem to have the same problem. When the response is flat, the signal looks very good, while with a small vertical displacement. That displacement could be attributed to the difference of computations from the digital training to the analog inference (\cref{sec:resAirline}). However, when the analog response sends out a pulse, the said pulse is very unstable. It continuously flickers up and down. This can be observed by zooming on the graph like in \cref{graph:zoom5Celegans}.
+
+This phenomenen is very strange and hasn't been identified so far. The main theory is that the data isn't stored properly in the memory cells, thus at every \ac{LSTM} time step the supposed output is slightly altered. This would create this flickering of the outputed data.
+
+The data isn't useless for that matter. It was decided to smooth the data by averaging every output point with its neighboring points. This simple average will smooth out the curves to get a decently readable result, that can then be compared with the digitally predicted response. The python code for this function is available at \cref{}. %TODO
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\linewidth]{results/celegans/zoom5}
+  \caption{\acs{C. elegans} DB1 analog response with zoom on the pulses}
+  \label{graph:zoom5Celegans}
+\end{figure}
+
+The smoothed out and exploitable analog predictions are available in \cref{graph:smooth5Celegans}. Theses graphs allow for a much easier visualisation of the results.
+
+The best looking output of the four predicted neurons responses is the one from PVR. That is confirmed by its \ac{RMSE} with the digital prediction. It is the lowest of the four, however, it isn't close enough to the digital prediction.
+
+All four analog predictions are very close to each others
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Averaged analog prediction for the DB1 neuron\label{graph:smooth5BD1Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/smooth5DB1}}%
+    \hfill
+    \subfloat[Averaged analog prediction for the LUAL neuron\label{graph:smooth5LUALCelegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/smooth5LUAL}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Averaged analog prediction for the PVR neuron\label{graph:smooth5PVRCelegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/smooth5PVR}}%
+    \hfill
+    \subfloat[Averaged analog prediction for the VB1 neuron\label{graph:smooth5VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/smooth5VB1}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} smoothed out analog responses averaged with $21$ neighbors, spread out for each output neuron}
+  \label{graph:smooth5Celegans}
+\end{figure}
