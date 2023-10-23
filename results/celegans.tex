@@ -21,10 +21,6 @@ The \ac{LSTM} was chosen with a number of hidden states of eight because it gets
   \label{fig:celegansModel}
 \end{figure}
 
-Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
-
-The results will be analyzed by focusing on a single data sequence, the training data sequence available in \cref{graph:io5Celegans}.
-
 \subsubsection{Timing}
 
 The timing of the flags are quite hard to keep track of, for this reason all of them are going to be shown for the full duration of the system execution to get one output.
@@ -56,6 +52,28 @@ The timing of the flags are quite hard to keep track of, for this reason all of 
 
 \subsection{Digital results}
 \label{subsec:digitalCelegans}
+
+The digital results of the \ac{C. elegans} dataset are quite numerous, not all of them can be displayed and analyzed. For this reason, only a selected four sequences will be displayed as the results of the dataset are not the focus of this thesis. The full work around the \ac{C. elegans} dataset and problem is done in \cite{celegans}.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the DB1 neuron\label{graph:digital5BD1Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/digital5DB1}}%
+    \hfill
+    \subfloat[Analog prediction for the LUAL neuron\label{graph:digital5LUALCelegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/digital5LUAL}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the PVR neuron\label{graph:digital5PVRCelegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/digital5PVR}}%
+    \hfill
+    \subfloat[Analog prediction for the VB1 neuron\label{graph:digital5VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/digital5VB1}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} digital responses with their digital counterparts spread out for each output neuron}
+  \label{graph:spread5Celegans}
+\end{figure}
+
+Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
+
+The results will be analyzed by focusing on a single data sequence, the training data sequence available in \cref{graph:io5Celegans}.
 
 \subsection{Analog results}
 \label{subsec:analogCelegans}
