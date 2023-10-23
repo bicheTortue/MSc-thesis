@@ -1,6 +1,52 @@
 \section{Airline dataset}
 \label{sec:resAirline}
 
+\subsubsection{Network configuration}
+
+The layers used to solve this problem are listed below :
+
+\begin{itemize}
+  \item An \ac{LSTM} with four hidden states ($n_h=4$) and an input with feature size of one and two time steps.
+  \item A Dense layer with an output size of one.
+\end{itemize}
+
+\Cref{fig:airlineModel} is a graphical representation of the model just described.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{datasets/airlineModel}
+  \caption{Model used to solve the airline passengers problem}
+  \label{fig:airlineModel}
+\end{figure}
+
+\subsubsection{Timing}
+
+The timing of the flags are quite hard to keep track of, for this reason all of them are going to be shown for the full duration of the system execution to get one output.
+
+\Cref{tim:airline} shows the time diagram of the entire execution using the parameters discussed earlier.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikztimingtable}%TODO change or find other way
+    $e_0$       & x 2H 6L     L 2H 6L     L L x\\
+    $e_1$       & x 2L 2H 4L  L 2L 2H 4L  L L x\\
+    $e_2$       & x 4L 2H 2L  L 4L 2H 2L  L L x\\
+    $e_3$       & x 6L 2H     L 6L 2H     L L x\\
+    $e_{next}$  & x 8L        H 8L        H L x\\
+    $e_{in}$    & x 8H        L 8H        L L x\\
+    $e_{out}$   & x 8L        L 8L        L H x\\
+    \extracode
+    \tablerules
+    \begin{pgfonlayer}{background}
+      %\vertlines[help lines]{0.55,10.55}
+      %\vertlines[red]{1.6,5.6,15.6}
+      %\vertlines[blue]{3.6,9.6,15.6}
+    \end{pgfonlayer}
+  \end{tikztimingtable}
+  \caption{Flags time diagram for the airline problem with $n_s=4$}
+  \label{tim:airline}
+\end{figure}
+
 \subsection{Digital results}
 \label{subsec:digitalAirline}
 

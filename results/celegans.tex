@@ -1,6 +1,26 @@
 \section{\acs{C. elegans} dataset}
 \label{sec:resCelegans}
 
+\subsubsection{Network configuration}
+
+The layers used to solve this problem are listed below :
+
+\begin{itemize}
+  \item An \ac{LSTM} with eight hidden states and an input with feature size of four (because of the four input neurons that are considered), one thousand time steps and every time steps outputs a value for the next layer.
+  \item A time distributed dense layer with an output size of four. It is time distributed because it needs to compute every time steps and not only the last.
+\end{itemize}
+
+The \ac{LSTM} was chosen with a number of hidden states of eight because it gets the best results \cite{celegans}.
+
+\Cref{fig:celegansModel} is a graphical representation of the model just described.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth]{datasets/celegansModel}
+  \caption{Model used to solve the \ac{C. elegans} problem}
+  \label{fig:celegansModel}
+\end{figure}
+
 Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
 
 The results will be analyzed by focusing on a single data sequence, the training data sequence available in \cref{graph:io5Celegans}.

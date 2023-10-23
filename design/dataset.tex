@@ -19,52 +19,6 @@ This is a regression problem, the role of the \ac{LSTM} is to predict the number
 
 The dataset contains $144$ sample points. It has been transformed into $142$ data points for training. This has been done by taking each values three by three. The first two values are two timesteps for the input vector and the third value being used the target value. Two third of the dataset is being used for training and the other third is used for validation.
 
-\subsubsection{Network configuration}
-
-The layers used to solve this problem are listed below :
-
-\begin{itemize}
-  \item An \ac{LSTM} with four hidden states ($n_h=4$) and an input with feature size of one and two time steps.
-  \item A Dense layer with an output size of one.
-\end{itemize}
-
-\Cref{fig:airlineModel} is a graphical representation of the model just described.
-
-\begin{figure}[H]
-  \centering
-  \includesvg[width=\textwidth]{datasets/airlineModel}
-  \caption{Model used to solve the airline passengers problem}
-  \label{fig:airlineModel}
-\end{figure}
-
-\subsubsection{Timing}
-
-The timing of the flags are quite hard to keep track of, for this reason all of them are going to be shown for the full duration of the system execution to get one output.
-
-\Cref{tim:airline} shows the time diagram of the entire execution using the parameters discussed earlier.
-
-\begin{figure}[H]
-  \centering
-  \begin{tikztimingtable}%TODO change or find other way
-    $e_0$       & x 2H 6L     L 2H 6L     L L x\\
-    $e_1$       & x 2L 2H 4L  L 2L 2H 4L  L L x\\
-    $e_2$       & x 4L 2H 2L  L 4L 2H 2L  L L x\\
-    $e_3$       & x 6L 2H     L 6L 2H     L L x\\
-    $e_{next}$  & x 8L        H 8L        H L x\\
-    $e_{in}$    & x 8H        L 8H        L L x\\
-    $e_{out}$   & x 8L        L 8L        L H x\\
-    \extracode
-    \tablerules
-    \begin{pgfonlayer}{background}
-      %\vertlines[help lines]{0.55,10.55}
-      %\vertlines[red]{1.6,5.6,15.6}
-      %\vertlines[blue]{3.6,9.6,15.6}
-    \end{pgfonlayer}
-  \end{tikztimingtable}
-  \caption{Flags time diagram for the airline problem with $n_s=4$}
-  \label{tim:airline}
-\end{figure}
-
 \subsection{\ac{C. elegans}}
 
 This dataset is far more interresting than the latter. This data set aims to use \acp{LSTM} to mimic the behavior of real neurons. As explained in \cite{celegans}, \acf{C. elegans} are simple organisms that are getting very popular for whole brain organization studies. The point of this problem is to reproduce the nervous system of the \ac{C. elegans}. This is done using recorded data of the input of 4 neurons and the output of 4 other neurons.
@@ -99,23 +53,3 @@ The dataset contains a set of fourty set of input/output. Each input/output set 
 \Cref{graph:celegans} shows four sets of input/output our of the fourty that were recorded for the dataset.
 
 The inputs for the systems are then going to be the current values for the four input neurons at every of the thousand time steps and plans to get an output as close as possible to the modeled output for all time steps.
-
-\subsubsection{Network configuration}
-
-The layers used to solve this problem are listed below :
-
-\begin{itemize}
-  \item An \ac{LSTM} with eight hidden states and an input with feature size of four (because of the four input neurons that are considered), one thousand time steps and every time steps outputs a value for the next layer.
-  \item A time distributed dense layer with an output size of four. It is time distributed because it needs to compute every time steps and not only the last.
-\end{itemize}
-
-The \ac{LSTM} was chosen with a number of hidden states of eight because it gets the best results \cite{celegans}.
-
-\Cref{fig:celegansModel} is a graphical representation of the model just described.
-
-\begin{figure}[H]
-  \centering
-  \includesvg[width=\textwidth]{datasets/celegansModel}
-  \caption{Model used to solve the \ac{C. elegans} problem}
-  \label{fig:celegansModel}
-\end{figure}
