@@ -25,6 +25,35 @@ Due do the complexity of this dataset and the results associated are only traine
 
 The results will be analyzed by focusing on a single data sequence, the training data sequence available in \cref{graph:io5Celegans}.
 
+\subsubsection{Timing}
+
+The timing of the flags are quite hard to keep track of, for this reason all of them are going to be shown for the full duration of the system execution to get one output.
+
+\Cref{tim:airline} shows the time diagram of the entire execution using the parameters discussed earlier.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikztimingtable}%TODO change or find other way
+    $e_0$       & x 4H    L 4H    N(A1) 3L N(A2) 4H    x\\
+    $e_{next}$  & x 4L    H 4L    N(B1) 3H N(B2) 4L    x\\
+    $e_{in}$    & x 4H    L 4H    N(C1) 3L N(C2) 4H    x\\
+    $e_{out}$   & x 2H 2L L 2H 2L N(D1) 3L N(D2) 2H 2L x\\
+    \extracode
+    \node[gap, at={($(A1|-A2)!0.5!(A2)$)}];
+    \node[gap, at={($(B1|-B2)!0.5!(B2)$)}];
+    \node[gap, at={($(C1|-C2)!0.5!(C2)$)}];
+    \node[gap, at={($(D1|-D2)!0.5!(D2)$)}];
+    \tablerules
+    \begin{pgfonlayer}{background}
+      \vertlines[help lines]{0.55,4.55,5.55,9.55,12.55,16.55}
+      %\vertlines[red]{1.6,5.6,15.6}
+      %\vertlines[blue]{3.6,9.6,15.6}
+    \end{pgfonlayer}
+  \end{tikztimingtable}
+  \caption{Flags time diagram for the celegans problem with $n_s=1$}
+  \label{tim:airline}
+\end{figure}
+
 \subsection{Digital results}
 \label{subsec:digitalCelegans}
 
