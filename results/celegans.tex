@@ -3,12 +3,17 @@
 
 Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
 
+The results will be analyzed by focusing on a single data sequence, the training data sequence available in \cref{graph:io5Celegans}.
+
 \subsection{Digital results}
 \label{subsec:digitalCelegans}
 
 \subsection{Analog results}
+\label{subsec:analogCelegans}
 
-Let's focus on a single data sequence, for simplicity. The training data sequence found in \cref{graph:io5Celegans}.
+It's been established in \cref{sec:resAirline}, that the analog circuit with a serial size of one ($n_s=1$) show a lower \ac{RMSE} to the digital predictions than the digital predictions.
+
+Due to the complexity of the dataset, the simulation were only ran using a serial size of one ($n_s=1$) to get the best looking results.
 
 This part will show the result of the inference when the weights were trained using the analog activation functions.
 
@@ -57,7 +62,7 @@ The data isn't useless for that matter. It was decided to smooth the data by ave
 
 The smoothed out and exploitable analog predictions are available in \cref{graph:smooth5Celegans}. Theses graphs allow for a much easier visualisation of the results.
 
-The best looking output of the four predicted neurons responses is the one from PVR. That is confirmed by its \ac{RMSE} with the digital prediction. It is the lowest of the four, however, it isn't close enough to the digital prediction.
+The best looking output of the four predicted neurons responses is the one from PVR. That is confirmed by its error rate to the digital prediction. It is the lowest of the four, however, it isn't close enough to the digital prediction.
 
 All four analog predictions are very close to each others
 
