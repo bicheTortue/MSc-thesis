@@ -1,0 +1,64 @@
+\section{\acs{GRU} analog implementation}\label{sec:gruCircuit}
+
+\subsection{Circuit}
+
+This section describes the circuit of an encoder \ac{GRU} with an input vector of size $n_i$, a $n_h$ hidden states and $n_{ts}$ time steps. The decoder \ac{GRU} could also be implemented in an analog circuit, but the choice was made to focus on the encoder \ac{GRU}. The \ac{GRU} is by its nature very similar to the \ac{LSTM}.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\textwidth,pretex=\tiny]{lstm/lstmCircuit}
+  \caption{\ac{LSTM} circuit}
+  \label{circt:lstm}
+\end{figure}
+
+The system is built, once again, using crossbar array (\cref{sec:xbarCircuit}) with ($n_i+n_h+1$,$n_o$, $n_s$) as parameters.
+
+First of all, the different vectors and variables present in the schematic have to be described :
+
+\begin{itemize}
+  \item $\overrightarrow{x_t}$ : This is the input vector for the \ac{LSTM} circuit at time $t$. It has a size of $n_i$.
+  \item $\overrightarrow{h_t}$ : This is the hidden layer vector for the feedback connections, it is defined as $\overrightarrow{h_t}=(\overrightarrow{h_{t,i}}) \forall i\in [\![0,n_o-1]\!]$, with $\overrightarrow{h_{t,i}}=(h_{t,i,j}) \forall j\in [\![0,n_s-1]\!]$.
+  \item $\overrightarrow{z_t}$ is the input of the crossbar but not the input of the \ac{LSTM}. This vector is there to lighten the informations on the schematic (\cref{circt:lstm}). $\overrightarrow{z_t}$ is defined by $\overrightarrow{z_t}=(\overrightarrow{x_t},\overrightarrow{h_{t-1}},b)$.
+  \item $e_{j,0}$ and $e_{j,1}$ are two enable flags that respectively represent the first and second half of $e_j$.
+  \item $e_{in}$ and $e_{out}$ are the flags used to enable the hidden state values to go to the input (feedback connection) or to the output of the circuit.
+  \item $e_{next}$ is the enable flag on in between two time steps.
+  \item $R_{amp0}$ and $R_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{R_{amp1}}{R_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
+\end{itemize}
+
+The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_h$ (\cref{sym:xbar}). This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
+
+\subsection{Serialization/Parallelization}
+\label{subsec:gruSerPar}
+
+As opposed to the to the \ac{LSTM}, the \ac{GRU} can not be serialized. This is due to a mathematical issue.
+
+Indeed in the equation of the candidate hidden state is a problem for the serialization of the circuit. The \cref{eq:candActivG} from \cref{sec:gru} is repeated in \cref{eq:serProb} for better lisibility of the thesis.
+
+\begin{equation}\label{eq:serProb}
+  \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
+\end{equation}
+
+As \cref{eq:serProb} shows, the reset gate's results vector needs to be multiplied with the the hidden state's previous vector. However, while the hidden state's previous vector is fully available in the memory cells, the reset gate's vector needs to be computed using the current inputs.
+
+If the circuit were serialized, a full cycle would be required to compute the reset gate, that is itself required to compute the candidate hidden state.
+
+That is why, the \ac{GRU} would take twice as much time to compute a time step if it were serialized. It is not worth it to double the computation time to save a bit of onChip area.
+
+\subsection{Symbol}
+
+The symbol of the \ac{GRU} circuit is available in \cref{sym:lstm}. It depends on a few parameters namely, the number of inputs ($n_i$), the number of hidden states ($n_h$) and the number of time steps ($n_{ts}$).
+
+\begin{figure}[H]
+  \centering
+  \includesvg[height=2.5cm]{gru/gruSymbol}
+  \caption{Symbol used for the \ac{GRU} circuit}
+  \label{sym:lstm}
+\end{figure}
+
+The total onChip area for the crossbar circuit depends on the previously defined parameters.
+
+\begin{equation}
+  \begin{array}{3}
+    A_{gru}(n_i,n_h)=4\cdot A_{xbar}(n_i,\frac{n_h}{n_s},n_s)\\+ \frac{n_h}{n_s}\cdot (5\cdot A_{af}+3\cdot A_{voltMult}+3\cdot A_{R_{amp0}}+2\cdot A_{R_{amp1}}+2\cdot A_{opAmp})\\+5\cdot n_h\cdot A_{memcell}
+  \end{array}
+\end{equation}
