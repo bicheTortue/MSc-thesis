@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="750"
+   height="500"
+   viewBox="0 0 750 500"
+   version="1.1"
+   id="svg21808"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="lstmCircuit.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <style
+     id="style1451">&#10;.pin { &#10;    fill:#000000;&#10;    stroke:none;&#10;}&#10;</style>
+  <sodipodi:namedview
+     id="namedview21810"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="1.8849843"
+     inkscape:cx="414.06181"
+     inkscape:cy="70.292364"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="wires"
+     inkscape:lockguides="false" />
+  <defs
+     id="defs21805">
+    <marker
+       style="overflow:visible"
+       id="ArrowWide"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Wide arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1;stroke-linecap:butt"
+         d="M 3,-3 0,0 3,3"
+         transform="rotate(180,0.125,0)"
+         sodipodi:nodetypes="ccc"
+         id="path18" />
+    </marker>
+    <symbol
+       id="memristor"
+       width="64"
+       height="16"
+       refY="50%">
+      <title
+         id="title36">memristor</title>
+      <g
+         id="g38">
+        <path
+           d="m 14,8 h 6.5 v 3.5 h 6 v -7 h 6 v 7 h 6 V 8 H 45"
+           id="center"
+           stroke="currentColor"
+           fill="none"
+           stroke-width="1" />
+        <rect
+           stroke="currentColor"
+           stroke-width="1"
+           fill="currentColor"
+           id="inter"
+           width="5"
+           x="45"
+           y="0.5"
+           height="15" />
+        <rect
+           stroke="currentColor"
+           stroke-width="1"
+           fill="none"
+           id="outer"
+           width="36"
+           height="15"
+           x="14"
+           y="0.5" />
+        <line
+           x1="2"
+           x2="14"
+           y1="8"
+           y2="8"
+           stroke="currentColor"
+           stroke-width="1px"
+           id="line36" />
+        <line
+           x1="50"
+           x2="62"
+           y1="8"
+           y2="8"
+           stroke="currentColor"
+           stroke-width="1"
+           id="line37" />
+        <circle
+           id="circle37"
+           class="pin"
+           cx="2"
+           cy="8"
+           r="1" />
+        <circle
+           class="pin"
+           id="circle38"
+           cx="62"
+           cy="8"
+           r="1" />
+      </g>
+    </symbol>
+    <symbol
+       id="voltMult">
+      <title
+         id="title2-36">voltage multiplier</title>
+      <g
+         id="g2-7">
+        <line
+           x1="1"
+           x2="8"
+           y1="22"
+           y2="22"
+           stroke="currentColor"
+           id="pos" />
+        <line
+           x1="1"
+           x2="8"
+           y1="10"
+           y2="10"
+           stroke="currentColor"
+           id="neg-5" />
+        <line
+           x1="56"
+           x2="63"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="out-3" />
+        <circle
+           id="plusPin"
+           class="pin"
+           cx="1"
+           cy="22"
+           r="1" />
+        <circle
+           id="negPin-5"
+           class="pin"
+           cx="1"
+           cy="10"
+           r="1" />
+        <circle
+           id="outPin-6"
+           class="pin"
+           cx="63"
+           cy="16"
+           r="1" />
+        <rect
+           id="rect2689"
+           width="48"
+           height="31"
+           x="8"
+           y="0.5"
+           fill="none"
+           stroke="currentColor" />
+        <path
+           d="M 24,8 40,24 M 24,24 40,8"
+           id="path1"
+           fill="none"
+           stroke="currentColor" />
+      </g>
+    </symbol>
+    <symbol
+       id="resistor"
+       width="64"
+       height="16">
+      <title
+         id="title31">resistor</title>
+      <g
+         id="g32">
+        <path
+           d="m 2,8 h 12 l 3,-6 6,12 6,-12 6,12 6,-12 6,12 3,-6 h 12"
+           id="res"
+           fill="none"
+           stroke="currentColor" />
+        <circle
+           id="posPin"
+           fill="#000000"
+           class="pin"
+           cx="2"
+           cy="8"
+           r="1" />
+        <circle
+           class="pin"
+           fill="#000000"
+           id="circle31"
+           cx="62"
+           cy="8"
+           r="1" />
+        <rect
+           id="rect31"
+           width="64"
+           height="16"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+      </g>
+    </symbol>
+    <symbol
+       id="opamp">
+      <title
+         id="title34">opAmp</title>
+      <g
+         id="g39">
+        <line
+           x1="2"
+           x2="12"
+           y1="32"
+           y2="32"
+           stroke="currentColor"
+           id="line35" />
+        <line
+           x1="2"
+           x2="12"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="line36-3" />
+        <path
+           d="M 12,2 V 46 L 52,24 Z"
+           fill="none"
+           stroke="currentColor"
+           id="path36" />
+        <line
+           x1="52"
+           x2="62"
+           y1="24"
+           y2="24"
+           stroke="currentColor"
+           id="line37-6" />
+        <g
+           id="plus">
+          <line
+             x1="14"
+             x2="18"
+             y1="32"
+             y2="32"
+             stroke="#000000"
+             id="line105596" />
+          <line
+             x1="16"
+             x2="16"
+             y1="30"
+             y2="34"
+             stroke="#000000"
+             id="line105598" />
+        </g>
+        <line
+           x1="14"
+           x2="18"
+           y1="16"
+           y2="16"
+           stroke="#000000"
+           id="minus" />
+        <circle
+           id="circle37-7"
+           class="pin"
+           cx="2"
+           cy="32"
+           r="1" />
+        <circle
+           id="circle38-5"
+           class="pin"
+           cx="2"
+           cy="16"
+           r="1" />
+        <circle
+           id="circle39"
+           class="pin"
+           cx="62"
+           cy="24"
+           r="1" />
+        <rect
+           id="rect39"
+           width="64"
+           height="48"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+      </g>
+    </symbol>
+    <symbol
+       id="xbar">
+      <title
+         id="title16">crossbar</title>
+      <line
+         x1="8"
+         y1="7"
+         x2="127"
+         y2="7"
+         stroke="#d579a0"
+         id="line16"
+         stroke-dasharray="2, 2" />
+      <line
+         x1="121.5"
+         y1="1"
+         x2="121.5"
+         y2="56"
+         stroke="#2db6e2"
+         id="line17"
+         stroke-dasharray="2, 2" />
+      <line
+         x1="57.5"
+         y1="1"
+         x2="57.5"
+         y2="56"
+         stroke="#2db6e2"
+         id="line18"
+         stroke-dasharray="2, 2" />
+      <g
+         id="g1"
+         color="currentColor">
+        <use
+           xlink:href="#memristor"
+           x="0"
+           y="0"
+           id="1_1"
+           transform="rotate(45,9.7071045,23.192389)" />
+        <use
+           xlink:href="#memristor"
+           x="0"
+           y="0"
+           id="1_2"
+           transform="rotate(45,41.707103,100.44721)" />
+        <rect
+           id="rect1"
+           width="120"
+           height="56"
+           x="7.5"
+           y="0.5"
+           stroke="currentColor"
+           fill="none" />
+        <line
+           x1="1"
+           y1="28.5"
+           x2="8"
+           y2="28.5"
+           stroke="currentColor"
+           id="line19" />
+        <line
+           x1="64"
+           y1="56"
+           x2="64"
+           y2="63"
+           stroke="currentColor"
+           id="line20" />
+        <circle
+           fill="#000000"
+           stroke="none"
+           id="circle20"
+           cx="1"
+           cy="28.5"
+           r="1" />
+        <circle
+           fill="#000000"
+           stroke="none"
+           id="circle1"
+           cx="64"
+           cy="63"
+           r="1" />
+      </g>
+    </symbol>
+    <symbol
+       id="memcell">
+      <title
+         id="title2">memcell</title>
+      <g
+         id="g2">
+        <line
+           x1="2"
+           x2="10"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="neg" />
+        <line
+           x1="54"
+           x2="62"
+           y1="16"
+           y2="16"
+           stroke="currentColor"
+           id="out" />
+        <rect
+           id="outline"
+           width="64"
+           height="32"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+        <rect
+           id="main"
+           width="44"
+           height="24"
+           x="10"
+           y="4"
+           fill="none"
+           stroke="currentColor" />
+        <g
+           id="cap">
+          <line
+             x1="20"
+             x2="30"
+             y1="14"
+             y2="14"
+             stroke="currentColor"
+             id="line2" />
+          <line
+             x1="34"
+             x2="44"
+             y1="14"
+             y2="14"
+             stroke="currentColor"
+             id="line3" />
+          <line
+             x1="34"
+             x2="34"
+             y1="20"
+             y2="8"
+             stroke="currentColor"
+             id="line4" />
+          <line
+             x1="30"
+             x2="30"
+             y1="8"
+             y2="20"
+             stroke="currentColor"
+             id="line5" />
+        </g>
+        <line
+           x1="32"
+           x2="32"
+           y1="4"
+           y2="1"
+           stroke="currentColor"
+           id="line1" />
+        <line
+           x1="32"
+           x2="32"
+           y1="28"
+           y2="31"
+           stroke="currentColor"
+           id="line6" />
+        <circle
+           id="negPin"
+           class="pin"
+           cx="2"
+           cy="16"
+           r="1" />
+        <circle
+           id="enIn"
+           class="pin"
+           cx="32"
+           cy="1"
+           r="1" />
+        <circle
+           id="enOut"
+           class="pin"
+           cx="32"
+           cy="31"
+           r="1" />
+        <circle
+           id="outPin"
+           class="pin"
+           cx="62"
+           cy="16"
+           r="1" />
+      </g>
+      <text
+         x="32"
+         y="26"
+         id="memText"
+         stroke="none"
+         fill="#000000"
+         font-size="6px"
+         text-anchor="middle">Memory</text>
+    </symbol>
+    <symbol
+       id="tanh">
+      <title
+         id="title9">tanh</title>
+      <g
+         id="g12">
+        <line
+           x1="2"
+           x2="10"
+           y1="12"
+           y2="12"
+           stroke="currentColor"
+           id="line9" />
+        <line
+           x1="54"
+           x2="62"
+           y1="12"
+           y2="12"
+           stroke="currentColor"
+           id="line10" />
+        <circle
+           id="circle10"
+           class="pin"
+           cx="2"
+           cy="12"
+           r="1" />
+        <circle
+           id="circle11"
+           class="pin"
+           cx="62"
+           cy="12"
+           r="1" />
+        <rect
+           id="rect11"
+           width="64"
+           height="24"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+        <rect
+           id="rect12"
+           width="44"
+           height="23"
+           x="10"
+           y="0.5"
+           fill="none"
+           stroke="currentColor" />
+        <path
+           d="m 16,13 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
+           id="path2"
+           fill="none"
+           stroke="currentColor" />
+        <rect
+           id="rect2"
+           width="32"
+           height="10"
+           x="16"
+           y="4"
+           fill="none"
+           stroke="#000000" />
+      </g>
+      <text
+         x="32"
+         y="21"
+         id="sigmoidText"
+         stroke="none"
+         fill="#000000"
+         font-size="6px"
+         text-anchor="middle">\ac{tanh}</text>
+    </symbol>
+    <symbol
+       id="sigm">
+      <title
+         id="title12">sigmoid</title>
+      <g
+         id="g16">
+        <line
+           x1="2"
+           x2="10"
+           y1="12"
+           y2="12"
+           stroke="currentColor"
+           id="line12" />
+        <line
+           x1="54"
+           x2="62"
+           y1="12"
+           y2="12"
+           stroke="currentColor"
+           id="line13" />
+        <circle
+           id="circle13"
+           class="pin"
+           cx="2"
+           cy="12"
+           r="1" />
+        <circle
+           id="circle14"
+           class="pin"
+           cx="62"
+           cy="12"
+           r="1" />
+        <rect
+           id="rect14"
+           width="64"
+           height="24"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+        <rect
+           id="rect15"
+           width="44"
+           height="23"
+           x="10"
+           y="0.5"
+           fill="none"
+           stroke="currentColor" />
+        <path
+           d="m 16,13 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
+           id="path15-3"
+           fill="none"
+           stroke="currentColor" />
+        <rect
+           id="rect16"
+           width="32"
+           height="10"
+           x="16"
+           y="4"
+           fill="none"
+           stroke="#000000" />
+      </g>
+      <text
+         x="32"
+         y="21"
+         id="text16"
+         stroke="none"
+         fill="#000000"
+         font-size="6px"
+         text-anchor="middle">sigmoid</text>
+    </symbol>
+  </defs>
+  <g
+     id="wires"
+     color="#808080">
+    <path
+       d="M 21,38.5 H 13"
+       id="path17"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 212.99966,38.5 h -8"
+       id="path30"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 404.99966,38.5 h -8"
+       id="path31"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 596.99932,38.5 h -8"
+       id="path32"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 84,73 V 93 H 99"
+       id="path4"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 276,73 v 20 h 15"
+       id="path19"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 468,73 v 20 h 15"
+       id="path20"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 660,73 v 20 h 15"
+       id="path21"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 160,93 h 96 v 80 h 81 v 32 h 100 v 29 h -12"
+       id="path8"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 352,93 h 12 v 32 13 12 h 32 14"
+       id="path10"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 544,93 v 22 h -54 -92 v 23 h 12"
+       id="path11"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 736,93 v 20 h -64 -90 v 25 h -12"
+       id="path3"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 473,144 v 18"
+       id="path5"
+       fill="none"
+       stroke="currentColor"
+       marker-mid="url(#ArrowWide)" />
+    <path
+       d="m 507,144 v 18"
+       id="path22"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 473,222 h 32 2 m -17,0 v 18 h 80 v 64 h 72 v -32"
+       id="path13"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 642,320 H 626"
+       id="path15"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 702,312 v -32 -8"
+       id="path14"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 702,312 h 47 v -98 h -12"
+       id="path7"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 702,312 h 47 v -98 -64 h -12"
+       id="path60"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 702,312 h 47 v -66 h -16"
+       id="path61"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4 2" />
+    <path
+       d="m 702,312 h 47 v -130 h -16"
+       id="path62"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4 2" />
+    <path
+       d="m 596.00011,150 h -26"
+       id="path24"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="M 596,214 H 583 V 150"
+       id="path67"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 596,182 H 583"
+       id="path68"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4, 2" />
+    <path
+       d="m 702,312 v 48 h -150 h -42 v -24 v -64 h -12"
+       id="path16"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <circle
+       id="node0"
+       cx="490"
+       cy="222"
+       r="2"
+       fill="currentColor"
+       stroke="none" />
+    <path
+       d="m 437,272 v -26 h -12"
+       id="path9"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 362,240 h -24"
+       id="path23"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 277,240 h -22"
+       id="path12"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="M 254,240 V 209"
+       id="path25"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 194,208 v 40"
+       id="path26"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 184,248 v 32 h -22 m 22,0 v 16"
+       id="path51"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4, 2" />
+    <path
+       d="m 194,248 h -31"
+       id="path28"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 184,216 h -21"
+       id="path50"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4, 2" />
+    <path
+       d="m 194,248 h -10 v -64 h -21"
+       id="path49"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 194,248 v 64 h 15"
+       id="path29"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 194,312 v 64 h 15"
+       id="path55"
+       fill="none"
+       stroke="currentColor"
+       marker-end="url(#ArrowWide)" />
+    <path
+       d="m 194,376 v 32 h 20 m -20,0 v 16"
+       id="path56"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4, 2" />
+    <path
+       d="m 194,344 h 20"
+       id="path57"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4, 2" />
+    <path
+       d="M 270,256 H 254"
+       id="path27"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 22,248h -8"
+       id="path6"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 22,184 H 14"
+       id="path72"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 706,135 v -4"
+       id="path33"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 706,165 v 4"
+       id="path34"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 706,199 v -4"
+       id="path63"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 706,229 v 4"
+       id="path64"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 240,297 v -4"
+       id="path35"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 240,327 v 4"
+       id="path37"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 240,361 v -4"
+       id="path65"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 240,391 v 4"
+       id="path66"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 132,263 v 4"
+       id="path79"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 132,233 v -4"
+       id="path80"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 132,199 v 4"
+       id="path81"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 132,169 v -4"
+       id="path82"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 52,263 v 4"
+       id="path38"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 52,233 v -4"
+       id="path39"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 52,199 v 4"
+       id="path52"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 52,169 v -4"
+       id="path53"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="M 596,246 H 583 V 214"
+       id="path69"
+       fill="none"
+       stroke="currentColor"
+       stroke-dasharray="4, 2" />
+    <path
+       d="m 270,312 h 8"
+       id="path70"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 270,376 h 8"
+       id="path71"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 82,248 h 20"
+       id="path85"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 82,184 h 20"
+       id="path86"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 656,214 h 20"
+       id="path40"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 656,150 h 20"
+       id="path41"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,135 v -4"
+       id="path42"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,165 v 4"
+       id="path43"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,199 v -4"
+       id="path44"
+       fill="none"
+       stroke="currentColor" />
+    <path
+       d="m 626,229 v 4"
+       id="path45"
+       fill="none"
+       stroke="currentColor" />
+  </g>
+  <g
+     id="components"
+     color="#009970">
+    <use
+       xlink:href="#xbar"
+       id="outputG"
+       x="20"
+       y="10" />
+    <use
+       xlink:href="#xbar"
+       id="inputG"
+       x="212"
+       y="10" />
+    <use
+       xlink:href="#xbar"
+       id="cellG"
+       x="404"
+       y="10" />
+    <use
+       xlink:href="#xbar"
+       id="forgetG"
+       x="596"
+       y="10" />
+    <use
+       xlink:href="#sigm"
+       id="sigm0"
+       x="98"
+       y="81" />
+    <use
+       xlink:href="#tanh"
+       id="tanh0"
+       x="482"
+       y="81" />
+    <use
+       xlink:href="#sigm"
+       id="sigm1"
+       x="290"
+       y="81" />
+    <use
+       xlink:href="#sigm"
+       id="sigm2"
+       x="674"
+       y="81" />
+    <use
+       xlink:href="#voltMult"
+       id="voltMult0"
+       x="410"
+       y="128" />
+    <use
+       xlink:href="#voltMult"
+       id="voltMult1"
+       x="-570"
+       y="128"
+       transform="scale(-1,1)" />
+    <use
+       xlink:href="#resistor"
+       id="res0"
+       x="-224"
+       y="465"
+       transform="rotate(-90)" />
+    <use
+       xlink:href="#resistor"
+       id="res1"
+       x="-224"
+       y="499"
+       transform="rotate(-90)" />
+    <use
+       xlink:href="#opamp"
+       id="opAmp0"
+       x="640"
+       y="288" />
+    <use
+       xlink:href="#resistor"
+       id="res2"
+       x="640"
+       y="264" />
+    <use
+       xlink:href="#tanh"
+       id="tanh1"
+       x="435"
+       y="260" />
+    <use
+       xlink:href="#voltMult"
+       id="voltMult2"
+       x="-425"
+       y="224"
+       transform="scale(-1,1)" />
+    <use
+       xlink:href="#memcell"
+       id="memcell0"
+       x="674"
+       y="134" />
+    <use
+       xlink:href="#memcell"
+       id="memcell5"
+       x="674"
+       y="198" />
+    <use
+       xlink:href="#memcell"
+       id="memcell8"
+       x="594"
+       y="134" />
+    <use
+       xlink:href="#memcell"
+       id="memcell9"
+       x="594"
+       y="198" />
+    <use
+       xlink:href="#opamp"
+       id="opAmp1"
+       x="-256"
+       y="224"
+       transform="scale(-1,1)" />
+    <use
+       xlink:href="#resistor"
+       id="res4"
+       x="192"
+       y="200" />
+    <use
+       xlink:href="#resistor"
+       id="res3"
+       x="275"
+       y="232" />
+    <use
+       xlink:href="#memcell"
+       id="memcell1"
+       x="20"
+       y="232" />
+    <use
+       xlink:href="#memcell"
+       id="memcell3"
+       x="20"
+       y="168" />
+    <use
+       xlink:href="#memcell"
+       id="memcell6"
+       x="100"
+       y="232" />
+    <use
+       xlink:href="#memcell"
+       id="memcell7"
+       x="100"
+       y="168" />
+    <use
+       xlink:href="#memcell"
+       id="memcell2"
+       x="208"
+       y="296" />
+    <use
+       xlink:href="#memcell"
+       id="memcell4"
+       x="208"
+       y="360" />
+  </g>
+  <g
+     id="texts">
+    <text
+       x="13"
+       y="40"
+       id="text1"
+       text-anchor="end"
+       font-size="1"
+       xml:space="default">$\overrightarrow{z_t}$</text>
+    <text
+       x="205"
+       y="40"
+       id="text2"
+       text-anchor="end"
+       font-size="6px"
+       xml:space="default">$\overrightarrow{z_t}$</text>
+    <text
+       x="396.99963"
+       y="40"
+       id="text3"
+       text-anchor="end"
+       font-size="6px"
+       xml:space="default">$\overrightarrow{z_t}$</text>
+    <text
+       x="588.99927"
+       y="40"
+       id="text4"
+       text-anchor="end"
+       font-size="6px"
+       xml:space="default">$\overrightarrow{z_t}$</text>
+    <text
+       x="14"
+       y="250"
+       id="text5"
+       text-anchor="end"
+       font-size="1"
+       xml:space="default">$h_{t,i,j}$</text>
+    <text
+       x="14"
+       y="186"
+       id="text69"
+       text-anchor="end"
+       font-size="1px"
+       xml:space="default">$h_{t,i,0}$</text>
+    <text
+       x="270"
+       y="258"
+       id="text6"
+       text-anchor="begin"
+       font-size="6px"
+       xml:space="default">$V_{cm}$</text>
+    <text
+       x="626"
+       y="322"
+       id="text7"
+       text-anchor="end"
+       font-size="6px"
+       xml:space="default">$V_{cm}$</text>
+    <text
+       x="132"
+       y="224"
+       id="text82"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_j$</text>
+    <text
+       x="132"
+       y="272"
+       id="text83"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="132"
+       y="160"
+       id="text84"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_0$</text>
+    <text
+       x="132"
+       y="208"
+       id="text85"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="52"
+       y="224"
+       id="text40"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="52"
+       y="272"
+       id="text41"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{in}$</text>
+    <text
+       x="52"
+       y="160"
+       id="text59"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="52"
+       y="208"
+       id="text60"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{in}$</text>
+    <text
+       x="240"
+       y="288"
+       id="text42"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{0,1}$</text>
+    <text
+       x="240"
+       y="352"
+       id="text57"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{j,1}$</text>
+    <text
+       x="240"
+       y="400"
+       id="text58"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{out}$</text>
+    <text
+       x="240"
+       y="336"
+       id="text43"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{out}$</text>
+    <text
+       x="706"
+       y="126"
+       id="text44"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{0}$</text>
+    <text
+       x="706"
+       y="174"
+       id="text45"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="706"
+       y="190"
+       id="text66"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{j}$</text>
+    <text
+       x="706"
+       y="238"
+       id="text67"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="280"
+       y="314"
+       id="text71"
+       text-anchor="begin"
+       font-size="6px"
+       xml:space="default">$h_{t,j,0}$</text>
+    <text
+       x="280"
+       y="378"
+       id="text72"
+       text-anchor="begin"
+       font-size="6px"
+       xml:space="default">$h_{t,j,i}$</text>
+    <text
+       x="465"
+       y="194"
+       id="text73"
+       text-anchor="end"
+       font-size="6px"
+       xml:space="default">$R_{amp0}$</text>
+    <text
+       x="513"
+       y="194"
+       id="text74"
+       text-anchor="begin"
+       font-size="6px"
+       xml:space="default">$R_{amp0}$</text>
+    <text
+       x="672"
+       y="260"
+       id="text75"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$R_{amp1}$</text>
+    <text
+       x="224"
+       y="196"
+       id="text76"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$R_{amp1}$</text>
+    <text
+       x="306.99966"
+       y="228"
+       id="text77"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$R_{amp0}$</text>
+    <text
+       x="626"
+       y="126"
+       id="text46"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="626"
+       y="174"
+       id="text47"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{0}$</text>
+    <text
+       x="626"
+       y="190"
+       id="text48"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{next}$</text>
+    <text
+       x="626"
+       y="238"
+       id="text49"
+       text-anchor="middle"
+       font-size="6px"
+       xml:space="default">$e_{j}$</text>
+  </g>
+</svg>
