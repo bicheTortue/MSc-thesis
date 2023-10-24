@@ -56,7 +56,7 @@ The candidate activation gate (\cref{eq:candActivG1}) is the only difference fro
 
 \subsection{Similarities with \ac{LSTM}}
 
-While the \ac{GRU} is its own type of \ac{RNN}, it has been compared and assimilated to an \ac{LSTM} \cite{nbLSTM}. Indeed, the subtype of \ac{LSTM} it has been associated with is called the \ac{CIFG} \ac{LSTM}. If the input and forget gates are combined into one ($f_t=\overrightarrow{1}-i_t$), they can be assimilated as the update gate of the \ac{GRU}. The reset gate would then be the \ac{LSTM}'s output gate.
+While the \ac{GRU} is its own type of \ac{RNN}, it has been compared and assimilated to an \ac{LSTM} \cite{nbLSTM}. Indeed, the subtype of \ac{LSTM} it has been associated with is called the \ac{CIFG} \ac{LSTM}. If the input and forget gates are combined into one ($\overrightarrow{f_t}=\overrightarrow{1}-\overrightarrow{i_t}$), they can be assimilated as the update gate of the \ac{GRU}. The reset gate would then be the \ac{LSTM}'s output gate.
 
 \Cref{eq:lstmGru0,eq:lstmGru1,eq:lstmGru2,eq:lstmGru3,eq:lstmGru4} are the \ac{GRU}'s equations with the \ac{LSTM}'s names.
 
