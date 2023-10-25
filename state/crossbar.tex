@@ -11,7 +11,7 @@ Setting memristors in a crossbar array allows to perform analog \ac{VMM}, also c
   \label{fig:crossbar}
 \end{figure}
 
-It uses physical properties of electrical systems to perform analog computing. Lets use the circuit node in figure \ref{fig:crossNode} to explain the theory behind the memristor crossbar array.
+It uses physical properties of electrical systems to perform analog computing. In what follows I will use the circuit node in figure \ref{fig:crossNode} to explain the theory behind the memristor crossbar array.
 \begin{figure}[H]
   \centering
   \includesvg[height=3.5cm]{crossbar/node}
@@ -21,18 +21,18 @@ It uses physical properties of electrical systems to perform analog computing. L
   \label{fig:crossNode}
 \end{figure}
 
-First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance $R_i$, is $V_i$. As such and using Ohm's law, we know the the current flowing into the memristor ($I_{mem}$) is bound by the following equation :
+First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance $R_i$, is $V_i$. As such and using Ohm's law, we know that the current flowing into the memristor ($I_{mem}$) is bound by the following equation :
 
 \begin{equation}
   V_i = R\cdot I_{mem} \Rightarrow I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot\sigma_i
 \end{equation}
 With $\sigma_i$ being the conductance of memristor, defined as $\sigma_i=\frac{1}{R_i}$.
 
-This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to kirchhoff's current law the resulting current is :
+This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
 \begin{equation}
   I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot\sigma_i
 \end{equation}
-By applying this process to the whole system we find that the current as the bottom of one column is :
+By applying this process to the whole system we find that the current at the bottom of one column is :
 \begin{equation}
   I_1=\sigma_1\cdot V_1 + \sigma_2\cdot V_2 + \sigma_3\cdot V_3
 \end{equation}
@@ -41,6 +41,6 @@ With $\sigma_1$, $\sigma_2$ and $\sigma_3$ being the conductance of the 3 memris
 Using such an analog circuit is a huge gain in time, for two main reasons :
 
 \begin{itemize}
-  \item This circuit being an analog it allows for analog computations which are much faster than their digital counter parts. As explained in this section, the circuit only uses physical properties of the different components and can compute large \acp{VMM} in a very short amount of time.
+  \item By being analog, this circuit allows for analog computations which are much faster than their digital counterparts. As explained in this section, the circuit only uses physical properties of the different components and can compute large \acp{VMM} in a very short amount of time.
   \item The other advantage of such a system is the use of the memristors, that make the need to copy data from another memory useless as the memristors have a long term memory themselves. This is one of the ways to break down the Von Neumann bottleneck.
 \end{itemize}

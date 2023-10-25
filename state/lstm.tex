@@ -1,11 +1,11 @@
 \section{\acs{LSTM}}\label{sec:lstm}
-\acfp{LSTM} are a type of \ac{RNN} used to analyze sequence of data. They are capable of predict data based of the previous results. \acp{LSTM} are part of \acp{RNN}. \acp{RNN} are different than feedfoward \acl{NN} because of their feedback connections. Meaning that the results from the last time step have an impact on the next time step.
+\acfp{LSTM} are a type of \ac{RNN} used to analyze sequences of data. They are capable of predicting data based on previous data points.
 
 The first \ac{LSTM} was invented in 1997 by Hochreiter and Schmidhuber \cite{firstLSTM}. \acp{LSTM} changed a lot through the years to become what they are now.
 
-\acp{LSTM} was created to fix the vanishing gradient problem. \acp{LSTM} alleviate this issue by adding a cell state, this state gives it the ability to choose what input is important and which one isn't, thus giving it a long term memory. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This what gives \acp{LSTM} their use for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. (TODO : find example)
+\acp{LSTM} was created to fix the vanishing gradient problem. \acp{LSTM} alleviate this issue by adding a cell state, this state gives it the ability to choose what input is important and which one is not, thus giving it a long term memory. This ability gave the uncommon name of \acl{LSTM} as it has both long and short term memory. This is what makes \acp{LSTM} adequate for sequence data. They can analyze the data and keep the information from the last time step to make a better decision afterwards. The most comprehensible example is considering a sentence. %TODO : find example)
 
-An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they have several gates, which are all technically a \ac{NN} themselves. There is also a cell state which job is to hold a value for the next step.
+An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, it has several gates, which all compute a \ac{VMM}. There is also a cell state whose job is to hold a value for the next step.
 
 \begin{figure}[H]
   \centering
@@ -15,14 +15,14 @@ An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, they h
 \end{figure}
 
 \Cref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a \ac{tanh} or a sigmoid activation function. Each input to the cell is a vector.
-Those vector are of varying sizes depending on several factors. For example, both $h_t$ and $c_t$ are of the same size as the number of hidden state (sometimes refered to as cell state) for any $t\geq 0$.
+Those vectors are of varying sizes depending on several factors. For example, both $h_t$ and $c_t$ are of the same size as the number of hidden states (sometimes referred to as cell state) for any $t\geq 0$.
 The input vector ($x_t$) is of size of the sample we want to feed for each time step.
 
 \subsection{Equations}
 
 The equations of an LSTM are quite unusual.
 Let's start with the more classic gate equations. They are the ones that behave like the more classic \ac{NN}.
-The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and ouput (\cref{eq:outputG}) gates are described below.
+The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and output (\cref{eq:outputG}) gates are described below.
 
 
 \begin{equation}\label{eq:inputG}
@@ -35,9 +35,9 @@ The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and ouput (\cref{eq:out
   \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
 \end{equation}
 
-Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$) and ($w_o$,$\overrightarrow{b_o}$) are the pair of weights matrixes and biases vectors for the input, forget and ouput gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
+Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$) and ($w_o$,$\overrightarrow{b_o}$) are the pair of weights matrixes and biases vectors for the input, forget and output gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
 
-For the next equation describes the candidate cell state (\cref{eq:candCell}), that will next become the cell state (\cref{eq:cellS}).
+The next equation describes the candidate cell state (\cref{eq:candCell}), that will next be used to compute the cell state (\cref{eq:cellS}).
 
 \begin{equation}\label{eq:candCell}
   \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
@@ -57,7 +57,7 @@ We set $x_1$ as the first input and define $\overrightarrow{h_0}$ as a zero only
 
 \subsection{Usage}
 
-Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes several time steps. Every hidden state ($h_t$) is passed to the next time step as an input. This hidden state can be used to compute an output at any time step $t$.
+Using \ac{LSTM} can be a bit tricky. Due to its sequential nature, it takes several time steps. Every hidden state ($h_t$) is passed to the next time step as an input. This hidden state can be used to compute an output at any time step $t$. \Cref{fig:lstmUse} shows a visual representation of an \ac{LSTM} going from the current time step to the following time step.
 
 \begin{figure}[H]
   \centering
@@ -68,11 +68,11 @@ Using \ac{LSTM} can be a bit tricky. Due to it's sequential nature, it takes sev
 
 \subsection{Variants}
 
-\acp{LSTM} come in reality in a few different flavor. Usually, when \acp{LSTM} are mentionned, the version used is the \ac{NP} version. This is the most common version as those are the equations described on the wikipedia page \cite{wikiLSTM} and used in librairies like Keras \cite{Keras} or pyTorch \cite{PyTorch}. In fact, there are total of 8 other variations of \acp{LSTM} \cite{nbLSTM}.
-The difference between each of them varies from one to the other, but they can all be described with new equations.
+\acp{LSTM} come in a few different flavors of implementations. Usually, when \acp{LSTM} are mentionned, the version used is the \ac{NP} version. This is the most common version as those are the equations described on the wikipedia page \cite{wikiLSTM} and used in libraries like Keras \cite{Keras} or PyTorch \cite{PyTorch}. In fact, there are at least 8 other variations of \acp{LSTM} \cite{nbLSTM}.
+The difference between them varies from one to the other, some of them are detailled next.
 
 \subsubsection{Vanilla \ac{LSTM}}
-This variant of the \ac{LSTM} was origanally the only \ac{LSTM} network, hence it's name. It differs from the classic \ac{LSTM} with it's use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by those equations \cite{vanillaLSTM, nbLSTM} :
+This variant of the \ac{LSTM} was originally the only \ac{LSTM} network, hence its name. It differs from the classic \ac{LSTM} with its use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by the following equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
   \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
@@ -101,7 +101,7 @@ This variant of the \ac{LSTM} is the most complex of all. This is due to the amo
   \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{i_{t-1}}\cdot R_{oi} + \overrightarrow{f_{t-1}}\cdot R_{of} + \overrightarrow{o_{t-1}}\cdot R_{oo} + \overrightarrow{b_o} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_o})
 \end{equation}
 
-With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrices.
+With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrixes.
 
 Once again, the equations that haven't been rewritten are unchanged.
 

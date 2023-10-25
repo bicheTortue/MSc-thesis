@@ -4,6 +4,7 @@
 Memristors are the lesser known fourth fundamental passive component of electronics, among resistors, capacitors and inductor.
 It was first theorized in 1971 by L. Chua from UC Berkeley, in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
 The theory behind this component was extracted from a missing component to link the four fundamental circuit variables, voltage ($v$), charge ($q$), current ($i$) and flux ($\phi$). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
+
 \begin{equation}
   d\phi = v\cdot dt
 \end{equation}
@@ -12,9 +13,11 @@ The theory behind this component was extracted from a missing component to link 
   dq = i\cdot dt
 \end{equation}
 
-Resistors, capacitors and inductors were already very established and well known component, so it was theorized that a fourth device should then exists to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=v\cdot dt \Rightarrow \phi =  \int v \,dt  $.\\
-The component stayed theoretical until 2008 when it's been implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to have an actual working device.\\
-There is then an extention of this theoretical device to another, the memristive device. It was theorized in 1976 by L. Chua and S. M. Kang \cite{memrestiveDev}. The difference between the memristor and the memristive device is its internal behavior. Memristive device are commonly referred to as memristor as well.
+Resistors, capacitors and inductors were already very established and well known components, so it was theorized that a fourth device should then exist to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=v\cdot dt \Rightarrow \phi =  \int v \,dt  $.
+
+The component stayed theoretical until 2008 when it was implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to have an actual working device.
+
+There is then an extension of this theoretical device to another, the memristive device. It was theorized in 1976 by L. Chua and S. M. Kang \cite{memrestiveDev}. The difference between the memristor and the memristive devices is its internal behavior. Memristive device are commonly referred to as memristors as well.
 
 \begin{figure}[H]
   \centering
@@ -24,7 +27,7 @@ There is then an extention of this theoretical device to another, the memristive
 \end{figure}
 
 \subsection{Equations}
-A memristor links the flux ($\phi$) and charge ($q$) and creates the memristance.
+A memristor links the flux ($\phi$) and charge ($q$) by the memristance.
 This memristance is defined with the following equation :
 \begin{equation}
   M(q)=\frac{d\phi}{dq}
@@ -47,16 +50,16 @@ Once again, we can also define the memristive device using a memductance :
 \begin{equation}
   i(t)=W(x,v)\cdot v(t)
 \end{equation}
-In all of the previous equations, $v$ is the voltage in Volt ($V$), $i$ is the current in Ampere ($A$), $\phi$ is the flux in Weber ($Wb$), $q$ is the charge in Coulomb ($C$), $M$ is the memristance in Ohm ($\Omega$) and $W$ is the memductance in Siesmens ($S$ or $\Omega^{-1}$).
+In all of the previous equations, $v$ is the voltage in Volt ($V$), $i$ is the current in Ampere ($A$), $\phi$ is the flux in Weber ($Wb$), $q$ is the charge in Coulomb ($C$), $M$ is the memristance in Ohm ($\Omega$) and $W$ is the memductance in Siemens ($S$ or $\Omega^{-1}$).
 
 \subsection{Behavior}
 
 A memristor is defined as a non-linear two-terminal fundamental electrical component. It behaves as a resistance with memory (hence its name), meaning that it changes its resistance based on how much charge went through it. This enables us to manipulate the resistance of the component.
-The huge benefit of memristors its ability to retain its internal resistance, the device can left without power for a long period of time (retention time of minimum 10 years according to \cite{memRetention}). When the device is powered backup, it will have the same resistance it had before.
+The huge benefit of memristors is the ability to retain its internal resistance, the device can be left without power for a long period of time (retention time of minimum 10 years according to \cite{memRetention}). When the device is powered backup, it will have the same resistance it had before.
 
 Memristive devices have a similar behavior, the memristive device's resistance will change depending on the internal state ($x$). That internal state changes based on how much and how long voltage signals or currents are applied to the memristive device.
 
 \subsection{Usage}
-The main research for memristor usage is using them as ReRAM. The idea behind ReRAM is to use memristors as Non-Volatile memory. It uses two states of the device with known resistances ($R_{on}$ and $R_{off}$), giving it binary property. Reading the memory simply requires setting a voltage and reading the output current. It is better than current solutions (HDD, SSD) as it has a much lower latency. It is better than traditionnal DRAM because it keeps the information even when turned off. This makes ReRAM a good replacement for both RAM and HDDs/SSDs, thus eliminating Von Neumann bottleneck due to the Von Neumann architecture that is used in all modern computers.
+The main research for memristor usage is using them as ReRAM. The idea behind ReRAM is to use memristors as Non-Volatile memory. It uses two states of the device with known resistances ($R_{on}$ and $R_{off}$), giving it binary property. Reading the memory simply requires setting a voltage and reading the output current. It is better than current solutions (HDD, SSD) as it has a much lower latency. It is better than traditionnal DRAM because it keeps the information even when turned off. This makes ReRAM a good replacement for both RAM and HDDs/SSDs, thus eliminating von Neumann bottleneck due to the von Neumann architecture that is used in all modern computers.
 
 They can also be used to set a resistance to be able to perform analog multiplication. Setting them in a crossbar array makes them a very strong candidate to be used in neuromorphic computing.

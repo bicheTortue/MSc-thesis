@@ -15,7 +15,7 @@ The \ac{VTEAM} being the most versatile model, its implementation would fit most
 
 \subsection{Equations}
 
-It's been established that the internal resistance also depends on an internal state $x$ (\cref{eq:memristiveDev}).
+It has been established that the internal resistance also depends on an internal state $x$ (\cref{eq:memristiveDev}).
 
 \begin{equation}
   \frac{dx}{dt}=f(x,v)
@@ -103,21 +103,21 @@ The changes of resistive states from the initial resistance ($R_0$) are computed
 
 The final Verilog-A code is available at \cref{apsec:memModel}.
 
-\subsection{Behavior}
+\subsection{Behavior}\label{subsec:memModelBehave}
 
-The model was tested then tested. As with physical memristors, it has a threshold voltage value from which its resistive states starts changing. This threshold value is $V_{read}$. For this specific model the threshold voltage is set to $V_{read}=500mV$.
+The model implements, as with physical memristors, a threshold voltage value from which its resistive states starts changing. This threshold value is $V_{read}$. For this specific model the threshold voltage is set to $V_{read}=500mV$.
 
-Every pulse is composed of 2 parts and last for a total of $1 ms$ :
+Every pulse is composed of 2 parts and lasts for a total of $1 ms$ :
 \begin{itemize}
-  \item The reading of the resistive state, by applying a triangular wave that in bound by the threshold value $V_{read}$.
-  \item The writing to the memristor. During this part the resistive state will change. This is done by apply a square wave of variable width ($t_{\Delta}$) with a set bias voltage ($V_{bias}$).
+  \item The reading of the resistive state, by applying a triangular wave that is bound by the threshold value $V_{read}$. The triangular wave starts from $0V$, goes to $V_{read}$ then to $-V_{read}$ before going back to $0V$.
+  \item The writing to the memristor. During this part the resistive state will change. This is done by applying a square wave of variable width ($t_{\Delta}$) with a set bias voltage ($V_{bias}$).
 \end{itemize}
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memristor/input.svg}
-  \label{graph:memInput}
   \caption{Pulse shape graph}
+  \label{graph:memInput}
 \end{figure}
 
 The \cref{graph:memInput} is the visual representation of what each pulse, the value is read during the first half of the pulse.
@@ -127,22 +127,22 @@ The resistive state of the memristor changes depending on the pulse width ($t_{\
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memristor/memPulseChange.svg}
-  \label{graph:pulseChange}
   \caption{Memristor's resistive state under different pulses width (Fixed bias voltage $V_{bias}=1.8V$)}
+  \label{graph:pulseChange}
 \end{figure}
 
-The effect of the pulse width variation is shown in \cref{graph:pulseChange}. Indeed, the larger the pulse widths, the faster the internal resistance reaches the bounding resistance (\cref{eq:memModel4}). The bounding resistance being the same as all curve use the same bias voltage ($V_{bias}=1.8V$), the curves will all eventually reach the max resistance.
+The effect of the pulse width variation is shown in \cref{graph:pulseChange}. Indeed, the larger the pulse widths, the faster the internal resistance reaches the bounding resistance (\cref{eq:memModel4}). The bounding resistance being the same as all curves use the same bias voltage ($V_{bias}=1.8V$), the curves will all eventually reach the max resistance.
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memristor/memVoltChange.svg}
-  \label{graph:voltChange}
   \caption{Memristor's resistive state under different voltages (Fixed pulse width $t_{\Delta}=100\mu s$)}
+  \label{graph:voltChange}
 \end{figure}
 
 The voltage dependence of the memristor's model is described in \cref{graph:voltChange}. The influence of the bias voltage is, as \cref{eq:memModel3,eq:memModel4} show, the way to change the resistance range of the memristor, until the physical limit is reached of course. Applying higher voltage also allows to reach a set resistance faster as the slopes are bigger the higher the bias voltage gets.
 
-The resistive state can also be lowered by applying negative voltages.TODO
+The resistive state can also be lowered by applying negative voltages.%TODO
 
 %\subsection{\acf{LIDM}}
 

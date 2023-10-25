@@ -18,7 +18,7 @@
   \item Output layer : This layer is where you can find the result from the \ac{NN}.
 \end{itemize}
 
-The model presented in \cref{fig:snn} is modular and can be scaled up as much as required. It is generally accepted that the more neurons a \ac{NN} has, the best it can learn and execute the given task.
+The model presented in \cref{fig:snn} is modular and can be scaled up as much as required. It is generally accepted that the more neurons a \ac{NN} has, the more complex the problems  it can solve can be.
 
 The weights of the synapses have to be multiplied with the previous neuron and then added to each other to produce the next stage. Using the names defined in figure \ref{fig:snn}, the output is linked to the input by \cref{eq:nnHid,eq:nnOut}. First, the hidden layers' neurons need to be computed (\cref{eq:nnHid}).
 
@@ -60,16 +60,14 @@ Those matrix multiplication are called \ac{VMM} because it is the result of the 
 
 \subsection{Training weights}
 
-The weights values are obtained through training. To train the weights it is required to have a dataset of inputs/outputs values that are correct. The outputs are the target values, the values that the \ac{NN} need to compute when being executed. Once the weights have been initialized (usually randomly picked values). The training happens by running the following steps (known as an epoch) :
+The weights values are obtained through training. In supervised learning, in order train the weights it is required to have a dataset of inputs/outputs values that are correct. The outputs are the target values, the values that the \ac{NN} needs to compute when being executed. The training starts once the weights have been initialized (usually randomly picked values). The training is an iteravtive process, each iteration being called an epoch. Each of those epoch usally consists of the following steps :
 
 \begin{enumerate}
   \item Run the \ac{NN} to get an output vector.\label{step:restart}
-  \item Measure error rate using the chosen error algorithm.
-  \item Run the backpropagation algorithm to determine how to change each individual weight.
+  \item Measure the error (known as loss) by comparing the current prediction with the targeted output using the chosen error algorithm (\ac{RMSE}, \ac{MSE}, etc).
+  \item Run the backpropagation algorithm to change each individual weight.
 \end{enumerate}
 
-A \ac{NN} is trained for at least hundreds of epochs to get decent results.
+The number of epochs required depends on the complexity of the problem the \ac{NN} is solving.
 
-Once trained, the \ac{NN} can be tested by feeding the \ac{NN} input data it hasn't been trained with.
-
-One layer of this feedforward \ac{NN} is also known as a dense layer.
+Once trained, the \ac{NN} can be tested by feeding the \ac{NN} input data it hasn't seen before.

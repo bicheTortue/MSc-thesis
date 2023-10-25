@@ -1,9 +1,9 @@
 \section{\acs{GRU}}\label{sec:gru}
 The \acf{GRU} is another type of \ac{RNN}. It is also known to reduce the effect of the vanishing gradient problem. It was first introduced to improve translation techniques \cite{gru}.
 
-The \ac{GRU} is very often compared to the \ac{LSTM}, it is sometimes assimilated as a type of \ac{LSTM} \cite{nbLSTM}. Their performance was found to be very similar in most situations, making those two types of \acp{RNN} coexistant in the modern machine learning world.
+The \ac{GRU} is very often compared to the \ac{LSTM}, being sometimes assimilated as a type of \ac{LSTM} \cite{nbLSTM}. Their performance was found to be very similar in most situations, making those two types of \acp{RNN} coexistant in the modern machine learning world.
 
-There are two versions of the \ac{GRU}, both are found on the internet, they are known as the encoder and decoder version \cite{gru}. They were originally designed to encode the message to translate and then decode in the translation. PyTorch only supports the decoder version \cite{gruPyTorch}, while the keras library supports both \cite{gruKeras} chosen by changing an argument.
+There are two versions of the \ac{GRU}, both are found on the internet, they are known as the encoder and decoder version \cite{gru}. They were originally designed to encode the message to translate and then decode in the translation. PyTorch only supports the decoder version \cite{gruPyTorch}, while the Keras library supports both \cite{gruKeras} chosen by changing an argument.
 
 \subsection{Encoder \ac{GRU}}
 
@@ -24,10 +24,12 @@ The encoder \ac{GRU} is the version of the \ac{GRU} most widely described on the
 
 Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$w_{hh}$,$\overrightarrow{b_h}$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
 
+A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:encoderGruCell}.
+
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth,pretex=\large]{gru/encoderCell.svg}
-  \label{fig:lstmCell}
+  \label{fig:encoderGruCell}
   \caption{Encoder \acs{GRU} cell, legend in \cref{leg:cells}}
 \end{figure}
 
@@ -47,10 +49,12 @@ The candidate activation gate (\cref{eq:candActivG1}) is the only difference fro
   \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+ \overrightarrow{b_{hx}}+\overrightarrow{r_t}\odot[\overrightarrow{h_{t-1}} \cdot w_{hh} + \overrightarrow{b_{hh}}])
 \end{equation}
 
+A visual representation of the decoder \ac{GRU} cell can be found in \cref{fig:decoderGruCell}.
+
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth,pretex=\large]{gru/decoderCell.svg}
-  \label{fig:lstmCell}
+  \label{fig:decoderGruCell}
   \caption{Decoder \acs{GRU} cell, legend in \cref{leg:cells}}
 \end{figure}
 
