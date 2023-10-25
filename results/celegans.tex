@@ -1,7 +1,9 @@
 \section{\acs{C. elegans} dataset}
 \label{sec:resCelegans}
 
-\subsubsection{Network configuration}
+Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
+
+\subsection{Network configuration}
 
 The layers used to solve this problem are listed below :
 
@@ -53,7 +55,9 @@ The timing of the flags are quite hard to keep track of, for this reason all of 
 \subsection{Digital results}
 \label{subsec:digitalCelegans}
 
-The digital results of the \ac{C. elegans} dataset are quite numerous, not all of them can be displayed and analyzed. For this reason, only a selected four sequences will be displayed as the results of the dataset are not the focus of this thesis. The full work around the \ac{C. elegans} dataset and problem is done in \cite{celegans}.
+The results will be analyzed by focusing on two data sequence, the first being simple inputs expecting simple outputs and the second being more complex, those sequences are the ones in \cref{graph:io5Celegans,graph:io15Celegans}. We'll identify those as sequence 5 and sequence 15 respectively.
+
+The digital results of the \ac{C. elegans} dataset are quite numerous, not all of them can be displayed and analyzed. For this reason, only the two previously selected sequences will be displayed as the results of the dataset are not the focus of this thesis. The full work concerning the \ac{C. elegans} dataset and problem is done in \cite{celegans}.
 
 \begin{figure}[H]
   \centering
@@ -67,16 +71,47 @@ The digital results of the \ac{C. elegans} dataset are quite numerous, not all o
     \hfill
     \subfloat[Analog prediction for the VB1 neuron\label{graph:digital5VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/digital5VB1}}%
   \end{minipage}
-  \caption{\ac{C. elegans} digital responses with their digital counterparts spread out for each output neuron}
-  \label{graph:spread5Celegans}
+  \caption{\ac{C. elegans} digital responses spread out for each output neuron}
+  \label{graph:digital5Celegans}
 \end{figure}
 
-Due do the complexity of this dataset and the results associated are only trained using the analog activation function. Furthermore, the usefulness of using those activation functions was already demonstrated in \cref{sec:resAirline}.
+\Cref{graph:digital5Celegans,graph:digital15Celegans} are the digital predictions of the selected dat sequences. They all show a decent results, their \ac{RMSE} can be found at \cref{tab:celegansDigital}.
 
-The results will be analyzed by focusing on a single data sequence, the training data sequence available in \cref{graph:io5Celegans}.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \cellcolor[HTML]{808080}\acs{RMSE} & BD1 & LUAL & PVR & VB1\\
+    \hline
+    Sequence 5 & $5.02\cdot 10^{-2}$ & $1.68\cdot 10^{-1}$ & $1.32\cdot 10^{-1}$ & $5.07\cdot 10^{-2}$\\
+    \hline
+    Sequence 15 & $6.98\cdot 10^{-2}$ & $1.39\cdot 10^{-1}$ & $1.86\cdot 10^{-1}$ & $6.63\cdot 10^{-2}$\\
+    \hline
+  \end{tabular}
+  \caption{\acp{RMSE} of each neuron's prediction for the two selected sequences}
+  \label{tab:celegansDigital}
+\end{table}
 
-\subsection{Analog results}
-\label{subsec:analogCelegans}
+A pattern can be observed here, the error rates are lower for the DB1 and VB1 neurons.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the DB1 neuron\label{graph:digital15BD1Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/digital15DB1}}%
+    \hfill
+    \subfloat[Analog prediction for the LUAL neuron\label{graph:digital15LUALCelegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/digital15LUAL}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the PVR neuron\label{graph:digital15PVRCelegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/digital15PVR}}%
+    \hfill
+    \subfloat[Analog prediction for the VB1 neuron\label{graph:digital15VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/digital15VB1}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} digital responses spread out for each output neuron}
+  \label{graph:digital15Celegans}
+\end{figure}
+
+\subsection{Analog results of sequence 5}
+\label{subsec:analog5Celegans}
 
 It's been established in \cref{sec:resAirline}, that the analog circuit with a serial size of one ($n_s=1$) show a lower \ac{RMSE} to the digital predictions than the digital predictions.
 
@@ -95,8 +130,7 @@ This part will show the result of the inference when the weights were trained us
 
 The response have thus been sperated into four graphs. One for every neuron for better readability. The target response was also added to all four graphs to highlight the objective of the \ac{NN}. Those graphs can be found in \cref{graph:spread5Celegans}.
 
-A big problem that is immediatly visible is that the LUAL output neuron's analogly predicted response is negative when it should not be. For an unknown reason the analog results of the LUAL neuron seem to be negative instead of positive. This is the case for the analog response to all sequences. This issue most likely comes from dense layer that comes after the \ac{LSTM}. In order to keep using the data the output of this neuron will be flipped over the x-axis.
-
+All curves seem to all have a similar issue, the signal is late to go up. However, the reason for this behavior is still unknown. This can be adjusted manually in the graph until the reason for this issue is found.
 
 \begin{figure}[H]
   \centering
@@ -127,11 +161,16 @@ The data isn't useless for that matter. It was decided to smooth the data by ave
   \label{graph:zoom5Celegans}
 \end{figure}
 
-The smoothed out and exploitable analog predictions are available in \cref{graph:smooth5Celegans}. Theses graphs allow for a much easier visualisation of the results.
+The adjusted (smoothed out and slided to the left to match the digital prediction best) and exploitable analog predictions are available in \cref{graph:smooth5Celegans}. Theses graphs allow for a much easier and better visualisation of the results.
 
-The best looking output of the four predicted neurons responses is the one from PVR. That is confirmed by its error rate to the digital prediction. It is the lowest of the four, however, it isn't close enough to the digital prediction.
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\linewidth]{results/celegans/rmse5}
+  \caption{\acp{RMSE} of each neuron's analog prediction and adjusted analog prediction for sequence 5}
+  \label{bar:rmse5}
+\end{figure}
 
-All four analog predictions are very close to each others
+The \cref{bar:rmse5} shows that adjusted or not, the errors are in the expected range. Adjusting the results reduces the error a bit, mainly due to the sliding of the results. Smoothing out the curve doesn't affect the error as it simply does a local average of each value. The erros are, once again higher when obtained with the analog simulation than with the digital inference.
 
 \begin{figure}[H]
   \centering
@@ -145,6 +184,65 @@ All four analog predictions are very close to each others
     \hfill
     \subfloat[Averaged analog prediction for the VB1 neuron\label{graph:smooth5VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/smooth5VB1}}%
   \end{minipage}
-  \caption{\ac{C. elegans} smoothed out analog responses averaged with $21$ neighbors, spread out for each output neuron}
+  \caption{\ac{C. elegans} smoothed out and slided analog responses averaged with $21$ neighbors, spread out for each output neuron}
   \label{graph:smooth5Celegans}
 \end{figure}
+
+\subsection{Analog results of sequence 15}
+\label{subsec:analog15Celegans}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\linewidth]{results/celegans/out15}
+  \caption{\acs{C. elegans} analog responses with their digital counterparts}
+  \label{graph:celegansAnalog0}
+\end{figure}
+
+\Cref{graph:celegansAnalog0} contains the predictions of both the digital and analog \ac{NN} for all four output neurons that are being monitored. The having all predicted responses to the stimuli on the same graph makes things very unintelligeable.
+
+The response have thus been sperated into four graphs. One for every neuron for better readability. The target response was also added to all four graphs to highlight the objective of the \ac{NN}. Those graphs can be found in \cref{graph:spread15Celegans}.
+
+All curves seem to all have a similar issue, the signal is late to go up. However, the reason for this behavior is still unknown. This can be adjusted manually in the graph until the reason for this issue is found.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the DB1 neuron\label{graph:out15BD1Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/out15DB1}}%
+    \hfill
+    \subfloat[Analog prediction for the LUAL neuron\label{graph:out15LUALCelegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/out15LUAL}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Analog prediction for the PVR neuron\label{graph:out15PVRCelegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/out15PVR}}%
+    \hfill
+    \subfloat[Analog prediction for the VB1 neuron\label{graph:out15VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/out15VB1}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} analog responses with their digital counterparts spread out for each output neuron}
+  \label{graph:spread15Celegans}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=\linewidth]{results/celegans/rmse15}
+  \caption{\acp{RMSE} of each neuron's analog prediction and adjusted analog prediction for sequence 15}
+  \label{bar:rmse15}
+\end{figure}
+
+The \cref{bar:rmse15} shows that adjusted or not, the errors are in the expected range. The PVR output neuron seems to be hardest to reproduce during this sequence as its error is much greater than for the others.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Averaged analog prediction for the DB1 neuron\label{graph:smooth15BD1Celegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/smooth15DB1}}%
+    \hfill
+    \subfloat[Averaged analog prediction for the LUAL neuron\label{graph:smooth15LUALCelegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/smooth15LUAL}}%
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Averaged analog prediction for the PVR neuron\label{graph:smooth15PVRCelegans}]{\includesvg[width=0.5\textwidth, pretex=\tiny]{results/celegans/smooth15PVR}}%
+    \hfill
+    \subfloat[Averaged analog prediction for the VB1 neuron\label{graph:smooth15VB1Celegans}]{\includesvg[width=0.5\textwidth,pretex=\tiny]{results/celegans/smooth15VB1}}%
+  \end{minipage}
+  \caption{\ac{C. elegans} smoothed out and slided analog responses averaged with $21$ neighbors, spread out for each output neuron}
+  \label{graph:smooth15Celegans}
+\end{figure}
+
+The results are a bit worse for this second sequence. That was expected as the inputs and the expected outputs are far more complex.

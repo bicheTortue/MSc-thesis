@@ -67,20 +67,20 @@ The digital results of the \ac{NN} once trained are very important. They are the
     \hline
     \cellcolor[HTML]{808080}\acs{RMSE} & Target data & \specialcell{Digital prediction with\\default activation functions} & \specialcell{Digital prediction with\\analog activation functions}\\
     \hline
-    Target data &\cellcolor[HTML]{202020} & $54.60$ & $52.27$\\
+    Target data &\cellcolor[HTML]{202020} & $54.6$ & $52.3$\\
     \hline
-    \specialcell{Digital prediction with\\default activation functions}  & $54.60$ & \cellcolor[HTML]{202020} & $78.64$\\
+    \specialcell{Digital prediction with\\default activation functions}  & $54.6$ & \cellcolor[HTML]{202020} & $78.6$\\
     \hline
-    \specialcell{Digital prediction with\\analog activation functions} & $52.27$ & $78.64$ & \cellcolor[HTML]{202020}\\
+    \specialcell{Digital prediction with\\analog activation functions} & $52.3$ & $78.6$ & \cellcolor[HTML]{202020}\\
     \hline
   \end{tabular}
   \caption{\acp{RMSE} of each curve to the others}
   \label{tab:airlineDigital}
 \end{table}
 
-Both predictions have similar \ac{RMSE} to the target curve. They have a \ac{RMSE} of $54.60$ for the \ac{LSTM} using the default activation functions (sigmoid and \ac{tanh} functions) and $52.27$ for the one using the analog activation functions (\cref{sec:af}). The error difference is so low (about two thousands passengers) that the difference may just come from the training and the initial values of the weights. They both approach the target curve pretty well. These error could be lowered by training for more epochs. This is not done because it diverges too much from the focus of the thesis.
+Both predictions have similar \ac{RMSE} to the target curve. They have a \ac{RMSE} of $54.6$ for the \ac{LSTM} using the default activation functions (sigmoid and \ac{tanh} functions) and $52.3$ for the one using the analog activation functions (\cref{sec:af}). The error difference is so low (about two thousands passengers) that the difference may just come from the training and the initial values of the weights. They both approach the target curve pretty well. These error could be lowered by training for more epochs. This is not done because it diverges too much from the focus of the thesis.
 
-The two predictions are very different from each other, the error rate between the two is of $78.64$, which is significantly higher than the \ac{RMSE} of the curves to the target curve.
+The two predictions are very different from each other, the error rate between the two is of $78.6$, which is significantly higher than the \ac{RMSE} of the curves to the target curve.
 
 Computing the \ac{NN} with or without the analog activation functions doesn't seem to affect the error of the predictions, experience has shown that the \ac{LSTM} using the analog activation functions seem to predict higher curves than the target and the \ac{LSTM} using the default activation functions tends to predict curves that are under the target, the reasons for such a difference are unknown. This is simply an observation after a few different runs.
 
@@ -105,7 +105,7 @@ As expected, the analog predictions are very far off the target curve. Which, in
     \cline{2-4}
     & $n_s=1$ & $n_s=2$ & $n_s=4$ \\
     \hline
-    \specialcell{Digital prediction with\\default activation functions} & $140.68$ & $143.66$ & $139.71$\\
+    \specialcell{Digital prediction with\\default activation functions} & $141$ & $144$ & $140$\\
     \hline
   \end{tabular}
   \caption{\acp{RMSE} of each analog prediction to their associated digital prediction}
@@ -169,7 +169,7 @@ As can be observed in \cref{graph:airlineAnalog}, the analog results are, in thi
     \cline{2-4}
     & $n_s=1$ & $n_s=2$ & $n_s=4$ \\
     \hline
-    \specialcell{Digital prediction with\\analog activation functions} & $28.41$ & $92.57$ & $68.51$\\
+    \specialcell{Digital prediction with\\analog activation functions} & $28.4$ & $92.6$ & $68.5$\\
     \hline
   \end{tabular}
   \caption{\acp{RMSE} of each analog prediction to their associated digital prediction}
@@ -186,11 +186,11 @@ As can be observed in \cref{graph:airlineAnalog}, the analog results are, in thi
     \cline{3-5}
     \multicolumn{2}{|c}{} & \multicolumn{1}{|c|}{$n_s=1$} & $n_s=2$ & $n_s=4$ \\
     \hline
-    \multirow{3}{*}{Analog prediction} & $n_s=1$ &\cellcolor[HTML]{202020} & $64.61$ & $40.63$\\
+    \multirow{3}{*}{Analog prediction} & $n_s=1$ &\cellcolor[HTML]{202020} & $64.6$ & $40.6$\\
     \cline{2-5}
-    & $n_s=2$  & $64.61$ & \cellcolor[HTML]{202020} & $25.75$\\
+    & $n_s=2$  & $64.6$ & \cellcolor[HTML]{202020} & $25.8$\\
     \cline{2-5}
-    & $n_s=4$ & $40.63$ & $25.75$ & \cellcolor[HTML]{202020}\\
+    & $n_s=4$ & $40.6$ & $25.8$ & \cellcolor[HTML]{202020}\\
     \hline
   \end{tabular}
   \caption{\acp{RMSE} of each analog prediction to the others depending on the serial size ($n_s$)}
