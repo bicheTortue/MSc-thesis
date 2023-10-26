@@ -55,10 +55,10 @@ The symbol of the \ac{GRU} circuit is available in \cref{sym:lstm}. It depends o
   \label{sym:lstm}
 \end{figure}
 
-The total onChip area for the crossbar circuit depends on the previously defined parameters.
+The approximate onChip area for the crossbar circuit depends on the previously defined parameters.
 
 \begin{equation}
   \begin{array}{3}
-    A_{gru}(n_i,n_h)=4\cdot A_{xbar}(n_i,\frac{n_h}{n_s},n_s)\\+ \frac{n_h}{n_s}\cdot (5\cdot A_{af}+3\cdot A_{voltMult}+3\cdot A_{R_{amp0}}+2\cdot A_{R_{amp1}}+2\cdot A_{opAmp})\\+5\cdot n_h\cdot A_{memcell}
+    A_{gru}(n_i,n_h)=4\cdot A_{xbar}(n_i,n_h,1)\\+ \frac{n_h}{n_s}\cdot (5\cdot A_{af}+3\cdot A_{voltMult}+3\cdot A_{R_{amp0}}+2\cdot A_{R_{amp1}}+2\cdot A_{opAmp})\\+5\cdot n_h\cdot A_{memcell}
   \end{array}
 \end{equation}

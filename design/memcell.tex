@@ -7,6 +7,8 @@ The memory cell is a circuit that is able to store an analog value for a limited
 
 The circuit is shown in \cref{circt:memcell}. The value/voltage is trapped in the capacitor using \ac{CMOS} switches.
 
+The \ac{CMOS} switches found in the circuit have width of $w=200nm$ and a length of $l=60nm$.
+
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memcell/memCircuit}
@@ -40,7 +42,7 @@ For this circuit the approximate onChip area is :
   A_{memcell}=8\cdot A_{CMOS}+2\cdot A_{inv}+A_{opAmp}+A_{cap}
 \end{equation}
 
-With $A_{CMOS} = w\cdot l = 2\cdot 10^{-7} \cdot 6 \cdot 10^{-8} = 1.2 \cdot 10^{-14} m^2$
+With $A_{CMOS} = w\cdot l$
 
 \subsection{Usage}
 
