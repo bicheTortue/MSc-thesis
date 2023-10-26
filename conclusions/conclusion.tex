@@ -1,0 +1,15 @@
+\section{Conclusion}\label{sec:conc}
+
+\subsection{Performances}
+
+\subsubsection{\ac{LSTM}}
+
+\subsection{onChip area}
+
+The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined.
+
+For example, the \ac{NN} used to solve the airline problem using an \ac{LSTM} uses $101$ weights. This means that the minimum onChip area for this circuit is $A=101\cdot A_{memristors} = 101\cdot 9\cdot 10^{-12} = 9.09 \cdot 10^{-10} = 909 \mu m^2$.
+
+The same parameters using a \ac{GRU} layer instead has $77$ weights so has a minimum onChip area of $A=693\mu m^2$.
+
+A good exercise would be to take bigger systems like \textit{ChatGPT} which has
