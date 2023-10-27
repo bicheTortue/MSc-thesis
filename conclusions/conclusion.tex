@@ -24,7 +24,7 @@ The \ac{GRU} circuit, while being present, is still a work in progress. The outp
 
 The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor, because the area of a memristor is much greater than the ones of the other components. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined. The area for a memristor was determined using the feature size of the memristors that can be fabricated at \ac{INESC}. The typical memristor that can be fabricated at \ac{INESC} is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$
 
-\Cref{tab:areas} contains several \acp{NN} models with their number of parameters, a minimum onChip area and an estimated feature size. None of those values have any scientific ground, they are just here to give general idea of the kind of circuit thta could be fabricated. Those areas only considers the area of the memristors.
+\Cref{tab:areas} contains several \acp{NN} models with their number of parameters, a minimum onChip area and an estimated feature size. None of those values have any scientific ground, they are just here to give general idea of the kind of circuit thta could be fabricated. Those areas only considers the area of the memristors, using a two memristor per synapse architecture like the one used in the thesis.
 
 The feature size represents the length of the side of the chip if the chip was manufactured in a square.
 
@@ -37,23 +37,23 @@ The values of \acp{LLM} were included to show how the area of the chip scales up
     \rowcolor{gray}
     Model & Parameters & Minimum area & Approximate feature size \\
     \hline
-    Airline \ac{GRU} $n_h=4$ & $77$ & $693\mu m^2$ & $26.3\mu m$\\
+    Airline \ac{GRU} $n_h=4$ & $77$ & $1386\mu m^2$ & $37.2\mu m$\\
     \hline
-    Airline \ac{LSTM} $n_h=4$ & $101$ & $909\mu m^2$ & $30.1\mu m$\\
+    Airline \ac{LSTM} $n_h=4$ & $101$ & $1818\mu m^2$ & $42.6\mu m$\\
     \hline
-    \ac{C. elegans} \ac{GRU} $n_h=8$ & $348$ & $3132\mu m^2$ & $56.0\mu m$\\
+    \ac{C. elegans} \ac{GRU} $n_h=8$ & $348$ & $6264\mu m^2$ & $79.1\mu m$\\
     \hline
-    \ac{C. elegans} \ac{LSTM} $n_h=8$ & $452$ & $4068\mu m^2$ & $63.8\mu m$\\
+    \ac{C. elegans} \ac{LSTM} $n_h=8$ & $452$ & $8136\mu m^2$ & $90.2\mu m$\\
     \hline
-    \multirow{3}{*}{\acs{LLaMA}-2} & $7\cdot 10^9$ & $630 cm^2$ & $25.1 cm$ \\
+    \multirow{3}{*}{\acs{LLaMA}-2} & $7\cdot 10^9$ & $1260 cm^2$ & $35.5 cm$ \\
     \cline{2-4}
-    & $13\cdot 10^9$ & $1170 cm^2$ & $34.2 cm$ \\
+    & $13\cdot 10^9$ & $2340 cm^2$ & $48.4 cm$ \\
     \cline{2-4}
-    & $70\cdot 10^9$ & $6300 cm^2$ & $79.4 cm$ \\
+    & $70\cdot 10^9$ & $1.26 m^2$ & $1.12 m$ \\
     \hline
-    \acs{GPT}-3 & $175\cdot 10^9$ & $1.57 m^2$ & $1.25m$\\
+    \acs{GPT}-3 & $175\cdot 10^9$ & $3.14 m^2$ & $1.77m$\\
     \hline
-    \acs{GPT}-4 & $1\cdot 10^{12}$ & $9.00 m^2$ & $3m$\\
+    \acs{GPT}-4 & $1\cdot 10^{12}$ & $18.0 m^2$ & $4.24m$\\
     \hline
   \end{tabular}
   \caption{Estimated onChip area for different models of \acp{NN}}
