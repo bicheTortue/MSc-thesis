@@ -32,10 +32,10 @@ The simple \ac{RNN} works just like a \ac{tanh} activated feedforward \ac{NN} wi
 \Cref{eq:srnn} shows the equation that the simple \ac{RNN} runs at every time step.
 
 \begin{equation}\label{eq:srnn}
-  \overrightarrow{h_t}=tanh([\overrightarrow{x_t},\overrightarrow{h_{t-1}}]\cdot w + b)
+  \overrightarrow{h_t}=tanh([\overrightarrow{x_t},\overrightarrow{h_{t-1}}]\cdot w + \overrightarrow{b})
 \end{equation}
 
-Where $t\in\mathbb{N}^*$ is the time index, $w$ the weight matrix, $b$ the bias matrix, $\overrightarrow{x_t}$ the input vector and $\overrightarrow{h_{t}}$ the hidden state of the \ac{RNN}.
+Where $t\in\mathbb{N}^*$ is the time index, $w$ the weight matrix, $\overrightarrow{b}$ the bias vector, $\overrightarrow{x_t}$ the input vector and $\overrightarrow{h_{t}}$ the hidden state of the \ac{RNN}.
 
 \subsection{Vanishing gradient problem}
 

@@ -11,7 +11,7 @@ An \ac{LSTM} is more complicated than just a simple feedforward \acl{NN}, it has
   \centering
   \includesvg[width=\textwidth,pretex=\large]{lstm/lstmCell.svg}
   \label{fig:lstmCell}
-  \caption{\acs{LSTM} cell}
+  \caption{\acs{LSTM} cell, adapted from \cite{wikiLSTM}}
 \end{figure}
 
 \Cref{fig:lstmCell} shows the complexity of the \ac{LSTM} architecture. In an \ac{LSTM}, each gate is a different \ac{NN} and then activated with either a \ac{tanh} or a sigmoid activation function. Each input to the cell is a vector.
@@ -110,13 +110,13 @@ Once again, the equations that haven't been rewritten are unchanged.
 \begin{itemize}
   \item Removing the activation function from the Vanilla \ac{LSTM} for :
     \begin{itemize}
-      \item the candidate cell and thus becomes $ \tilde{c}_t=(w_c\cdot[x_{t-1},h_{t-1}] + b_c) $, this is called the \ac{NIAF}
-      \item the output of the previous cell state and thus becomes $ h_t=o_t\cdot c_t $, and is called \ac{NOAF}
+      \item the candidate cell and thus becomes $ \overrightarrow{\tilde{c}_t}=(w_c\cdot[\overrightarrow{x_{t-1}},\overrightarrow{h_{t-1}}] + \overrightarrow{b_c}) $, this is called the \ac{NIAF}
+      \item the output of the previous cell state and thus becomes $ \overrightarrow{h_t}=\overrightarrow{o_t}\odot \overrightarrow{c_t} $, and is called \ac{NOAF}
     \end{itemize}
   \item Using units instead of the respective gates :
     \begin{itemize}
-      \item \ac{NIG} : $i_t=1$
-      \item \ac{NOG} : $o_t=1$
-      \item \ac{NFG} : $f_t=1$
+      \item \ac{NIG} : $\overrightarrow{i_t}=1$
+      \item \ac{NOG} : $\overrightarrow{o_t}=1$
+      \item \ac{NFG} : $\overrightarrow{f_t}=1$
     \end{itemize}
 \end{itemize}
