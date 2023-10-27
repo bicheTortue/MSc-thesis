@@ -20,13 +20,13 @@ The results obtained demonstrate that the \ac{LSTM} circuit block can be run wit
 
 The \ac{GRU} circuit, while being present, is still a work in progress. The outputed predictions are scaled down for a still unknown reason, but show the right output shape. Once those issues are dealt with and have been fixed, the \ac{GRU} circuit will be ready for an analog training as well.
 
-\subsection{onChip area}
+\subsection{onChip area}\label{subsec:area}
 
-The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined.
+The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor, because the area of a memristor is much greater than the ones of the other components. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined. The area for a memristor was determined using the feature size of the memristors that can be fabricated at \ac{INESC}. The typical memristor that can be fabricated at \ac{INESC} is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$
 
 \Cref{tab:areas} contains several \acp{NN} models with their number of parameters, a minimum onChip area and an estimated feature size. None of those values have any scientific ground, they are just here to give general idea of the kind of circuit thta could be fabricated. Those areas only considers the area of the memristors.
 
-The feature size represents the length of the side of the chip is the chip was manufactured in a square.
+The feature size represents the length of the side of the chip if the chip was manufactured in a square.
 
 The values of \acp{LLM} were included to show how the area of the chip scales up. Those models don't use \acp{RNN}, and futhermore, give out ridiculous areas. Fabricating such cicuits in analog is not feasible witht the current technologies.
 
@@ -56,8 +56,8 @@ The values of \acp{LLM} were included to show how the area of the chip scales up
     \acs{GPT}-4 & $1\cdot 10^{12}$ & $9.00 m^2$ & $3m$\\
     \hline
   \end{tabular}
-  \caption{Estimated onChip areas}
+  \caption{Estimated onChip area for different models of \acp{NN}}
   \label{tab:areas}
 \end{table}
 
-Nevertheless, it is interresting to look at those approximation.
+Nevertheless, it is interresting to look at those approximation. It shows that the simple models used in this work would take a very small onChip area, even though this a very raw number. It also shows the current limit with state of the art \acp{NN} at the current time.
