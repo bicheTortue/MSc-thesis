@@ -24,39 +24,40 @@ The \ac{GRU} circuit, while being present, is still a work in progress. The outp
 
 The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined.
 
+\Cref{tab:areas} contains several \acp{NN} models with their number of parameters, a minimum onChip area and an estimated feature size. None of those values have any scientific ground, they are just here to give general idea of the kind of circuit thta could be fabricated. Those areas only considers the area of the memristors.
+
+The feature size represents the length of the side of the chip is the chip was manufactured in a square.
+
+The values of \acp{LLM} were included to show how the area of the chip scales up. Those models don't use \acp{RNN}, and futhermore, give out ridiculous areas. Fabricating such cicuits in analog is not feasible witht the current technologies.
+
 \begin{table}[H]
   \centering
-  \begin{tabular}{|c|c|c|}
+  \begin{tabular}{|c|c|c|c|}
     \hline
     \rowcolor{gray}
-    & Sigmoid & \ac{tanh} \\
+    Model & Parameters & Minimum area & Approximate feature size \\
     \hline
-    $V_1$ & \multicolumn{2}{c|}{$1.1V$}\\
+    Airline \ac{GRU} $n_h=4$ & $77$ & $693\mu m^2$ & $26.3\mu m$\\
     \hline
-    $V_2$ & \multicolumn{2}{c|}{$635mV$}\\
+    Airline \ac{LSTM} $n_h=4$ & $101$ & $909\mu m^2$ & $30.1\mu m$\\
     \hline
-    $V_3$ & $0.8V$ & $550mV$\\
+    \ac{C. elegans} \ac{GRU} $n_h=8$ & $348$ & $3132\mu m^2$ & $56.0\mu m$\\
     \hline
-    $i_{dc}$ & \multicolumn{2}{c|}{$150uA$}\\
+    \ac{C. elegans} \ac{LSTM} $n_h=8$ & $452$ & $4068\mu m^2$ & $63.8\mu m$\\
     \hline
-    $w$ & \multicolumn{2}{c|}{$900nm$}\\
+    \multirow{3}{*}{\acs{LLaMA}-2} & $7\cdot 10^9$ & $630 cm^2$ & $25.1 cm$ \\
+    \cline{2-4}
+    & $13\cdot 10^9$ & $1170 cm^2$ & $34.2 cm$ \\
+    \cline{2-4}
+    & $70\cdot 10^9$ & $6300 cm^2$ & $79.4 cm$ \\
     \hline
-    $l$ & \multicolumn{2}{c|}{$60nm$}\\
+    \acs{GPT}-3 & $175\cdot 10^9$ & $1.57 m^2$ & $1.25m$\\
     \hline
-    $R_1$ & \multicolumn{2}{c|}{$5k\Omega$}\\
-    \hline
-    $R_2$ & \multicolumn{2}{c|}{$10k\Omega$}\\
-    \hline
-    $R_3$ & $2k\Omega$ & $4k\Omega$\\
+    \acs{GPT}-4 & $1\cdot 10^{12}$ & $9.00 m^2$ & $3m$\\
     \hline
   \end{tabular}
   \caption{Estimated onChip areas}
   \label{tab:areas}
 \end{table}
 
-%do a table
-For example, the \ac{NN} used to solve the airline problem using an \ac{LSTM} uses $101$ weights. This means that the minimum onChip area for this circuit is $A=101\cdot A_{memristors} = 101\cdot 9\cdot 10^{-12} = 9.09 \cdot 10^{-10} = 909 \mu m^2$.
-
-The same parameters using a \ac{GRU} layer instead has $77$ weights so has a minimum onChip area of $A=693\mu m^2$.
-
-A good exercise would be to take bigger systems like \textit{ChatGPT} which has
+Nevertheless, it is interresting to look at those approximation.
