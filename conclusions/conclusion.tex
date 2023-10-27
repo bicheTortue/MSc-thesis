@@ -4,10 +4,57 @@
 
 \subsubsection{\ac{LSTM}}
 
+The circuit's performance has been evaluated in the previous chapter. The results highly depend on the parameters at play. For example the complexity of the dataset used, out of the two used in the thesis, the airline dataset is the simple dataset while the \ac{C. elegans} dataset is the more complicated datset.
+
+The best performance is the with the airline dataset, using the circuit with a serial size of one ($n_s=1$) (\cref{tab:airlineAnalog}). While the results are not quite right, it is assumed that this issue will be elevated once inSitu training is implemented (\cref{subsec:inSitu}).
+
+More complex datsets like \ac{C. elegans}, the issue is getting more present. Indeed, the dataset feeds to the circuit four inputs across a thousand time steps and outputs just as much data. Any inaccuracy is scaled up.
+
+With a simple input sequence, such as sequence 5 (\cref{graph:io5Celegans}), the resulting predictions are quite good and on par with what is expected. The predictions are a bit late and it is not clear what is causing this specific issue. A theory is that the memory cells deteriorate its stored value by a very small amount every time step, thus the stored value is affect a lot after a large amount of time steps.
+
+More complex input sequences produce even more inaccuracies. Indeed, when working with sequence 15 (\cref{graph:io15Celegans}), the inaccuracies spiral up and gives out a barely usable prediction. The curve generated doesn't fit its digital counterpart anymore.
+
+The results obtained demonstrate that the \ac{LSTM} circuit block can be run with low error when dealing with simple inputs. The circuit is assumed to be ready for a full simulation, meaning also training with the analog circuit.
+
+\subsubsection{\ac{GRU}}
+
+The \ac{GRU} circuit, while being present, is still a work in progress. The outputed predictions are scaled down for a still unknown reason, but show the right output shape. Once those issues are dealt with and have been fixed, the \ac{GRU} circuit will be ready for an analog training as well.
+
 \subsection{onChip area}
 
 The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined.
 
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \rowcolor{gray}
+    & Sigmoid & \ac{tanh} \\
+    \hline
+    $V_1$ & \multicolumn{2}{c|}{$1.1V$}\\
+    \hline
+    $V_2$ & \multicolumn{2}{c|}{$635mV$}\\
+    \hline
+    $V_3$ & $0.8V$ & $550mV$\\
+    \hline
+    $i_{dc}$ & \multicolumn{2}{c|}{$150uA$}\\
+    \hline
+    $w$ & \multicolumn{2}{c|}{$900nm$}\\
+    \hline
+    $l$ & \multicolumn{2}{c|}{$60nm$}\\
+    \hline
+    $R_1$ & \multicolumn{2}{c|}{$5k\Omega$}\\
+    \hline
+    $R_2$ & \multicolumn{2}{c|}{$10k\Omega$}\\
+    \hline
+    $R_3$ & $2k\Omega$ & $4k\Omega$\\
+    \hline
+  \end{tabular}
+  \caption{Estimated onChip areas}
+  \label{tab:areas}
+\end{table}
+
+%do a table
 For example, the \ac{NN} used to solve the airline problem using an \ac{LSTM} uses $101$ weights. This means that the minimum onChip area for this circuit is $A=101\cdot A_{memristors} = 101\cdot 9\cdot 10^{-12} = 9.09 \cdot 10^{-10} = 909 \mu m^2$.
 
 The same parameters using a \ac{GRU} layer instead has $77$ weights so has a minimum onChip area of $A=693\mu m^2$.
