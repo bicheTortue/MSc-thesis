@@ -23,12 +23,7 @@ The enable flags ($e_j,\forall j\in[\![ 0,n_s]\!]$ and similarly $\overline{e_j}
 \subsection{Two memristors per synapse}
 \label{subsec:doubleMem}
 
-First of all, a two memristors per synapse architecture has been used. This design is beneficial in two ways :
-
-\begin{itemize}
-  \item It doubles the range of weights (\cref{tab:synapses})
-  \item It allows to easily use negative weights, as this design simply allows the output values to be centered around $V_{cm}$ to be compliant with the standard set in \cref{tab:valConv}.
-\end{itemize}
+We could choose between one or two memristor per synapse. Using two memristor per synapse doubles the area but doubles the weight range (\cref{tab:synapses}) and allows to easily use negavite weights. The output voltage will be centered around $V_{cm}$ and be compliant with the standard set in \cref{tab:valConv}.
 
 This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means it's conductance range is $\sigma \in [\sigma_{min},\sigma_{max}]$ (with $\sigma_{min}= \frac{1}{R_{max}}$ and $\sigma_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
 
@@ -146,10 +141,10 @@ With $A_{CMOS}=w\cdot l$.
 
 \subsubsection{Input voltages}
 
-The input voltages must be monitored very carefuly in order not to mess up the entire system. Indeed, memristors have a voltage threshold ($V_{threshold}$) above which the internal resistance changes \cite{memristorSpiceModels,memCadenceModel,memTEAMmodel,memVTEAMmodel}. This means that the input voltages must follow the inequality in \cref{eq:memThres}.
+The input voltages must be monitored very carefuly in order not to accidentally change a memristor's internal resistance. Indeed, memristors have a voltage threshold ($V_{read}$) above which the internal resistance changes \cite{memristorSpiceModels,memCadenceModel,memTEAMmodel,memVTEAMmodel}. This means that the input voltages must follow the inequality in \cref{eq:memThres}.
 
 \begin{equation}\label{eq:memThres}
-  |V_{mem}|= |x_i-V_{cm}|\le V_{threshold}
+  |V_{mem}|= |x_i-V_{cm}|\le V_{read}
 \end{equation}
 
 Where $V_{mem}$ is the terminal voltage of a memristor.
@@ -160,4 +155,4 @@ A dense layer is simply a \ac{VMM}. This means that a dense layer in a \ac{NN} c
 
 \subsubsection{Resistors vs Memristors}
 
-The analog system being only simulated for the inference of the \ac{NN}. Furthermore, since the weights only change during the training phase, and the resistances are just a rendition of the weights (\cref{sec:wei2res}), the resistances don't need to change, the circuit used in the simulations is thus using resistors instead of memristors for the sake of simplicity, as importing resistors is way easier to import in Cadence's virutoso.
+In this work, the analog system will be simulated for the inference of the \ac{NN}, thus the weights will not have to change during the simulation. Because the weights are represented in the analog circuit by the internal resistances of the memristors, the memristors can be replaced by resistors with a set resistance for the simulation.

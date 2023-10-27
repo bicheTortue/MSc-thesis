@@ -30,9 +30,7 @@ The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output 
 \subsection{Serialization/Parallelization}
 \label{subsec:gruSerPar}
 
-As opposed to the to the \ac{LSTM}, the \ac{GRU} can not be serialized. This is due to a mathematical issue.
-
-Indeed in the equation of the candidate hidden state is a problem for the serialization of the circuit. The \cref{eq:candActivG} from \cref{sec:gru} is repeated in \cref{eq:serProb} for better lisibility of the thesis.
+As opposed to the to the \ac{LSTM}, the \ac{GRU} can not be serialized. This is due to a mathematical issue. Indeed in the equation of the candidate hidden state is a problem for the serialization of the circuit. The \cref{eq:candActivG} from \cref{sec:gru} is repeated in \cref{eq:serProb} for better lisibility of the thesis.
 
 \begin{equation}\label{eq:serProb}
   \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
@@ -42,7 +40,7 @@ As \cref{eq:serProb} shows, the reset gate's results vector needs to be multipli
 
 If the circuit were serialized, a full cycle would be required to compute the reset gate, that is itself required to compute the candidate hidden state.
 
-That is why, the \ac{GRU} would take twice as much time to compute a time step if it were serialized. It is not worth it to double the computation time to save a bit of onChip area.
+That is why, the \ac{GRU} would take twice as much time to compute a time step if it were serialized. It is not worth it to double the computation time to save a small amount of onChip area.
 
 \subsection{Symbol}
 
@@ -52,7 +50,7 @@ The symbol of the \ac{GRU} circuit is available in \cref{sym:lstm}. It depends o
   \centering
   \includesvg[height=2.5cm]{gru/gruSymbol}
   \caption{Symbol used for the \ac{GRU} circuit}
-  \label{sym:lstm}
+  \label{sym:gru}
 \end{figure}
 
 The approximate onChip area for the crossbar circuit depends on the previously defined parameters.

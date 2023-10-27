@@ -67,13 +67,11 @@ Once again, when the system is running in fully parallel mode, only one memory c
 \subsection{Serialization/Parallelization}
 \label{subsec:serpar}
 
-Using an \ac{LSTM} in serial mode is very beneficial as it divides the number of point wise circuit by $n_s$.
-
-There is a sweet spot for the serial size ($n_s$) :
+Using an \ac{LSTM} in serial mode is very beneficial as it divides the number of point wise circuit by $n_s$. There is a compromise to do in order to choose the serial size ($n_s$) :
 
 \begin{itemize}
   \item When the serial size ($n_s)$ increases, the inference time increases with a factor of $O(n_s)$ while the onChip area decrease with the same factor.
-  \item When the serial size ($n_s)$ decreases, similarly, the onChip area increases with a factor of $O(n_s)$ while the tinference time decreases by the same factor.
+  \item When the serial size ($n_s)$ decreases, similarly, the onChip area increases with a factor of $O(n_s)$ while the inference time decreases by the same factor.
 \end{itemize}
 
 The overall onChip area is linked to the number of hidden states ($n_h$) by $O(n_h^2)$. This means that the serial size ($n_s$) will be set depending on the limiting factor of our system (onChip area or inference time).

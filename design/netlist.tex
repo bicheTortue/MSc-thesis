@@ -15,20 +15,11 @@ This is done by generating a SPICE netlist using a python script. A SPICE netlis
 
 \subsection{Available layers}
 
-As of the writing of the thesis, the netlist generator can generate the netlist for :
-
-\begin{itemize}
-  \item \ac{NP} \ac{LSTM}
-  \item Vanilla \ac{LSTM}
-  \item \ac{FGR} \ac{LSTM}
-  \item \ac{GRU}
-\end{itemize}
-
-Nevertheless, the weights can only be generated for the \ac{NP} \ac{LSTM} and the \ac{GRU} (\cref{sec:genwei}). While the script can tecnically generate the Vanilla and \ac{FGR} \acp{LSTM}, since there is no way to generate weights for those version of the \ac{LSTM}, they are rendered useless.
+As of the writing of the thesis, the netlist generator can generate the netlist for the \ac{NP} \ac{LSTM} and the \ac{GRU}. Other type of \acp{NN} can be added to the code.
 
 \subsection{Weights storage}\label{subsec:weiStore}
 
-The weights are stored in a single file that is the save a numpy array. This file also contains a brief description of the architecture being used. The first index stores this desciption. the following indexes are for the actual weights, in the order given in the description. Depending on the layer used, the weights are stored a bit differently :
+The weights are stored in a single file. This file contains a brief description of the architecture being used. The first index stores this desciption. The following indexes are for the weights of each layer, in the order given in the description. Depending on the layer used, the weights are stored a bit differently :
 
 \begin{itemize}
   \item Dense layer : This is basically a \ac{VMM} so the weights are just sorted linearly in a list. The list is of size $n^2$, where $n$ is the size of the input vector. \Cref{mtrx:wei} shows the position ($i$) of the weight ($w_i$) in the matrix. This is represented in the description as "Dense($n_o$)" where $n_o$ is the number of output of the layer.
