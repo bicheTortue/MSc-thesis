@@ -1076,7 +1076,7 @@
        id="text3"
        text-anchor="end"
        font-size="6px"
-       xml:space="default">$\overrightarrow{z_t}$</text>
+       xml:space="default">$\overrightarrow{x_t}$</text>
     <text
        x="14"
        y="250"
