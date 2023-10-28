@@ -40,6 +40,16 @@ Since the system cannot reach voltage outside of the operating range with the in
 
 Any data inputed in the analog system should have been previously checked to make sure it stays in the range of accepted values.
 
+In order to create a fully functional \ac{LSTM} or \ac{GRU} circuit, there are a few components that are required.
+
+An analog activation function circuit to have an analog equivalent to the activation function necessary to the good behavior of \acp{LSTM} and \acp{GRU}.
+
+A memory cell to allow to store the analog value from one time step to the next.
+
+A circuit for the crossbar array, to have a more general circuit that can easily be adapted.
+
+Other, less significant, components required for the circuits to work.
+
 \input{design/activation.tex}
 \input{design/memcell.tex}
 \input{design/crossbar.tex}
