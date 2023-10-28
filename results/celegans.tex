@@ -113,7 +113,7 @@ A pattern can be observed here, the error rates are lower for the DB1 and VB1 ne
 \subsection{Analog results of sequence 5}
 \label{subsec:analog5Celegans}
 
-It has been established in \cref{sec:resAirline}, that the analog circuit with a serial size of one ($n_s=1$) show a lower \ac{RMSE} to the digital predictions than the digital predictions.
+It has been established in \cref{sec:resAirline}, that the analog circuit with a serial size of one ($n_s=1$) shows a lower \ac{RMSE} to the digital predictions than the digital predictions.
 
 Due to the complexity of the dataset, the simulation were only ran using a serial size of one ($n_s=1$) to get the best looking results.
 
@@ -126,7 +126,7 @@ This part will show the result of the inference when the weights were trained us
   \label{graph:celegansAnalog0}
 \end{figure}
 
-\Cref{graph:celegansAnalog0} contains the predictions of both the digital and analog \ac{NN} for all four output neurons that are being monitored. The having all predicted responses to the stimuli on the same graph makes things very unintelligeable.
+\Cref{graph:celegansAnalog0} contains the predictions of both the digital and analog \ac{NN} for all four output neurons that are being monitored. \Cref{graph:celegansAnalog0} having all predicted responses to the stimuli on the same graph makes things very unintelligeable.
 
 The response have thus been sperated into four graphs. One for every neuron for better readability. The target response was also added to all four graphs to highlight the objective of the \ac{NN}. Those graphs can be found in \cref{graph:spread5Celegans}.
 
@@ -152,7 +152,7 @@ All the analog predicted responses seem to have the same problem. When the respo
 
 This phenomenen is very strange and has not been identified so far. The main theory is that the data is not stored properly in the memory cells, thus at every \ac{LSTM} time step the supposed output is slightly altered. This would create this flickering of the outputed data.
 
-The data is not useless for that matter. It was decided to smooth the data by averaging every output point with its neighboring points. This simple average will smooth out the curves to get a decently readable result, that can then be compared with the digitally predicted response. The python code for this function is available at \cref{}. %TODO
+The data is not useless for that matter. It was decided to smooth the data by averaging every output point with its neighboring points. This simple average will smooth out the curves to get a decently readable result, that can then be compared with the digitally predicted response. The python code for this function is available in \cref{apsec:smoothFunc}.
 
 \begin{figure}[H]
   \centering
@@ -170,7 +170,7 @@ The adjusted (smoothed out and slided to the left to match the digital predictio
   \label{bar:rmse5}
 \end{figure}
 
-The \cref{bar:rmse5} shows that adjusted or not, the errors are in the expected range. Adjusting the results reduces the error a bit, mainly due to the sliding of the results. Smoothing out the curve does not affect the error as it simply does a local average of each value. The erros are, once again higher when obtained with the analog simulation than with the digital inference.
+The \cref{bar:rmse5} shows that adjusted or not, the errors are in the expected range. Adjusting the results slightly reduces the error, mainly due to the sliding of the results. Smoothing out the curve does not affect the error as it simply does a local average of each value. The erros are, once again higher when obtained with the analog simulation than with the digital inference.
 
 \begin{figure}[H]
   \centering
@@ -195,10 +195,10 @@ The \cref{bar:rmse5} shows that adjusted or not, the errors are in the expected 
   \centering
   \includesvg[width=\linewidth]{results/celegans/out15}
   \caption{\acs{C. elegans} analog responses with their digital counterparts}
-  \label{graph:celegansAnalog0}
+  \label{graph:celegansAnalog1}
 \end{figure}
 
-\Cref{graph:celegansAnalog0} contains the predictions of both the digital and analog \ac{NN} for all four output neurons that are being monitored. The having all predicted responses to the stimuli on the same graph makes things very unintelligeable.
+\Cref{graph:celegansAnalog1} contains the predictions of both the digital and analog \ac{NN} for all four output neurons that are being monitored. For the reasons mentioned in the previous section, for the sake of readability, the predictions are spread out on separate graphs.
 
 The response have thus been sperated into four graphs. One for every neuron for better readability. The target response was also added to all four graphs to highlight the objective of the \ac{NN}. Those graphs can be found in \cref{graph:spread15Celegans}.
 
