@@ -36,12 +36,6 @@ This is a potential idea on how to improve the time it takes to compute a single
 
 Instead of having to do that, the idea is to only change one of the memristor's internal resistance so that the final weight is still the same. \Cref{eq:wei2res0} needs to be respected in any situation. The memristor's resistances will not be centered (\cref{eq:wei2res1}) anymore.
 
-\subsection{Permanent training}
-
-Once the training is fully implemented in an analog computer, the next step would be to find a way to permanently training the system. Meaning that any new information will be used to update the weights. This means that the system would need to know if the prediction it has made is correct or not.
-
-A potential way to implement that, would be in a two phase plan. First the prediction, and so on until a verification on the predictions can be done. After that the weights are updated based on those previous reviewed results.
-
 \subsection{Other \acp{LSTM} variants}
 
 As discused before(\cref{sec:genwei}), they are only two of the \ac{LSTM} variants available in Keras. Nonetheless, it is possible to write custom layer function for Keras. Creating a layer from scratch is very time consuming and not so interresting for the scope the results needed. It can be done to extend the reach of the work.
