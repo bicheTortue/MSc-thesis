@@ -158,7 +158,7 @@
     \RequirePackage[ULforem,normalbf]{ulem}
     \RequirePackage{graphicx}
     \RequirePackage{epsf}
-    \RequirePackage[absolute]{Definitions/textpos}
+    \RequirePackage[absolute]{definitions/textpos}
     \RequirePackage{helvet}
 
     %%%%%% SPECIAL INTERNAL COMMANDS.  Needed by later routines.
