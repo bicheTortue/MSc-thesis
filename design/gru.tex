@@ -7,25 +7,46 @@ This section describes the circuit of an encoder \ac{GRU} with an input vector o
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth,pretex=\tiny]{gru/gruCircuit}
-  \caption{\ac{LSTM} circuit}
+  \caption{\ac{GRU} circuit}
   \label{circt:lstm}
 \end{figure}
 
-The system is built, once again, using crossbar array (\cref{sec:xbarCircuit}) with ($n_i+n_h+1$,$n_o$, $n_s$) as parameters.
+The system is built, once again, using crossbar array (\cref{sec:xbarCircuit}) with ($n_i+n_h+1$,$n_h$, $1$) as parameters.
 
 First of all, the different vectors and variables present in the schematic have to be described :
 
 \begin{itemize}
   \item $\overrightarrow{x_t}$ : This is the input vector for the \ac{LSTM} circuit at time $t$. It has a size of $n_i$.
-  \item $\overrightarrow{h_t}$ : This is the hidden layer vector for the feedback connections, it is defined as $\overrightarrow{h_t}=(\overrightarrow{h_{t,i}}) \forall i\in [\![0,n_o-1]\!]$, with $\overrightarrow{h_{t,i}}=(h_{t,i,j}) \forall j\in [\![0,n_s-1]\!]$.
-  \item $\overrightarrow{z_t}$ is the input of the crossbar but not the input of the \ac{LSTM}. This vector is there to lighten the informations on the schematic (\cref{circt:lstm}). $\overrightarrow{z_t}$ is defined by $\overrightarrow{z_t}=(\overrightarrow{x_t},\overrightarrow{h_{t-1}},b)$.
-  \item $e_{j,0}$ and $e_{j,1}$ are two enable flags that respectively represent the first and second half of $e_j$.
+  \item $\overrightarrow{h_t}$ : This is the hidden layer vector for the feedback connections, it is defined as $\overrightarrow{h_{t}}=(h_{t,i}) \forall i\in [\![0,n_h-1]\!]$.
+  \item $\overrightarrow{z_t}$ is the input of the crossbar but not the input of the \ac{LSTM}. This vector is there to lighten the informations on the schematic (\cref{circt:lstm}). $\overrightarrow{z_t}$ is defined by $\overrightarrow{z_t}=(\overrightarrow{x_t},\overrightarrow{h_{t-1}},\overrightarrow{b})$.
   \item $e_{in}$ and $e_{out}$ are the flags used to enable the hidden state values to go to the input (feedback connection) or to the output of the circuit.
+  \item $e_{in,end}$ is the second half of the $e_{in}$ flag.
   \item $e_{next}$ is the enable flag on in between two time steps.
   \item $R_{amp0}$ and $R_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{R_{amp1}}{R_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
+  \item $V_{inv}$ is the voltage used to perform the $1-x$ operation.
 \end{itemize}
 
-The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_h$ (\cref{sym:xbar}). This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
+The wires are all buses of different sizes. All the components expect from the crossbar, are only shown once but are in the real circuit present for every wire of the bus.
+
+\subsubsection{The $1-x$ operation}
+
+A little trick had to be emplyed in order to succesfully compute the function. The function is defined as in \cref{eq:1minus0}.
+\begin{equation}\label{eq:1minus0}
+  f(x)=1-x
+\end{equation}
+
+The solution found to do compute the operation consist of using an \ac{opAmp} as an inverter around $V_{inv}$, the formula is available in \cref{eq:1minus1}.
+\begin{equation}\label{eq:1minus1}
+  f_v(v)=-(v-V_{inv})+V_{inv}=2\cdot V_{inv} -v
+\end{equation}
+
+Writing the same operation in voltage gives us \cref{eq:1minus2}.
+
+\begin{equation}\label{eq:1minus2}
+  f_v(v)=(1-V_{cm})-(v-V_{cm})+V_{cm}= 0.1-v+2\cdot V_{cm}
+\end{equation}
+
+It can thus be found that the value for $V_{inv}$ is $V_{inv}=V_{cm}+0.05$
 
 \subsection{Serialization/Parallelization}
 \label{subsec:gruSerPar}
