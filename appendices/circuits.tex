@@ -3,18 +3,39 @@
 
 \section{Buffer}\label{apsec:buffer}
 
-This is a classic circuit that only takes one \ac{opAmp} wired as \cref{fig:buffer}. It is used to forward a voltage without interfering the node of the input voltage.
+This is a classic circuit that only takes one \ac{opAmp} wired as \cref{circt:buffer}. It is used to forward a voltage without interfering the node of the input voltage.
 
 \begin{figure}[H]
-\centering
-\includesvg[width=.6\textwidth]{appendix/buffer}
-\caption{Buffer circuit}
-\label{fig:buffer}
+  \centering
+  \includesvg[width=.6\textwidth]{appendix/buffer}
+  \caption{Buffer circuit}
+  \label{circt:buffer}
 \end{figure}
 
 The input is $V_{in}$ and the output is $V_{out}$.
 
-\section{Inverting amplifier}\label{apsec:invAmp}
+\section{Summing inverter}\label{apsec:sumInv}
 
-This is the circuit that comes after the voltage multiplier (\cref{sec:models}), it is here to amplify the results of the voltage multiplier by 10. Sometimes, its use doubles as an adder making it an inverting summing amplifier (TODO circuit).
+The summing amplifier in a very general circuit that is used in a plethera of different situations. A modulable circuit with a variable number of input ($n$) in available in \cref{circt:sumInv}.
+
+\begin{figure}[H]
+  \centering
+  \includesvg[width=.6\textwidth]{appendix/invAmp}
+  \caption{Summing inverter circuit}
+  \label{circt:sumInv}
+\end{figure}
+
+This circuit links the inputs and its output with \cref{eq:sumInv}.
+
+\begin{equation}\label{eq:sumInv}
+  V_{out}=V_{cm}-R\cdot\sum_{i=0}^{n-1}\frac{V_i-V_{cm}}{R_i}
+\end{equation}
+
+In this work itself it is used in at least three different use cases :
+
+\begin{itemize}
+  \item As a voltage inverter around $V_{cm}$, using a single input ($n=1$) and using $R_0=R$. This is used in \cref{sec:af}.
+  \item As a inverting amplifier after a voltage multiplier (\cref{subsec:voltmult}). Using one input ($n=1$) and $R>R_0$. It can be found in \cref{sec:lstmCircuit,sec:gruCircuit}.
+  \item It is also used as a summing inverter with amplification after a voltage multiplier. Using two inputs ($n=2$) and $R_0=R_1<R$ for the resistances. This is also found in the circuit in \cref{sec:lstmCircuit,sec:gruCircuit}.
+\end{itemize}
 
