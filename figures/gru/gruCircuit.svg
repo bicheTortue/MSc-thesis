@@ -28,12 +28,12 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="3.7699686"
-     inkscape:cx="555.9728"
-     inkscape:cy="313.13258"
+     inkscape:cx="503.18721"
+     inkscape:cy="281.16945"
      inkscape:window-width="1920"
-     inkscape:window-height="1011"
+     inkscape:window-height="1080"
      inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="texts"
      inkscape:lockguides="false" />
@@ -500,77 +500,6 @@
          text-anchor="middle">Memory</text>
     </symbol>
     <symbol
-       id="tanh">
-      <title
-         id="title9">tanh</title>
-      <g
-         id="g12">
-        <line
-           x1="2"
-           x2="10"
-           y1="12"
-           y2="12"
-           stroke="currentColor"
-           id="line9" />
-        <line
-           x1="54"
-           x2="62"
-           y1="12"
-           y2="12"
-           stroke="currentColor"
-           id="line10" />
-        <circle
-           id="circle10"
-           class="pin"
-           cx="2"
-           cy="12"
-           r="1" />
-        <circle
-           id="circle11"
-           class="pin"
-           cx="62"
-           cy="12"
-           r="1" />
-        <rect
-           id="rect11"
-           width="64"
-           height="24"
-           x="0"
-           y="0"
-           fill="none"
-           stroke="none" />
-        <rect
-           id="rect12"
-           width="44"
-           height="23"
-           x="10"
-           y="0.5"
-           fill="none"
-           stroke="currentColor" />
-        <path
-           d="m 16,13 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
-           id="path2"
-           fill="none"
-           stroke="currentColor" />
-        <rect
-           id="rect2"
-           width="32"
-           height="10"
-           x="16"
-           y="4"
-           fill="none"
-           stroke="#000000" />
-      </g>
-      <text
-         x="32"
-         y="21"
-         id="sigmoidText"
-         stroke="none"
-         fill="#000000"
-         font-size="6px"
-         text-anchor="middle">\ac{tanh}</text>
-    </symbol>
-    <symbol
        id="sigm">
       <title
          id="title12">sigmoid</title>
@@ -640,6 +569,83 @@
          fill="#000000"
          font-size="6px"
          text-anchor="middle">sigmoid</text>
+    </symbol>
+    <symbol
+       id="tanh">
+      <title
+         id="title9">tanh</title>
+      <g
+         id="g12">
+        <line
+           x1="2"
+           x2="10"
+           y1="12"
+           y2="12"
+           stroke="currentColor"
+           id="line9" />
+        <line
+           x1="54"
+           x2="62"
+           y1="12"
+           y2="12"
+           stroke="currentColor"
+           id="line10" />
+        <circle
+           id="circle10"
+           class="pin"
+           cx="2"
+           cy="12"
+           r="1" />
+        <circle
+           id="circle11"
+           class="pin"
+           cx="62"
+           cy="12"
+           r="1" />
+        <rect
+           id="rect11"
+           width="64"
+           height="24"
+           x="0"
+           y="0"
+           fill="none"
+           stroke="none" />
+        <rect
+           id="rect12"
+           width="44"
+           height="23"
+           x="10"
+           y="0.5"
+           fill="none"
+           stroke="currentColor" />
+        <text
+           x="32"
+           y="21"
+           id="tanhText"
+           stroke="none"
+           fill="#000000"
+           font-size="6px"
+           text-anchor="middle">\ac{tanh}</text>
+        <path
+           d="M 16,9 H 48"
+           id="path12-3"
+           fill="none"
+           stroke="#808080"
+           stroke-width="0.5" />
+        <path
+           d="m 16,13 c 8,0 12,0 16,-4 4,-4 8,-4 16,-4"
+           id="path2"
+           fill="none"
+           stroke="currentColor" />
+        <rect
+           id="rect2"
+           width="32"
+           height="10"
+           x="16"
+           y="4"
+           fill="none"
+           stroke="#000000" />
+      </g>
     </symbol>
   </defs>
   <g
