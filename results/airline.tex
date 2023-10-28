@@ -86,7 +86,7 @@ Both predictions have similar \ac{RMSE} to the target curve. They have a \ac{RMS
 
 The two predictions are very different from each other, the error rate between the two is of $78.6$, which is significantly higher than the \ac{RMSE} of the curves to the target curve.
 
-Computing the \ac{NN} with or without the analog activation functions doesn't seem to affect the error of the predictions, experience has shown that the \ac{LSTM} using the analog activation functions seem to predict higher curves than the target and the \ac{LSTM} using the default activation functions tends to predict curves that are under the target, the reasons for such a difference are unknown. This is simply an observation after a few different runs.
+Computing the \ac{NN} with or without the analog activation functions does not seem to affect the error of the predictions, experience has shown that the \ac{LSTM} using the analog activation functions seem to predict higher curves than the target and the \ac{LSTM} using the default activation functions tends to predict curves that are under the target, the reasons for such a difference are unknown. This is simply an observation after a few different runs.
 
 \subsubsection{\acs{GRU} predictions}
 
@@ -116,7 +116,7 @@ The \ac{LSTM} layer being the only to have been trained using the default activa
   \label{graph:airlineAnalogNoC}
 \end{figure}
 
-As expected, the analog predictions are very far off the target curve. Which, in this case, isn't the target dataset but the digital prediction ran with the default activation functions. Indeed, the goal of the analog system is to reproduce as closely as possible the digital prediction.
+As expected, the analog predictions are very far off the target curve. Which, in this case, is not the target dataset but the digital prediction ran with the default activation functions. Indeed, the goal of the analog system is to reproduce as closely as possible the digital prediction.
 
 \begin{table}[H]
   \centering
@@ -135,7 +135,7 @@ As expected, the analog predictions are very far off the target curve. Which, in
 
 As can be observed on \cref{graph:airlineAnalogNoC}, the analog predictions are not on par with what is expected at all. This is confirmed by the error rates found in \cref{tab:airlineAnalogNoC}, the error rates are not in an acceptable range at all. This error would be even higher to the target dataset as the digital prediction using the default activation functions is already under than the target curve.
 
-However, the prediction don't seem to be completely off. The curves seem to follow the shape of it's target, and by extension of the target data. This deserves a closer look.
+However, the prediction do not seem to be completely off. The curves seem to follow the shape of its target, and by extension of the target data. This deserves a closer look.
 
 \begin{figure}[H]
   \centering
@@ -231,7 +231,7 @@ coincidentally, the curve is closer to the target curve than the digital predict
   \label{graph:airlineCoin}
 \end{figure}
 
-The overall observation of those results compared to the previous ones (\cref{subsec:airlineAnalogNoC}) are how much closer to their target they are. It still isn't quite perfect but simply changing the activation functions used for training improved the results by a lot. It can thus be theorized that the error will become null if the system is trained with the same parameters as the ones it is using for inference. In other words, the error will probably be nullified when the training will happen inSitu (\cref{subsec:inSitu}).
+The overall observation of those results compared to the previous ones (\cref{subsec:airlineAnalogNoC}) are how much closer to their target they are. It still is not quite perfect but simply changing the activation functions used for training improved the results by a lot. It can thus be theorized that the error will become null if the system is trained with the same parameters as the ones it is using for inference. In other words, the error will probably be nullified when the training will happen inSitu (\cref{subsec:inSitu}).
 
 \subsubsection{\ac{GRU} predictions}
 

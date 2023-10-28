@@ -1,9 +1,7 @@
 \section{Conversion from weights to resistance}
 \label{sec:wei2res}
 
-This chapter will contain all the information on the weight conversion to a resistance value.
-
-The weight to resistances equations has been found using simple math.
+The weight to resistances equations has been found using \cref{eq:wei2res0}.
 
 \begin{equation}
   \label{eq:wei2res0}
@@ -19,7 +17,7 @@ First, we know from \cref{eq:doubleMem2} that the weight is represented by \cref
 For the rest of this chapter we consider that $R_f$ is set to the middle point of $R_{max}$ and $R_{min}$ meaning that $R_f=\frac{R_{min}+R_{max}}{2}$.
 
 Since we only have one equation (\cref{eq:wei2res0}) for 2 unknowns ($R_+$ and $R_-$), we need to set a second equation. This is done by centering the resistances around $R_f$, this means that \cref{eq:wei2res1} is the second equation, that makes our problem now solvable.
-%TODO explain how in future work the weight doesn't have to be centered around R_f, to gain time only one of the two resistance could change
+
 \begin{equation}
   \label{eq:wei2res1}
   R_f=\frac{R_-+R_+}{2}
@@ -34,7 +32,7 @@ Since we only have one equation (\cref{eq:wei2res0}) for 2 unknowns ($R_+$ and $
 
 By solving \cref{eq:wei2res01}, we find the \cref{eq:wei2res2} that gives the values for $R_-$ and $R_+$. All the steps for solving the equations can be found in \cref{apsec:wei2res}.
 
-The real value to voltage conversion (\cref{tab:valConv}) doesn't affect this part of the system as the crossbar array already works in voltages. Replacing the resistor variable in \cref{eq:doubleMem2} by $w$ using \cref{eq:wei2res0} would not change the results.
+The real value to voltage conversion (\cref{tab:valConv}) does not affect this part of the system as the crossbar array already works in voltages. Replacing the resistor variable in \cref{eq:doubleMem2} by $w$ using \cref{eq:wei2res0} would not change the results.
 
 \begin{equation}
   \label{eq:wei2res2}
@@ -46,4 +44,4 @@ The real value to voltage conversion (\cref{tab:valConv}) doesn't affect this pa
 
 While solving the system (\cref{apsec:wei2res}), we get two potential equations for $R_+$. Graphing them shows that one of them is outside of the memristor's resistance range ($[R_{min},R_{max}]$). Leaving us with only one equation because the other one is physically unreachable.
 
-For the thesis, this step is done in python and integrated in the netlist generator script (\cref{sec:netlist}). The resolution of the memristor (the precision of the resistances at which the memristor can be set) is simulated by limiting the generated resistances values to having only two significant figures.
+In the present work, this step is done in python and integrated in the netlist generator script (\cref{sec:netlist}). The resolution of the memristor (the precision of the resistances at which the memristor can be set) is simulated by limiting the generated resistances values to having only two significant figures.

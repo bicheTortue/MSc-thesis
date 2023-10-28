@@ -56,7 +56,7 @@ In order for the system to work in serial mode, the memory cells of the output n
 
 Using two memory cells when in serial mode allows for this issue to be elevated. The values are transfered from one level to an other at the end of the time step. That way, the values are updated safely during each time step, without changing the final output.
 
-When the system is running is a fully parallel mode, doubling the memory cells still causes a problem. The enable in and enable out flags can't be high at the same time when the memory cell has a feedback connection, the signal would interfere with it self and change its own value. Potential solutions are discussed in \cref{subsec:noDoubleMemcell}.
+When the system is running is a fully parallel mode, doubling the memory cells still causes a problem. The enable in and enable out flags cannot be high at the same time when the memory cell has a feedback connection, the signal would interfere with it self and change its own value. Potential solutions are discussed in \cref{subsec:noDoubleMemcell}.
 
 \subsubsection{Cell states}
 

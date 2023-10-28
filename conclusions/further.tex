@@ -8,9 +8,9 @@ This means designing both an \ac{opAmp} for the current flowing through the circ
 
 \subsection{Circuit controller}\label{subsec:control}
 
-The final circuit will need an external controller to manage diffenrent things in the circuit. This wasn't created in this thesis but will have to be in order to have a functionning circuit once fabricated.
+The final circuit will need an external controller to manage diffenrent things in the circuit. This was not created in this thesis but will have to be in order to have a functionning circuit once fabricated.
 
-The controller will increase the power consumption of the overall system. However, due to the slow (precision of about $1\mu s$) nature of the system requirements, the controller will be very low power, and won't affect the overall power consumption of the final system.
+The controller will increase the power consumption of the overall system. However, due to the slow (precision of about $1\mu s$) nature of the system requirements, the controller will be very low power, and will not affect the overall power consumption of the final system.
 
 The controller will have several roles in the system :
 \begin{itemize}
@@ -28,13 +28,13 @@ Of course the first thing that comes to mind to improve the system and making it
   \item The ideal way of implementing the backpropagation would be using an analog system similar to the one that is used for the inference. This would still mean having a controller to change the internal resistance of the memristors, this version would require a slower clock and making the controller lower powered. Using an analog implementation might also harm the system, as the backpropagation algorithm will probably be simpler and reduce the efficiency of the system.
 \end{itemize}
 
-In order for the inSitu training to work, the weights also need to change. Future work also also include looking for ways to change the weights in the fastest possible way. Idealy the algorithm won't need to compute the weight to resistance conversion (\cref{sec:wei2res}) and directly know how the change the resistances' values.
+In order for the inSitu training to work, the weights also need to change. Future work also also include looking for ways to change the weights in the fastest possible way. Idealy the algorithm will not need to compute the weight to resistance conversion (\cref{sec:wei2res}) and directly know how the change the resistances' values.
 
 \subsubsection{Only change the value of one of the two memristor}
 
 This is a potential idea on how to improve the time it takes to compute a single epoch. Indeed changing the resistance value in a memristor, takes time depending on the type of memristor that is being used. If the weight to resistance is computed the same way as in the thesis (\cref{sec:wei2res}), so that each pair of resistance is centered around the middle point of the memristor's resistance range.
 
-Instead of having to do that, the idea is to only change one of the memristor's internal resistance so that the final weight is still the same. \Cref{eq:wei2res0} needs to be respected in any situation. The memristor's resistances won't be centered (\cref{eq:wei2res1}) anymore.
+Instead of having to do that, the idea is to only change one of the memristor's internal resistance so that the final weight is still the same. \Cref{eq:wei2res0} needs to be respected in any situation. The memristor's resistances will not be centered (\cref{eq:wei2res1}) anymore.
 
 \subsection{Permanent training}
 
@@ -54,7 +54,7 @@ Here there are two different problems that have two similar solutions, using a c
   \item For the cell state memory cells, adding a capacitor and a buffer (\cref{ap:buffer}) after the output of the memory cell group. This capacitor is here to store the voltage after the output enable flag goes to low. The buffer is here to output the voltage with a high impedance.
 \end{itemize}
 
-Those solutions are purely theorical, they haven't been tested due to lack of time.
+Those solutions are purely theorical, they have not been tested due to lack of time.
 
 \subsection{Removing weight constraints}\label{subsec:noCons}
 

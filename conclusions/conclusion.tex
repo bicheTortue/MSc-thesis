@@ -12,7 +12,7 @@ More complex datsets like \ac{C. elegans}, the issue is getting more present. In
 
 With a simple input sequence, such as sequence 5 (\cref{graph:io5Celegans}), the resulting predictions are quite good and on par with what is expected. The predictions are a bit late and it is not clear what is causing this specific issue. A theory is that the memory cells deteriorate its stored value by a very small amount every time step, thus the stored value is affect a lot after a large amount of time steps.
 
-More complex input sequences produce even more inaccuracies. Indeed, when working with sequence 15 (\cref{graph:io15Celegans}), the inaccuracies spiral up and gives out a barely usable prediction. The curve generated doesn't fit its digital counterpart anymore.
+More complex input sequences produce even more inaccuracies. Indeed, when working with sequence 15 (\cref{graph:io15Celegans}), the inaccuracies spiral up and gives out a barely usable prediction. The curve generated does not fit its digital counterpart anymore.
 
 The results obtained demonstrate that the \ac{LSTM} circuit block can be run with low error when dealing with simple inputs. The circuit is assumed to be ready for a full simulation, meaning also training with the analog circuit.
 
@@ -28,7 +28,7 @@ The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as pa
 
 The feature size represents the length of the side of the chip if the chip was manufactured in a square.
 
-The values of \acp{LLM}, such as \ac{LLaMA}-2 \textbf{Meta}'s \ac{LLM} and the two last versions of \acp{GPT} the \ac{LLM} that powers \textit{ChatGPT}, were included to show how the area of the chip scales up. Those models don't use \acp{RNN}, and futhermore, give out ridiculous areas. Fabricating such cicuits in analog is not feasible witht the current technologies.
+The values of \acp{LLM}, such as \ac{LLaMA}-2 \textbf{Meta}'s \ac{LLM} and the two last versions of \acp{GPT} the \ac{LLM} that powers \textit{ChatGPT}, were included to show how the area of the chip scales up. Those models do not use \acp{RNN}, and futhermore, give out ridiculous areas. Fabricating such cicuits in analog is not feasible witht the current technologies.
 
 \begin{table}[H]
   \centering

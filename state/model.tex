@@ -1,6 +1,6 @@
 \section{Memristor's model}\label{sec:model}
 
-There are several ways to model a memristor \cite{memristorFab,memTEAMmodel, memVTEAMmodel, memristorSpiceModels}. The way the memristor works depends on the materials used to fabricate the memristor. Each type of memristor has slightly different behavior. Models were thus created to simulate, as accurately as possible, the memristor in electrical circuit simulation software such as \textbf{Cadence}'s \textit{virtuoso} or SPICE.
+There are several ways to model a memristor \cite{memristorFab,memTEAMmodel, memVTEAMmodel, memristorSpiceModels}. The way the memristor works depends on the materials used to fabricate the memristor. Each type of memristor has slightly different behavior. Models were thus created to simulate, as accurately as possible, the memristor in electrical circuit simulation software such as \textbf{Cadence}'s \textit{Virtuoso} or SPICE.
 
 Some examples of memristor's model are :
 
@@ -72,12 +72,12 @@ The window function used is a state-dependent quadratic function as shown in \cr
   \end{cases}
 \end{equation}
 
-Where $r_p$ and $r_n$ are voltage dependent in a polynomial manner. They represent the boundaries of the state variable. All the other parameters in \cref{eq:memModel0,eq:memModel1,eq:memModel2,eq:memModel3} that haven't been declared are free fitting variables. They have to be set depending on the type of memristor used.
+Where $r_p$ and $r_n$ are voltage dependent in a polynomial manner. They represent the boundaries of the state variable. All the other parameters in \cref{eq:memModel0,eq:memModel1,eq:memModel2,eq:memModel3} that have not been declared are free fitting variables. They have to be set depending on the type of memristor used.
 
 \subsection{Verilog-A integration}
 
 The model now needs to be adapted to work as Verilog-A code.
-Verilog-A is a hardware desciption language, very popular in the industry for its simplicity and flexibility when using it with circuit simulator such as \textbf{Cadence}'s \textit{virtuoso}.
+Verilog-A is a hardware desciption language, very popular in the industry for its simplicity and flexibility when using it with circuit simulator such as \textbf{Cadence}'s \textit{Virtuoso}.
 
 The focus of this specific implementation will be the resistance range $[20k\Omega, 120k\Omega]$. The boundaries functions are found in \cref{eq:memModel4}.
 

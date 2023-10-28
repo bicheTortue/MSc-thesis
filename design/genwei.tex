@@ -1,7 +1,7 @@
 \section{Weights generation}
 \label{sec:genwei}
 
-The choice for the weight generation was to use Keras API with the tensorflow framework. However, both tensorflow and pyTorch were tried and were giving similar results, the final choice of using tensorflow was made because it's the most popular among the research group.
+The choice for the weight generation was to use Keras API with the tensorflow framework. However, both tensorflow and pyTorch were tried and were giving similar results, the final choice of using tensorflow was made because it is the most popular among the research group.
 
 \subsection{Training the weights}
 
@@ -9,7 +9,7 @@ Generating the weights requires to train a \ac{NN}. This is done in Keras by cre
 
 \begin{itemize}
   \item The \ac{NP} \ac{LSTM} : This is most commonly used version and by such one of the two available in Keras.
-  \item The \ac{GRU} : This one is present here because it's considered to be different from an \ac{LSTM} \ac{NN} despite their similarities.
+  \item The \ac{GRU} : This one is present here because it is considered to be different from an \ac{LSTM} \ac{NN} despite their similarities.
 \end{itemize}
 
 The other kinds of \ac{LSTM} are not present in the default Keras librairies.
@@ -20,7 +20,7 @@ All the weight trainings are done using \ac{MSE} loss function and Adam optimize
 
 \subsection{Weights constaint}
 
-The weights need to be contrained during the training to make sure that the voltage of the analog circuit stays within its operating voltage range ($[0,V_{dd}]$). To avoid any unwanted behavior when the system supposedly goes out of range, the weights in the \ac{LSTM} are contrained. This constrain isn't fixed and depends on the architecture it is generated with.
+The weights need to be contrained during the training to make sure that the voltage of the analog circuit stays within its operating voltage range ($[0,V_{dd}]$). To avoid any unwanted behavior when the system supposedly goes out of range, the weights in the \ac{LSTM} are contrained. This constrain is not fixed and depends on the architecture it is generated with.
 
 The worst case scenario for an \ac{LSTM} is when every value reaches the voltage threshold ($V_{threshold}$) (\cref{sec:xbarCircuit}) and every weight is maximized ($w_{max}$). When that is the case the output of the \acp{VMM} is found in \cref{eq:weiCons}.
 
