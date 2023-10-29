@@ -27,15 +27,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="4.0000004"
-     inkscape:cx="42.624996"
-     inkscape:cy="53.749995"
-     inkscape:window-width="1080"
-     inkscape:window-height="653"
-     inkscape:window-x="26"
-     inkscape:window-y="23"
+     inkscape:zoom="11.31371"
+     inkscape:cx="56.966284"
+     inkscape:cy="25.102288"
+     inkscape:window-width="1920"
+     inkscape:window-height="1044"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="wires" />
+     inkscape:current-layer="svg21808" />
   <defs
      id="defs21805">
     <symbol
@@ -318,6 +318,18 @@
        r="2"
        fill="currentColor"
        stroke="none" />
+    <path
+       d="m 56,78 h 8 v -14 h -8"
+       id="path1"
+       stroke="currentColor"
+       stroke-width="1"
+       fill="none" />
+    <path
+       d="m 56,30 h 8 V 16 h -8"
+       id="path2"
+       stroke="currentColor"
+       stroke-width="1"
+       fill="none" />
   </g>
   <g
      id="elements"
