@@ -20,6 +20,51 @@ The results obtained demonstrate that the \ac{LSTM} circuit block can be run wit
 
 The \ac{GRU} circuit, while being present, is still a work in progress. The outputed predictions are scaled down for a still unknown reason, but show the right output shape. Once those issues are dealt with and have been fixed, the \ac{GRU} circuit will be ready for an analog training as well.
 
+\subsection{Execution time}
+
+The inference time is quite tricky to deal with. While the analog circuit's inference time is set, it gets more complicated when trying to get the digital inference time. The digital inference time depends on the computer it is being run on. The \acp{CPU} used in embedded sytems, the main application for this work, are usually not very fast as they are intended to be low powered. This parts will thus only dicuss of the inference of the analog circuit.
+
+\subsubsection{Airline inference}
+
+The airline problem feeding two inputs to the circuit to get a single output, it will have to be run $144$ times to get all the output data.
+The inference time depends on the serial size being used :
+
+\begin{itemize}
+  \item $n_s=1$ : The output can be read as a voltage on the output net from $t_0=18\mu s$ to $t_1=22\mu s$.
+  \item $n_s=2$ : The output can be read as a voltage on the output net from $t_0=34\mu s$ to $t_1=38\mu s$.
+  \item $n_s=4$ : The output can be read as a voltage on the output net from $t_0=66\mu s$ to $t_1=70\mu s$.
+\end{itemize}
+
+Those are the times it takes to compute one of the outputs. It takes $144$ times longer to get all of the results.
+
+\subsubsection{\ac{C. elegans} inference}
+
+This sequence is a bit more complicated, for every input sequence with a thousand time steps, there are a thousand output vectors being read. Here, the inference time also depends on the serial size.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \rowcolor{gray}
+    Serial size & $n_s=1$ & $n_s=2$ & $n_s=4$ & $n_s=8$\\
+    \hline
+    Start of first output & $9\mu s$ & $17\mu s$ & $33\mu s$ & $65\mu s$\\
+    \hline
+    End of first output & $13\mu s$ & $21\mu s$ & $37\mu s$ & $69\mu s$\\
+    \hline
+    Output period & $9\mu s$ & $17\mu s$ & $33\mu s$ & $65\mu s$\\
+    \hline
+    Start of last output & $9ms$ & $17ms$ & $33ms$ & $65ms$\\
+    \hline
+    End of last output & $9ms +4\mu s$ & $17ms+4\mu s$ & $33ms+4\mu s$ & $65ms+4\mu s$\\
+    \hline
+  \end{tabular}
+  \caption{First read values for the different serial sizes}
+  \label{tab:readTimesCelegans}
+\end{table}
+
+\Cref{tab:readTimesCelegans} shows the output time ranges with thier period.
+
 \subsection{onChip area}\label{subsec:area}
 
 The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor, because the area of a memristor is much greater than the ones of the other components. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined. The area for a memristor was determined using the feature size of the memristors that can be fabricated at \ac{INESC}. The typical memristor that can be fabricated at \ac{INESC} is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$
