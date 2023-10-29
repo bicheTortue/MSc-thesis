@@ -59,11 +59,11 @@ This sequence is a bit more complicated, for every input sequence with a thousan
     End of last output & $9ms +4\mu s$ & $17ms+4\mu s$ & $33ms+4\mu s$ & $65ms+4\mu s$\\
     \hline
   \end{tabular}
-  \caption{First read values for the different serial sizes}
+  \caption{First and last read times for the different serial sizes}
   \label{tab:readTimesCelegans}
 \end{table}
 
-\Cref{tab:readTimesCelegans} shows the output time ranges with thier period.
+\Cref{tab:readTimesCelegans} shows the first and last output time range with the period. All of the output times can be determined using the first time range and using the period. A sequence consists of $500ms$ as explained in \cref{subsec:celegans}, the time steps are physically $500\mu s$ appart, in the case where the circuit would be used to do real time inference, the circuit would have to be slowed down to be on sync with the inputs. The circuit could could be used in a real time use for this time sensitive problem.
 
 \subsection{onChip area}\label{subsec:area}
 
