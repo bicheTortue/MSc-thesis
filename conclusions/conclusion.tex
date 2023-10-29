@@ -67,7 +67,7 @@ This sequence is a bit more complicated, for every input sequence with a thousan
 
 \subsection{onChip area}\label{subsec:area}
 
-The \ac{LSTM} and \ac{GRU} blocks's onChip area is impossible to estimate, as part of the circuit is made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor, because the area of a memristor is much greater than the ones of the other components. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined. The area for a memristor was determined using the feature size of the memristors that can be fabricated at \ac{INESC}. The typical memristor that can be fabricated at \ac{INESC} is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$
+The \ac{LSTM} and \ac{GRU} blocks' onChip area are impossible to estimate, as parts of the circuits are made of verilog-A models. However, to get a general idea of the area of the chip, it can be assumed that the area of the circuit mainly depends on the the area of a memrisor, because the area of a memristor is much greater than the ones of the other components. Since the number of memristors is the number of weights in the circuit, the minimum area of any \ac{NN} can be determined. The area for a memristor was determined using the feature size of the memristors that can be fabricated at \ac{INESC}. The typical memristor that can be fabricated at \ac{INESC} is $3\mu m$, which would make the approximate area for a memristor $A_{memristor}=9\mu m^2=9\cdot 10^{-12} m^2$
 
 \Cref{tab:areas} contains several \acp{NN} models with their number of parameters, a minimum onChip area and an estimated feature size. None of those values have any scientific ground, they are just here to give general idea of the kind of circuit thta could be fabricated. Those areas only considers the area of the memristors, using a two memristor per synapse architecture like the one used in the thesis.
 
@@ -106,3 +106,5 @@ The values of \acp{LLM}, such as \ac{LLaMA}-2 \textbf{Meta}'s \ac{LLM} and the t
 \end{table}
 
 Nevertheless, it is interresting to look at those approximation. It shows that the simple models used in this work would take a very small onChip area, even though this a very raw number. It also shows the current limit with state of the art \acp{NN} at the current time.
+
+The onChip area of small \acp{NN} such as the ones used in this work are very reasonable and could easily be fabricated for embedded use.
