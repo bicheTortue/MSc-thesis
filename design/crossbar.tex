@@ -34,22 +34,22 @@ This design is the one that is used in \cite{doubleMem}. Let's assume that a giv
   \label{circt:doubleMem}
 \end{figure}
 
-With $x_k$ being the voltage for the input line $k$. The highest \ac{opAmp} is identified as $opamp_0$ and the lowest $opamp_1$.
+With $x_k$ being the voltage for the input line $k$. The highest \ac{opAmp} is identified as $opAmp_0$ and the lowest $opAmp_1$.
 
 For the sake of simplicity, the following equations considers the ground to be $V_{cm}$.
 
 \begin{equation}
   \label{eq:doubleMem0}
-  V_{opAmp0}=-R_r\cdot i_+ \Leftrightarrow
+  V_{opAmp_0}=-R_r\cdot i_+ \Leftrightarrow
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem1}
-  i_{R_f}=i_-+\frac{V_{opAmp0}}{R_r}=i_--i_+
+  i_{R_f}=i_-+\frac{V_{opAmp_0}}{R_r}=i_--i_+
 \end{equation}
 With $i_{opAmp}=0A$ because we assume an ideal \ac{opAmp}.
 \begin{equation}
   \label{eq:doubleMem2}
-  V_{opAmp2}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
+  V_{opAmp_1}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
 \end{equation}
 With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdot x_k$.
 
