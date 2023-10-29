@@ -45,3 +45,5 @@ The real value to voltage conversion (\cref{tab:valConv}) does not affect this p
 While solving the system (\cref{apsec:wei2res}), we get two potential equations for $R_+$. Graphing them shows that one of them is outside of the memristor's resistance range ($[R_{min},R_{max}]$). Leaving us with only one equation because the other one is physically unreachable.
 
 In the present work, this step is done in python and integrated in the netlist generator script (\cref{sec:netlist}). The resolution of the memristor (the precision of the resistances at which the memristor can be set) is simulated by limiting the generated resistances values to having only two significant figures.
+
+The python implementation is available in \cref{apsec:wei2res}.

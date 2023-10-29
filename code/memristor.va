@@ -1,0 +1,51 @@
+// VerilogA for test, memristor, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module memristor(p, n);
+  inout p, n;
+  electrical p, n;
+  parameter real Ap = 0.12340, An = -0.33000;
+  parameter real tp = 2.74111, tn = 2.59685;
+  parameter real rp0 = -40928.13784, rp1 = 55117.97865;
+  parameter real rn0 = 41366.35820, rn1 = 7789.66771;
+  parameter real Rinit = 40000;
+  parameter real eta = 1;
+  parameter real ap = 0.225, bp = 4.12;
+  parameter real an = 0.2801, bn = 4.10;
+  real Rmp, Rmn, svp, svn, vin, RS, IVp, IVn, IV;
+  real first_iteration, R0_last, dt, it;
+  analog function integer stp;
+    real arg; input arg;
+    stp = (arg >= 0 ? 1 : 0);
+  endfunction
+  analog begin
+    if(first_iteration==0) begin
+      it=0;
+      R0_last=Rinit;
+    end
+    dt = $abstime - it;
+    vin = V(p, n);
+    Rmp = rp0+rp1*vin;
+    Rmn = rn0+rn1*vin;
+    if(vin>0) begin
+      svp=Ap*(-1+exp(vin/tp));
+      RS=(R0_last+svp*Rmp*(Rmp - R0_last)*dt)/(1+svp*(Rmp-R0_last)*dt);
+    end
+    else begin
+      svn=An*(-1+exp(-vin/tn));
+      RS=(R0_last+svn*Rmn*(Rmn - R0_last)*dt)/(1+svn*(Rmn-R0_last)*dt);
+    end
+    if(RS>=Rmp && vin>0)  RS=R0_last;
+    if(RS<=Rmn && vin<0)  RS=R0_last;
+    if(abs(vin)<=0.5) RS=R0_last;
+    IVp=ap*sinh(bp*vin)/RS;
+    IVn=an*sinh(bn*vin)/RS;
+    IV=IVp*stp(vin)+IVn*stp(-vin);
+    I(p, n)<+ IV;
+    R0_last = RS;
+    first_iteration=1;
+    it=$abstime;
+  end
+endmodule

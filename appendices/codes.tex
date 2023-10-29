@@ -1,7 +1,30 @@
 \fancychapter{Important codes}
 \label{ap:codes}
+\pythonstyle
+
+\section{Memristor verilog-A model}\label{apsec:memModel}
+
+The code for the memristor model described in this thesis is available just below. The code was extracted from \cite{memCadenceModel}.
+
+\lstinputlisting[language=Verilog, caption=Memristor Verilog-A model]{code/memristor.va}
 
 \section{Smoothing the curve}\label{apsec:smoothFunc}
 
-\pythonstyle
-\lstinputlisting[language=python]{code/smooth.py}
+The code for smoothing the curve takes in a list and the averaging range. The function returns the averaged list.
+
+\lstinputlisting[language=Python, caption=Python function to smooth out curve]{code/smooth.py}
+
+\section{Saving weights to a file}\label{apsec:saveWei}
+
+There are a few functions that show how the weights are saved into a file.
+First depending on the type of layer, the weights need to be set in a list in the correct order.
+Once those list are correctly set everything is saved in a binary file.
+
+\lstinputlisting[language=Python, caption=Python functions used to save Keras' weights to a file]{code/saveWeight.py}
+
+\section{Weights to resistances}\label{apsec:wei2res}
+
+The function takes in a weight and returns a tuple with the two resistances values. The global variables are set to set values chosen in this work.
+
+\lstinputlisting[language=Python, caption=Python function to convert a weight in two resistances]{code/wei2res.py}
+
