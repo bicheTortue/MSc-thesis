@@ -72,10 +72,12 @@ With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdo
   \label{tab:synapses}
 \end{table}
 
-\subsection{Serialization/Parallelization}
+\subsection{Serialization}
 \label{subsec:serpar}
 
-The idea using the system in a serial mode came from \cite{thesisRef}. The principle of this system is to save onChip area by reducing the number of \ac{opAmp} required. Using the system in serial mode, increases the time it takes to compute the output of the the \ac{VMM}. Let's assume a serial size of $n_s\in\mathbb{N}$, the number of \ac{opAmp} and resistor is then divided by $n_s$ at the cost of multipying the computation time by $n_s$.
+This circuit has the option to be serialized with varying degrees. The idea of serializing the circuit came from \cite{thesisRef}. Serializing the circuit reduces the number of components required and thus reduces the final onChip area. Serializing the system increases the time it takes to compute the output.
+
+Serializing the system means not computing values of the output vector all at the same time, but instead computing group by group, the groups' size are $n_o$. The first output group is computed during $e_0$ and the $i^{th}$ group is computed during $e_i$. The timing of when the outputs are available is found in \cref{tim:serpar}. Those flag control the \ac{CMOS} swicthes present in \cref{circt:xbar}, the switches control which output group is outputed.
 
 The \ac{CMOS} switches are here to open the necessary input gates when the output is required, the \ac{CMOS} switches are controlled as in \cref{tim:serpar}.
 
