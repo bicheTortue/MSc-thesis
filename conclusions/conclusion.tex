@@ -10,7 +10,7 @@ The best performance is the with the airline dataset, using the circuit with a s
 
 More complex datsets like \ac{C. elegans}, the issue is getting more present. Indeed, the dataset feeds to the circuit four inputs across a thousand time steps and outputs just as much data. Any inaccuracy is scaled up.
 
-With a simple input sequence, such as sequence 5 (\cref{graph:io5Celegans}), the resulting predictions are quite good and on par with what is expected. The predictions are a bit late and it is not clear what is causing this specific issue. A theory is that the memory cells deteriorate its stored value by a very small amount every time step, thus the stored value is affect a lot after a large amount of time steps.
+With a simple input sequence, such as sequence 5 (\cref{graph:io5Celegans}), the resulting predictions are quite good and on par with what is expected. The predictions are a bit late and it is not clear what is causing this specific issue. A theory is that the memory cells deteriorate its stored value by a very small amount every time step, thus the stored value is affected a lot after a large amount of time steps.
 
 More complex input sequences produce even more inaccuracies. Indeed, when working with sequence 15 (\cref{graph:io15Celegans}), the inaccuracies explode and gives out a barely usable prediction. The curve generated does not fit its digital counterpart anymore.
 
