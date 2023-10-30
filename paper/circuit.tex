@@ -7,6 +7,8 @@ In order for the system to support negative numbers we're going to use a $V_{cm}
 \Cref{tab:valConv} shows the conversions from a real number to its voltage equivalent.
 
 \begin{table}[h]
+  \caption{Real/Voltage Conversion Table.}
+  \label{tab:valConv}
   \centering
   \begin{tabular}{|c|c|}
     \hline
@@ -22,8 +24,6 @@ In order for the system to support negative numbers we're going to use a $V_{cm}
     $real(v)=(v-0.9)\cdot 10$ & $v$\\
     \hline
   \end{tabular}
-  \caption{Real/Voltage Conversion Table.}
-  \label{tab:valConv}
 \end{table}
 
 Since the system cannot reach voltage outside of the operating range with the intended behavior, the voltage is then restricted to $V\in [0,1.8]$. This means that the range of real value that the systems can handle is $x\in [-9,9]$.
