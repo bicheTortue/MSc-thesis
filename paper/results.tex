@@ -43,24 +43,15 @@ The problem is solved using an LSTM or GRU with eights hidden state connected to
   \label{graph:celegansAnalog0}
 \end{figure}
 
-\Cref{graph:celegansAnalog0} combines the digital and analog of all four output neurons. However the analog predictions are quite unstable and barely readable. The origin of this issue being unknown, the output are thus artificially smoothed out using software. The
+\Cref{graph:celegansAnalog0} combines the digital and analog of all four output neurons. However the analog predictions are quite unstable. The origin of this issue being unknown, the output are thus artificially smoothed out using software. The graph with the smoothed out curves is \cref{graph:celegansAnalog1}.
 
 \begin{figure}[h]
   \centering
-  \includesvg[width=\columnwidth,pretex=\scriptsize]{results/celegans/smooth5DB1}
-  \caption{Averaged analog prediction forscriptsize DB1 neuron\label{graph:smooth5BD1Celegans}}
-\end{figure}
-\begin{figure}[h]
-  \centering
-  \includesvg[width=\columnwidth,pretex=\scriptsize]{results/celegans/smooth5LUAL}
-  \caption{Averaged analog prediction forscriptsize LUAL neuron\label{graph:smooth5LUALCelegans}}
-\end{figure}
-\begin{figure}[h]
-  \includesvg[width=\columnwidth,pretex=\scriptsize]{results/celegans/smooth5PVR}
-  \caption{Averaged analog prediction forscriptsize PVR neuron\label{graph:smooth5PVRCelegans}}
-\end{figure}
-\begin{figure}[h]
-  \includesvg[width=\columnwidth,pretex=\scriptsize]{results/celegans/smooth5VB1}
-  \caption{Averaged analog prediction for the VB1 neuron\label{graph:smooth5VB1Celegans}}
+  \includesvg[width=\columnwidth,pretex=\tiny]{results/celegans/smooth5}
+  \caption{\acs{C. elegans} analog responses with their digital counterparts}
+  \label{graph:celegansAnalog1}
 \end{figure}
 
+The output neurons predictions are quite good, expect for the unstable analog predictions. The results are very promising.
+
+The other sequences of inputs were ran but connot all be shown here. More details on the C . elegans analog predictions are available in the thesis this paper goes with.

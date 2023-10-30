@@ -25,4 +25,6 @@ The dataset is great for our study because :
   \item It aims at reproducing the behavior of the brain of a simple organism (\ac{C. elegans}). In the (very) long term, a full parts of the human brain could be replaced by a very low powered chip.
 \end{itemize}
 
+An example of an input/output sequence is shown in \cref{graph:celegansAnalog1} along with the digital and analog predictions.
+
 The dataset contains a set of fourty set of input/output sequences. Each set of input and output set contains $500ms$ of data with a time step of $0.5ms$, making a thousand points for each neurons. This data is recorded after applying current to the input neurons (PLML2, PLMR, AVBL, AVBR), and monitoring the output of four neurons (DB1, LUAL, PVR, VB1) that are known to have strong activity in response to the four inputs neurons. The simulation is done using a known model of \ac{C. elegans} connectome (complete overview of the brains connections) \cite{celegans}.

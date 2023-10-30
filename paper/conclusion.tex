@@ -1,0 +1,23 @@
+\section{Conclusion}
+
+\subsection{\ac{LSTM}}
+
+The circuit's performance has been evaluated in the previous chapter. The results highly depend on the parameters at play. For example the complexity of the dataset used, out of the two used in the thesis, the airline dataset is the simple dataset while the \ac{C. elegans} dataset is the more complicated datset.
+
+The best performance is the with the airline dataset, using the circuit with a serial size of one ($n_s=1$) (\cref{tab:airlineAnalog}). While the results are not quite right, it is assumed that this issue will be elevated once inSitu training is implemented.
+
+More complex datsets like \ac{C. elegans}, the issue is getting more present. Indeed, the dataset feeds to the circuit four inputs across a thousand time steps and outputs just as much data. Any inaccuracy is scaled up.
+
+With a simple input sequence, such as sequence 5 (\cref{graph:celegansAnalog1}), the resulting predictions are quite good and on par with what is expected. The predictions are a bit late and it is not clear what is causing this specific issue. A theory is that the memory cells deteriorate its stored value by a very small amount every time step, thus the stored value is affectd a lot after a large amount of time steps.
+
+More complex input sequences produce even more inaccuracies. Indeed, when working with sequence 15, not shown in this paper, the inaccuracies explode and gives out a barely usable prediction. The curve generated does not fit its digital counterpart anymore.
+
+The results obtained demonstrate that the \ac{LSTM} circuit block can be run with low error when dealing with simple inputs. The circuit is ready for a full simulation, meaning also simulating training with the analog circuit.
+
+\subsection{\ac{GRU}}
+
+The \ac{GRU} circuit, despite not having result in this paper, is still a work in progress. The outputed predictions are scaled down for a still unknown reason, but show the right output shape. Once those issues are dealt with and have been fixed, the \ac{GRU} circuit will be ready for an analog training as well.
+
+\subsection{Execution time}
+
+The execution time is only interresting when dealing with time sensistive data, like with the C. elegans problem. The problem gets input every $500\mu s$, however, the circuit takes at most $65\mu s$ to compute when using eight hidden states and a serial size of eight. This execution time would even allow to take in more frequent inputs, like the $100\mu s$ sequences dealt with in \cite{celegans}.
