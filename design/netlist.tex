@@ -6,7 +6,7 @@ In order to be able to run the simulation with different kinds of \ac{NN} archit
 This is done by generating a SPICE netlist using a python script. A SPICE netlist was chosen because of \textbf{Cadence}'s \textit{Virtuoso} limitations. Indeed, Verilog netlists can be imported with a downside, component's parameters cannot be imported. This is very limiting for this thesis' use case (required to set the resistors' resistance and thus the weights). SPICE netlists can import parameters for the components and is open source and by such well documented. The generator script takes in a few parameters :
 
 \begin{itemize}
-  \item The first parameter is the number of input we use our system. This is the size of the first input vector ($x_t$).
+  \item The first parameter is the number of input we use our system. This is the size of the first input vector ($\overrightarrow{x_t}$).
   \item The next parameter is the number of time steps. Everything about the \ac{LSTM} time steps is all explained in \cref{sec:lstm}.
   \item The serial size of the crossbar arrays, as described in \cref{sec:xbarCircuit}, used in the \ac{LSTM} network. This parameter must divide the number of hidden states in the \acp{LSTM} layers.
   \item The files containing different informations about the model. This file contains the type of \ac{NN} architecture and the weights associated with each layer. The weights in the files have to be organized using a specific model (\cref{subsec:weiStore}).
@@ -24,6 +24,7 @@ The weights are stored in a single file. This file contains a brief description 
 \begin{itemize}
   \item Dense layer : This is basically a \ac{VMM} so the weights are just sorted linearly in a list. The list is of size $n^2$, where $n$ is the size of the input vector. \Cref{mtrx:wei} shows the position ($i$) of the weight ($w_i$) in the matrix. This is represented in the description as "Dense($n_o$)" where $n_o$ is the number of output of the layer.
   \item \ac{LSTM} layer : An \ac{LSTM} layer contains four \acp{VMM} which can be assimilated and thus stored like a dense layer. The weights for each \ac{VMM} is then stored in a sub list. This is represented in the description as "LSTM($n_h$)" where $n_h$ is the number of hidden states of the layer.
+  \item \ac{GRU} layer : An \ac{GRU} layer contains three \acp{VMM} which can be assimilated and thus stored like a dense layer. The weights for each \ac{VMM} is then stored in a sub list. This is represented in the description as "GRU($n_h$)" where $n_h$ is the number of hidden states of the layer.
 \end{itemize}
 
 \begin{equation}\label{mtrx:wei}

@@ -1,0 +1,172 @@
+\section{State of the art}\label{sec:state}
+
+\subsection{Recurrent Neural Networks (RNN)}
+
+RNNs are a family of neural networks that differentiate themselves by having feedback connections. It is often used with sequences of data \cite{rnn}, sometimes, with varying amount of input data. RNNs are used for handwriting recognition and language translation \cite{gru}.
+
+The feedback connection is caracterized by the hidden state vector ($\overrightarrow{h_t}$) which serves as the output and as part of the input for the next time step, a RNN is defined as \cref{eq:rnn}.
+
+\begin{equation}\label{eq:rnn}
+  \overrightarrow{h_t}=f(\overrightarrow{x_t},\overrightarrow{h_{t-1}})
+\end{equation}
+
+A the simple version of the RNN is defined by \cref{eq:srnn}.
+
+\begin{equation}\label{eq:srnn}
+  \overrightarrow{h_t}=tanh([\overrightarrow{x_t},\overrightarrow{h_{t-1}}]\cdot w + \overrightarrow{b})
+\end{equation}
+
+Where ($w$,$\overrightarrow{b}$) are the pair of weights matrix and bias vectors. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
+
+The graphical representation of the simple RNN cell is shown in \cref{fig:rnnCell}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{\columnwidth}
+    \subfloat[Simple \acs{RNN} cell\label{fig:rnnCell}]{\includesvg[width=\columnwidth]{rnn/rnnCell.svg}}
+  \end{minipage}
+  \begin{minipage}{\columnwidth}
+    \subfloat[Legend\label{leg:cells}]{\includesvg[width=\columnwidth,pretex=\footnotesize]{cellsLegend.svg}}
+  \end{minipage}
+  \caption{}
+\end{figure}
+
+\subsection{Long Short Term Memory (LSTM)}
+
+LSTMs are a type of RNN used to solve the vanishing gradiant problem \cite{firstLSTM}. It was improved a few times before becoming the modern LSTM \cite{improvLSTM}. The LSTM differs from a simple RNN because of its second feedback variable being the cell state ($\overrightarrow{c_t}$).
+
+The LSTM contains four activated gates, that each serve its own purpose. The input gate \cref{eq:inputG} controls whether the cell state is updated, the forget gate \cref{eq:forgetG} that determines how the current cell state is affected by the old cell state, the output gate \cref{eq:outputG} that controls how much the hidden state is affected by the cell state. The candidate cell state gate \cref{eq:candCell} computes the change in the future cell state.
+
+\begin{equation}\label{eq:inputG}
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
+\end{equation}
+\begin{equation}\label{eq:forgetG}
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
+\end{equation}
+\begin{equation}\label{eq:outputG}
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
+\end{equation}
+\begin{equation}\label{eq:candCell}
+  \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
+\end{equation}
+
+The next part of the LSTM consist of computing the new cell state in the following equation :
+
+\begin{equation}\label{eq:cellS}
+  \overrightarrow{c_t}=\overrightarrow{f_t}\odot \overrightarrow{c_{t-1}} + \overrightarrow{i_t} \odot \overrightarrow{\tilde{c}_t}
+\end{equation}
+
+The hidden state is then determined using the current cell state \cref{eq:hiddenS}.
+
+\begin{equation}\label{eq:hiddenS}
+  \overrightarrow{h_t}=\overrightarrow{o_t}\odot tanh(\overrightarrow{c_t})
+\end{equation}
+
+Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$), ($w_o$,$\overrightarrow{b_o}$) and ($w_c$,$\overrightarrow{b_c}$) are the pair of weights matrixes and bias vectors for the input, forget, output and candidate cell gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
+
+The graphical representation of an LSTM cell is found in \cref{fig:lstmCell}.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[width=\columnwidth]{lstm/lstmCell.svg}
+  \caption{\acs{LSTM} cell, adapted from \cite{wikiLSTM}\label{fig:lstmCell}}
+\end{figure}
+
+\subsection{Gated Recurrent Units (GRU)}
+
+GRUs are another type of RNN. It is also known to reduce the effect of the vanishing gradient problem. It was first introduced to improve translation techniques \cite{gru}.
+
+The \ac{GRU} is very often compared to the \ac{LSTM}, being sometimes assimilated as a type of \ac{LSTM} \cite{nbLSTM}. Their performance was found to be very similar in most situations \cite{gruVSlstm}, making those two types of \acp{RNN} coexistant in the modern machine learning world.
+
+There are two versions of the \ac{GRU}, both are found on the internet, they are known as the encoder and decoder version \cite{gru}. They were originally designed to encode the message to translate and then decode in the translation. PyTorch only supports the decoder version \cite{gruPyTorch}, while the Keras library supports both \cite{gruKeras} chosen by changing an argument. This work only uses the encoder version, for that reason, it will be the only one described.
+
+It contains an update gate \cref{eq:updateG}, a reset gate \cref{eq:resetG}, a candidate activation gate \cref{eq:candActivG}. The hidden state is then computed \cref{eq:gruHidG} using the previous results.
+
+\begin{equation}\label{eq:updateG}
+  \overrightarrow{z_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_z + \overrightarrow{b_z})
+\end{equation}
+\begin{equation}\label{eq:resetG}
+  \overrightarrow{r_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_r + \overrightarrow{b_r})
+\end{equation}
+\begin{equation}\label{eq:candActivG}
+  \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
+\end{equation}
+\begin{equation}\label{eq:gruHidG}
+  \overrightarrow{h_t}=(\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{h_{t-1}} + \overrightarrow{z_t}\odot \overrightarrow{\hat{h_t}}
+\end{equation}
+
+Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$w_{hh}$,$\overrightarrow{b_h}$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
+
+A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:encoderGruCell}.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[width=\columnwidth]{gru/encoderCell.svg}
+  \caption{Encoder \acs{GRU} cell, legend in \cref{leg:cells}\label{fig:encoderGruCell}}
+\end{figure}
+
+\subsection{Memristors}
+
+Memristors are the lesser known fourth fundamental passive component of electronics, among resistors, capacitors and inductor.
+It was first theorized in 1971 as a missing fundamental component in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
+The missing component linking the four fundamental circuit variables, voltage ($v$), charge ($q$), current ($i$) and flux ($\phi$). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
+
+\begin{equation}
+  d\phi = v\cdot dt
+\end{equation}
+
+\begin{equation}
+  dq = i\cdot dt
+\end{equation}
+
+Resistors, capacitors and inductors were already very established and well known components, so it was theorized that a fourth device should then exist to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=v\cdot dt \Rightarrow \phi =  \int v \,dt  $.
+
+The component stayed theoretical until 2008 when it was implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to have an actual working device.
+
+An extension to the memristor, reffered to as the memristive device, was theorized in 1976 \cite{memrestiveDev}. The difference between the memristor and the memristive devices is its internal behavior. Memristive devices are commonly referred to as memristors as well.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[width=0.65\columnwidth,pretex=\tiny]{memristor/memristor}
+  \caption{Fundamental passive components, adapted from \cite{memWiki}}
+  \label{fig:fundComp}
+\end{figure}
+
+\subsection{Memristors Crossbar Arrays}
+
+Setting memristors in a crossbar array allows to perform analog Vector Matrix Multiplication (VMM), also called Multiply and Accumulate. \Cref{fig:crossbar} shows what a typical crossbar array looks like.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[width=.6\columnwidth,pretex=\small]{crossbar/crossbar}
+  \caption{Crossbar array schematics, inspired from \cite{xbarFigures}}
+  \label{fig:crossbar}
+\end{figure}
+
+The circuit uses physical properties of electrical systems to perform analog computation. The following part will focus only on the circuit node in \cref{fig:crossNode}.
+
+\begin{figure}[htbp]
+  \centering
+  \includesvg[wdith=0.4\columnwidth,pretex=\scriptsize]{crossbar/node}
+  %\def\svgheigth{3.5cm}
+  %\input{crossbar/node.pdf_tex}
+  \caption{Memristor crossbar node of the $i^{th}$ line and $j^{th}$ column}
+  \label{fig:crossNode}
+\end{figure}
+
+A voltage is applied on the $i^{th}$ line, and because every column is virtually grounded, the voltage applied to the memristor, with resistance $R_i$, is $V_i$. By applying Ohm's law, we know that the current flowing into the memristor ($I_{i}$) is bound by the following equation :
+
+\begin{equation}
+  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R_i})= V_i\cdot\sigma_i
+\end{equation}
+With $\sigma_i$ being the conductance of memristor, defined as $\sigma_i=\frac{1}{R_i}$.
+
+This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
+\begin{equation}
+  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot\sigma_i
+\end{equation}
+Unfolding the equations will give the current at the bottom of the column, for example, the current at the bottom of the first column in \cref{fig:crossbar} is :
+\begin{equation}
+  I_1=\sigma_1\cdot V_1 + \sigma_2\cdot V_2 + \sigma_3\cdot V_3
+\end{equation}
+With $\sigma_1$, $\sigma_2$ and $\sigma_3$ being the conductance of the 3 memristors in the first column.

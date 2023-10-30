@@ -1,8 +1,8 @@
 \section{The datasets}\label{sec:dataset}
 
-To make sure that the terminal voltage does not reach the threshold as explained in \cref{sec:xbarCircuit}. The voltage threshold ($V_{threshold}$) was chosen to be $V_{threshold}=0.1V$ because the memristors used in this thesis are purely theorical. The dataset needs to be formated not to exceed this value when converted to voltage (\cref{tab:valConv}), the dataset needs to be trained while not exceeding $1$.
+To make sure that the terminal voltage does not reach the threshold as explained in \cref{sec:xbarCircuit}. The voltage threshold ($V_{read}$) was chosen to be $V_{read}=0.1V$ because the memristors used in this thesis are purely theorical. The dataset needs to be formated not to exceed this value when converted to voltage (\cref{tab:valConv}), the dataset needs to be trained while not exceeding $1$.
 
-\subsection{Airline}
+\subsection{Airline passengers}
 
 The first dataset contains a time series of international airline passengers from January 1949 to December 1960, the data is recorded monthly and is in thousands. The dataset then contains twelve years of monthly data so $144$ sample points. Although the esults of this problem are not necessarely tailored to the system, in the sense that it is not time sensitive information, it is nonetheless a problem that can, in a straightforward manner, demonstrate the predictive capacity of the proposed model. It is extracted from the tutorial available at \cite{airline}. The dataset is available at \cite{datasets}, the name of the file containing the dataset is \textit{airline-passengers.csv}.
 

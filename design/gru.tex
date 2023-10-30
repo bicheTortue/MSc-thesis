@@ -13,7 +13,7 @@ This section describes the circuit of an encoder \ac{GRU} with an input vector o
 
 The system is built, once again, using crossbar array (\cref{sec:xbarCircuit}) with ($n_i+n_h+1$,$n_h$, $1$) as parameters.
 
-First of all, the different vectors and variables present in the schematic have to be described :
+The different vectors and variables present in the schematic have to be described :
 
 \begin{itemize}
   \item $\overrightarrow{x_t}$ : This is the input vector for the \ac{LSTM} circuit at time $t$. It has a size of $n_i$.
@@ -30,7 +30,7 @@ The wires are all buses of different sizes. All the components expect from the c
 
 \subsubsection{The $1-x$ operation}
 
-A little trick had to be emplyed in order to succesfully compute the function. The function is defined as in \cref{eq:1minus0}.
+A clever trick had to be employed in order to succesfully compute the function. The function is defined as in \cref{eq:1minus0}.
 \begin{equation}\label{eq:1minus0}
   f(x)=1-x
 \end{equation}

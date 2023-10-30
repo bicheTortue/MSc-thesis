@@ -57,3 +57,9 @@ Removing the weights constraints is tricky since the the \ac{opAmp} is based on 
 However those saturated levels need to be added to the training of the weights. This can be done in Keras by creating a custom layer in the circuit that keeps the values within a the defined range ($[-9,9]$ for this thesis). The training will thus happen with the values being saturated as it would happen in the circuit.
 
 This solution is not implemented in the circuit as the saturating signals might affect the real circuit. This is would allow the circuit to access a larger range of weights and make the training more performant.
+
+\subsection{Serializing the \acs{GRU} circuit}
+
+The \ac{GRU} circuit, once fully working and implemented in its current form, can be serialized.
+
+The \ac{GRU} circuit cannot be serialized because of the candidate hidden state needs a fully computed reset gate to be computed. The solution would be to use the reset gate crossbar array with a serial size of one. While all other crossbar arrays can be serialized. This will allow to reduce the amount of pointwise components.

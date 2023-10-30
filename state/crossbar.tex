@@ -1,6 +1,6 @@
 \section{Memristors Crossbar Array}\label{sec:crossbar}
 
-Setting memristors in a crossbar array allows to perform analog \ac{VMM}, also called Multiply and Accumulate. This circuit works great for this use as all the computation is done almost instantly and using physics laws. Figure \ref{fig:crossbar} shows what a typical crossbar array looks like.
+Setting memristors in a crossbar array allows to perform analog \ac{VMM}, also called Multiply and Accumulate. This circuit works great for this use as all the computation is done almost instantly and using physics laws. \Cref{fig:crossbar} shows what a typical crossbar array looks like.
 
 \begin{figure}[H]
   \centering
@@ -11,7 +11,7 @@ Setting memristors in a crossbar array allows to perform analog \ac{VMM}, also c
   \label{fig:crossbar}
 \end{figure}
 
-It uses physical properties of electrical systems to perform analog computing. In what follows I will use the circuit node in figure \ref{fig:crossNode} to explain the theory behind the memristor crossbar array.
+It uses physical properties of electrical systems to perform analog computing. In what follows I will use the circuit node in \cref{fig:crossNode} to explain the theory behind the memristor crossbar array.
 \begin{figure}[H]
   \centering
   \includesvg[height=3.5cm]{crossbar/node}
@@ -21,16 +21,16 @@ It uses physical properties of electrical systems to perform analog computing. I
   \label{fig:crossNode}
 \end{figure}
 
-First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance $R_i$, is $V_i$. As such and using Ohm's law, we know that the current flowing into the memristor ($I_{mem}$) is bound by the following equation :
+First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance $R_i$, is $V_i$. As such and using Ohm's law, we know that the current flowing into the memristor ($I_{i}$) is bound by the following equation :
 
 \begin{equation}
-  V_i = R\cdot I_{mem} \Rightarrow I_{mem} = V_i\cdot (\frac{1}{R})=I_{mem} = V_i\cdot\sigma_i
+  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R})= V_i\cdot\sigma_i
 \end{equation}
 With $\sigma_i$ being the conductance of memristor, defined as $\sigma_i=\frac{1}{R_i}$.
 
 This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
 \begin{equation}
-  I_{j,i} = I_{j,i-1}+I_{mem} = I_{j,i-1} + V_i\cdot\sigma_i
+  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot\sigma_i
 \end{equation}
 By applying this process to the whole system we find that the current at the bottom of one column is :
 \begin{equation}

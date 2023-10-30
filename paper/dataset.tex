@@ -1,0 +1,14 @@
+\section{Datasets}
+
+\subsection{Airline passengers}
+
+The first dataset contains a time series of international airline passengers from January 1949 to December 1960, the data is recorded monthly and is in thousands. The dataset then contains twelve years of monthly data so $144$ sample points. Although the esults of this problem are not necessarely tailored to the system, in the sense that it is not time sensitive information, it is nonetheless a problem that can, in a straightforward manner, demonstrate the predictive capacity of the proposed model. It is extracted from the tutorial available at \cite{airline}. The dataset is available at \cite{datasets}, the name of the file containing the dataset is \textit{airline-passengers.csv}.
+
+This is a regression problem, the role of the \ac{LSTM} is to predict the number of passenger flying the next month being given previous months' passenger count.
+
+\begin{figure}[H]
+\centering
+\includesvg[width=\textwidth]{datasets/airline}
+\caption{The airline dataset. The vertical lines represent a full year.}
+\label{graph:airline}
+\end{figure}
