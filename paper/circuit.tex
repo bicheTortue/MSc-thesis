@@ -44,7 +44,7 @@ Due to the nature of the functions we want to generate, we will use the same cir
   \label{circt:af}
 \end{figure}
 
-\begin{table}[b]
+\begin{table}[t]
   \caption{Circuits parameters}
   \label{tab:afPar}
   \centering
@@ -77,7 +77,7 @@ Here, $w$ and $l$ are, respectively, the width and length of the two NMOS of the
 
 The outputed voltage depends on the input passed on. The results obtained by are rather convincing and can be found in \cref{graph:af}. \Cref{graph:af} also shows the Root Mean Square Error (RMSE) of the analog results with the ideal result.
 
-\begin{figure}[t]
+\begin{figure}[b]
   \centering
   \includesvg[width=\columnwidth, pretex=\scriptsize]{activation/afGraph}
   \caption{Input/Output graph of the activation function circuit for both sigmoid and \acs{tanh} functions}
@@ -86,7 +86,7 @@ The outputed voltage depends on the input passed on. The results obtained by are
 
 The symbols for the sigmoid and the \ac{tanh} are separated for better understanding and are available in \cref{sym:af}.
 
-\begin{figure}[b]
+\begin{figure}[t]
   \centering
   \hspace*{0.8cm}
   \subfloat[Sigmoid symbol]{\includesvg[height=1cm,pretex=\small]{activation/sigmoidSymbol}}%
@@ -117,7 +117,7 @@ The \ac{CMOS} switches found in the circuit have width of $w=200nm$ and a length
 %Remove first if too big
 The cirucit has a two \ac{CMOS} switches design to avoid voltage leakage through the swicthes. The system has voltage leakage when only one \ac{CMOS} swicth, and thus leads to a large memory leak. This is due to the high voltage difference between the two sides of the \ac{CMOS} swicth. Using two \ac{CMOS} switches allows for this difference to be mitigated (\cref{fig:memcellLoss}).
 
-\begin{figure}[b]
+\begin{figure}[t]
   \centering
   \includesvg[width=\columnwidth,pretex=\scriptsize]{memcell/data-loss}
   \caption{Memory conservation in a memory cell with 1 \ac{CMOS} switch vs 2 \ac{CMOS} swicthes}
@@ -188,7 +188,7 @@ Serializing the system means not computing all values of the output vector at th
 
 The \ac{CMOS} switches are here to open the necessary input gates when the output is required, the \ac{CMOS} switches are controlled as in \cref{tim:serpar}.
 
-\begin{figure}[b]
+\begin{figure}[t]
   \centering
   \begin{tikztimingtable}
     $e_0$ & x2H2L N(A1) L N(A2) 2L N(A3) L N(A4) 2Lx\\
