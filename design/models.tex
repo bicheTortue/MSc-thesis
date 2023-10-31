@@ -24,7 +24,7 @@ However this part is tricky. Indeed, because of the voltage conversion (\cref{ta
   V_{out}=10\cdot(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
 \end{equation}
 
-This is taken care of using in reality two parts, the actual voltage multiplier (\cref{eq:voltMult}) and a non inverting amplifier (\cref{eq:invAmp}), the circuit of which is available in \cref{apsec:invAmp}.
+This is taken care of using in reality two parts, the actual voltage multiplier (\cref{eq:voltMult}) and a non inverting amplifier (\cref{eq:invAmp}), the circuit of which is available in \cref{apsec:sumInv}.
 
 \begin{equation}\label{eq:voltMult}
   V_{voltMult}=-(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
@@ -33,7 +33,7 @@ This is taken care of using in reality two parts, the actual voltage multiplier 
   V_{out}=-(V_{voltMult}-V_{cm})\cdot10+V_{cm}
 \end{equation}
 
-Where $V_{out}$ is the output voltage the inverting amplifier (\cref{apsec:invAmp}), $V_{voltMult}$ is the out voltage of the voltage multiplier itself and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
+Where $V_{out}$ is the output voltage the inverting amplifier (\cref{apsec:sumInv}), $V_{voltMult}$ is the out voltage of the voltage multiplier itself and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
 
 The \cref{eq:voltMult} is assumed possible because of the actual voltage multiplier's datasheet available at \cite{actualVoltMult}.
 
