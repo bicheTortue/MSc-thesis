@@ -20,7 +20,7 @@ Where ($w$,$\overrightarrow{b}$) are the pair of weights matrix and bias vectors
 
 The graphical representation of the simple RNN cell is shown in \cref{fig:rnnCell}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \begin{minipage}{\columnwidth}
     \subfloat[Simple \acs{RNN} cell\label{fig:rnnCell}]{\includesvg[width=\columnwidth]{rnn/rnnCell.svg}}
@@ -66,7 +66,7 @@ Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$), ($w_o$,$\o
 
 The graphical representation of an LSTM cell is found in \cref{fig:lstmCell}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \includesvg[width=\columnwidth]{lstm/lstmCell.svg}
   \caption{\acs{LSTM} cell, adapted from \cite{wikiLSTM}\label{fig:lstmCell}}
@@ -99,7 +99,7 @@ Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$
 
 A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:encoderGruCell}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \includesvg[width=\columnwidth]{gru/encoderCell.svg}
   \caption{Encoder \acs{GRU} cell, legend in \cref{leg:cells}\label{fig:encoderGruCell}}
@@ -125,7 +125,7 @@ The component stayed theoretical until 2008 when it was implemented in a physica
 
 An extension to the memristor, reffered to as the memristive device, was theorized in 1976 \cite{memrestiveDev}. The difference between the memristor and the memristive devices is its internal behavior. Memristive devices are commonly referred to as memristors as well.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \includesvg[width=0.65\columnwidth,pretex=\tiny]{memristor/memristor}
   \caption{Fundamental passive components, adapted from \cite{memWiki}}
@@ -136,7 +136,7 @@ An extension to the memristor, reffered to as the memristive device, was theoriz
 
 Setting memristors in a crossbar array allows to perform analog Vector Matrix Multiplication (VMM), also called Multiply and Accumulate. \Cref{fig:crossbar} shows what a typical crossbar array looks like.
 
-\begin{figure}[htbp]
+\begin{figure}[b]
   \centering
   \includesvg[width=.6\columnwidth,pretex=\small]{crossbar/crossbar}
   \caption{Crossbar array schematics, inspired from \cite{xbarFigures}}
@@ -145,7 +145,7 @@ Setting memristors in a crossbar array allows to perform analog Vector Matrix Mu
 
 The circuit uses physical properties of electrical systems to perform analog computation. The following part will focus only on the circuit node in \cref{fig:crossNode}.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \includesvg[wdith=0.4\columnwidth,pretex=\scriptsize]{crossbar/node}
   %\def\svgheigth{3.5cm}

@@ -6,7 +6,7 @@ The target for our circuit is to reproduce, as closely as possible the digital p
 
 The problem is solved using an LSTM or GRU with four hidden state connected to a Dense layer with an output size of one. The weights were trained for three hundreds epochs.
 
-\begin{figure}[h]
+\begin{figure}[b]
   \centering
   \includesvg[width=\columnwidth, pretex=\scriptsize]{results/airline/analog}
   \caption{Analog predictions trained with the analog activation functions.}
@@ -15,7 +15,7 @@ The problem is solved using an LSTM or GRU with four hidden state connected to a
 
 The analog results obtained in \cref{graph:airlineAnalog} are very close to the digital predictions. This is confirmed by the values in \cref{tab:airlineAnalog}. The results the closest to the target are the ones generated using a serial size of one ($n_s=1$). Indeed, its error ($28.4$) is lower than the error from the digital results ($52.3$) to the original target values, almost half of it. The other ones are still quite close to the targeted curve, but are still lower. The errors are higher when running the system in serial mode. This higher inaccuracy is probably due to the data staying for longer in the memory cells as the time steps get longer.
 
-\begin{table}[h]
+\begin{table}[t]
   \caption{\acp{RMSE} of each analog prediction to their associated digital prediction}
   \label{tab:airlineAnalog}
   \centering
@@ -36,7 +36,7 @@ The GRU circuit not being fully working produces very off predictions. For this 
 
 The problem is solved using an LSTM or GRU with eights hidden state connected to a Dense layer with an output size of four. The weights were trained for one thousand epochs.
 
-\begin{figure}[h]
+\begin{figure}[b]
   \centering
   \includesvg[width=\columnwidth,pretex=\scriptsize]{results/celegans/out5}
   \caption{\acs{C. elegans} analog responses with their digital counterparts}
@@ -45,7 +45,7 @@ The problem is solved using an LSTM or GRU with eights hidden state connected to
 
 \Cref{graph:celegansAnalog0} combines the digital and analog of all four output neurons. However the analog predictions are quite unstable. The origin of this issue being unknown, the output are thus artificially smoothed out using software. The graph with the smoothed out curves is \cref{graph:celegansAnalog1}.
 
-\begin{figure}[h]
+\begin{figure}[t]
   \centering
   \includesvg[width=\columnwidth,pretex=\tiny]{results/celegans/smooth5}
   \caption{\acs{C. elegans} analog responses with their digital counterparts}
