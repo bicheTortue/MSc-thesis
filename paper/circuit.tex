@@ -287,7 +287,7 @@ The \ac{opAmp} uses its IEEE symbol (\cref{sym:opAmp}) while the voltage multipl
 
 This section describes the circuit of an \ac{LSTM} with an input vector of size $n_i$, a $n_h$ hidden states, a serial size of $n_s$ and $n_{ts}$ time steps. $n_o=n_h/n_s$ is going to be used for future references in this section. In order for the crossbar array to be used $n_o$ must be an integer, in other words, $n_s$ must divide $n_h$. The circuit used for the LSTM is shown in \cref{circt:lstm}.
 
-\begin{figure*}[h]
+\begin{figure*}[t]
   \centering
   \includesvg[width=\textwidth,pretex=\tiny]{lstm/lstmCircuit}
   \caption{\ac{LSTM} circuit}
@@ -309,6 +309,15 @@ The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output 
 The circuit uses two memory cells for its feedback connections not to overwrite the value of the current stored value by the value of the next time step.
 
 The LSTM circuit can be serialized allowing to reduce the number of pointwise components in the circuit by a factor $n_s$. However serializing the circuit increases the times it takes to compute the outputs by a factor of $n_s$.
+
+The symbol of the \ac{LSTM} circuit can be found in \cref{sym:lstm}. It depends on several parameters, the number of inputs ($n_i$), the number of hidden states ($n_h$), the serial size of the system ($n_s$) and the number of time steps ($n_{ts}$).
+
+\begin{figure}[b]
+  \centering
+  \includesvg[height=1cm,pretex=\footnotesize]{lstm/lstmSymbol}
+  \caption{Symbol used for the \ac{LSTM} circuit}
+  \label{sym:lstm}
+\end{figure}
 
 \subsection{GRU analog implementation}
 
