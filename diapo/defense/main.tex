@@ -1,5 +1,5 @@
 \documentclass[table]{beamer}
-\usetheme{gpmeet}
+\usetheme{defense}
 \graphicspath{{../../figures/}}
 
 \newcommand{\leftRect}[2]{\node[draw=text,very thick,rounded corners, text width=0.46\textwidth,minimum height=6cm] at (0,0) {\centering\textbf{#1}\\ \raggedright \color{text}#2};}
@@ -7,112 +7,68 @@
 
 \usepackage{tikz}
 
-\title{Group meetings}
+\title{Memristors-based recurent modules for neural computing}
 
-\subtitle{Memristors-based recurent modules for neural computing}
+\subtitle{}
 
-\author[V. BARBAZA]{Valentin BARBAZA}
+\institute[IST]{%
+  Diogo Caetano\\
+  INESC-MN
+  \and{}%
+  Ruxandra Barlulescu\\
+  INESC-ID
+  }
+  \author[V. BARBAZA]{Valentin BARBAZA}
 
-\date{26/05/2023}
+  \date{17/11/2023}
 
-\logo{
-  \begin{tikzpicture}[overlay,remember picture]
-    \node[left=0cm] at (current page.34){
-      \includegraphics[height=1cm]{logos/ist.eps}
-      \hspace{1pt}
-      \includegraphics[height=1cm]{logos/inesc-mn.png}
-      \includegraphics[height=1cm]{logos/inesc-id.eps}
-    };
-  \end{tikzpicture}
+  \logo{
+    \begin{tikzpicture}[overlay,remember picture]
+      \node[left=0cm] at (current page.33){
+        \includegraphics[height=1cm]{logos/inesc-mn.png}
+        \hspace{1pt}
+        \includegraphics[height=1cm]{logos/ist.eps}
+        \includegraphics[height=1cm]{logos/inesc-id.eps}
+      };
+    \end{tikzpicture}
   }
 
   \begin{document}
 
   \frame{\titlepage}
 
-
   \begin{frame}
-    \frametitle{Introduction}
-    Quick introduction to your topic.
-
-    \begin{itemize}
-        \color{text}
-      \item Briefly summarized your project. Some of the attendants may need some refresh.
-      \item Explain in which project stage you are, thus we all know how close you are to achieve your goals.
-    \end{itemize}
-
-    ex: I have to design a PCB to control a magnetic sensor. I have already done the PCB and now I am testing it.
+    \frametitle{Table of Contents}
+    \tableofcontents
   \end{frame}
 
-
-  \begin{frame}
-    \frametitle{Last weeks...}
-
-    Last meeting, I promised to do…
-
-    \centering
-    \rowcolors{2}{evenRow}{oddRow}
-    \begin{tabular}{ c m{3cm} c c c }
-      \rowcolor{firstRow}
-      \color{white}\textbf{\#} & \centering\color{white}Task & \color{white}Done? & \color{white}Why not? & \color{white}Help? \\
-      1 & test2 & test23 & test3 & test4\\
-      2 & test2 & test23 & test3 & test4\\
-      3 & test2 & test23 & test3 & test4\\
-      4 & test2 & test23 & test3 & test4\\
-      5 & test2 & test23 & test3 & test4\\
-    \end{tabular}
-
+  \section{Motivation and objectives}
+  \begin{frame}{\insertsection}{\insertsubsection}
+    The goal of the thesis is to know whether an analog LSTM network would work. This would allow running a Neural Network in real-time in embedded systems. The analog implementation (using memristors crossbar array) allows for much greater computational speed and very small on-chip area.
+  \end{frame}
+  \section{The circuits}
+  \subsection{Activation functions}
+  \begin{frame}{\insertsection}{\insertsubsection}
+    My point is to run simulations using cadence. Running a working simulation is the first step before fabricating the system.
+  \end{frame}
+  \section{The tools}
+  \begin{frame}{\insertsection}{\insertsubsection}
+    So far, I have designed some smaller elements required for the system to work such as the activation function for example.\\
+    I've designed a full size LSTM (with 4 hidden state).
+    \begin{figure}
+      \centering
+      \includegraphics[height=0.35\textheight]{lstm/lstm.png}
+    \end{figure}
+    I am now working on a way to generate LSTM network of any size.
   \end{frame}
 
-  \begin{frame}{What's new}
-    \begin{itemize}
-      \item Results obtianed :
-        \begin{itemize}
-            \color{text}
-          \item
-        \end{itemize}
-      \item Improvements :
-        \begin{itemize}
-            \color{text}
-          \item
-        \end{itemize}
-      \item Relevant information :
-        \begin{itemize}
-            \color{text}
-          \item test
-        \end{itemize}
-    \end{itemize}
+  \section{The datasets}
+  \begin{frame}{\insertsection}{\insertsubsection}
+    I now need to run the simulations and compare the results of my simulation with the results a digital LSTM (running with Keras for example).
   \end{frame}
 
-  \begin{frame}{Problems/doubts}
-    \begin{itemize}
-      \item Things that must me sorted out in order to continue with your work.\\ Explain the problem.
-      \item Things that you do not understand.
-    \end{itemize}
+  \subsection{Tressk}
+  \begin{frame}{jdjd}{}
   \end{frame}
 
-  \begin{frame}{Next weeks}
-
-    List of what I plan to do in the next weeks :
-
-    \centering
-    \rowcolors{2}{evenRow}{oddRow}
-    \begin{tabular}{ c m{4cm} }
-      \rowcolor{firstRow}
-      \color{white}\textbf{\#} & \centering\color{white}Task \cr
-      1 & test23 \\
-      2 & test23 \\
-      3 & test23 \\
-      4 & test23 \\
-      5 & test23 \\
-    \end{tabular}
-  \end{frame}
-
-  \begin{frame}{Networking and sharing}
-    \begin{tikzpicture}
-      \leftRect{Help/Collaboration :}{- If anybody has any idea of an interesting LSTM/NN problem to work on.\\-Also if any phenomen happening are familiar to you, I'll take the help}
-      \rightRect{Recommendations :}{I worked on a latex/beamer version of the template}
-    \end{tikzpicture}
-  \end{frame}
-
-\end{document}
+  \end{document}

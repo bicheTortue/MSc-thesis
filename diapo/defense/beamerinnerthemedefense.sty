@@ -4,19 +4,20 @@
 
 % Title page
 \defbeamertemplate*{title page}{gpmeet}[1][]{
-  %\vskip0.5cm%
+  \vskip0.6cm%
   \begin{beamercolorbox}[wd=12cm,sep=3pt,#1]{title page header}
     \usebeamerfont{title}\textbf{\inserttitle}\par%
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{date}
     \usebeamerfont{date}\textbf{\insertdate}%
   \end{beamercolorbox}
-  \vskip1.5cm%
+  \vskip1.2cm%
   \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{author}
     \usebeamerfont{author}\textbf{\insertauthor}%
   \end{beamercolorbox}
-  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{subtitle}
-    \usebeamerfont{author}\insertsubtitle%
+  \vskip1.2cm
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{institute}
+    \usebeamerfont{author}\insertinstitute%
   \end{beamercolorbox}
   \vfill
 }
