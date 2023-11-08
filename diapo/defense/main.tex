@@ -1,4 +1,4 @@
-\documentclass[table]{beamer}
+\documentclass[14pt]{beamer}
 \usetheme{defense}
 \graphicspath{{../../figures/}}
 
@@ -6,19 +6,20 @@
 \newcommand{\rightRect}[2]{\node[draw=text,very thick,rounded corners, text width=0.46\textwidth,minimum height=6cm] at (0.54\textwidth,0) {\centering\textbf{#1}\\ \raggedright \color{text}#2};}
 
 \usepackage{tikz}
+\usepackage{svg}
 
 \title{Memristors-based recurent modules for neural computing}
 
 \subtitle{}
 
 \newcommand {\Supervisor} {
-  {\large Dr. Diogo Caetano} and {\large Dr. Ruxandra Barbulescu}}
+  {Dr. Diogo Caetano} and {Dr. Ruxandra Barbulescu}}
 \newcommand {\CommitteeMembers} {
-  {\large Prof./Dr. Lorem Ipsum}}
-\newcommand {\Chairperson} {{\large Prof./Dr. Lorem Ipsum}}
-\author[V. BARBAZA]{{\large Valentin BARBAZA}}
+  {Prof./Dr. Lorem Ipsum}}
+\newcommand {\Chairperson} {{Prof./Dr. Lorem Ipsum}}
+\author[V. BARBAZA]{{Valentin BARBAZA}}
 
-\date{17/11/2023}
+\date{17 november 2023}
 
 \logo{
   \begin{tikzpicture}[overlay,remember picture]
@@ -29,44 +30,62 @@
       \includegraphics[height=1cm]{logos/inesc-id.eps}
     };
   \end{tikzpicture}
-  }
+}
 
-  \begin{document}
+\begin{document}
 
-  \frame{\titlepage}
+\frame{\titlepage}
 
-  \begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents
-  \end{frame}
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
 
-  \section{Motivation and objectives}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    The goal of the thesis is to know whether an analog LSTM network would work. This would allow running a Neural Network in real-time in embedded systems. The analog implementation (using memristors crossbar array) allows for much greater computational speed and very small on-chip area.
-  \end{frame}
-  \section{The circuits}
-  \subsection{Activation functions}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    My point is to run simulations using cadence. Running a working simulation is the first step before fabricating the system.
-  \end{frame}
-  \section{The tools}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    So far, I have designed some smaller elements required for the system to work such as the activation function for example.\\
-    I've designed a full size LSTM (with 4 hidden state).
-    \begin{figure}
-      \centering
-      \includegraphics[height=0.35\textheight]{lstm/lstm.png}
-    \end{figure}
-    I am now working on a way to generate LSTM network of any size.
-  \end{frame}
+\section{Motivation and objectives}
+\begin{frame}{\insertsection}
+  \begin{columns}
+    \column{.6\textwidth}
+    \begin{itemize}
+      \item AIs are getting very popular
+      \item AI algortithms are very power hungry
+    \end{itemize}
+    \column{.4\textwidth}
+    \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
+  \end{columns}
+\end{frame}
 
-  \section{The datasets}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    I now need to run the simulations and compare the results of my simulation with the results a digital LSTM (running with Keras for example).
-  \end{frame}
+\begin{frame}{\insertsection}
+  classic computer need to be improved to run those algorithms :
+  \begin{itemize}
+    \item Faster
+    \item Lower-power
+  \end{itemize}
+  The solution worked on is analog computing of the neural networks.
+\end{frame}
 
-  \subsection{Tressk}
-  \begin{frame}{jdjd}{}
-  \end{frame}
+\section{The circuits}
+\subsection{Activation functions}
+\begin{frame}{\insertsection}{\insertsubsection}
+  My point is to run simulations using cadence. Running a working simulation is the first step before fabricating the system.
+\end{frame}
+\section{The tools}
+\begin{frame}{\insertsection}{\insertsubsection}
+  So far, I have designed some smaller elements required for the system to work such as the activation function for example.\\
+  I've designed a full size LSTM (with 4 hidden state).
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.35\textheight]{lstm/lstm.png}
+  \end{figure}
+  I am now working on a way to generate LSTM network of any size.
+\end{frame}
 
-  \end{document}
+\section{The datasets}
+\begin{frame}{\insertsection}{\insertsubsection}
+  I now need to run the simulations and compare the results of my simulation with the results a digital LSTM (running with Keras for example).
+\end{frame}
+
+\subsection{Tressk}
+\begin{frame}{jdjd}{}
+\end{frame}
+
+\end{document}

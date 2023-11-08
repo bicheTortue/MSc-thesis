@@ -8,14 +8,14 @@
     \begin{tikzpicture}
       \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1.2);
       \fill[titleBlue] (1,0) rectangle(1.1,1.2);
-      \ifx\insertsubsection\@empty%
-      {\node[anchor=west, frameTitle,font=\Huge] at (1.2,0.6){\insertframetitle};}
+      \ifx\insertframesubtitle\@empty%
+      {\node[anchor=west, frameTitle,font=\Large] at (1.2,0.6){\insertframetitle};}
       \else%
-      {\node[anchor= west, frameTitle,font=\huge] at (1.2,0.8){\insertsection};%
-      \node[anchor= west, frameTitle,font=\large] at (1.2,0.3){\insertsubsection};}%
+      {\node[anchor= west, frameTitle,font=\large] at (1.2,0.8){\insertframetitle};%
+      \node[anchor= west, frameTitle,font=\small] at (1.2,0.3){\insertframesubtitle};}%
       \fi
     \end{tikzpicture}
   \end{beamercolorbox}
-  }
+}
 
-  \mode<all>
+\mode<all>
