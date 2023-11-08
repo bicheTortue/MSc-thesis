@@ -22,15 +22,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="2.86488"
-     inkscape:cx="237.70629"
-     inkscape:cy="286.92301"
+     inkscape:zoom="0.52075276"
+     inkscape:cx="135.38094"
+     inkscape:cy="160.34481"
      inkscape:window-width="1080"
-     inkscape:window-height="653"
-     inkscape:window-x="26"
-     inkscape:window-y="23"
+     inkscape:window-height="720"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g704" />
+     inkscape:current-layer="svg708" />
   <defs
      id="defs585">
     <marker
@@ -52,10 +52,11 @@
      color="#c00000">
     <text
        fill="currentColor"
-       style="font-size:12px;font-family:Arial, sans-serif;white-space:pre;display:inline;stroke:none"
-       x="13"
-       y="48.841999"
-       id="text">Input</text>
+       x="24.5"
+       y="49"
+       id="text"
+       stroke="none"
+       text-anchor="middle">Input</text>
     <g
        id="i1">
       <circle
@@ -121,10 +122,11 @@
      color="#0000c0">
     <text
        fill="currentColor"
-       style="font-size:12px;font-family:Arial, sans-serif;white-space:pre;stroke:none"
-       x="101"
-       y="15.842"
-       id="text21">Hidden</text>
+       x="119"
+       y="16"
+       id="text21"
+       stroke="none"
+       text-anchor="middle">Hidden</text>
     <g
        id="h1">
       <circle
@@ -211,10 +213,11 @@
      color="#008000">
     <text
        fill="currentColor"
-       style="font-size:12px;font-family:Arial, sans-serif;white-space:pre;stroke:none"
-       x="194"
+       x="212"
        y="84"
-       id="text34">Output</text>
+       id="text34"
+       stroke="none"
+       text-anchor="middle">Output</text>
     <g
        id="o1">
       <circle
