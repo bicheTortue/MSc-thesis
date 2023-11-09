@@ -4,7 +4,8 @@ BIB = bibtex
 # OUTPUT = template1
 OUTPUT=$(shell basename ${PWD})
 
-OPTIONS = -shell-escape -halt-on-error
+#OPTIONS = -shell-escape -halt-on-error
+OPTIONS = -shell-escape -interaction nonstopmode
 
 panel:
 	latexmk -pvc -f -pdf -jobname=${OUTPUT} -output-directory=.. -pdflatex='pdflatex ${OPTIONS}' -interaction=nonstopmode -synctex=1 main.tex

@@ -7,6 +7,7 @@
 
 \usepackage{tikz}
 \usepackage{svg}
+\setcounter{tocdepth}{1}
 
 \title{Memristors-based recurent modules for neural computing}
 
@@ -42,12 +43,13 @@
 \end{frame}
 
 \section{Motivation and objectives}
+
 \begin{frame}{\insertsection}
   \begin{columns}
     \column{.6\textwidth}
     \begin{itemize}
-      \item AIs are getting very popular
-      \item AI algortithms are very power hungry
+      \item NNs complexity grows rapidly
+      \item So does its computation time
     \end{itemize}
     \column{.4\textwidth}
     \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
@@ -55,19 +57,92 @@
 \end{frame}
 
 \begin{frame}{\insertsection}
-  classic computer need to be improved to run those algorithms :
-  \begin{itemize}
-    \item Faster
-    \item Lower-power
-  \end{itemize}
-  The solution worked on is analog computing of the neural networks.
+  \begin{columns}
+    \column{.6\textwidth}
+    \begin{itemize}
+      \item Reduce computation by using analog
+      \item Allows use for time sensitive problems
+    \end{itemize}
+    \column{.4\textwidth}
+    \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
+  \end{columns}
 \end{frame}
+
+\section{Introduction}
+
+\begin{frame}{\insertsection}{RNNs}
+  RNNs are a type of NN :
+  \begin{itemize}
+    \item Used for time dependent data
+    \item That have a feedback connection
+  \end{itemize}
+
+  \begin{equation}\label{eq:rnn}
+    \overrightarrow{h_t}=f(\overrightarrow{x_t},\overrightarrow{h_{t-1}})
+  \end{equation}
+\end{frame}
+
+\begin{frame}{\insertsection}{LSTMs}
+  \includesvg[width=\columnwidth,pretex=\scriptsize]{lstm/lstmCell}
+\end{frame}
+
+\begin{frame}{\insertsection}{GRUs}
+  \includesvg[width=\columnwidth,pretex=\scriptsize]{gru/encoderCell}
+\end{frame}
+
+\begin{frame}{\insertsection}{Memristors}
+  \begin{columns}
+    \column{.65\textwidth}
+    \includesvg[width=\columnwidth,pretex=\tiny]{memristor/memristor}
+    \column{.4\textwidth}
+    \begin{itemize}
+      \item Recent electical component
+      \item Variable resistance
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
 
 \section{The circuits}
 \subsection{Activation functions}
 \begin{frame}{\insertsection}{\insertsubsection}
-  My point is to run simulations using cadence. Running a working simulation is the first step before fabricating the system.
+  \begin{columns}
+    \column{.7\textwidth}
+    \includesvg[width=\columnwidth,pretex=\scriptsize]{activation/afCircuit}
+    \column{.4\textwidth}
+    \begin{itemize}
+      \item Creates analog activation functions
+      \item Is used for both tanh and sigmoid activation functions
+    \end{itemize}
+  \end{columns}
 \end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=0.75\columnwidth,pretex=\tiny]{activation/afGraph}
+  \end{center}
+\end{frame}
+
+\subsection{Memory cell}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{columns}
+    \column{.65\textwidth}
+    \includesvg[width=\columnwidth,pretex=\tiny]{memcell/memCircuit}
+    \column{.4\textwidth}
+    \begin{itemize}
+      \item Stores analog value
+      \item Has two CMOS switches to avoid leakage
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=.75\columnwidth,pretex=\tiny]{memcell/data-loss}
+  \end{center}
+\end{frame}
+
 \section{The tools}
 \begin{frame}{\insertsection}{\insertsubsection}
   So far, I have designed some smaller elements required for the system to work such as the activation function for example.\\
