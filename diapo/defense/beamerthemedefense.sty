@@ -13,4 +13,15 @@
 \setbeamerfont{title}{size=\large,parent=structure}
 \setbeamerfont{date}{size=\normalsize,parent=structure}
 
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\Huge\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
 \mode<all>
