@@ -30,232 +30,238 @@
       \includegraphics[height=1cm]{logos/inesc-id.eps}
     };
   \end{tikzpicture}
-  }
+}
 
-  \begin{document}
+\begin{document}
 
-  \frame{\titlepage}
+\frame{\titlepage}
 
-  \begin{frame}
-    \frametitle{Table of Contents}
-    \tableofcontents
-  \end{frame}
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
 
-  \section{Motivation and objectives}
+\section{Motivation and objectives}
 
-  \begin{frame}{\insertsection}
-    \begin{columns}
-      \column{.6\textwidth}
-      \begin{itemize}
-        \item NNs complexity grows rapidly
-        \item So does its computation time
-      \end{itemize}
-      \column{.4\textwidth}
-      \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
-    \end{columns}
-  \end{frame}
+\begin{frame}{\insertsection}
+  \begin{columns}
+    \column{.6\textwidth}
+    \begin{itemize}
+      \item NNs complexity grows rapidly
+      \item So does its computation time
+    \end{itemize}
+    \column{.4\textwidth}
+    \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
+  \end{columns}
+\end{frame}
 
-  \begin{frame}{\insertsection}
-    \begin{columns}
-      \column{.6\textwidth}
-      \begin{itemize}
-        \item Reduce computation by using analog
-        \item Allows use for time sensitive problems
-      \end{itemize}
-      \column{.4\textwidth}
-      \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
-    \end{columns}
-  \end{frame}
+\begin{frame}{\insertsection}
+  \begin{columns}
+    \column{.6\textwidth}
+    \begin{itemize}
+      \item Reduce computation by using analog
+      \item Allows use for time sensitive problems
+    \end{itemize}
+    \column{.4\textwidth}
+    \includesvg[width=\columnwidth,pretex=\scriptsize]{NN_explained.svg}
+  \end{columns}
+\end{frame}
 
-  \section{Introduction}
+\section{Introduction}
 
-  \begin{frame}{\insertsection}{RNNs}
+\begin{frame}{\insertsection}{RNNs}
+  \begin{columns}
+    \column{.4\textwidth}
+    \includesvg[width=\columnwidth,pretex=\small]{rnn/rnnFolded}
+    \column{.6\textwidth}
     RNNs are a type of NN :
     \begin{itemize}
       \item Used for time dependent data
       \item That have a feedback connection
     \end{itemize}
+  \end{columns}
+  \vspace{0.8cm}
 
-    \begin{equation}\label{eq:rnn}
-      \overrightarrow{h_t}=f(\overrightarrow{x_t},\overrightarrow{h_{t-1}})
-    \end{equation}
-  \end{frame}
+  \begin{equation}\label{eq:rnn}
+    \overrightarrow{h_t}=f(\overrightarrow{x_t},\overrightarrow{h_{t-1}})
+  \end{equation}
+\end{frame}
 
-  \begin{frame}{\insertsection}{LSTMs}
-    \includesvg[width=\columnwidth,pretex=\scriptsize]{lstm/lstmCell}
-  \end{frame}
+\begin{frame}{\insertsection}{LSTMs}
+  \includesvg[width=\columnwidth,pretex=\scriptsize]{lstm/lstmCell}
+\end{frame}
 
-  \begin{frame}{\insertsection}{GRUs}
-    \includesvg[width=\columnwidth,pretex=\scriptsize]{gru/encoderCell}
-  \end{frame}
+\begin{frame}{\insertsection}{GRUs}
+  \includesvg[width=\columnwidth,pretex=\scriptsize]{gru/encoderCell}
+\end{frame}
 
-  \begin{frame}{\insertsection}{Memristors}
-    \begin{columns}
-      \column{.65\textwidth}
-      \includesvg[width=\columnwidth,pretex=\tiny]{memristor/memristor}
-      \column{.4\textwidth}
-      \begin{itemize}
-        \item Recent electical component
-        \item Variable resistance
-      \end{itemize}
-    \end{columns}
-  \end{frame}
-
-
-  \section{The circuits}
-  \subsection{Activation functions}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{columns}
-      \column{.7\textwidth}
-      \includesvg[width=\columnwidth,pretex=\scriptsize]{activation/afCircuit}
-      \column{.4\textwidth}
-      \begin{itemize}
-        \item Creates analog activation functions
-        \item Is used for both tanh and sigmoid activation functions
-      \end{itemize}
-    \end{columns}
-  \end{frame}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{center}
-      \includesvg[width=0.75\columnwidth,pretex=\tiny]{activation/afGraph}
-    \end{center}
-  \end{frame}
-
-  \subsection{Memory cell}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{columns}
-      \column{.65\textwidth}
-      \includesvg[width=\columnwidth,pretex=\tiny]{memcell/memCircuit}
-      \column{.4\textwidth}
-      \begin{itemize}
-        \item Stores analog value
-        \item Has two CMOS switches to avoid leakage
-      \end{itemize}
-    \end{columns}
-  \end{frame}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{center}
-      \includesvg[width=.75\columnwidth,pretex=\tiny]{memcell/data-loss}
-    \end{center}
-  \end{frame}
-
-  \subsection{Crossbar circuit}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{columns}
-      \column{.4\textwidth}
-      \begin{itemize}
-        \item Performs analog VMM
-        \item Can be parallel or serialized
-      \end{itemize}
-      \column{.65\textwidth}
-      \includesvg[width=\columnwidth, pretex=\tiny]{crossbar/crossbarUse}
-    \end{columns}
-  \end{frame}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \includesvg[width=\columnwidth, pretex=\tiny]{crossbar/doubleMem}
-    \begin{equation}
-      \label{eq:doubleMem2}
-      y_0=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
-    \end{equation}
-  \end{frame}
-
-  \subsection{LSTM circuit}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{center}
-      \includesvg[width=1\columnwidth,pretex=\fontsize{4}{5}\selectfont]{lstm/lstmCircuit}
-    \end{center}
-  \end{frame}
-
-
-  \section{The tools}
-  \subsection{Weight generation}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    The weights are trained :
-    \hfill\includegraphics[width = 4cm]{tensorflowKeras.jpg}
+\begin{frame}{\insertsection}{Memristors}
+  \begin{columns}
+    \column{.65\textwidth}
+    \includesvg[width=\columnwidth,pretex=\tiny]{memristor/memristor}
+    \column{.4\textwidth}
     \begin{itemize}
-      \item Using Keras framework implemented in tensorflow python module
-      \item In software and exported to a file
-      \item Using the analog activation functions
+      \item Recent electical component
+      \item Variable resistance
     \end{itemize}
-  \end{frame}
+  \end{columns}
+\end{frame}
 
-  \subsection{Netlist generation}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    I created a script capable of generating modular netlist. It can take in :
+
+\section{The circuits}
+\subsection{Activation functions}
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{columns}
+    \column{.7\textwidth}
+    \includesvg[width=\columnwidth,pretex=\scriptsize]{activation/afCircuit}
+    \column{.4\textwidth}
     \begin{itemize}
-      \item Any number of time steps
-      \item Any number of inputs
-      \item Any serial size
-      \item Dense layers
-      \item LSTM layers
-      \item GRU layers
+      \item Creates analog activation functions
+      \item Is used for both tanh and sigmoid activation functions
     \end{itemize}
-  \end{frame}
+  \end{columns}
+\end{frame}
 
-  \section{The datasets}
-  \subsection{Airline}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    The airline dataset contains the monthly number of passengers on international airlines from 1949 to 1960.
-    \includesvg[width=\columnwidth,pretex=\tiny]{datasets/airline}
-  \end{frame}
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=0.75\columnwidth,pretex=\tiny]{activation/afGraph}
+  \end{center}
+\end{frame}
 
-  \subsection{C. elegans}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{columns}
-      \column{.35\textwidth}
-      This dataset is more specific :
-      \begin{itemize}
-        \item It has has 4 inputs
-        \item Across 1000 time steps
-        \item Contains 40 sequences
-      \end{itemize}
-      \column{.7\textwidth}
-      \includesvg[width=.95\columnwidth,pretex=\tiny]{datasets/celegans/ioValid0}
-    \end{columns}
-  \end{frame}
+\subsection{Memory cell}
 
-  \section{Results}
-  \subsection{Airline}
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{columns}
-      \column{.68\textwidth}
-      \includesvg[width=\columnwidth,pretex=\tiny]{results/airline/analog}
-      \column{.37\textwidth}
-      \begin{itemize}
-        \item Better results for $n_s=1$
-        \item Very promising looking
-      \end{itemize}
-    \end{columns}
-  \end{frame}
-
-  \subsection{C. elegans}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{center}
-      \includesvg[width=0.8\columnwidth,pretex=\tiny]{results/celegans/out5}
-    \end{center}
-  \end{frame}
-
-  \begin{frame}{\insertsection}{\insertsubsection}
-    \begin{center}
-      \includesvg[width=\columnwidth,pretex=\tiny]{results/celegans/smooth5}
-    \end{center}
-  \end{frame}
-
-  \section{Conclusion}
-
-  \begin{frame}{\insertsection}
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{columns}
+    \column{.65\textwidth}
+    \includesvg[width=\columnwidth,pretex=\tiny]{memcell/memCircuit}
+    \column{.4\textwidth}
     \begin{itemize}
-      \item Decent results
-      \item Very quick results
-      \item Instability when dealing with large amount of time steps
+      \item Stores analog value
+      \item Has two CMOS switches to avoid leakage
     \end{itemize}
-  \end{frame}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=.75\columnwidth,pretex=\tiny]{memcell/data-loss}
+  \end{center}
+\end{frame}
+
+\subsection{Crossbar circuit}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{columns}
+    \column{.4\textwidth}
+    \begin{itemize}
+      \item Performs analog VMM
+      \item Can be parallel or serialized
+    \end{itemize}
+    \column{.65\textwidth}
+    \includesvg[width=\columnwidth, pretex=\tiny]{crossbar/crossbarUse}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \includesvg[width=\columnwidth, pretex=\tiny]{crossbar/doubleMem}
+  \begin{equation}
+    \label{eq:doubleMem2}
+    y_0=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
+  \end{equation}
+\end{frame}
+
+\subsection{LSTM circuit}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=1\columnwidth,pretex=\fontsize{4}{5}\selectfont]{lstm/lstmCircuit}
+  \end{center}
+\end{frame}
+
+
+\section{The tools}
+\subsection{Weight generation}
+\begin{frame}{\insertsection}{\insertsubsection}
+  The weights are trained :
+  \hfill\includegraphics[width = 4cm]{tensorflowKeras.jpg}
+  \begin{itemize}
+    \item Using Keras framework implemented in tensorflow python module
+    \item In software and exported to a file
+    \item Using the analog activation functions
+  \end{itemize}
+\end{frame}
+
+\subsection{Netlist generation}
+\begin{frame}{\insertsection}{\insertsubsection}
+  I created a script capable of generating modular netlist. It can take in :
+  \begin{itemize}
+    \item Any number of time steps
+    \item Any number of inputs
+    \item Any serial size
+    \item Dense layers
+    \item LSTM layers
+    \item GRU layers
+  \end{itemize}
+\end{frame}
+
+\section{The datasets}
+\subsection{Airline}
+\begin{frame}{\insertsection}{\insertsubsection}
+  The airline dataset contains the monthly number of passengers on international airlines from 1949 to 1960.
+  \includesvg[width=\columnwidth,pretex=\tiny]{datasets/airline}
+\end{frame}
+
+\subsection{C. elegans}
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{columns}
+    \column{.35\textwidth}
+    This dataset is more specific :
+    \begin{itemize}
+      \item It has has 4 inputs
+      \item Across 1000 time steps
+      \item Contains 40 sequences
+    \end{itemize}
+    \column{.7\textwidth}
+    \includesvg[width=.95\columnwidth,pretex=\tiny]{datasets/celegans/ioValid0}
+  \end{columns}
+\end{frame}
+
+\section{Results}
+\subsection{Airline}
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{columns}
+    \column{.68\textwidth}
+    \includesvg[width=\columnwidth,pretex=\tiny]{results/airline/analog}
+    \column{.37\textwidth}
+    \begin{itemize}
+      \item Better results for $n_s=1$
+      \item Very promising looking
+    \end{itemize}
+  \end{columns}
+\end{frame}
+
+\subsection{C. elegans}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=0.8\columnwidth,pretex=\tiny]{results/celegans/out5}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\insertsection}{\insertsubsection}
+  \begin{center}
+    \includesvg[width=\columnwidth,pretex=\tiny]{results/celegans/smooth5}
+  \end{center}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{\insertsection}
+  \begin{itemize}
+    \item Decent results
+    \item Very quick results
+    \item Instability when dealing with large amount of time steps
+  \end{itemize}
+\end{frame}
 
 \end{document}
