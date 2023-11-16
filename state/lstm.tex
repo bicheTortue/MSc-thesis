@@ -26,13 +26,13 @@ The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and output (\cref{eq:ou
 
 
 \begin{equation}\label{eq:inputG}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
 \end{equation}
 \begin{equation}\label{eq:forgetG}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
 \end{equation}
 \begin{equation}\label{eq:outputG}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
 \end{equation}
 
 Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$) and ($w_o$,$\overrightarrow{b_o}$) are the pair of weights matrixes and bias vectors for the input, forget and output gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
@@ -40,7 +40,7 @@ Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$) and ($w_o$,
 The next equation describes the candidate cell state (\cref{eq:candCell}), that will next be used to compute the cell state (\cref{eq:cellS}).
 
 \begin{equation}\label{eq:candCell}
-  \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
+  \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
 \end{equation}
 \begin{equation}\label{eq:cellS}
   \overrightarrow{c_t}=\overrightarrow{f_t}\odot \overrightarrow{c_{t-1}} + \overrightarrow{i_t} \odot \overrightarrow{\tilde{c}_t}
@@ -75,13 +75,13 @@ The difference between them varies from one to the other, some of them are detai
 This variant of the \ac{LSTM} was originally the only \ac{LSTM} network, hence its name. It differs from the classic \ac{LSTM} with its use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by the following equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
 \end{equation}
 \begin{equation}\label{eq:forgetGVanilla}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f}+\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f}+\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
 \end{equation}
 \begin{equation}\label{eq:ouputGVanilla}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o}+\overrightarrow{c_{t}}\odot \overrightarrow{p_o})
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o}+\overrightarrow{c_{t}}\odot \overrightarrow{p_o})
 \end{equation}
 
 With $\overrightarrow{p_f}$, $\overrightarrow{p_i}$ and $\overrightarrow{p_o}$ being the peephole weights vectors. Their size is the same as the size of the hidden state vector ($\overrightarrow{h_t}$). $\odot$ is the pointwise multiplication operator.
@@ -92,13 +92,13 @@ The equations that have not been rewritten simply stay the same.
 This variant of the \ac{LSTM} is the most complex of all. This is due to the amount of feedback connections. This is basically a more complex version of the Vanilla \ac{LSTM}. The modified equations are :
 
 \begin{equation}\label{eq:inputGFGR}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i  + \overrightarrow{i_{t-1}}\cdot R_{ii} + \overrightarrow{f_{t-1}}\cdot R_{if} + \overrightarrow{o_{t-1}}\cdot R_{io} + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
+  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i  + \overrightarrow{i_{t-1}}\cdot R_{ii} + \overrightarrow{f_{t-1}}\cdot R_{if} + \overrightarrow{o_{t-1}}\cdot R_{io} + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
 \end{equation}
 \begin{equation}\label{eq:forgetGFGR}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f  + \overrightarrow{i_{t-1}}\cdot R_{fi} + \overrightarrow{f_{t-1}}\cdot R_{ff} + \overrightarrow{o_{t-1}}\cdot R_{fo} + \overrightarrow{b_f} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
+  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_f  + \overrightarrow{i_{t-1}}\cdot R_{fi} + \overrightarrow{f_{t-1}}\cdot R_{ff} + \overrightarrow{o_{t-1}}\cdot R_{fo} + \overrightarrow{b_f} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
 \end{equation}
 \begin{equation}\label{eq:ouputGFGR}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{i_{t-1}}\cdot R_{oi} + \overrightarrow{f_{t-1}}\cdot R_{of} + \overrightarrow{o_{t-1}}\cdot R_{oo} + \overrightarrow{b_o} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_o})
+  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{i_{t-1}}\cdot R_{oi} + \overrightarrow{f_{t-1}}\cdot R_{of} + \overrightarrow{o_{t-1}}\cdot R_{oo} + \overrightarrow{b_o} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_o})
 \end{equation}
 
 With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrixes.
