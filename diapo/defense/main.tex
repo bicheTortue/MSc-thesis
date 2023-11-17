@@ -22,8 +22,8 @@
     \newcommand {\Supervisor} {
       {Dr. Diogo Caetano} and {Dr. Ruxandra Barbulescu}}
     \newcommand {\CommitteeMembers} {
-      {Prof./Dr. Lorem Ipsum}}
-    \newcommand {\Chairperson} {{Prof./Dr. Lorem Ipsum}}
+      {Prof. Paulo Flores}}
+    \newcommand {\Chairperson} {{Prof. Teresa de Almeida}}
     \author[V. BARBAZA]{{Valentin BARBAZA}}
 
     \date{17 november 2023}
@@ -114,15 +114,19 @@
     \subsection{LSTMs}
 
     \begin{frame}{\insertsection}{\insertsubsection}
+      \includesvg[width=\columnwidth,pretex=\scriptsize]{lstm/lstmCell}
+    \end{frame}
+
+    \begin{frame}{\insertsection}{\insertsubsection}
       \begin{columns}
         \column{.4\textwidth}
-        LSTMs are a RNN :
         \begin{itemize}
-          \item Solution to vanishing gradient problem
-          \item Has another value passed.
+          \item<1-> Sigmoid and a VMM
+          \item<2-> tanh and a VMM
+          \item<3-> Pointwise multiplications
         \end{itemize}
         \column{.6\textwidth}
-        \begin{equation*}\label{eq:inputG}
+        \only<1->{\begin{equation*}\label{eq:inputG}
           \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
         \end{equation*}
         \begin{equation*}\label{eq:forgetG}
@@ -130,22 +134,20 @@
         \end{equation*}
         \begin{equation*}\label{eq:outputG}
           \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
-        \end{equation*}
-        \begin{equation*}\label{eq:candCell}
+        \end{equation*}}
+        \only<2->{\begin{equation*}\label{eq:candCell}
           \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
-        \end{equation*}
-        \begin{equation*}\label{eq:cellS}
+        \end{equation*}}
+        \only<3->{\begin{equation*}\label{eq:cellS}
           \overrightarrow{c_t}=\overrightarrow{f_t}\odot \overrightarrow{c_{t-1}} + \overrightarrow{i_t} \odot \overrightarrow{\tilde{c}_t}
         \end{equation*}
         \begin{equation*}\label{eq:hiddenS}
           \overrightarrow{h_t}=\overrightarrow{o_t}\odot tanh(\overrightarrow{c_t})
         \end{equation*}
+        }
       \end{columns}
     \end{frame}
 
-    \begin{frame}{\insertsection}{\insertsubsection}
-      \includesvg[width=\columnwidth,pretex=\scriptsize]{lstm/lstmCell}
-    \end{frame}
 
     \begin{frame}{\insertsection}{Memristors}
       \begin{columns}
@@ -280,18 +282,51 @@
     \subsection{Airline}
 
     \begin{frame}{\insertsection}{\insertsubsection}
-      The airline dataset contains the monthly number of passengers on international airlines from 1949 to 1960.
-      \includesvg[width=\columnwidth,pretex=\tiny]{datasets/airline}
+      \only{The airline problem is a forecasting problem using the monthly number of passengers on international airlines from 1949 to 1960.}
+
+      \begin{tikzpicture}
+        \node[anchor = south west, inner sep = 0] (image) {\includesvg[width=\columnwidth,pretex=\tiny]{datasets/airline}};
+        \begin{scope}[shift={(image.south west)},x={(image.south east)},y={(image.north west)}]
+          \filldraw<2>[black,opacity=0.9,even odd rule,rounded corners] {(0.68,0.93) rectangle (0.99,0.1)};
+        \end{scope}
+
+      \end{tikzpicture}
+
     \end{frame}
+
     \begin{frame}{\insertsection}{\insertsubsection}
       \begin{columns}
-        \column{.68\textwidth}
+        \column{.7\textwidth}
+        \includesvg[width=\columnwidth,pretex=\tiny]{results/airline/digital}
+        \column{.3\textwidth}
+
+        RMSE : 52.3 thousands passengers
+      \end{columns}
+    \end{frame}
+
+    \begin{frame}{\insertsection}{\insertsubsection}
+      \begin{columns}
+        \column{.66\textwidth}
         \includesvg[width=\columnwidth,pretex=\tiny]{results/airline/analog}
-        \column{.37\textwidth}
-        \begin{itemize}
-          \item LSTM with four hidden states ($n_h=4$)
-          \item Better results for $n_s=1$
-        \end{itemize}
+        \column{.4\textwidth}
+        \scriptsize
+        \begin{tabular}{|c|c|c|}
+          \hline
+          Predictions & RMSE & Inference\\
+          & & time\\
+          \hline
+          Analog & & \\
+          ($n_s=1$) & 28.4 & $\approx 2.4 ms$\\
+          \hline
+          Analog & & \\
+          ($n_s=2$) & 92.6 & $\approx 4.7 ms$\\
+          \hline
+          Analog & & \\
+          ($n_s=4$) & 68.5 & $\approx 9.2 ms$\\
+          \hline
+          Digital & 0 & $\approx 5 s$\\
+          \hline
+        \end{tabular}
       \end{columns}
     \end{frame}
 
@@ -299,11 +334,12 @@
     \begin{frame}{\insertsection}{\insertsubsection}
       \begin{columns}
         \column{.35\textwidth}
-        This dataset is more specific :
+        \includegraphics[height=15mm]{celegansPic.jpg}
+        Regression problem with :
         \begin{itemize}
-          \item It has has 4 inputs
-          \item Across 1000 time steps
-          \item Contains 40 sequences
+          \item 4 inputs
+          \item 1000 time steps
+          \item 40 sequences
         \end{itemize}
         \column{.7\textwidth}
         \includesvg[width=.95\columnwidth,pretex=\tiny]{datasets/celegans/ioValid0}
@@ -322,17 +358,42 @@
     \end{frame}
 
     \begin{frame}{\insertsection}{\insertsubsection}
-      \begin{center}
-        \includesvg[width=.8\columnwidth,pretex=\tiny]{results/celegans/smooth5VB1}
-      \end{center}
+      \begin{columns}
+        \column{.3\textwidth}
+        \scriptsize
+        RMSEs are :
+        \begin{itemize}
+          \item $0.073$ from analog to digital
+          \item $0.066$ from analog to target
+          \item $0.051$ from digital to target
+        \end{itemize}
+        Inference times are :
+        \begin{itemize}
+          \item $\approx 35s$ for digital
+          \item $\approx 2.6s$ for analog
+        \end{itemize}
+        \column{.8\textwidth}
+        \includesvg[width=\columnwidth,pretex=\tiny]{results/celegans/smooth5VB1}
+      \end{columns}
     \end{frame}
 
     \section{Conclusion}
 
     \begin{frame}{\insertsection}
       \begin{itemize}
-        \item Decent results
-        \item Very quick results
+        \item Full LSTM circuit simulation
+        \item Verilog-A memristor model implementation
+        \item Script that can generate modular netlists
+        \item Ability to serialize or not the circuit
+        \item Implementation of analog activation functions
+        \item Experimental GRU capable circuit
+      \end{itemize}
+    \end{frame}
+
+    \begin{frame}{\insertsection}
+      \begin{itemize}
+        \item Good results when running the circuit
+        \item Significantly faster results
         \item Instability when dealing with large amount of time steps
       \end{itemize}
     \end{frame}
