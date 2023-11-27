@@ -38,13 +38,13 @@ LSTMs are a type of RNN used to solve the vanishing gradiant problem \cite{first
 The LSTM contains four activated gates, that each serve its own purpose. The input gate \cref{eq:inputG} controls whether the cell state is updated, the forget gate \cref{eq:forgetG} that determines how the current cell state is affected by the old cell state, the output gate \cref{eq:outputG} that controls how much the hidden state is affected by the cell state. The candidate cell state gate \cref{eq:candCell} computes the change in the future cell state.
 
 \begin{equation}\label{eq:inputG}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
+  \overrightarrow{i_t}= G ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
 \end{equation}
 \begin{equation}\label{eq:forgetG}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
+  \overrightarrow{f_t}= G ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
 \end{equation}
 \begin{equation}\label{eq:outputG}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
+  \overrightarrow{o_t}= G ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
 \end{equation}
 \begin{equation}\label{eq:candCell}
   \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
@@ -83,10 +83,10 @@ There are two versions of the \ac{GRU}, both are found on the internet, they are
 It contains an update gate \cref{eq:updateG}, a reset gate \cref{eq:resetG}, a candidate activation gate \cref{eq:candActivG}. The hidden state is then computed \cref{eq:gruHidG} using the previous results.
 
 \begin{equation}\label{eq:updateG}
-  \overrightarrow{z_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_z + \overrightarrow{b_z})
+  \overrightarrow{z_t}= G ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_z + \overrightarrow{b_z})
 \end{equation}
 \begin{equation}\label{eq:resetG}
-  \overrightarrow{r_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_r + \overrightarrow{b_r})
+  \overrightarrow{r_t}= G ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_r + \overrightarrow{b_r})
 \end{equation}
 \begin{equation}\label{eq:candActivG}
   \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
@@ -159,16 +159,16 @@ The circuit uses physical properties of electrical systems to perform analog com
 A voltage is applied on the $i^{th}$ line, and because every column is virtually grounded, the voltage applied to the memristor, with resistance $R_i$, is $V_i$. By applying Ohm's law, we know that the current flowing into the memristor ($I_{i}$) is bound by the following equation :
 
 \begin{equation}
-  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R_i})= V_i\cdot\sigma_i
+  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R_i})= V_i\cdot G_i
 \end{equation}
-With $\sigma_i$ being the conductance of memristor, defined as $\sigma_i=\frac{1}{R_i}$.
+With $ G_i$ being the conductance of memristor, defined as $ G_i=\frac{1}{R_i}$.
 
 This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
 \begin{equation}
-  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot\sigma_i
+  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot G_i
 \end{equation}
 Unfolding the equations will give the current at the bottom of the column, for example, the current at the bottom of the first column in \cref{fig:crossbar} is :
 \begin{equation}
-  I_1=\sigma_1\cdot V_1 + \sigma_2\cdot V_2 + \sigma_3\cdot V_3
+  I_1= G_1\cdot V_1 +  G_2\cdot V_2 +  G_3\cdot V_3
 \end{equation}
-With $\sigma_1$, $\sigma_2$ and $\sigma_3$ being the conductance of the 3 memristors in the first column.
+With $ G_1$, $ G_2$ and $ G_3$ being the conductance of the 3 memristors in the first column.
