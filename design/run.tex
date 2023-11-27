@@ -2,6 +2,6 @@
 
 The simulation is ran using \textbf{Cadence}'s \textit{Virtuoso} simulator, using a parametric simulation to simulate all the inputs. The use of the parametric simulation allows to change the values for the data we want to use as input.
 
-In order to run the simulation some variables need to be set. The time step ($T$) value was chosen to be $T=8\mu s$, the pause between two \ac{LSTM} steps is set to be $\frac{T}{8}=1\mu s$. The value for the maximum and minimum resistances value of the memristor used ($R_{max}$ and $R_{min}$, respectively) are set to be in acordance with the \textbf{KNOWN}'s memristors. The resistance values used for the simulation are thus $R_{max}=10^6 \Omega=1M\Omega$ and $R_{min}=10^4 \Omega = 10k\Omega$.
+In order to run the simulation some variables need to be set. The time step ($T$) value was chosen to be $T=8\mu s$, the pause between two \ac{LSTM} steps is set to be $\frac{T}{8}=1\mu s$. The value for the maximum and minimum resistances value of the memristor used ($R_{max}$ and $R_{min}$, respectively) are set to be in acordance with the \textbf{KNOWM}\textregistered{}'s memristors \cite{Knowm}. The resistance values used for the simulation are thus $R_{max}=10^6 \Omega=1M\Omega$ and $R_{min}=10^4 \Omega = 10k\Omega$.
 
 Once everything is set, the simulation can be started. The result are recorded by looking at the output net when at the time of output activation. The name of the output nets is outputed by the netlist generator script (\cref{sec:netlist}).

@@ -24,19 +24,19 @@ It uses physical properties of electrical systems to perform analog computing. I
 First of all, a voltage is applied on the $i^{th}$ line, because every column is virtually grounded, the voltage applied to the memristor, of a set resistance $R_i$, is $V_i$. As such and using Ohm's law, we know that the current flowing into the memristor ($I_{i}$) is bound by the following equation :
 
 \begin{equation}
-  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R})= V_i\cdot\sigma_i
+  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R})= V_i\cdot G_i
 \end{equation}
-With $\sigma_i$ being the conductance of memristor, defined as $\sigma_i=\frac{1}{R_i}$.
+With $G_i$ being the conductance of memristor, defined as $ G_i=\frac{1}{R_i}$.
 
 This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
 \begin{equation}
-  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot\sigma_i
+  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot G_i
 \end{equation}
 By applying this process to the whole system we find that the current at the bottom of one column is :
 \begin{equation}
-  I_1=\sigma_1\cdot V_1 + \sigma_2\cdot V_2 + \sigma_3\cdot V_3
+  I_1= G_1\cdot V_1 +  G_2\cdot V_2 +  G_3\cdot V_3
 \end{equation}
-With $\sigma_1$, $\sigma_2$ and $\sigma_3$ being the conductance of the 3 memristors in the first column.
+With $G_1$, $G_2$ and $G_3$ being the conductance of the 3 memristors in the first column.
 
 Using such an analog circuit is a huge gain in time, for two main reasons :
 

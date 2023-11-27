@@ -25,7 +25,7 @@ The enable flags ($e_j,\forall j\in[\![ 0,n_s]\!]$ and similarly $\overline{e_j}
 
 We could choose between one or two memristor per synapse. Using two memristor per synapse doubles the area but doubles the weight range (\cref{tab:synapses}) and allows to easily use negavite weights. The output voltage will be centered around $V_{cm}$ and be compliant with the standard set in \cref{tab:valConv}.
 
-This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means its conductance range is $\sigma \in [\sigma_{min},\sigma_{max}]$ (with $\sigma_{min}= \frac{1}{R_{max}}$ and $\sigma_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
+This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means its conductance range is $ G \in [ G_{min}, G_{max}]$ (with $ G_{min}= \frac{1}{R_{max}}$ and $ G_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
 
 \begin{figure}[H]
   \centering
@@ -48,9 +48,9 @@ For the sake of simplicity, the following equations considers the ground to be $
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem2}
-  V_{opAmp_1}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n(\sigma_{k+}-\sigma_{k-})\cdot x_k
+  V_{opAmp_1}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n( G_{k+}- G_{k-})\cdot x_k
 \end{equation}
-With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdot x_k$.
+With $i_+=\sum_{k=0}^n G_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n G_{k-}\cdot x_k$.
 
 
 \begin{table}[H]
@@ -60,11 +60,11 @@ With $i_+=\sum_{k=0}^n\sigma_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n\sigma_{k-}\cdo
     \rowcolor{gray}
     \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}} & Two memristors per synapse & One memristor per synapse \\
     \hline
-    Maximum weight & $\sigma_{max}-\sigma_{min}$ & $\sigma_{max} -\overline{\sigma}$\\
+    Maximum weight & $ G_{max}- G_{min}$ & $ G_{max} -\overline{ G}$\\
     \hline
-    Minimum weight & $\sigma_{min}-\sigma_{max}$ & $\sigma_{min} -\overline{\sigma}$\\
+    Minimum weight & $ G_{min}- G_{max}$ & $ G_{min} -\overline{ G}$\\
     \hline
-    Range & $2\cdot(\sigma_{max}-\sigma_{min})$&$\sigma_{max}-\sigma_{min}$\\
+    Range & $2\cdot( G_{max}- G_{min})$&$ G_{max}- G_{min}$\\
     \hline
   \end{tabular}
   \caption{Synaptic weights precision (extracted from \cite{doubleMem})}

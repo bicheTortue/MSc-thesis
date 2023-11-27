@@ -148,7 +148,7 @@
 \newcommand{\textreg}{$\textsuperscript{\textregistered}$}
 
 %Personnal Packages
-\usepackage[inkscapeformat=pdf]{svg}
+\usepackage{svg}
 %\usepackage{wrapfig}
 \usepackage{subcaption}
 \usepackage{tikz}
@@ -178,13 +178,13 @@
   showstringspaces=false,
   showtabs=false,
   tabsize=2
-  }
-  }
-  %Change defaults for cleveref
-  \crefname{figure}{figure}{figures}
-  \Crefname{figure}{Figure}{Figures}
-  \crefname{equation}{equation}{equations}
-  \Crefname{equation}{Equation}{Equations}
+}
+}
+%Change defaults for cleveref
+\crefname{figure}{figure}{figures}
+\Crefname{figure}{Figure}{Figures}
+\crefname{equation}{equation}{equations}
+\Crefname{equation}{Equation}{Equations}
 
-  \newcommand{\specialcell}[2][c]{%
-    \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}

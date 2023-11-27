@@ -1,7 +1,7 @@
 \section{Netlist generation}
 \label{sec:netlist}
 
-In order to be able to run the simulation with different kinds of \ac{NN} architecture. The point of the part is thus to explain how the netlist generator tool works. The tool also work to generate any architecture with the supported layers (listed in the README.md of \cite{lstmGen}).
+In order to be able to run the simulation with different kinds of \ac{NN} architecture. The point of the part is thus to explain how the netlist generator tool works. The tool also work to generate any architecture with the supported layers (listed below).
 
 This is done by generating a SPICE netlist using a python script. A SPICE netlist was chosen because of \textbf{Cadence}'s \textit{Virtuoso} limitations. Indeed, Verilog netlists can be imported with a downside, component's parameters cannot be imported. This is very limiting for this thesis' use case (required to set the resistors' resistance and thus the weights). SPICE netlists can import parameters for the components and is open source and by such well documented. The generator script takes in a few parameters :
 
