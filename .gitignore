@@ -1,4 +1,8 @@
 *.aux
+*.sub
+*.suc
+*.syc
+*.sym
 *.toc
 *.blg
 *.bbl

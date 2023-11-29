@@ -14,15 +14,21 @@
 
 \pagestyle{begin}
 \input{0.Intro/cover.tex}
-\input{0.Intro/citation.tex}
 \input{0.Intro/declaration.tex}
+\input{0.Intro/citation.tex}
+\pagenumbering{roman}
 \input{0.Intro/acknowledgments.tex}
 \input{0.Intro/abstract.tex}
 \input{0.Intro/keywords.tex}
+\input{0.Intro/resumo.tex}
+\input{0.Intro/palavrasChave.tex}
 \input{0.Intro/tables.tex}
 \acresetall
 \input{0.Intro/acronim.tex}
 \input{0.Intro/symbols.tex}
+% Pages number is starting now with arabic style... until now it was on roman mode
+\pagenumbering{arabic} \setcounter{page}{1}
+\baselineskip 18pt
 %\pagestyle{document}%Fancy head and foot with lines
 \pagestyle{documentsimple}%Simple head
 \input{introduction/main.tex}
@@ -36,8 +42,9 @@
 \bibliographystyle{IEEEtran}
 \bibliography{definitions/biblio}
 \cleardoublepage
+test \symE \symm
 
-\pagenumbering{bychapter}
+%\pagenumbering{bychapter}
 \begin{appendices}
   \input{appendices/circuits.tex}
   \input{appendices/codes.tex}

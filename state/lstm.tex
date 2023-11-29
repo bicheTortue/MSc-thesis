@@ -1,4 +1,4 @@
-\section{\acs{LSTM}}\label{sec:lstm}
+\section{\acl{LSTM}}\label{sec:lstm}
 \acfp{LSTM} are a type of \ac{RNN} used to analyze sequences of data. They are capable of predicting data based on previous data points.
 
 The first \ac{LSTM} was invented in 1997 by Hochreiter and Schmidhuber \cite{firstLSTM}. \acp{LSTM} changed a lot through the years to become what they are now \cite{improvLSTM}.
@@ -71,7 +71,7 @@ Using \ac{LSTM} can be a bit tricky. Due to its sequential nature, it takes seve
 \acp{LSTM} come in a few different flavors of implementations. Usually, when \acp{LSTM} are mentionned, the version used is the \ac{NP} version. This is the most common version as those are the equations described on the wikipedia page \cite{wikiLSTM} and used in libraries like Keras \cite{Keras} or PyTorch \cite{PyTorch}. In fact, there are at least 8 other variations of \acp{LSTM} \cite{nbLSTM}.
 The difference between them varies from one to the other, some of them are detailled next.
 
-\subsubsection{Vanilla \ac{LSTM}}
+\subsubsection{Vanilla \acs{LSTM}}
 This variant of the \ac{LSTM} was originally the only \ac{LSTM} network, hence its name. It differs from the classic \ac{LSTM} with its use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by the following equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
@@ -88,8 +88,8 @@ With $\overrightarrow{p_f}$, $\overrightarrow{p_i}$ and $\overrightarrow{p_o}$ b
 
 The equations that have not been rewritten simply stay the same.
 
-\subsubsection{\acf{FGR} \ac{LSTM}}
-This variant of the \ac{LSTM} is the most complex of all. This is due to the amount of feedback connections. This is basically a more complex version of the Vanilla \ac{LSTM}. The modified equations are :
+\subsubsection{\acl{FGR} \ac{LSTM}}
+The \ac{FGR} \ac{LSTM} is one of the most complex variant of the \ac{LSTM}. This is due to the amount of feedback connections. This is basically a more complex version of the Vanilla \ac{LSTM}. The modified equations are :
 
 \begin{equation}\label{eq:inputGFGR}
   \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i  + \overrightarrow{i_{t-1}}\cdot R_{ii} + \overrightarrow{f_{t-1}}\cdot R_{if} + \overrightarrow{o_{t-1}}\cdot R_{io} + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})

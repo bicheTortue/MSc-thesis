@@ -1,5 +1,6 @@
-\fancychapter{Other circuits}
+\chapter{Circuits}
 \label{ap:circuit}
+\clearpage
 
 \section{Buffer}\label{apsec:buffer}
 
@@ -14,9 +15,9 @@ This is a classic circuit that only takes one \ac{opAmp} wired as \cref{circt:bu
 
 The input is $V_{in}$ and the output is $V_{out}$.
 
-\section{Summing inverter}\label{apsec:sumInv}
+\section{Linear combination of inputs}\label{apsec:sumInv}
 
-The summing amplifier in a very general circuit that is used in a plethera of different situations. A modulable circuit with a variable number of input ($n$) in available in \cref{circt:sumInv}.
+The linear combination of inputs is a very general circuit that is used in a plethera of different situations. A modulable circuit with a variable number of input ($n+1$) in available in \cref{circt:sumInv}.
 
 \begin{figure}[H]
   \centering
@@ -34,7 +35,7 @@ This circuit links the inputs and its output with \cref{eq:sumInv}.
 In this work itself it is used in at least three different use cases :
 
 \begin{itemize}
-  \item As a voltage inverter around $V_{cm}$, using a single input ($n=1$) and using $R_0=R$. This is used in \cref{sec:af}.
+  \item As a voltage mirror around $V_{cm}$, using a single input ($n=1$) and using $R_0=R$. This is used in \cref{sec:af}.
   \item As a inverting amplifier after a voltage multiplier (\cref{subsec:voltmult}). Using one input ($n=1$) and $R>R_0$. It can be found in \cref{sec:lstmCircuit,sec:gruCircuit}.
   \item It is also used as a summing inverter with amplification after a voltage multiplier. Using two inputs ($n=2$) and $R_0=R_1<R$ for the resistances. This is also found in the circuit in \cref{sec:lstmCircuit,sec:gruCircuit}.
 \end{itemize}

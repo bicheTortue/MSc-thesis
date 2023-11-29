@@ -1,5 +1,6 @@
-\fancychapter{Formulas and functions}
+\chapter{Mathematical tools}
 \label{ap:other}
+\clearpage
 
 \section{Solving weight to resistance}\label{apsec:wei2res}
 
@@ -59,20 +60,20 @@ They are defined as \cref{eq:hSigmoid} for the hard sigmoid and \cref{eq:hTanh} 
 
 
 \begin{equation}\label{eq:hSigmoid}
-  \sigma (x) =
+  hard\sigma (x) =
   \begin{cases}
-    0& x< -2.5\\
-    \frac{x}{5}+\frac{1}{2}&  2.5>x>-2.5\\
-    1& x> 2.5\\
+    0,& x< -2.5\\
+    \frac{x}{5}+\frac{1}{2},&  2.5>x>-2.5\\
+    1,& x> 2.5\\
   \end{cases}
 \end{equation}
 
 \begin{equation}\label{eq:hTanh}
-  tanh(x) =
+  hardtanh(x) =
   \begin{cases}
-    -1& x<-1\\
-    x& 1>x>-1\\
-    1& x>1\\
+    -1,& x<-1\\
+    x,& 1>x>-1\\
+    1,& x>1\\
   \end{cases}
 \end{equation}
 
