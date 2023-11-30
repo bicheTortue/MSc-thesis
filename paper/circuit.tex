@@ -1,9 +1,9 @@
 \section{Circuits}
 
-The system will be working with a $V_{dd}$ of $1.8V$. Such a value was chosen because this is a low power system.
+The system will be working with a $\symv_{dd}$ of $1.8V$. Such a value was chosen because this is a low power system.
 
 The way values are encoded in the analog system will be descibed here as it serves for the entire thesis.
-In order for the system to support negative numbers we're going to use a $V_{cm}$ set to $\frac{V_{dd}}{2}$. That means that $V_{cm}=\frac{V_{dd}}{2}=0.9V$. This $V_{cm}$ will then describe a zero. A step of one was chosen to be $0.1V$ in the analog circuit.
+In order for the system to support negative numbers we're going to use a $\symv_{cm}$ set to $\frac{\symv_{dd}}{2}$. That means that $\symv_{cm}=\frac{\symv_{dd}}{2}=0.9V$. This $\symv_{cm}$ will then describe a zero. A step of one was chosen to be $0.1V$ in the analog circuit.
 \Cref{tab:valConv} shows the conversions from a real number to its voltage equivalent.
 
 \begin{table}[b]
@@ -18,14 +18,14 @@ In order for the system to support negative numbers we're going to use a $V_{cm}
     \hline
     $1$ & $1.0V$ \\
     \hline
-    $x$ & $V(x)=\frac{x}{10}+V_{cm}$\\
+    $x$ & $\symv(x)=\frac{x}{10}+\sym_{cm}$\\
     \hline
-    $real(v)=(v-0.9)\cdot 10$ & $v$\\
+    $real(\symv)=(\symv-\symv_{cm})\cdot 10$ & $\symv$\\
     \hline
   \end{tabular}
 \end{table}
 
-Since the system cannot reach voltage outside of the operating range with the intended behavior, the voltage is then restricted to $V\in [0,1.8]$. This means that the range of real value that the systems can handle is $x\in [-9,9]$.
+Since the system cannot reach voltage outside of the operating range with the intended behavior, the voltage is then restricted to $\symv\in [0,1.8]$. This means that the range of real value that the systems can handle is $x\in [-9,9]$.
 
 \subsection{Activation functions}\label{subsec:af}
 
@@ -52,23 +52,23 @@ Due to the nature of the functions we want to generate, we will use the same cir
     \hline
     \textbf{Parameter} & \textbf{Sigmoid} & \textbf{\ac{tanh}} \\
     \hline
-    $V_1$ & \multicolumn{2}{c|}{$1.1V$}\\
+    $\symv_1$ & \multicolumn{2}{c|}{$1.1V$}\\
     \hline
-    $V_2$ & \multicolumn{2}{c|}{$635mV$}\\
+    $\symv_2$ & \multicolumn{2}{c|}{$635mV$}\\
     \hline
-    $V_3$ & $0.8V$ & $550mV$\\
+    $\symv_3$ & $0.8V$ & $550mV$\\
     \hline
-    $i_{dc}$ & \multicolumn{2}{c|}{$150uA$}\\
+    $\symi_{dc}$ & \multicolumn{2}{c|}{$150uA$}\\
     \hline
     $w$ & \multicolumn{2}{c|}{$900nm$}\\
     \hline
     $l$ & \multicolumn{2}{c|}{$60nm$}\\
     \hline
-    $R_1$ & \multicolumn{2}{c|}{$5k\Omega$}\\
+    $\symR_1$ & \multicolumn{2}{c|}{$5k\Omega$}\\
     \hline
-    $R_2$ & \multicolumn{2}{c|}{$10k\Omega$}\\
+    $\symR_2$ & \multicolumn{2}{c|}{$10k\Omega$}\\
     \hline
-    $R_3$ & $2k\Omega$ & $4k\Omega$\\
+    $\symR_3$ & $2k\Omega$ & $4k\Omega$\\
     \hline
   \end{tabular}
 \end{table}
@@ -150,9 +150,9 @@ The crossbar circuit theory has already been explained in the \cref{sec:state}. 
   \label{circt:xbar}
 \end{figure}
 
-In this work, the choice was made to use a two memristor per synapse architecture. Using two memristor per synapse doubles the area but doubles the weight range \cite{doubleMem} and allows to easily use negavite weights. The output voltage will be centered around $V_{cm}$ and be compliant with the standard set in \cref{tab:valConv}.
+In this work, the choice was made to use a two memristor per synapse architecture. Using two memristor per synapse doubles the area but doubles the weight range \cite{doubleMem} and allows to easily use negavite weights. The output voltage will be centered around $\symv_{cm}$ and be compliant with the standard set in \cref{tab:valConv}.
 
-This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means its conductance range is $ G \in [ G_{min}, G_{max}]$ (with $ G_{min}= \frac{1}{R_{max}}$ and $ G_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
+This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $\symR\in[\symR_{min},\symR_{max}]$, that means its conductance range is $ \symG \in [ \symG_{min}, \symG_{max}]$ (with $ \symG_{min}= \frac{1}{\symR_{max}}$ and $ \symG_{max}= \frac{1}{\symR_{min}}$). This design works using two \ac{opAmp} connected to $\symv_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
 
 \begin{figure}[t]
   \centering
@@ -161,26 +161,26 @@ This design is the one that is used in \cite{doubleMem}. Let's assume that a giv
   \label{circt:doubleMem}
 \end{figure}
 
-Using $x_k$ as the voltage for the input line $k$. The highest \ac{opAmp} is identified as $opAmp_0$ and the lowest $opAmp_1$.
+Using $\symv_k$ as the voltage for the input line $k$. The highest \ac{opAmp} is identified as $opAmp_0$ and the lowest $opAmp_1$.
 
-For the sake of simplicity, the following equations considers the ground to be $V_{cm}$.
+For the sake of simplicity, the following equations considers the ground to be $\symv_{cm}$.
 
 \begin{equation}
   \label{eq:doubleMem0}
-  V_{opAmp_0}=-R_r\cdot i_+
+  \symv_{opAmp_0}=-\symR_r\cdot \symi_+
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem1}
-  i_{R_f}=i_-+\frac{V_{opAmp_0}}{R_r}=i_--i_+
+  \symi_{\symR_f}=\symi_-+\frac{\symv_{opAmp_0}}{\symR_r}=\symi_--\symi_+
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem2}
   \begin{array}{2}
-    V_{opAmp_1}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)\\
-    =R_f\cdot\sum_{k=0}^n( G_{k+}- G_{k-})\cdot x_k
+    \symv_{opAmp_1}=\symv_{out}=-\symR_f\cdot(\symi_--\symi_+)=\symR_f\cdot(\symi_+-\symi_-)\\
+    =\symR_f\cdot\sum_{k=0}^n( \symG_{k+}- \symG_{k-})\cdot \symv_k
   \end{array}
 \end{equation}
-With $i_+=\sum_{k=0}^n G_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n G_{k-}\cdot x_k$.
+With $\symi_+=\sum_{k=0}^n \symG_{k+}\cdot \symv_k$ and $\symi_-=\sum_{k=0}^n \symG_{k-}\cdot \symv_k$.
 
 This circuit has the option to be serialized with varying degrees. The idea of serializing the circuit came from \cite{thesisRef}. Serializing the circuit reduces the number of components required and thus reduces the final onChip area. Serializing the system increases the time it takes to compute the output.
 
@@ -252,19 +252,19 @@ This component while far less popular than the latter, is just as useful for our
 In oder for the circuit to be compliant with the real value to voltage conversion (\cref{tab:valConv}), a multiplication needs to be as in \cref{eq:finalVoltMult}.
 
 \begin{equation}\label{eq:finalVoltMult}
-  V_{out}=10\cdot(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
+  \symv_{out}=10\cdot(\symv_{in_1}-\symv_{cm})\cdot (\symv_{in_2}-\symv_{cm}) + \symv_{cm}
 \end{equation}
 
 This is taken care of using in reality two parts, the actual voltage multiplier (\cref{eq:voltMult}) and a non inverting amplifier (\cref{eq:invAmp}).
 
 \begin{equation}\label{eq:voltMult}
-  V_{voltMult}=-(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
+  \symv_{voltMult}=-(\symv_{in_1}-\symv_{cm})\cdot (\symv_{in_2}-\symv_{cm}) + \symv_{cm}
 \end{equation}
 \begin{equation}\label{eq:invAmp}
-  V_{out}=-(V_{voltMult}-V_{cm})\cdot10+V_{cm}
+  \symv_{out}=-(\symv_{voltMult}-\symv_{cm})\cdot10+\symv_{cm}
 \end{equation}
 
-Where $V_{out}$ is the output voltage the inverting amplifier, $V_{voltMult}$ is the out voltage of the voltage multiplier itself and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
+Where $\symv_{out}$ is the output voltage the inverting amplifier, $\symv_{voltMult}$ is the out voltage of the voltage multiplier itself and $\symv_{in_1}$ and $\symv_{in_2}$ are the input voltages.
 
 The \cref{eq:voltMult} is assumed possible because of the actual voltage multiplier's datasheet available at \cite{actualVoltMult}.
 
@@ -301,7 +301,7 @@ The system is built using the crossbar array from \cref{subsec:xbarCircuit} with
   \item $e_{j,0}$ and $e_{j,1}$ are two enable flags that respectively represent the first and second half of $e_j$.
   \item $e_{in}$ and $e_{out}$ are the flags used to enable the hidden state values to go to the input (feedback connection) or to the output of the circuit.
   \item $e_{next}$ is the enable flag on in between two time steps.
-  \item $R_{amp0}$ and $R_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. Their value is set so that $\frac{R_{amp1}}{R_{amp0}}=10$.
+  \item $\symR_{amp0}$ and $\symR_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. Their value is set so that $\frac{\symR_{amp1}}{\symR_{amp0}}=10$.
 \end{itemize}
 
 The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_o$ (\cref{sym:xbar}). This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
@@ -329,8 +329,8 @@ The GRU equations requires to compute the function defined in \cref{eq:1minus0}.
 \end{equation}
 The solution found to do compute the operation consist of using an \ac{opAmp} as an inverter around $V_{inv}$, the formula is available in \cref{eq:1minus1}.
 \begin{equation}\label{eq:1minus1}
-  f_v(v)=-(v-V_{inv})+V_{inv}=2\cdot V_{inv} -v
+  f_v(\symv)=-(\symv-\symv_{inv})+\symv_{inv}=2\cdot \symv_{inv} -\symv
 \end{equation}
-With $V_{inv}=V_{cm}+0.05$.
+With $\symv_{inv}=\symv_{cm}+0.05$.
 
 The GRU circuit cannot be serialized. This is because the candidate hidden state requires a fully computed reset vector to be computed.

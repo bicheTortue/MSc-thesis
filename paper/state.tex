@@ -4,19 +4,19 @@
 
 RNNs are a family of neural networks that differentiate themselves by having feedback connections. It is often used with sequences of data \cite{rnn}, sometimes, with varying amount of input data. RNNs are used for handwriting recognition and language translation \cite{gru}.
 
-The feedback connection is caracterized by the hidden state vector ($\overrightarrow{h_t}$) which serves as the output and as part of the input for the next time step, a RNN is defined as \cref{eq:rnn}.
+The feedback connection is caracterized by the hidden state vector ($\symvh_t$) which serves as the output and as part of the input for the next time step, a RNN is defined as \cref{eq:rnn}.
 
 \begin{equation}\label{eq:rnn}
-  \overrightarrow{h_t}=f(\overrightarrow{x_t},\overrightarrow{h_{t-1}})
+  \symvh_t=f(\symvx_t,\symvh_{t-1})
 \end{equation}
 
 The simple version of the RNN is defined by \cref{eq:srnn}.
 
 \begin{equation}\label{eq:srnn}
-  \overrightarrow{h_t}=tanh([\overrightarrow{x_t},\overrightarrow{h_{t-1}}]\cdot w + \overrightarrow{b})
+  \symvh_t=tanh([\symvx_t,\symvh_{t-1}]\cdot \symmw + \symvb)
 \end{equation}
 
-Where ($w$,$\overrightarrow{b}$) are the pair of weights matrix and bias vectors. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
+Where (\symmw,\symvb) are the pair of weights matrix and bias vectors. $\symvx_t$ is the input vector and $\symvh_t$ is the hidden state vector.
 
 The graphical representation of the simple RNN cell is shown in \cref{fig:rnnCell}.
 
@@ -33,36 +33,36 @@ The graphical representation of the simple RNN cell is shown in \cref{fig:rnnCel
 
 \subsection{Long Short Term Memory (LSTM)}
 
-LSTMs are a type of RNN used to solve the vanishing gradiant problem \cite{firstLSTM}. It was improved a few times before becoming the modern LSTM \cite{improvLSTM}. The LSTM differs from a simple RNN because of its second feedback variable being the cell state ($\overrightarrow{c_t}$).
+LSTMs are a type of RNN used to solve the vanishing gradiant problem \cite{firstLSTM}. It was improved a few times before becoming the modern LSTM \cite{improvLSTM}. The LSTM differs from a simple RNN because of its second feedback variable being the cell state ($\symvc_t$).
 
 The LSTM contains four activated gates, that each serve its own purpose. The input gate \cref{eq:inputG} controls whether the cell state is updated, the forget gate \cref{eq:forgetG} that determines how the current cell state is affected by the old cell state, the output gate \cref{eq:outputG} that controls how much the hidden state is affected by the cell state. The candidate cell state gate \cref{eq:candCell} computes the change in the future cell state.
 
 \begin{equation}\label{eq:inputG}
-  \overrightarrow{i_t}= G ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
+  \symvi_t= \sigma([\symvx_{t_1},\symvh_{t-1}]\cdot \symmw_i + \symvb_i)
 \end{equation}
 \begin{equation}\label{eq:forgetG}
-  \overrightarrow{f_t}= G ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
+  \symvf_t= \sigma([\symvx_{t_1},\symvh_{t-1}]\cdot \symmw_f + \symvb_f)
 \end{equation}
 \begin{equation}\label{eq:outputG}
-  \overrightarrow{o_t}= G ([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
+  \symvo_t= \sigma([\symvx_{t_1},\symvh_{t-1}]\cdot \symmw_o + \symvb_o)
 \end{equation}
 \begin{equation}\label{eq:candCell}
-  \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t_1}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
+  \symvct_t=tanh([\symvx_{t_1},\symvh_{t-1}]\cdot \symmw_c+ \symvb_c)
 \end{equation}
 
 The next part of the LSTM consist of computing the new cell state in the following equation :
 
 \begin{equation}\label{eq:cellS}
-  \overrightarrow{c_t}=\overrightarrow{f_t}\odot \overrightarrow{c_{t-1}} + \overrightarrow{i_t} \odot \overrightarrow{\tilde{c}_t}
+  \symvc_t=\symvf_t\odot \symvc_{t-1} + \symvi_t \odot \symvct_t
 \end{equation}
 
 The hidden state is then determined using the current cell state \cref{eq:hiddenS}.
 
 \begin{equation}\label{eq:hiddenS}
-  \overrightarrow{h_t}=\overrightarrow{o_t}\odot tanh(\overrightarrow{c_t})
+  \symvh_t=\symvo_t\odot tanh(\symvc_t)
 \end{equation}
 
-Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$), ($w_o$,$\overrightarrow{b_o}$) and ($w_c$,$\overrightarrow{b_c}$) are the pair of weights matrixes and bias vectors for the input, forget, output and candidate cell gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
+Where ($\symmw_i$,$\symvb_i$), ($\symmw_f$,$\symvb_f$), ($\symmw_o$,$\symvb_o$) and ($\symmw_c$,$\symvb_c$) are the pair of weights matrixes and bias vectors for the input, forget, output and candidate cell gates respectively. $\symvx_t$ is the input vector and $\symvh_t$ is the hidden state vector.
 
 The graphical representation of an LSTM cell is found in \cref{fig:lstmCell}.
 
@@ -83,19 +83,19 @@ There are two versions of the \ac{GRU}, both are found on the internet, they are
 It contains an update gate \cref{eq:updateG}, a reset gate \cref{eq:resetG}, a candidate activation gate \cref{eq:candActivG}. The hidden state is then computed \cref{eq:gruHidG} using the previous results.
 
 \begin{equation}\label{eq:updateG}
-  \overrightarrow{z_t}= G ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_z + \overrightarrow{b_z})
+  \symvz_t= \sigma([\symvx_t,\symvh_{t-1}] \cdot \symmw_z + \symvb_z)
 \end{equation}
 \begin{equation}\label{eq:resetG}
-  \overrightarrow{r_t}= G ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_r + \overrightarrow{b_r})
+  \symvr_t= \sigma([\symvx_t,\symvh_{t-1}] \cdot \symmw_r + \symvb_r)
 \end{equation}
 \begin{equation}\label{eq:candActivG}
-  \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
+  \symvhh_t=tanh(\symvx_t\cdot \symmw_{hx}+(\symvr_t\odot\symvh_{t-1}) \cdot \symmw_{hh} + \symvb_h)
 \end{equation}
 \begin{equation}\label{eq:gruHidG}
-  \overrightarrow{h_t}=(\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{h_{t-1}} + \overrightarrow{z_t}\odot \overrightarrow{\hat{h_t}}
+  \symvh_t=(\vunit-\symvz_t)\odot \symvh_{t-1} + \symvz_t\odot \symvhh_t
 \end{equation}
 
-Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$w_{hh}$,$\overrightarrow{b_h}$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
+Where ($\symmw_z$,$\symvb_z$), ($\symmw_r$,$\symvb_r$),($\symmw_{hx}$,$\symmw_{hh}$,$\symvb_h$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
 
 A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:encoderGruCell}.
 
@@ -109,17 +109,17 @@ A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:e
 
 Memristors are the lesser known fourth fundamental passive component of electronics, among resistors, capacitors and inductor.
 It was first theorized in 1971 as a missing fundamental component in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
-The missing component linking the four fundamental circuit variables, voltage ($v$), charge ($q$), current ($i$) and flux ($\phi$). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
+The missing component linking the four fundamental circuit variables, voltage (\symv), charge (\symq), current (\symi) and flux (\symphi). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
 
 \begin{equation}
-  d\phi = v\cdot dt
+  d\symphi = \symv\cdot d\symt
 \end{equation}
 
 \begin{equation}
-  dq = i\cdot dt
+  d\symq = \symi\cdot d\symt
 \end{equation}
 
-Resistors, capacitors and inductors were already very established and well known components, so it was theorized that a fourth device should then exist to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=v\cdot dt \Rightarrow \phi =  \int v \,dt  $.
+Resistors, capacitors and inductors were already very established and well known components, so it was theorized that a fourth device should then exist to physically link flux (\symphi) and charge (\symq).  The flux in this case is not a magnetic flux and is defined as such : $ d\symphi=\symv\cdot d\symt \Rightarrow \symphi =  \int \symv \,d\symt  $.
 
 The component stayed theoretical until 2008 when it was implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to have an actual working device.
 
@@ -152,23 +152,23 @@ The circuit uses physical properties of electrical systems to perform analog com
   \includesvg[wdith=0.4\columnwidth,pretex=\scriptsize]{crossbar/node}
   %\def\svgheigth{3.5cm}
   %\input{crossbar/node.pdf_tex}
-  \caption{Memristor crossbar node of the $i^{th}$ line and $j^{th}$ column}
+  \caption{Memristor crossbar node of the $k^{th}$ line and $j^{th}$ column}
   \label{fig:crossNode}
 \end{figure}
 
-A voltage is applied on the $i^{th}$ line, and because every column is virtually grounded, the voltage applied to the memristor, with resistance $R_i$, is $V_i$. By applying Ohm's law, we know that the current flowing into the memristor ($I_{i}$) is bound by the following equation :
+A voltage is applied on the $k^{th}$ line, and because every column is virtually grounded, the voltage applied to the memristor, with resistance $R_i$, is $V_i$. By applying Ohm's law, we know that the current flowing into the memristor ($\symi_{k}$) is bound by the following equation :
 
 \begin{equation}
-  V_i = R\cdot I_{i} \Rightarrow I_{i} = V_i\cdot (\frac{1}{R_i})= V_i\cdot G_i
+  \symv_k = \symR\cdot \symi_{k} \Rightarrow \symi_{k} = \symv_k\cdot (\frac{1}{\symR_k})= \symv_k\cdot \symG_k
 \end{equation}
-With $ G_i$ being the conductance of memristor, defined as $ G_i=\frac{1}{R_i}$.
+With $ \symG_k$ being the conductance of memristor, defined as $ \symG_k=\frac{1}{\symR_k}$.
 
-This line then joins the column where a current of $I_{i,j-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
+This line then joins the column where a current of $\symi_{j,k-1}$ is flowing, then according to Kirchhoff's current law the resulting current is :
 \begin{equation}
-  I_{j,i} = I_{j,i-1}+I_{i} = I_{j,i-1} + V_i\cdot G_i
+  \symi_{j,k} = \symi_{j,k-1}+\symi_{k} = \symi_{j,k-1} + \symv_k\cdot \symG_k
 \end{equation}
 Unfolding the equations will give the current at the bottom of the column, for example, the current at the bottom of the first column in \cref{fig:crossbar} is :
 \begin{equation}
-  I_1= G_1\cdot V_1 +  G_2\cdot V_2 +  G_3\cdot V_3
+  \symi_1= \symG_1\cdot \symv_1 +  \symG_2\cdot \symv_2 +  \symG_3\cdot \symv_3
 \end{equation}
-With $ G_1$, $ G_2$ and $ G_3$ being the conductance of the 3 memristors in the first column.
+With $\symG_1$, $\symG_2$ and $\symG_3$ being the conductance of the 3 memristors in the first column.
