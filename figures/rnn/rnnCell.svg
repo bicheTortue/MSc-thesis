@@ -7,7 +7,7 @@
    id="svg8"
    sodipodi:docname="rnnCell.svg"
    xml:space="preserve"
-   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +25,13 @@
    inkscape:deskcolor="#d1d1d1"
    inkscape:document-units="px"
    showgrid="false"
-   inkscape:zoom="0.70710678"
-   inkscape:cx="593.26259"
-   inkscape:cy="158.39192"
-   inkscape:window-width="1080"
-   inkscape:window-height="651"
-   inkscape:window-x="26"
-   inkscape:window-y="23"
+   inkscape:zoom="2"
+   inkscape:cx="778.75"
+   inkscape:cy="288.75"
+   inkscape:window-width="1920"
+   inkscape:window-height="1011"
+   inkscape:window-x="0"
+   inkscape:window-y="33"
    inkscape:window-maximized="0"
    inkscape:current-layer="calque" /><title
    id="title1438">LSTM Cell</title><defs
@@ -51,7 +51,9 @@
    d="M 3,-3 0,0 3,3"
    id="arrow3"
    transform="rotate(180,0.125,0)"
-   sodipodi:nodetypes="ccc" />&#10;</marker></defs>&#10;<g
+   sodipodi:nodetypes="ccc" />
+</marker></defs>
+<g
    id="cell"><rect
    id="background"
    width="520"
@@ -60,7 +62,8 @@
    y="40"
    ry="36"
    fill="#4ec2a7"
-   rx="36" />&#10;<g
+   rx="36" />
+<g
    id="NN"><rect
      id="tanhNN"
      width="80"
@@ -106,23 +109,23 @@
      x="660"
      font-size="12"
      fill="#4d4d4d"
-     text-anchor="middle">$\overrightarrow{h_t}$</text><text
+     text-anchor="middle">$\symvh_t$</text><text
      id="text1994"
      y="208"
      x="693"
-     font-size="12px"
-     fill="#4d4d4d">$\overrightarrow{h_t}$</text><text
+     font-size="4"
+     fill="#4d4d4d">$\symvh_t$</text><text
      x="60"
      y="384"
      id="text2002"
      font-size="12px"
      fill="#4d4d4d"
-     text-anchor="middle">$\overrightarrow{x_t}$</text><text
+     text-anchor="middle">$\symvx_t$</text><text
      x="60"
      y="208"
      id="text2058"
      fill="#4d4d4d"
      font-size="3"
-     text-anchor="end">$\overrightarrow{h_{t-1}}$</text></g><metadata
+     text-anchor="end">$\symvh_{t-1}$</text></g><metadata
    id="metadata1990"><rdf:RDF><cc:Work
        rdf:about=""><dc:title>LSTM Cell</dc:title></cc:Work></rdf:RDF></metadata></svg>
