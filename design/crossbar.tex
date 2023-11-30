@@ -25,7 +25,7 @@ The enable flags ($e_j,\forall j\in[\![ 0,n_s]\!]$ and similarly $\overline{e_j}
 
 We could choose between one or two memristor per synapse. Using two memristor per synapse doubles the area but doubles the weight range (\cref{tab:synapses}) and allows to easily use negavite weights. The output voltage will be centered around $V_{cm}$ and be compliant with the standard set in \cref{tab:valConv}.
 
-This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $R\in[R_{min},R_{max}]$, that means its conductance range is $ G \in [ G_{min}, G_{max}]$ (with $ G_{min}= \frac{1}{R_{max}}$ and $ G_{max}= \frac{1}{R_{min}}$). This design works using two \ac{opAmp} connected to $V_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
+This design is the one that is used in \cite{doubleMem}. Let's assume that a given memristor has a resistance range of $\symR\in[\symR_{min},\symR_{max}]$, that means its conductance range is $ \symG \in [ \symG_{min}, \symG_{max}]$ (with $ \symG_{min}= \frac{1}{\symR_{max}}$ and $ \symG_{max}= \frac{1}{\symR_{min}}$). This design works using two \ac{opAmp} connected to $\symv_{cm}$ with the positive pin and the negative pin to the output of the crossbar array. \Cref{eq:doubleMem0,eq:doubleMem1,eq:doubleMem2} are describing how this architecture works. A simplified version of the double memristors per synapse circuit is also available in \cref{circt:doubleMem}.
 
 \begin{figure}[H]
   \centering
@@ -34,23 +34,23 @@ This design is the one that is used in \cite{doubleMem}. Let's assume that a giv
   \label{circt:doubleMem}
 \end{figure}
 
-Using $x_k$ as the voltage for the input line $k$. The highest \ac{opAmp} is identified as $opAmp_0$ and the lowest $opAmp_1$.
+Using $\symv_k$ as the voltage for the input line $k$. The highest \ac{opAmp} is identified as $opAmp_0$ and the lowest $opAmp_1$.
 
-For the sake of simplicity, the following equations considers the ground to be $V_{cm}$.
+For the sake of simplicity, the following equations considers the ground to be $\symv_{cm}$.
 
 \begin{equation}
   \label{eq:doubleMem0}
-  V_{opAmp_0}=-R_r\cdot i_+
+  \symv_{opAmp_0}=-\symR_r\cdot \symi_+
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem1}
-  i_{R_f}=i_-+\frac{V_{opAmp_0}}{R_r}=i_--i_+
+  \symi_{\symR_f}=\symi_-+\frac{\symv_{opAmp_0}}{\symR_r}=\symi_--\symi_+
 \end{equation}
 \begin{equation}
   \label{eq:doubleMem2}
-  V_{opAmp_1}=y_0=-R_f\cdot(i_--i_+)=R_f\cdot(i_+-i_-)=R_f\cdot\sum_{k=0}^n( G_{k+}- G_{k-})\cdot x_k
+  \symv_{opAmp_1}=\symv_{out}=-\symR_f\cdot(\symi_--\symi_+)=\symR_f\cdot(\symi_+-\symi_-)=\symR_f\cdot\sum_{k=0}^n( \symG_{k+}- \symG_{k-})\cdot \symv_k
 \end{equation}
-With $i_+=\sum_{k=0}^n G_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n G_{k-}\cdot x_k$.
+With $\symi_+=\sum_{k=0}^n \symG_{k+}\cdot \symv_k$ and $\symi_-=\sum_{k=0}^n \symG_{k-}\cdot \symv_k$.
 
 
 \begin{table}[H]
@@ -60,11 +60,11 @@ With $i_+=\sum_{k=0}^n G_{k+}\cdot x_k$ and $i_-=\sum_{k=0}^n G_{k-}\cdot x_k$.
     \rowcolor{gray}
     \multicolumn{1}{c|}{\cellcolor[HTML]{FFFFFF}} & Two memristors per synapse & One memristor per synapse \\
     \hline
-    Maximum weight & $ G_{max}- G_{min}$ & $ G_{max} -\overline{ G}$\\
+    Maximum weight & $ \symG_{max}- \symG_{min}$ & $ \symG_{max} -\overline{ \symG}$\\
     \hline
-    Minimum weight & $ G_{min}- G_{max}$ & $ G_{min} -\overline{ G}$\\
+    Minimum weight & $ \symG_{min}- \symG_{max}$ & $ \symG_{min} -\overline{ \symG}$\\
     \hline
-    Range & $2\cdot( G_{max}- G_{min})$&$ G_{max}- G_{min}$\\
+    Range & $2\cdot( \symG_{max}- \symG_{min})$&$ \symG_{max}- \symG_{min}$\\
     \hline
   \end{tabular}
   \caption{Synaptic weights precision (extracted from \cite{doubleMem})}
@@ -125,18 +125,18 @@ The symbol (\cref{sym:xbar}) defined for the voltage based memristor crossbar ar
 The approximate onChip area for the crossbar circuit depends on the previously defined parameters.
 
 \begin{equation}
-  A_{xbar}(n_i,n_o,n_s)=
+  \symA_{xbar}(n_i,n_o,n_s)=
   \begin{cases}
-    2\cdot n_i\cdot n_o \cdot A_{memristor}+n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})& n_s=1\\
+    2\cdot n_i\cdot n_o \cdot \symA_{memristor}+n_o\cdot(2\cdot[\symA_{opAmp}+\symA_{R_r}]+\symA_{R_f})& n_s=1\\
     \begin{array}{2}
-      2\cdot n_i\cdot n_o \cdot n_s\cdot A_{memristor}+2\cdot A_{CMOS}\cdot n_o\cdot n_s\\
-      +n_o\cdot(2\cdot[A_{opAmp}+A_{R_r}]+A_{R_f})
+      2\cdot n_i\cdot n_o \cdot n_s\cdot \symA_{memristor}+2\cdot \symA_{CMOS}\cdot n_o\cdot n_s\\
+      +n_o\cdot(2\cdot[\symA_{opAmp}+\symA_{R_r}]+\symA_{R_f})
     \end{array}
     & \forall n_s>1\\
   \end{cases}
 \end{equation}
 
-With $A_{CMOS}=w\cdot l$.
+With $\symA_{CMOS}=w\cdot l$.
 
 \subsection{Usage}
 
@@ -145,10 +145,10 @@ With $A_{CMOS}=w\cdot l$.
 The input voltages must be monitored very carefuly in order not to accidentally change a memristor's internal resistance. Indeed, memristors have a voltage threshold ($V_{read}$) above which the internal resistance changes \cite{memristorSpiceModels,memCadenceModel,memTEAMmodel,memVTEAMmodel}. This means that the input voltages must follow the inequality in \cref{eq:memThres}.
 
 \begin{equation}\label{eq:memThres}
-  |V_{mem}|= |x_i-V_{cm}|\le V_{read}
+  |\symv_{mem}|= |\symv_i-\symv_{cm}|\le \symv_{read}
 \end{equation}
 
-Where $V_{mem}$ is the terminal voltage of a memristor.
+Where $\symv_{mem}$ is the terminal voltage of a memristor.
 
 \subsubsection{Dense layer}
 

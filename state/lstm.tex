@@ -26,34 +26,34 @@ The input (\cref{eq:inputG}), forget (\cref{eq:forgetG}) and output (\cref{eq:ou
 
 
 \begin{equation}\label{eq:inputG}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i})
+  \symvi_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_i + \symvb_i)
 \end{equation}
 \begin{equation}\label{eq:forgetG}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f})
+  \symvf_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_f + \symvb_f)
 \end{equation}
 \begin{equation}\label{eq:outputG}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o})
+  \symvo_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_o + \symvb_o)
 \end{equation}
 
-Where ($w_i$,$\overrightarrow{b_i}$), ($w_f$,$\overrightarrow{b_f}$) and ($w_o$,$\overrightarrow{b_o}$) are the pair of weights matrixes and bias vectors for the input, forget and output gates respectively. $\overrightarrow{x_t}$ is the input vector and $\overrightarrow{h_t}$ is the hidden state vector.
+Where ($\symmw_i$,$\symvb_i$), ($\symmw_f$,$\symvb_f$) and ($\symmw_o$,$\symvb_o$) are the pair of weights matrixes and bias vectors for the input, forget and output gates respectively. $\symvx_t$ is the input vector and $\symvh_t$ is the hidden state vector.
 
 The next equation describes the candidate cell state (\cref{eq:candCell}), that will next be used to compute the cell state (\cref{eq:cellS}).
 
 \begin{equation}\label{eq:candCell}
-  \overrightarrow{\tilde{c}_t}=tanh([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_c+ \overrightarrow{b_c})
+  \symvct_t=tanh([\symvx_{t},\symvh_{t-1}]\cdot \symmw_c+ \symvb_c)
 \end{equation}
 \begin{equation}\label{eq:cellS}
-  \overrightarrow{c_t}=\overrightarrow{f_t}\odot \overrightarrow{c_{t-1}} + \overrightarrow{i_t} \odot \overrightarrow{\tilde{c}_t}
+  \symvc_t=\symvf_t\odot \symvc_{t-1} + \symvi_t \odot \symvct_t
 \end{equation}
 
-Where $w_c$ and $\overrightarrow{b_c}$ are the weights matrix and bias vector for the candidate cell state.
+Where $\symmw_c$ and $\symvb_c$ are the weights matrix and bias vector for the candidate cell state.
 
 The final step of the \ac{LSTM} is to compute the hidden state (\cref{eq:hiddenS}).
 \begin{equation}\label{eq:hiddenS}
-  \overrightarrow{h_t}=\overrightarrow{o_t}\odot tanh(\overrightarrow{c_t})
+  \symvh_t=\symvo_t\odot tanh(\symvc_t)
 \end{equation}
 
-We set $x_1$ as the first input and define $\overrightarrow{h_0}$ as a zero only vector.
+We set $x_1$ as the first input and define $\symvh_0$ as a zero only vector.
 
 \subsection{Usage}
 
@@ -75,33 +75,32 @@ The difference between them varies from one to the other, some of them are detai
 This variant of the \ac{LSTM} was originally the only \ac{LSTM} network, hence its name. It differs from the classic \ac{LSTM} with its use of peephole weights, hence the name of the classic \ac{LSTM} being \acl{NP}. The Vanilla \ac{LSTM} is thus defined by the following equations \cite{vanillaLSTM, nbLSTM} :
 
 \begin{equation}\label{eq:inputGVanilla}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
+  \symvi_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_i + \symvb_i +\symvc_{t-1}\odot \symvp_f)
 \end{equation}
 \begin{equation}\label{eq:forgetGVanilla}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_f + \overrightarrow{b_f}+\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
+  \symvf_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_f + \symvb_f+\symvc_{t-1}\odot \symvp_i)
 \end{equation}
 \begin{equation}\label{eq:ouputGVanilla}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{b_o}+\overrightarrow{c_{t}}\odot \overrightarrow{p_o})
+  \symvo_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_o + \symvb_o+\symvc_{t}\odot \symvp_o)
 \end{equation}
 
-With $\overrightarrow{p_f}$, $\overrightarrow{p_i}$ and $\overrightarrow{p_o}$ being the peephole weights vectors. Their size is the same as the size of the hidden state vector ($\overrightarrow{h_t}$). $\odot$ is the pointwise multiplication operator.
-
+With $\symvp_f$, $\symvp_i$ and $\symvp_o$ being the peephole weights vectors. Their size is the same as the size of the hidden state vector ($\symvh_t$).
 The equations that have not been rewritten simply stay the same.
 
 \subsubsection{\acl{FGR} \ac{LSTM}}
 The \ac{FGR} \ac{LSTM} is one of the most complex variant of the \ac{LSTM}. This is due to the amount of feedback connections. This is basically a more complex version of the Vanilla \ac{LSTM}. The modified equations are :
 
 \begin{equation}\label{eq:inputGFGR}
-  \overrightarrow{i_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_i  + \overrightarrow{i_{t-1}}\cdot R_{ii} + \overrightarrow{f_{t-1}}\cdot R_{if} + \overrightarrow{o_{t-1}}\cdot R_{io} + \overrightarrow{b_i} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_i})
+  \symvi_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_i  + \symvi_{t-1}\cdot \symmw_{ii} + \symvf_{t-1}\cdot \symmw_{if} + \symvo_{t-1}\cdot \symmw_{io} + \symvb_i +\symvc_{t-1}\odot \symvp_i)
 \end{equation}
 \begin{equation}\label{eq:forgetGFGR}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_f  + \overrightarrow{i_{t-1}}\cdot R_{fi} + \overrightarrow{f_{t-1}}\cdot R_{ff} + \overrightarrow{o_{t-1}}\cdot R_{fo} + \overrightarrow{b_f} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_f})
+  \symvf_t=\sigma ([\symvx_{t},\symvh_{t-1}]\cdot \symmw_f  + \symvi_{t-1}\cdot \symmw_{fi} + \symvf_{t-1}\cdot \symmw_{ff} + \symvo_{t-1}\cdot \symmw_{fo} + \symvb_f +\symvc_{t-1}\odot \symvp_f)
 \end{equation}
 \begin{equation}\label{eq:ouputGFGR}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_{t}},\overrightarrow{h_{t-1}}]\cdot w_o + \overrightarrow{i_{t-1}}\cdot R_{oi} + \overrightarrow{f_{t-1}}\cdot R_{of} + \overrightarrow{o_{t-1}}\cdot R_{oo} + \overrightarrow{b_o} +\overrightarrow{c_{t-1}}\odot \overrightarrow{p_o})
+  \symvo_t=\sigma ([i\symvx_{t},\symvh_{t-1}]\cdot \symmw_o + \symvi_{t-1}\cdot \symmw_{oi} + \symvf_{t-1}\cdot \symmw_{of} + \symvo_{t-1}\cdot \symmw_{oo} + \symvb_o +\symvc_{t-1}\odot \symvp_o)
 \end{equation}
 
-With $R_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrixes.
+With $\symmw_{fi}$ being the weight matrix of the input feedback connection to compute the forget gate, and the same goes for the other weight matrixes.
 
 Once again, the equations that have not been rewritten are unchanged.
 
@@ -110,13 +109,13 @@ Once again, the equations that have not been rewritten are unchanged.
 \begin{itemize}
   \item Removing the activation function from the Vanilla \ac{LSTM} for :
     \begin{itemize}
-      \item the candidate cell and thus becomes $ \overrightarrow{\tilde{c}_t}=(w_c\cdot[\overrightarrow{x_{t-1}},\overrightarrow{h_{t-1}}] + \overrightarrow{b_c}) $, this is called the \ac{NIAF}
-      \item the output of the previous cell state and thus becomes $ \overrightarrow{h_t}=\overrightarrow{o_t}\odot \overrightarrow{c_t} $, and is called \ac{NOAF}
+      \item the candidate cell and thus becomes $ \symvct_t=([\symvx_{t-1},\symvh_{t-1}]\cdot\symmw_c + \symvb_c) $, this is called the \ac{NIAF}
+      \item the output of the previous cell state and thus becomes $ \symvh_t=\symvo_t\odot \symvc_t $, and is called \ac{NOAF}
     \end{itemize}
   \item Using units instead of the respective gates :
     \begin{itemize}
-      \item \ac{NIG} : $\overrightarrow{i_t}=1$
-      \item \ac{NOG} : $\overrightarrow{o_t}=1$
-      \item \ac{NFG} : $\overrightarrow{f_t}=1$
+      \item \ac{NIG} : $\symvi_t=1$
+      \item \ac{NOG} : $\symvo_t=1$
+      \item \ac{NFG} : $\symvf_t=1$
     \end{itemize}
 \end{itemize}

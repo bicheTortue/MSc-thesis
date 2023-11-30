@@ -1,5 +1,5 @@
 *.aux
-*.sub
+*.sub*
 *.suc
 *.syc
 *.sym

@@ -27,23 +27,23 @@ The functions generated are the same shape and only differ by their output range
     \rowcolor{gray}
     Parameter & Sigmoid & \ac{tanh} \\
     \hline
-    $V_1$ & \multicolumn{2}{c|}{$1.1V$}\\
+    $\symv_1$ & \multicolumn{2}{c|}{$1.1V$}\\
     \hline
-    $V_2$ & \multicolumn{2}{c|}{$635mV$}\\
+    $\symv_2$ & \multicolumn{2}{c|}{$635mV$}\\
     \hline
-    $V_3$ & $0.8V$ & $550mV$\\
+    $\symv_3$ & $0.8V$ & $550mV$\\
     \hline
-    $i_{dc}$ & \multicolumn{2}{c|}{$150uA$}\\
+    $\symi_{dc}$ & \multicolumn{2}{c|}{$150uA$}\\
     \hline
     $w$ & \multicolumn{2}{c|}{$900nm$}\\
     \hline
     $l$ & \multicolumn{2}{c|}{$60nm$}\\
     \hline
-    $R_1$ & \multicolumn{2}{c|}{$5k\Omega$}\\
+    $\symR_1$ & \multicolumn{2}{c|}{$5k\Omega$}\\
     \hline
-    $R_2$ & \multicolumn{2}{c|}{$10k\Omega$}\\
+    $\symR_2$ & \multicolumn{2}{c|}{$10k\Omega$}\\
     \hline
-    $R_3$ & $2k\Omega$ & $4k\Omega$\\
+    $\symR_3$ & $2k\Omega$ & $4k\Omega$\\
     \hline
   \end{tabular}
   \caption{Circuits parameters}
@@ -70,9 +70,9 @@ The symbols for the sigmoid and the \ac{tanh} are separated for better understan
 The approximate onChip area of this circuit is :
 
 \begin{equation}
-  A_{af}=2\cdot A_{R_1} + 2\cdot A_{CMOS} + 5\cdot A_{R_2} + A_{R_3} +2\cdot A_{opAmp}
+  \symA_{af}=2\cdot \symA_{R_1} + 2\cdot \symA_{CMOS} + 5\cdot \symA_{R_2} + \symA_{R_3} +2\cdot \symA_{opAmp}
 \end{equation}
-With $A_{CMOS} = w\cdot l$
+With $\symA_{CMOS} = w\cdot l$
 
 In order to combine the the onChip area of both the sigmoid and \ac{tanh} activation functions, it is assumed that the variation of area taken by the resistor ($R_3$) is negligible compared to the overall active area.
 

@@ -39,14 +39,14 @@ The symbol for this circuit is designed to show a capacitor because it is its me
 For this circuit the approximate onChip area is :
 
 \begin{equation}
-  A_{memcell}=8\cdot A_{CMOS}+2\cdot A_{inv}+A_{opAmp}+A_{cap}
+  \symA_{memcell}=8\cdot \symA_{CMOS}+2\cdot \symA_{inv}+\symA_{opAmp}+\symA_{cap}
 \end{equation}
 
-With $A_{CMOS} = w\cdot l$
+With $\symA_{CMOS} = w\cdot l$
 
 \subsection{Usage}
 
-This circuit is pretty straight forward, when the input enable pin is high (up to $V_{dd}$), then the first switch is open and the capacitor is being charged, if it is low, then the switch is closed and the capacitor keeps the voltage and thus the analog data. When the output enable is high, the buffer (\cref{apsec:buffer}) forwards the voltage stored in the capactor to the output pin without emptying the capacitor.
+This circuit is pretty straight forward, when the input enable pin is high (up to $\symv_{dd}$), then the first switch is open and the capacitor is being charged, if it is low, then the switch is closed and the capacitor keeps the voltage and thus the analog data. When the output enable is high, the buffer (\cref{apsec:buffer}) forwards the voltage stored in the capactor to the output pin without emptying the capacitor.
 
 \begin{figure}[H]
   \centering

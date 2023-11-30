@@ -22,8 +22,8 @@ The different vectors and variables present in the schematic have to be describe
   \item $e_{in}$ and $e_{out}$ are the flags used to enable the hidden state values to go to the input (feedback connection) or to the output of the circuit.
   \item $e_{in,end}$ is the second half of the $e_{in}$ flag.
   \item $e_{next}$ is the enable flag on in between two time steps.
-  \item $R_{amp0}$ and $R_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{R_{amp1}}{R_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
-  \item $V_{inv}$ is the voltage used to perform the $1-x$ operation.
+  \item $\symR_{amp0}$ and $\symR_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{\symR_{amp1}}{\symR_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
+  \item $\symv_{inv}$ is the voltage used to perform the $1-x$ operation.
 \end{itemize}
 
 The wires are all buses of different sizes. All the components expect from the crossbar, are only shown once but are in the real circuit present for every wire of the bus.
@@ -37,16 +37,16 @@ A clever trick had to be employed in order to succesfully compute the function. 
 
 The solution found to do compute the operation consist of using an \ac{opAmp} as an inverter around $V_{inv}$, the formula is available in \cref{eq:1minus1}.
 \begin{equation}\label{eq:1minus1}
-  f_v(v)=-(v-V_{inv})+V_{inv}=2\cdot V_{inv} -v
+  f_\symv(\symv)=-(\symv-\symv_{inv})+\symv_{inv}=2\cdot \symv_{inv} -\symv
 \end{equation}
 
 Writing the same operation in voltage gives us \cref{eq:1minus2}.
 
 \begin{equation}\label{eq:1minus2}
-  f_v(v)=(1-V_{cm})-(v-V_{cm})+V_{cm}= 0.1-v+2\cdot V_{cm}
+  f_\symv(\symv)=(1-\symv_{cm})-(\symv-\symv_{cm})+\symv_{cm}= 0.1-\symv+2\cdot \symv_{cm}
 \end{equation}
 
-It can thus be found that the value for $V_{inv}$ is $V_{inv}=V_{cm}+0.05$
+It can thus be found that the value for $\symv_{inv}$ is $\symv_{inv}=\symv_{cm}+0.05$
 
 \subsection{Serialization/Parallelization}
 \label{subsec:gruSerPar}
@@ -54,7 +54,7 @@ It can thus be found that the value for $V_{inv}$ is $V_{inv}=V_{cm}+0.05$
 As opposed to the to the \ac{LSTM}, the \ac{GRU} can not be serialized. This is due to a mathematical issue. Indeed in the equation of the candidate hidden state is a problem for the serialization of the circuit. The \cref{eq:candActivG} from \cref{sec:gru} is repeated in \cref{eq:serProb} for better lisibility of the thesis.
 
 \begin{equation}\label{eq:serProb}
-  \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
+  \symvhh_t=tanh(\symvx_t\cdot \symmw_{hx}+(\symvr_t\odot\symvh_{t-1}) \cdot \symmw_{hh} + \symvb_h)
 \end{equation}
 
 As \cref{eq:serProb} shows, the reset gate's results vector needs to be multiplied with the the hidden state's previous vector. However, while the hidden state's previous vector is fully available in the memory cells, the reset gate's vector needs to be computed using the current inputs.
@@ -78,6 +78,6 @@ The approximate onChip area for the crossbar circuit depends on the previously d
 
 \begin{equation}
   \begin{array}{3}
-    A_{gru}(n_i,n_h)=4\cdot A_{xbar}(n_i,n_h,1)\\+ \frac{n_h}{n_s}\cdot (5\cdot A_{af}+3\cdot A_{voltMult}+3\cdot A_{R_{amp0}}+2\cdot A_{R_{amp1}}+2\cdot A_{opAmp})\\+5\cdot n_h\cdot A_{memcell}
+    \symA_{gru}(n_i,n_h)=4\cdot \symA_{xbar}(n_i,n_h,1)\\+ \frac{n_h}{n_s}\cdot (5\cdot \symA_{af}+3\cdot \symA_{voltMult}+3\cdot \symA_{\symR_{amp0}}+2\cdot \symA_{\symR_{amp1}}+2\cdot \symA_{opAmp})\\+5\cdot n_h\cdot \symA_{memcell}
   \end{array}
 \end{equation}

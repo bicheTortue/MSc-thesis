@@ -22,18 +22,18 @@ The weights of the synapses have to be multiplied with the previous neuron and t
 
 \begin{equation}\label{eq:nnHid}
   \begin{bmatrix}
-    H_1\\ H_2\\ H_3\\ H_4\\
+    \symH_1\\ \symH_2\\ \symH_3\\ \symH_4\\
   \end{bmatrix}
   =
   \begin{bmatrix}
-    w_h_{1,1} & w_h_{1,2} & w_h_{1,3}\\
+    \symw_h_{1,1} & \symw_h_{1,2} & w_h_{1,3}\\
     w_h_{2,1} & w_h_{2,2} & w_h_{2,3}\\
     w_h_{3,1} & w_h_{3,2} & w_h_{3,3}\\
     w_h_{4,1} & w_h_{4,2} & w_h_{4,3}\\
   \end{bmatrix}
   \cdot
   \begin{bmatrix}
-    I_1\\ I_2\\ I_3\\
+    \symI_1\\ \symI_2\\ \symI_3\\
   \end{bmatrix}
 \end{equation}
 
@@ -41,7 +41,7 @@ Similarly the output is computed like in \cref{eq:nnOut}
 
 \begin{equation}\label{eq:nnOut}
   \begin{bmatrix}
-    O_1\\ O_2
+    \symO_1\\ \symO_2
   \end{bmatrix}
   =
   \begin{bmatrix}
@@ -50,7 +50,7 @@ Similarly the output is computed like in \cref{eq:nnOut}
   \end{bmatrix}
   \cdot
   \begin{bmatrix}
-    H_1\\ H_2\\ H_3\\ H_4\\
+    \symH_1\\ \symH_2\\ \symH_3\\ \symH_4\\
   \end{bmatrix}
 \end{equation}
 

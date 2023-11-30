@@ -13,24 +13,24 @@ All the weight trainings are done using \ac{MSE} loss function and Adam optimize
 
 \subsection{Weights constaint}
 
-The weights need to be contrained during the training to make sure that the voltage of the analog circuit stays within its operating voltage range ($[0,V_{dd}]$). To avoid any unwanted behavior when the system supposedly goes out of range, the weights in the \ac{LSTM} are contrained. This constrain is not fixed and depends on the architecture it is generated with.
+The weights need to be contrained during the training to make sure that the voltage of the analog circuit stays within its operating voltage range ($[0,\symv_{dd}]$). To avoid any unwanted behavior when the system supposedly goes out of range, the weights in the \ac{LSTM} are contrained. This constrain is not fixed and depends on the architecture it is generated with.
 
-The worst case scenario for an \ac{LSTM} is when every value reaches the voltage threshold ($V_{read}$) (\cref{sec:xbarCircuit}) and every weight is maximized ($w_{max}$). When that is the case the output of the \acp{VMM} is found in \cref{eq:weiCons}.
+The worst case scenario for an \ac{LSTM} is when every value reaches the voltage threshold ($\symv_{read}$) (\cref{sec:xbarCircuit}) and every weight is maximized ($\symw_{max}$). When that is the case the output of the \acp{VMM} is found in \cref{eq:weiCons}.
 
 \begin{equation}\label{eq:weiCons}
-  V_{read}\cdot w_{max} \cdot(n_i+n_h)+w_{max}+V_{cm}= V_{dd}
+  \symv_{read}\cdot \symw_{max} \cdot(n_i+n_h)+\symw_{max}+\symv_{cm}= \symv_{dd}
 \end{equation}
 
-We can then determine the maximum acceptable value for the weights ($w_{max}$), this value has thus been determined to be the one in \cref{eq:weiConsRes}.
+We can then determine the maximum acceptable value for the weights ($\symw_{max}$), this value has thus been determined to be the one in \cref{eq:weiConsRes}.
 
 \begin{equation}\label{eq:weiConsRes}
-  w_{max}=\frac{V_{dd}-V_{cm}}{V_{read}\cdot(n_i+n_h)+1}
+  \symw_{max}=\frac{\symv_{dd}-\symv_{cm}}{\symv_{read}\cdot(n_i+n_h)+1}
 \end{equation}
 
-The analog system being completly centered and symetrical around $V_{cm}$ the value for the minimum weight is the opposite to the maximum one (\cref{eq:weiConsRes1})
+The analog system being completly centered and symetrical around $\symv_{cm}$ the value for the minimum weight is the opposite to the maximum one (\cref{eq:weiConsRes1})
 
 \begin{equation}\label{eq:weiConsRes1}
-  w_{min}=-w_{max}=-\frac{V_{dd}-V_{cm}}{V_{read}\cdot(n_i+n_h)+1}
+  \symw_{min}=-\symw_{max}=-\frac{\symv_{dd}-\symv_{cm}}{\symv_{read}\cdot(n_i+n_h)+1}
 \end{equation}
 
 A way to remove those constraints is discussed in \cref{subsec:noCons}. Having a constraint on the weights limits the performance of the final \ac{NN}.

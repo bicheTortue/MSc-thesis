@@ -22,7 +22,7 @@ The different vectors and variables present in the schematic have to be describe
   \item $e_{j,0}$ and $e_{j,1}$ are two enable flags that respectively represent the first and second half of $e_j$.
   \item $e_{in}$ and $e_{out}$ are the flags used to enable the hidden state values to go to the input (feedback connection) or to the output of the circuit.
   \item $e_{next}$ is the enable flag on in between two time steps.
-  \item $R_{amp0}$ and $R_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{R_{amp1}}{R_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
+  \item $\symR_{amp0}$ and $\symR_{amp1}$ are the two resistances used to amplify the output voltage of the voltage multipliers. The ratio of the resistances value must of $\frac{\symR_{amp1}}{\symR_{amp0}}=10$. The resistances must stay arround the values of the resistances used around the circuit, especially those of the memristors.
 \end{itemize}
 
 The wires coming into the crossbar are a bus of size $n_i+n_h+1$ and the output of the crossbar is a bus of size $n_o$ (\cref{sym:xbar}). This is why everything in the system apart from the crossbar arrays is only shown once in \cref{circt:lstm} but in reality those components are present $n_o$ times. Those extra components are needed in order for the parallel channels to work.
@@ -91,6 +91,6 @@ The approximate onChip area for the crossbar circuit depends on the previously d
 
 \begin{equation}
   \begin{array}{3}
-    A_{lstm}(n_i,n_h,n_s)=4\cdot A_{xbar}(n_i,\frac{n_h}{n_s},n_s)\\+ \frac{n_h}{n_s}\cdot (5\cdot A_{af}+3\cdot A_{voltMult}+3\cdot A_{R_{amp0}}+2\cdot A_{R_{amp1}}+2\cdot A_{opAmp})\\+5\cdot n_h\cdot A_{memcell}
+    \symA_{lstm}(n_i,n_h,n_s)=4\cdot \symA_{xbar}(n_i,\frac{n_h}{n_s},n_s)\\+ \frac{n_h}{n_s}\cdot (5\cdot \symA_{af}+3\cdot \symA_{voltMult}+3\cdot \symA_{\symR_{amp0}}+2\cdot \symA_{\symR_{amp1}}+2\cdot \symA_{opAmp})\\+5\cdot n_h\cdot \symA_{memcell}
   \end{array}
 \end{equation}

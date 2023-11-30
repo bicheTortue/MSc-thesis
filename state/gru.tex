@@ -10,19 +10,19 @@ There are two versions of the \ac{GRU}, both are found on the internet, they are
 The encoder \ac{GRU} is the version of the \ac{GRU} most widely described on the internet. It contains an update gate (\cref{eq:updateG}), a reset gate (\cref{eq:resetG}), a candidate activation gate (\cref{eq:candActivG}). The hidden state is then computed (\cref{eq:gruHidG}) using the previous results.
 
 \begin{equation}\label{eq:updateG}
-  \overrightarrow{z_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_z + \overrightarrow{b_z})
+  \symvz_t=\sigma ([\symvx_t,\symvh_{t-1}] \cdot \symmw_z + \symvb_z)
 \end{equation}
 \begin{equation}\label{eq:resetG}
-  \overrightarrow{r_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_r + \overrightarrow{b_r})
+  \symvr_t=\sigma ([\symvx_t,\symvh_{t-1}] \cdot \symmw_r + \symvb_r)
 \end{equation}
 \begin{equation}\label{eq:candActivG}
-  \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+(\overrightarrow{r_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{hh} + \overrightarrow{b_h})
+  \symvhh_t=tanh(\symvx_t\cdot \symmw_{hx}+(\symvr_t\odot\symvh_{t-1}) \cdot \symvw_{hh} + \symvb_h)
 \end{equation}
 \begin{equation}\label{eq:gruHidG}
-  \overrightarrow{h_t}=(\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{h_{t-1}} + \overrightarrow{z_t}\odot \overrightarrow{\hat{h_t}}
+  \symvh_t=(\vunit-\symvz_t)\odot \symvh_{t-1} + \symvz_t\odot \symvhh_t
 \end{equation}
 
-Where ($w_z$,$\overrightarrow{b_z}$), ($w_r$,$\overrightarrow{b_r}$),($w_{hx}$,$w_{hh}$,$\overrightarrow{b_h}$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
+Where ($\symmw_z$,$\symvb_z$), ($\symmw_r$,$\symvb_r$),($\symmw_{hx}$,$\symmw_{hh}$,$\symvb_h$) are the weights matrixes and bias vectors for the update, reset and candidate activation gates respectively.
 
 A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:encoderGruCell}.
 
@@ -36,7 +36,7 @@ A visual representation of the encoder \ac{GRU} cell is available in \cref{fig:e
 Sometimes the \cref{eq:gruHidG} can be found in another form (\cref{eq:gruHidG1})\cite{gruPyTorch}. This, however, has no impact on the final results, it means the weights are going to be trained differently for the update gate.
 
 \begin{equation}\label{eq:gruHidG1}
-  \overrightarrow{h_t}=\overrightarrow{z_t}\odot \overrightarrow{h_{t-1}} + (\overrightarrow{1}-\overrightarrow{z_t})\odot \overrightarrow{\hat{h_t}}
+  \symvh_t=\symvz_t\odot \symvh_{t-1} + (\vunit-\symvz_t)\odot \symvh_t
 \end{equation}
 
 \subsection{Decoder \ac{GRU}}
@@ -46,7 +46,7 @@ The decoder \ac{GRU}, while being less described, is the version used in pyTorch
 The candidate activation gate (\cref{eq:candActivG1}) is the only difference from the encoder \ac{GRU}.
 
 \begin{equation}\label{eq:candActivG1}
-  \overrightarrow{\hat{h_t}}=tanh(\overrightarrow{x_t}\cdot w_{hx}+ \overrightarrow{b_{hx}}+\overrightarrow{r_t}\odot[\overrightarrow{h_{t-1}} \cdot w_{hh} + \overrightarrow{b_{hh}}])
+  \symvhh_t=tanh(\symvx_t\cdot \symmw_{hx}+ \symvb_{hx}+\symvr_t\odot[\symvh_{t-1} \cdot \symmw_{hh} + \symvb_{hh}])
 \end{equation}
 
 A visual representation of the decoder \ac{GRU} cell can be found in \cref{fig:decoderGruCell}.
@@ -65,19 +65,19 @@ While the \ac{GRU} is its own type of \ac{RNN}, it has been compared and assimil
 \Cref{eq:lstmGru0,eq:lstmGru1,eq:lstmGru2,eq:lstmGru3,eq:lstmGru4} are the \ac{GRU}'s equations with the \ac{LSTM}'s names.
 
 \begin{equation}\label{eq:lstmGru0}
-  \overrightarrow{f_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_f + \overrightarrow{b_f})
+  \symvf_t=\sigma ([\symvx_t,\symvh_{t-1}] \cdot \symmw_f + \symvb_f)
 \end{equation}
 \begin{equation}\label{eq:lstmGru1}
-  \overrightarrow{o_t}=\sigma ([\overrightarrow{x_t},\overrightarrow{h_{t-1}}] \cdot w_o + \overrightarrow{b_o})
+  \symvo_t=\sigma ([\symvx_t,\symvh_{t-1}] \cdot \symmw_o + \symvb_o)
 \end{equation}
 \begin{equation}\label{eq:lstmGru2}
-  \overrightarrow{i_t}=\overrightarrow{1}-\overrightarrow{f_t}
+  \symvi_t=\vunit-\symvf_t
 \end{equation}
 \begin{equation}\label{eq:lstmGru3}
-  \overrightarrow{\tilde{c_t}}=tanh(\overrightarrow{x_t}\cdot w_{cx}+(\overrightarrow{o_t}\odot\overrightarrow{h_{t-1}}) \cdot w_{ch} + \overrightarrow{b_c})
+  \symvct_t=tanh(\symvx_t\cdot \symmw_{cx}+(\symvo_t\odot\symvh_{t-1}) \cdot \symmw_{ch} + \symvb_c)
 \end{equation}
 \begin{equation}\label{eq:lstmGru4}
-  \overrightarrow{h_t}=(\overrightarrow{i_t})\odot \overrightarrow{h_{t-1}} + \overrightarrow{f_t}\odot \overrightarrow{\tilde{h_t}}
+  \symvh_t=(\symvi_t)\odot \symvh_{t-1} + \symvf_t\odot \symvct_t
 \end{equation}
 
 Differences between the two \acp{RNN} are :

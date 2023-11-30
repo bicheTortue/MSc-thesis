@@ -6,7 +6,7 @@
 
 \begin{equation}\label{eq:wei2res3}
   \begin{cases}
-    w=\frac{R_f}{R_+}-\frac{R_f}{2\cdot R_f -R_+}\\
+    \symw=\frac{R_f}{R_+}-\frac{R_f}{2\cdot R_f -R_+}\\
     R_-=2\cdot R_f -R_+
   \end{cases}
 \end{equation}
@@ -14,42 +14,42 @@
 
 \begin{equation}\label{eq:wei2res4}
   \begin{cases}
-    w=\frac{2\cdot R_f^2-2\cdot R_+\cdot R_f}{2\cdot R_f\cdot R_+ -R_+^2}\\
+    \symw=\frac{2\cdot R_f^2-2\cdot R_+\cdot R_f}{2\cdot R_f\cdot R_+ -R_+^2}\\
     R_-=2\cdot R_f -R_+
   \end{cases}
 \end{equation}
 
 \begin{equation}\label{eq:wei2res5}
   \begin{cases}
-    2\cdot R_f\cdot R_+\cdot w -R_+^2\cdot w=2\cdot R_f^2-2\cdot R_+\cdot R_f\\
+    2\cdot R_f\cdot R_+\cdot \symw -R_+^2\cdot \symw=2\cdot R_f^2-2\cdot R_+\cdot R_f\\
     R_-=2\cdot R_f -R_+
   \end{cases}
 \end{equation}
 
 \begin{equation}\label{eq:wei2res6}
   \begin{cases}
-    R_+^2\cdot w - R_+\cdot 2\cdot R_f \cdot(w+1) + 2R_f^2 = 0\\
+    R_+^2\cdot \symw - R_+\cdot 2\cdot R_f \cdot(\symw+1) + 2R_f^2 = 0\\
     R_-=2\cdot R_f -R_+
   \end{cases}
 \end{equation}
 
 \begin{equation}\label{eq:wei2res61}
-  R_+^2\cdot w - R_+\cdot 2\cdot R_f \cdot(w+1) + 2R_f^2 = 0
+  R_+^2\cdot \symw - R_+\cdot 2\cdot R_f \cdot(\symw+1) + 2R_f^2 = 0
 \end{equation}
 
 We must now solve \cref{eq:wei2res61}.
 
 \begin{equation}\label{eq:wei2res61}
-  \Delta = 4\cdot R_f^2\cdot(w+1)^2-8\cdot w\cdot R_f^2 = 4\cdot R_f^2\cdot(w^2+1) \ge 0
+  \Delta = 4\cdot R_f^2\cdot(\symw+1)^2-8\cdot \symw\cdot R_f^2 = 4\cdot R_f^2\cdot(\symw^2+1) \ge 0
 \end{equation}
 
 Giving the two solutions :
 
 \begin{equation}\label{eq:wei2res62}
-  R_{+,0}=\frac{R_f\cdot(w+1)-R_f\cdot\sqrt{w^2+1}}{w}
+  R_{+,0}=\frac{R_f\cdot(\symw+1)-R_f\cdot\sqrt{\symw^2+1}}{\symw}
 \end{equation}
 \begin{equation}\label{eq:wei2res63}
-  R_{+,1}=\frac{R_f\cdot(w+1)+R_f\cdot\sqrt{w^2+1}}{w}
+  R_{+,1}=\frac{R_f\cdot(\symw+1)+R_f\cdot\sqrt{\symw^2+1}}{\symw}
 \end{equation}
 
 \section{Hard sigmoid and \ac{tanh} functions}\label{apsec:hardFunc}
@@ -62,18 +62,18 @@ They are defined as \cref{eq:hSigmoid} for the hard sigmoid and \cref{eq:hTanh} 
 \begin{equation}\label{eq:hSigmoid}
   hard\sigma (x) =
   \begin{cases}
-    0,& x< -2.5\\
+    0,& x\le -2.5\\
     \frac{x}{5}+\frac{1}{2},&  2.5>x>-2.5\\
-    1,& x> 2.5\\
+    1,& x\ge 2.5\\
   \end{cases}
 \end{equation}
 
 \begin{equation}\label{eq:hTanh}
   hardtanh(x) =
   \begin{cases}
-    -1,& x<-1\\
+    -1,& x\le-1\\
     x,& 1>x>-1\\
-    1,& x>1\\
+    1,& x\ge1\\
   \end{cases}
 \end{equation}
 

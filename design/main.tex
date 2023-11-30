@@ -10,10 +10,10 @@
 
 In this chapter, I'm going to describe the different design decisions taken during the study of the thesis.
 
-The system will be working with a $V_{dd}$ of $1.8V$. Such a value was chosen because this is a low power system.
+The system will be working with a $\symv_{dd}$ of $1.8V$. Such a value was chosen because this is a low power system.
 
 The way values are encoded in the analog system will be descibed here as it serves for the entire thesis.
-In order for the system to support negative numbers we're going to use a $V_{cm}$ set to $\frac{V_{dd}}{2}$. That means that $V_{cm}=\frac{V_{dd}}{2}=0.9V$. This $V_{cm}$ will then describe a zero. A step of one was chosen to be $0.1V$ in the analog circuit.
+In order for the system to support negative numbers we're going to use a $\symv_{cm}$ set to $\frac{\symv_{dd}}{2}$. That means that $\symv_{cm}=\frac{\symv_{dd}}{2}=0.9V$. This $\symv_{cm}$ will then describe a zero. A step of one was chosen to be $0.1V$ in the analog circuit.
 \Cref{tab:valConv} shows the conversions from a real number to its voltage equivalent.
 
 \begin{table}[H]
@@ -27,16 +27,16 @@ In order for the system to support negative numbers we're going to use a $V_{cm}
     \hline
     $1$ & $1.0V$ \\
     \hline
-    $x$ & $V(x)=\frac{x}{10}+V_{cm}$\\
+    $x$ & $\symv(x)=\frac{x}{10}+\symv_{cm}$\\
     \hline
-    $real(v)=(v-0.9)\cdot 10$ & $v$\\
+    $real(\symv)=(\symv-\symv_{cm})\cdot 10$ & \symv\\
     \hline
   \end{tabular}
   \caption{Real/Voltage Conversion Table.}
   \label{tab:valConv}
 \end{table}
 
-Since the system cannot reach voltage outside of the operating range with the intended behavior, the voltage is then restricted to $V\in [0,1.8]$. This means that the range of real value that the systems can handle is $x\in [-9,9]$.
+Since the system cannot reach voltage outside of the operating range with the intended behavior, the voltage is then restricted to $\symv\in [0,1.8]$. This means that the range of real value that the systems can handle is $x\in [-9,9]$.
 
 Any data inputed in the analog system should have been previously checked to make sure it stays in the range of accepted values.
 

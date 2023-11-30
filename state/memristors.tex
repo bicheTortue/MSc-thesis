@@ -3,17 +3,17 @@
 
 Memristors are the lesser known fourth fundamental passive component of electronics, among resistors, capacitors and inductor.
 It was first theorized in 1971 by L. Chua from UC Berkeley, in \cite{TheoMemristor}. The name comes from the blend of \textit{memory} and \textit{resistance}.
-The theory behind this component was extracted from a missing component to link the four fundamental circuit variables, voltage ($v$), charge ($q$), current ($i$) and flux ($\phi$). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
+The theory behind this component was extracted from a missing component to link the four fundamental circuit variables, voltage (\symv), charge (\symq), current (\symq) and flux (\symphi). \Cref{fig:fundComp} shows the four fundamental variables are on each side of the square, with the ones on opposite sides being linked by the following equations :
 
 \begin{equation}
-  d\phi = v\cdot dt
+  d\symphi = \symv\cdot d\symt
 \end{equation}
 
 \begin{equation}
-  dq = i\cdot dt
+  d\symq = \symi\cdot d\symt
 \end{equation}
 
-Resistors, capacitors and inductors were already very established and well known components, so it was theorized that a fourth device should then exist to physically link flux ($\phi$) and charge ($q$).  The flux in this case is not a magnetic flux and is defined as such : $ d\phi=v\cdot dt \Rightarrow \phi =  \int v \,dt  $.
+Resistors, capacitors and inductors were already very established and well known components, so it was theorized that a fourth device should then exist to physically link flux (\symphi) and charge (\symq).  The flux in this case is not a magnetic flux and is defined as such : $d\symphi=\symv\cdot d\symt \Rightarrow \symphi =  \int \symv \,d\symt$.
 
 The component stayed theoretical until 2008 when it was implemented in a physical device for the first time \cite{memristorFab}. It took 37 years to have an actual working device.
 
@@ -27,30 +27,30 @@ There is then an extension of this theoretical device to another, the memristive
 \end{figure}
 
 \subsection{Equations}
-A memristor links the flux ($\phi$) and charge ($q$) by the memristance.
+A memristor links the flux (\symphi) and charge (\symq) by the memristance.
 This memristance is defined with the following equation :
 \begin{equation}
-  M(q)=\frac{d\phi}{dq}
+  \symM(\symq)=\frac{d\symphi}{d\symq}
 \end{equation}
-It can be compared with the other fundamental components like resistor ($R(i)=\frac{dv}{di}$), capacitor ($\frac{1}{C(q)}=\frac{dv}{dq}$) and inductor ($L(i)=\frac{d\phi}{di}$).
+It can be compared with the other fundamental components like resistor ($\symR(\symi)=\frac{d\symv}{d\symi}$), capacitor ($\frac{1}{\symC(\symq)}=\frac{d\symv}{d\symq}$) and inductor ($\symL(\symi)=\frac{d\symphi}{d\symi}$).
 We can then extract a more useful equation in an actual circuit :
 \begin{equation}
-  v(t)=M(q(t))\cdot i(t)
+  \symv(\symt)=\symM(\symq(\symt))\cdot \symi(\symt)
 \end{equation}
 Similarly, a memductance can be defined as such :
 \begin{equation}
-  W(\phi)=\frac{dq}{d\phi}
+  \symW(\symphi)=\frac{d\symq}{d\symphi}
 \end{equation}
 A memristive device is slightly differently defined, it still uses a memristance, but here the memristance also depends on an internal state called $x$. This gives us this equation :
 \begin{equation}\label{eq:memristiveDev}
-  v(t)=M(x,i)\cdot i(t)
+  \symv(\symt)=\symM(x,\symi)\cdot \symi(\symt)
 \end{equation}
 The internal state ($x$) is not linked to flux or charge in the case of a memristive device.\\
 Once again, we can also define the memristive device using a memductance :
 \begin{equation}
-  i(t)=W(x,v)\cdot v(t)
+  \symi(\symt)=\symW(x,\symv)\cdot \symv(\symt)
 \end{equation}
-In all of the previous equations, $v$ is the voltage in Volt ($V$), $i$ is the current in Ampere ($A$), $\phi$ is the flux in Weber ($Wb$), $q$ is the charge in Coulomb ($C$), $M$ is the memristance in Ohm ($\Omega$) and $W$ is the memductance in Siemens ($S$ or $\Omega^{-1}$).
+In all of the previous equations, \symv is the voltage in Volt ($V$), \symi is the current in Ampere ($A$), \symphi is the flux in Weber ($Wb$), \symq is the charge in Coulomb ($C$), \symM is the memristance in Ohm ($\Omega$) and \symW is the memductance in Siemens ($S$ or $\Omega^{-1}$).
 
 \subsection{Behavior}
 

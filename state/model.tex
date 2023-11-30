@@ -18,15 +18,15 @@ The \ac{VTEAM} being the most versatile model, its implementation would fit most
 It has been established that the internal resistance also depends on an internal state $x$ (\cref{eq:memristiveDev}).
 
 \begin{equation}
-  \frac{dx}{dt}=f(x,v)
+  \frac{dx}{d\symt}=f(x,\symv)
 \end{equation}
 
-Where $v$ is the voltage, $t$ is time and $f$ is a function.
+Where \symv is the voltage, \symt is time.
 
 The function $f$ is described in its simplest form as in \cref{eq:funcDesc}.
 
 \begin{equation}\label{eq:funcDesc}
-  f(x,v)=g(x)\cdot s(v)
+  f(x,\symv)=g(x)\cdot s(\symv)
 \end{equation}
 
 Where $g$ is the window function and $s$ the sensitivity function.
@@ -39,21 +39,21 @@ Where $g$ is the window function and $s$ the sensitivity function.
 The model is based on previous work \cite{memCadenceModel} that aims to reproduce as many memristive device types. They have chosen to use the resistive state ($R$) as the internal state \cite{memModelOrigin}. Based on this assumption the \cref{eq:memModel0,eq:memModel1} are extracted from the memristive device. This model is of course very basic and ignores some physical dependencies such as temperature.
 
 \begin{equation}\label{eq:memModel0}
-  i(R,v)=
+  \symi(\symR,\symv)=
   \begin{cases}
-    \frac{a_p}{R}\cdot sinh(b_p\cdot v) & v\ge 0\\
-    \frac{a_n}{R}\cdot sinh(b_n\cdot v) & v<0\\
+    \frac{a_p}{\symR}\cdot sinh(b_p\cdot \symv) & \symv\ge 0\\
+    \frac{a_n}{\symR}\cdot sinh(b_n\cdot \symv) & \symv<0\\
   \end{cases}
 \end{equation}
 
 \begin{equation}\label{eq:memModel1}
-  \frac{dR}{dt}=f(R,v)=s(v)\cdot g(R,v)
+  \frac{d\symR}{d\symt}=f(\symR,\symv)=s(\symv)\cdot g(\symR,\symv)
 \end{equation}
 
 The sensitivity function was chosen to be a voltage-dependent exponential function, like described in \cref{eq:memModel2}.
 
 \begin{equation}\label{eq:memModel2}
-  s(v)=
+  s(\symv)=
   \begin{cases}
     A_p\cdot (e^{t_p\cdot |v|}-1)& v>0\\
     A_n\cdot (e^{t_n\cdot |v|}-1)& v<0\\
@@ -64,11 +64,11 @@ The sensitivity function was chosen to be a voltage-dependent exponential functi
 The window function used is a state-dependent quadratic function as shown in \cref{eq:memModel3}.
 
 \begin{equation}\label{eq:memModel3}
-  g(R,v)=
+  g(\symR,\symv)=
   \begin{cases}
-    (R-r_p(v))^2& v>0\\
-    (R-r_n(v))^2& v<0\\
-    0 &  v=0\\
+    (\symR-r_p(\symv))^2& \symv>0\\
+    (\symR-r_n(\symv))^2& \symv<0\\
+    0 &  \symv=0\\
   \end{cases}
 \end{equation}
 
@@ -83,14 +83,14 @@ The focus of this specific implementation will be the resistance range $[20k\Ome
 
 \begin{equation}\label{eq:memModel4}
   \begin{cases}
-    r_p(v)= r_{p,0} + r_{p,1}\cdot v& v>0\\
-    r_n(v)= r_{r,0} + r_{n,1}\cdot v& v\le 0\\
+    r_p(\symv)= r_{p,0} + r_{p,1}\cdot \symv& \symv>0\\
+    r_n(\symv)= r_{r,0} + r_{n,1}\cdot \symv& \symv\le 0\\
   \end{cases}
 \end{equation}
 
 Where $r_{p,0}$, $r_{p,1}$, $r_{n,0}$ and $r_{n,1}$ are free fitting variables that need to be extracted from the physical device.
 
-The changes of resistive states from the initial resistance ($R_0$) are computed by \cref{eq:memModel5} extracted from \cite{memCadenceModel}. It uses the bias voltage ($V_b$) of the pulse applied to the memristor. The pulse has a duration of $t$.
+The changes of resistive states from the initial resistance ($\symR_0$) are computed by \cref{eq:memModel5} extracted from \cite{memCadenceModel}. It uses the bias voltage ($\symv_b$) of the pulse applied to the memristor. The pulse has a duration of $t$.
 
 \begin{equation}\label{eq:memModel5}
   R(t)_{|V_b} =
@@ -105,12 +105,12 @@ The final Verilog-A code is available in \cite{memCadenceModel}.
 
 \subsection{Behavior}\label{subsec:memModelBehave}
 
-The model implements, as with physical memristors, a threshold voltage value from which its resistive states starts changing. This threshold value is $V_{read}$. For this specific model the threshold voltage is set to $V_{read}=500mV$.
+The model implements, as with physical memristors, a threshold voltage value from which its resistive states starts changing. This threshold value is $\symv_{read}$. For this specific model the threshold voltage is set to $\symv_{read}=500mV$.
 
 Every pulse is composed of 2 parts and lasts for a total of $1 ms$ :
 \begin{itemize}
-  \item The reading of the resistive state, by applying a triangular wave that is bound by the threshold value $V_{read}$. The triangular wave starts from $0V$, goes to $V_{read}$ then to $-V_{read}$ before going back to $0V$.
-  \item The writing to the memristor. During this part the resistive state will change. This is done by applying a square wave of variable width ($t_{\Delta}$) with a set bias voltage ($V_{bias}$).
+  \item The reading of the resistive state, by applying a triangular wave that is bound by the threshold value $\symv_{read}$. The triangular wave starts from $0V$, goes to $\symv_{read}$ then to $-\symv_{read}$ before going back to $0V$.
+  \item The writing to the memristor. During this part the resistive state will change. This is done by applying a square wave of variable width ($\symt_{\Delta}$) with a set bias voltage ($\symv_{bias}$).
 \end{itemize}
 
 \begin{figure}[H]
@@ -122,16 +122,16 @@ Every pulse is composed of 2 parts and lasts for a total of $1 ms$ :
 
 The \cref{graph:memInput} is the visual representation of what each pulse, the value is read during the first half of the pulse.
 
-The resistive state of the memristor changes depending on the pulse width ($t_{\Delta}$) and the bias voltage ($V_{bias}$) used for each pulse.
+The resistive state of the memristor changes depending on the pulse width ($\symt_{\Delta}$) and the bias voltage ($\symv_{bias}$) used for each pulse.
 
 \begin{figure}[H]
   \centering
   \includesvg[width=\textwidth]{memristor/memPulseChange.svg}
-  \caption{Memristor's resistive state under different pulses width (Fixed bias voltage $V_{bias}=1.8V$)}
+  \caption{Memristor's resistive state under different pulses width (Fixed bias voltage $\symv_{bias}=\symv_{dd}=1.8V$)}
   \label{graph:pulseChange}
 \end{figure}
 
-The effect of the pulse width variation is shown in \cref{graph:pulseChange}. Indeed, the larger the pulse widths, the faster the internal resistance reaches the bounding resistance (\cref{eq:memModel4}). The bounding resistance being the same as all curves use the same bias voltage ($V_{bias}=1.8V$), the curves will all eventually reach the max resistance.
+The effect of the pulse width variation is shown in \cref{graph:pulseChange}. Indeed, the larger the pulse widths, the faster the internal resistance reaches the bounding resistance (\cref{eq:memModel4}). The bounding resistance being the same as all curves use the same bias voltage ($\symv_{bias}=\symv_{dd}=1.8V$), the curves will all eventually reach the max resistance.
 
 \begin{figure}[H]
   \centering

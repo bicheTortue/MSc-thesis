@@ -9,7 +9,7 @@ This component is the very famous \ac{opAmp}. This specific component was not de
 
 \begin{equation}
   \label{eq:opAmp}
-  V_{out}=\mu \cdot (V_+-V_-)
+  \symv_{out}=\mu \cdot (\symv_+-\symv_-)
 \end{equation}
 
 \Cref{eq:opAmp} is the equation used in the verilog-A model. It makes it so it behaves like an ideal \ac{opAmp}. For this thesis $\mu$ has been set to $\mu=10^5$.
@@ -18,22 +18,22 @@ This component is the very famous \ac{opAmp}. This specific component was not de
 
 This component while far less popular than the latter, is just as useful for our specific use. It allows us to multiply, as its name implies, two voltages. It is used to compute the pointwise multiplications of the \ac{LSTM} or \ac{GRU} (\cref{fig:lstmCell,fig:encoderGruCell,fig:decoderGruCell}).
 
-However this part is tricky. Indeed, because of the voltage conversion (\cref{tab:valConv}), the equation needs to take the conversion into consideration. The final equation needs to be \cref{eq:finalVoltMult} in order to have $1\cdot 1=1$ ($V_{in_1}\cdot V_{in_2}=1V$, with $V_{in_1}=V_{in_2}=1V$)
+However this part is tricky. Indeed, because of the voltage conversion (\cref{tab:valConv}), the equation needs to take the conversion into consideration. The final equation needs to be \cref{eq:finalVoltMult} in order to have $1\cdot 1=1$ ($\symv_{in_1}\cdot \symv_{in_2}=1V$, with $\symv_{in_1}=\symv_{in_2}=1V$)
 
 \begin{equation}\label{eq:finalVoltMult}
-  V_{out}=10\cdot(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
+  \symv_{out}=10\cdot(\symv_{in_1}-\symv_{cm})\cdot (\symv_{in_2}-\symv_{cm}) + \symv_{cm}
 \end{equation}
 
 This is taken care of using in reality two parts, the actual voltage multiplier (\cref{eq:voltMult}) and a non inverting amplifier (\cref{eq:invAmp}), the circuit of which is available in \cref{apsec:sumInv}.
 
 \begin{equation}\label{eq:voltMult}
-  V_{voltMult}=-(V_{in_1}-V_{cm})\cdot (V_{in_2}-V_{cm}) + V_{cm}
+  \symv_{voltMult}=-(\symv_{in_1}-\symv_{cm})\cdot (\symv_{in_2}-\symv_{cm}) + \symv_{cm}
 \end{equation}
 \begin{equation}\label{eq:invAmp}
-  V_{out}=-(V_{voltMult}-V_{cm})\cdot10+V_{cm}
+  \symv_{out}=-(\symv_{voltMult}-\symv_{cm})\cdot10+\symv_{cm}
 \end{equation}
 
-Where $V_{out}$ is the output voltage the inverting amplifier (\cref{apsec:sumInv}), $V_{voltMult}$ is the out voltage of the voltage multiplier itself and $V_{in_1}$ and $V_{in_2}$ are the input voltages.
+Where $\symv_{out}$ is the output voltage the inverting amplifier (\cref{apsec:sumInv}), $\symv_{voltMult}$ is the out voltage of the voltage multiplier itself and $\symv_{in_1}$ and $\symv_{in_2}$ are the input voltages.
 
 The \cref{eq:voltMult} is assumed possible because of the actual voltage multiplier's datasheet available at \cite{actualVoltMult}.
 
