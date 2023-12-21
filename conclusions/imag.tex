@@ -2,11 +2,21 @@
 
 \subsection{Personnal environmental impact}
 
+My personnal environmental impact was overall very low.
+
+I was walking from home to the lab everyday, which almost has no carbon footprint, and determining such a number is impossible.
+
+I was already in Portugal when my thesis started so there wasn't any trips to join there. Nevertheless, for the sake of having things to talk about, I'm going to take into account the personnal flights home. One way between Toulouse and Lisbon is estimated to have a carbon footprint of $234 kg\, eq.\,CO_2$. Having made a total of 7 trips, my total carbon footprint for traveling during this period is of about $1638 kg\, eq.\, CO_2$.
+
+The computers I was working on were my owns, they both have an average power consumption of about $25W$ or $50W$ total. In Portugal, the average carbon footprint of $1kW\cdot h^{-1}$ of electricity is of about $60g\,eq.\,CO_2$ \cite{portugalElec}. I used my computers an average of 7 hours a day for an estimated 175 days of work. This accounts for a total of $6.125kW\cdot h^{-1}$ which makes a carbon footprint of $3 675g\,eq.\,CO_2$.
+
+All this data added together makes a total of $1642kg\,eq.\,CO_2$ personnal carbon footprint over my thesis in Portugal. This number is quite high, but this is due to the plane trips, the computer consumption is negligeable in the end.
+
 \subsection{Global impact}
 
 The subject of this thesis being purely theoretical, running simulations only, the environmental and societal impact will focus on the system if it were to become real. This assumes that the entire system is working and is being fabricated for embedded use. The final product can be used in both comsumer and business oriented product.
 
-\subsubsection{Environmental impact}
+\subsubsection{Environmental impact}\label{subsubsec:envImp}
 
 The system would be found in the form of a chip, they would need to be fabricated using a very precise method. Chip fabrication does not come cheap for the environment. Indeed, the manufacturing process of computer chips, while integral to technological advancements, poses significant environmental challenges. Chip manufacturing involves several stages, including silicon wafer production, lithography, etching, and assembly. These processes consume vast amounts of energy and water while generating substantial waste. Semiconductor fabrication demands clean rooms with controlled environments, necessitating extensive energy consumption for air conditioning and filtration systems. Additionally, the use of hazardous chemicals, such as solvents and acids, in chip etching and cleaning stages contributes to chemical waste and potential environmental pollution if not managed and disposed of properly. Moreover, the disposal of silicon scraps and other manufacturing byproducts requires careful handling to prevent environmental contamination. The machines used to fabricate the chip are not taken into account here as their impact is negligible next to the fabrication itself. For example, TSMC's electricity consumption in 2021 accounted for 5 \% of Taiwan total electricity consumption \cite{chipEnv}. Furthermore, in a report from greenpeace, the projected emissions in 2030 of the chip manufacturing industry is of 86 million metric tons of carbon dioxide equivalent, which is more than the total emissions of Portugal over 2021 and 2022 \cite{greenReport,worldEmissions}.
 
@@ -19,6 +29,12 @@ Once again, the system having a wide spectrum of applications, the rebound effec
 
 \subsubsection{Societal impact}
 
-The societal impacts are hard t
+The societal of such a projects are quite hard to determines since it all depends on the ways it is used, which can be for basically anything that a \ac{NN} can do. Nevertheless, RGPD isn't a concern for the chip itself, the chip being completely isolated from the internet or any other connection as of itself.
+
+Using this chip in embedded systems might increase the digital divide, as they would push more state of the art hardware to market and thus rendering old technologies less relevant. However, the examples in \cref{sec:motivation} are more seemless uses. The gait detection \cite{gaitDS,gaitDig,gait} could be used in a security camera, without the user having to do anything different. The camera stabilization \cite{videoStab} if integrated in a chip within a camera would record a better stabilized video.
+
+The good or bad impacts of the chip depends on its use. For a quite farfetch analogy, nuclear power has been used to both make environment friendly fuel and bombs.
 
 \subsection{Host structure's policy}
+
+The lab that hosted me during my master thesis doesn't have a policy concerning the envirnoment. \ac{INESC}-MN being a micro and nanofabrication lab, they own and run most of the machines required to fabricate chips. The machines are not state of the art and mostly used for prototyping, for the lab itself or for contracted companies. As explained in \cref{subsubsec:envImp}, those machines are very power hungry and thus explains why any other measures would be rendered useless next to this.
