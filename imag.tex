@@ -1,6 +1,6 @@
-\section{Environmental and societal impact}
+\fancychapter{Environmental and societal impact}\label{cap:rse}
 
-\subsection{Personnal environmental impact}
+\section{Personnal environmental impact}
 
 My personnal environmental impact was overall very low.
 
@@ -12,22 +12,22 @@ The computers I was working on were my owns, they both have an average power con
 
 All this data added together makes a total of $1642kg\,eq.\,CO_2$ personnal carbon footprint over my thesis in Portugal. This number is quite high, but this is due to the plane trips, the computer consumption is negligeable in the end.
 
-\subsection{Global impact}
+\section{Global impact}
 
 The subject of this thesis being purely theoretical, running simulations only, the environmental and societal impact will focus on the system if it were to become real. This assumes that the entire system is working and is being fabricated for embedded use. The final product can be used in both comsumer and business oriented product.
 
-\subsubsection{Environmental impact}\label{subsubsec:envImp}
+\subsection{Environmental impact}\label{subsec:envImp}
 
 The system would be found in the form of a chip, they would need to be fabricated using a very precise method. Chip fabrication does not come cheap for the environment. Indeed, the manufacturing process of computer chips, while integral to technological advancements, poses significant environmental challenges. Chip manufacturing involves several stages, including silicon wafer production, lithography, etching, and assembly. These processes consume vast amounts of energy and water while generating substantial waste. Semiconductor fabrication demands clean rooms with controlled environments, necessitating extensive energy consumption for air conditioning and filtration systems. Additionally, the use of hazardous chemicals, such as solvents and acids, in chip etching and cleaning stages contributes to chemical waste and potential environmental pollution if not managed and disposed of properly. Moreover, the disposal of silicon scraps and other manufacturing byproducts requires careful handling to prevent environmental contamination. The machines used to fabricate the chip are not taken into account here as their impact is negligible next to the fabrication itself. For example, TSMC's electricity consumption in 2021 accounted for 5 \% of Taiwan total electricity consumption \cite{chipEnv}. Furthermore, in a report from greenpeace, the projected emissions in 2030 of the chip manufacturing industry is of 86 million metric tons of carbon dioxide equivalent, which is more than the total emissions of Portugal over 2021 and 2022 \cite{greenReport,worldEmissions}.
 
 When the product reaches end of life, it needs to be disposed of properly to avoid soil and water contamination due to the release of hazardous substances. Recycling computer chips is a critical facet of sustainable electronic waste management, aiming to mitigate the environmental repercussions of discarded electronic devices. The recycling process typically involves several stages, including collection, sorting, dismantling, and extraction of valuable materials like silicon, copper, gold, and other metals. However, chip recycling poses challenges due to the complex composition of electronic components and the intricate structures of integrated circuits. These challenges often necessitate advanced techniques such as shredding, mechanical separation, and chemical treatments to extract and purify the reusable materials. Although chip recycling reduces the need for raw materials and minimizes landfill accumulation, the process itself demands significant energy and resources. Therefore, while chip recycling offers a sustainable approach to managing electronic waste, continuous advancements in recycling technologies and effective waste management policies are imperative to diminish the environmental impact associated with both chip manufacturing and disposal.
 
-The potential chip that would be created has been analyzed, there are also other aspects to take into account. The system being a way to run a wide variety of \acp{NN}, depending on the scale of the project the cip is used in, the impact of training is different. However, the main application being for embedded systems, training the system for a few hours is negligible when the final circuit is used thousands to millions times in its life cycle.
+The potential chip that would be created has been analyzed, there are also other aspects to take into account. The system being a way to run a wide variety of \acp{NN}, depending on the scale of the project the chip is used in, the impact of training is different. However, the main application being for embedded systems, training the system for a few hours is negligible when the final circuit is used thousands to millions times in its life cycle.
 The inference of the \ac{NN} also has an environmental impact due to the power it uses. But the goal of building an analog \ac{NN} is to reduce both execution time and energy consumption, and while the energy comsumption wasn't evaluated in this thesis, it can be assumed, from the usual trend of analog circuits, a much lower energy consumption than with digital chips. This, scaled with thousands of units, offers a subtantial gain in overall power consumption.
 
 Once again, the system having a wide spectrum of applications, the rebound effect can't be determined, it all depends on the kind of \ac{NN} that will be running on the chip. Nonetheless, the system being designed around embedded systems, the improvements made to the power consumption will affect the battery life of the product using the chip.
 
-\subsubsection{Societal impact}
+\subsection{Societal impact}
 
 The societal of such a projects are quite hard to determines since it all depends on the ways it is used, which can be for basically anything that a \ac{NN} can do. Nevertheless, RGPD isn't a concern for the chip itself, the chip being completely isolated from the internet or any other connection as of itself.
 
@@ -35,6 +35,6 @@ Using this chip in embedded systems might increase the digital divide, as they w
 
 The good or bad impacts of the chip depends on its use. For a quite farfetch analogy, nuclear power has been used to both make environment friendly fuel and bombs.
 
-\subsection{Host structure's policy}
+\section{Host structure's policy}
 
-The lab that hosted me during my master thesis doesn't have a policy concerning the envirnoment. \ac{INESC}-MN being a micro and nanofabrication lab, they own and run most of the machines required to fabricate chips. The machines are not state of the art and mostly used for prototyping, for the lab itself or for contracted companies. As explained in \cref{subsubsec:envImp}, those machines are very power hungry and thus explains why any other measures would be rendered useless next to this.
+The lab that hosted me during my master thesis doesn't have a policy concerning the envirnoment. \acs{INESC}-MN being a micro and nanofabrication lab, they own and run most of the machines required to fabricate chips. The machines are not state of the art and mostly used for prototyping, for the lab itself or for contracted companies. As explained in \cref{subsec:envImp}, those machines are very power hungry and thus explains why any other measures would be rendered useless next to this.
