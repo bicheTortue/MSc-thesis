@@ -3,9 +3,11 @@
 \graphicspath{{../../figures/}}
 
 
+\usepackage[final]{listofsymbols}
 \usepackage{tikz}
 \usepackage{svg}
 \usepackage{anyfontsize}
+\input{../../definitions/symbols.tex}
 \setcounter{tocdepth}{1}
 
 \newcommand<>{\overlay}[1]{\only#2{%
@@ -22,8 +24,8 @@
     \newcommand {\Supervisor} {
       {Dr. Diogo Caetano} and {Dr. Ruxandra Barbulescu}}
     \newcommand {\CommitteeMembers} {
-      {Prof. Paulo Flores}}
-    \newcommand {\Chairperson} {{Prof. Teresa de Almeida}}
+      {Dr. Frédéric Pétrot}}
+    \newcommand {\Chairperson} {{Dr. Florence Maraninchi}}
     \author[V. BARBAZA]{{Valentin BARBAZA}}
 
     \date{17 november 2023}
@@ -102,7 +104,7 @@
           \item That have a feedback connection
         \end{itemize}
         \column{.4\textwidth}
-        \includesvg[width=\columnwidth,pretex=\small]{rnn/rnnFolded}
+        \includesvg[width=.8\columnwidth,pretex=\small]{rnn/rnnFolded}
       \end{columns}
       \vspace{0.8cm}
 
@@ -375,6 +377,27 @@
         \column{.8\textwidth}
         \includesvg[width=\columnwidth,pretex=\tiny]{results/celegans/smooth5VB1}
       \end{columns}
+    \end{frame}
+
+    \section{Environmental and societal impact}
+    \subsection{Environmental impact}
+
+    \begin{frame}{\insertsection}{\insertsubsection}
+      Chip frabrication :
+      \begin{itemize}
+        \item TMSC represent 5 \% of Taiwan's electrity consumption.
+        \item Projected $86\cdot 10^9kg\, eq.\, CO_2$ by 2030.
+      \end{itemize}
+      Chip disposal.
+    \end{frame}
+
+    \subsection{Societal impact}
+
+    \begin{frame}{\insertsection}{\insertsubsection}
+      \begin{itemize}
+        \item No RGPD to worry about.
+        \item Increases digital divide.
+      \end{itemize}
     \end{frame}
 
     \section{Conclusion}
