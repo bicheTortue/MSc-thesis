@@ -1,0 +1,37 @@
+\mode<presentation>
+
+\setbeamertemplate{background}{}
+
+% Title page
+\defbeamertemplate*{title page}{gpmeet}[1][]{
+  \vskip0.6cm%
+  \begin{beamercolorbox}[wd=12cm,sep=3pt,#1]{title page header}
+    \usebeamerfont{title}\textbf{\inserttitle}\par%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{date}
+    \usebeamerfont{date}\textbf{\insertdate}%
+  \end{beamercolorbox}
+  \vskip1.2cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{author}
+    \usebeamerfont{author}Author : \textbf{\insertauthor}%
+  \end{beamercolorbox}
+  \vskip0.4cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{supervisor}
+    \usebeamerfont{author}Supervisors : \textbf{\Supervisor}%
+  \end{beamercolorbox}
+  \vskip0.4cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{chairperson}
+    \usebeamerfont{author}Chairperson : \textbf{\Chairperson}%
+  \end{beamercolorbox}
+  \vskip0.4cm%
+  \begin{beamercolorbox}[wd=12cm,leftskip=0.2cm,#1]{committee}
+    \usebeamerfont{author}Committee : \textbf{\CommitteeMembers}%
+  \end{beamercolorbox}
+  \vfill
+  }
+
+  % Items
+  \setbeamertemplate{items}[square]
+  \setbeamertemplate{sections/subsections in toc}[square]
+
+  \mode<all>
